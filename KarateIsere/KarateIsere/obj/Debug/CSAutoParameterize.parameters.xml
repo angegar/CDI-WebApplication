@@ -1,6 +1,0 @@
-﻿<?xml version="1.0" encoding="utf-8"?>
-<parameters>
-  <parameter name="KarateIsere-Web.config Connection String" description="KarateIsere Chaîne de connexion utilisée dans web.config par l’application pour accéder à la base de données." defaultValue="Data Source=SERVEUR;Initial Catalog=KarateIsere;Persist Security Info=True;User ID=laurent;Password=V468M2gg" tags="SqlConnectionString">
-    <parameterEntry kind="XmlFile" scope="E:\\svn\\CDI\\trunk\\KarateIsere\\KarateIsere\\obj\\Debug\\Package\\PackageTmp\\Web\.config$" match="/configuration/connectionStrings/add[@name='KarateIsere']/@connectionString" />
-  </parameter>
-</parameters>
