@@ -1,0 +1,55 @@
+﻿@using KarateIsere.Models;
+@{
+    ViewBag.Title = "Home Page";
+}
+
+<div class="jumbotron">
+    <h1>Comité Départemental de l'Isère</h1>
+    <p class="lead">
+        Le Comité Départemental de l'Isère est heureux de vous présenter sa nouvelle application d'inscription aux compétitions.
+        Nous espérons que cette nouvelle interface facilitera son utilisation.
+    </p>
+    <p><a href="http://asp.net" class="btn btn-primary btn-lg">Learn more &raquo;</a></p>
+</div>
+
+<div class="row">
+    <div class="col-md-4">
+        <h2>Les clubs en Isère</h2>
+        <p>
+            Vous êtes nouveau dans notre région ou vous venez simplement de déménager et vous ne savez pas s'il y a des clubs d'arts martiaux près de chez vous,
+            cette page web est faite pour vous, venez y découvrir l'emplacement des clubs du département.
+        </p>
+        <p>
+            @Html.ActionLink( "Cartes des clubs "+HttpUtility.HtmlDecode( "&raquo;" ), "Index", "ClubMap", new {
+           area="Public"
+       }, new {
+           @class="btn btn-default"
+       } )
+        </p>
+    </div>
+    <div class="col-md-4">
+        <h2>Votre club</h2>
+        <p>
+            Votre club se modernise et change de site web ou bien vous avez un nouveau bureau ou de nouveaux professeurs. Venez mettre à jour
+            vos informations sur cette page dédiée aux clubs.
+        </p>
+
+        <p>
+            @Html.ActionLink( "Vos informations "+HttpUtility.HtmlDecode( "&raquo;" ), "Edit", "Club", new {
+           area="Public"
+       }, new {
+           @class="btn btn-default"
+       } ) 
+        </p>
+
+
+    </div>
+    <div class="col-md-4">
+        <h2>Compétitions</h2>
+        <p>
+            Gérer les inscriptions de vos compétiteurs aux compétitions organisées par le département en toute simplicité. Cette application
+            vous permet de facilement ajouter, supprimer ou modifier les informations d'inscriptions de vos compétiteurs.
+        </p>
+        <p><a class="btn btn-default" href="http://go.microsoft.com/fwlink/?LinkId=301867">Learn more &raquo;</a></p>
+    </div>
+</div>

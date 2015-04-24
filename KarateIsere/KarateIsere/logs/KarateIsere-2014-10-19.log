@@ -1,0 +1,3673 @@
+2014-10-19 10:37:42.2018|TRACE|KarateIsere.DataAccess.KarateIsereContext|Opened connection at 19/10/2014 10:37:42 +02:00
+
+2014-10-19 10:37:42.2279|TRACE|KarateIsere.DataAccess.KarateIsereContext|
+SELECT Count(*)
+FROM INFORMATION_SCHEMA.TABLES AS t
+WHERE t.TABLE_SCHEMA + '.' + t.TABLE_NAME IN ('dbo.Adherents','dbo.Admin','dbo.Art_Martial','dbo.Categorie','dbo.Competiteur','dbo.Club','dbo.ListeCompetiteur','dbo.Professeurs','dbo.Competition','dbo.Inscriptions','dbo.Creneaux','dbo.Club_Professeur','dbo.CompetitionCategories')
+    OR t.TABLE_NAME = 'EdmMetadata'
+2014-10-19 10:37:42.2279|TRACE|KarateIsere.DataAccess.KarateIsereContext|
+
+2014-10-19 10:37:42.2279|TRACE|KarateIsere.DataAccess.KarateIsereContext|-- Executing at 19/10/2014 10:37:42 +02:00
+
+2014-10-19 10:37:42.2694|TRACE|KarateIsere.DataAccess.KarateIsereContext|-- Completed in 24 ms with result: 9
+
+2014-10-19 10:37:42.2729|TRACE|KarateIsere.DataAccess.KarateIsereContext|
+
+2014-10-19 10:37:42.2729|TRACE|KarateIsere.DataAccess.KarateIsereContext|Closed connection at 19/10/2014 10:37:42 +02:00
+
+2014-10-19 10:37:42.2729|TRACE|KarateIsere.DataAccess.KarateIsereContext|Opened connection at 19/10/2014 10:37:42 +02:00
+
+2014-10-19 10:37:42.2884|TRACE|KarateIsere.DataAccess.KarateIsereContext|SELECT 
+    [GroupBy1].[A1] AS [C1]
+    FROM ( SELECT 
+        COUNT(1) AS [A1]
+        FROM [dbo].[__MigrationHistory] AS [Extent1]
+        WHERE [Extent1].[ContextKey] = @p__linq__0
+    )  AS [GroupBy1]
+2014-10-19 10:37:42.2884|TRACE|KarateIsere.DataAccess.KarateIsereContext|
+
+2014-10-19 10:37:42.2884|TRACE|KarateIsere.DataAccess.KarateIsereContext|-- p__linq__0: 'KarateIsere.DataAccess.KarateIsereContext' (Type = String, Size = 4000)
+
+2014-10-19 10:37:42.2884|TRACE|KarateIsere.DataAccess.KarateIsereContext|-- Executing at 19/10/2014 10:37:42 +02:00
+
+2014-10-19 10:37:42.3359|TRACE|KarateIsere.DataAccess.KarateIsereContext|-- Completed in 31 ms with result: SqlDataReader
+
+2014-10-19 10:37:42.3359|TRACE|KarateIsere.DataAccess.KarateIsereContext|
+
+2014-10-19 10:37:42.3359|TRACE|KarateIsere.DataAccess.KarateIsereContext|Closed connection at 19/10/2014 10:37:42 +02:00
+
+2014-10-19 10:37:42.3359|TRACE|KarateIsere.DataAccess.KarateIsereContext|Opened connection at 19/10/2014 10:37:42 +02:00
+
+2014-10-19 10:37:42.3519|TRACE|KarateIsere.DataAccess.KarateIsereContext|SELECT TOP (1) 
+    [Project1].[C1] AS [C1], 
+    [Project1].[MigrationId] AS [MigrationId], 
+    [Project1].[Model] AS [Model], 
+    [Project1].[ProductVersion] AS [ProductVersion]
+    FROM ( SELECT 
+        [Extent1].[MigrationId] AS [MigrationId], 
+        [Extent1].[Model] AS [Model], 
+        [Extent1].[ProductVersion] AS [ProductVersion], 
+        1 AS [C1]
+        FROM [dbo].[__MigrationHistory] AS [Extent1]
+        WHERE [Extent1].[ContextKey] = @p__linq__0
+    )  AS [Project1]
+    ORDER BY [Project1].[MigrationId] DESC
+2014-10-19 10:37:42.3519|TRACE|KarateIsere.DataAccess.KarateIsereContext|
+
+2014-10-19 10:37:42.3519|TRACE|KarateIsere.DataAccess.KarateIsereContext|-- p__linq__0: 'KarateIsere.DataAccess.KarateIsereContext' (Type = String, Size = 4000)
+
+2014-10-19 10:37:42.3519|TRACE|KarateIsere.DataAccess.KarateIsereContext|-- Executing at 19/10/2014 10:37:42 +02:00
+
+2014-10-19 10:37:42.3994|TRACE|KarateIsere.DataAccess.KarateIsereContext|-- Completed in 31 ms with result: SqlDataReader
+
+2014-10-19 10:37:42.3994|TRACE|KarateIsere.DataAccess.KarateIsereContext|
+
+2014-10-19 10:37:42.3994|TRACE|KarateIsere.DataAccess.KarateIsereContext|Closed connection at 19/10/2014 10:37:42 +02:00
+
+2014-10-19 10:37:43.1010|TRACE|KarateIsere.DataAccess.KarateIsereContext|Opened connection at 19/10/2014 10:37:43 +02:00
+
+2014-10-19 10:37:43.2265|TRACE|KarateIsere.DataAccess.KarateIsereContext|SELECT 
+    [Project2].[C1] AS [C1], 
+    [Project2].[NumAffiliation] AS [NumAffiliation], 
+    [Project2].[NomClub] AS [NomClub], 
+    [Project2].[Correspondant] AS [Correspondant], 
+    [Project2].[Telephone] AS [Telephone], 
+    [Project2].[Adr_Administrative] AS [Adr_Administrative], 
+    [Project2].[Adr_Dojo] AS [Adr_Dojo], 
+    [Project2].[Code_Postal] AS [Code_Postal], 
+    [Project2].[Ville] AS [Ville], 
+    [Project2].[Site_Web] AS [Site_Web], 
+    [Project2].[Facebook] AS [Facebook], 
+    [Project2].[President_Tel] AS [President_Tel], 
+    [Project2].[President_Nom] AS [President_Nom], 
+    [Project2].[President_Prenom] AS [President_Prenom], 
+    [Project2].[President_Email] AS [President_Email], 
+    [Project2].[President_Mobile] AS [President_Mobile], 
+    [Project2].[Tresorier_Tel] AS [Tresorier_Tel], 
+    [Project2].[Tresorier_Nom] AS [Tresorier_Nom], 
+    [Project2].[Tresorier_Prenom] AS [Tresorier_Prenom], 
+    [Project2].[Tresorier_Email] AS [Tresorier_Email], 
+    [Project2].[Tresorier_Mobile] AS [Tresorier_Mobile], 
+    [Project2].[Secretaire_Tel] AS [Secretaire_Tel], 
+    [Project2].[Secretaire_Nom] AS [Secretaire_Nom], 
+    [Project2].[Secretaire_Prenom] AS [Secretaire_Prenom], 
+    [Project2].[Secretaire_Email] AS [Secretaire_Email], 
+    [Project2].[Secretaire_Mobile] AS [Secretaire_Mobile], 
+    [Project2].[ArtMartialName] AS [ArtMartialName], 
+    [Project2].[Longitude] AS [Longitude], 
+    [Project2].[Latitude] AS [Latitude], 
+    [Project2].[C2] AS [C2], 
+    [Project2].[NumLicence] AS [NumLicence], 
+    [Project2].[Nom] AS [Nom], 
+    [Project2].[Prenom] AS [Prenom], 
+    [Project2].[Categorie] AS [Categorie], 
+    [Project2].[Poids] AS [Poids], 
+    [Project2].[isHomme] AS [isHomme], 
+    [Project2].[NumAffiliationClub] AS [NumAffiliationClub]
+    FROM ( SELECT 
+        [Limit1].[NumAffiliation] AS [NumAffiliation], 
+        [Limit1].[NomClub] AS [NomClub], 
+        [Limit1].[Correspondant] AS [Correspondant], 
+        [Limit1].[Telephone] AS [Telephone], 
+        [Limit1].[Adr_Administrative] AS [Adr_Administrative], 
+        [Limit1].[Adr_Dojo] AS [Adr_Dojo], 
+        [Limit1].[Code_Postal] AS [Code_Postal], 
+        [Limit1].[Ville] AS [Ville], 
+        [Limit1].[Site_Web] AS [Site_Web], 
+        [Limit1].[Facebook] AS [Facebook], 
+        [Limit1].[President_Tel] AS [President_Tel], 
+        [Limit1].[President_Nom] AS [President_Nom], 
+        [Limit1].[President_Prenom] AS [President_Prenom], 
+        [Limit1].[President_Email] AS [President_Email], 
+        [Limit1].[President_Mobile] AS [President_Mobile], 
+        [Limit1].[Tresorier_Tel] AS [Tresorier_Tel], 
+        [Limit1].[Tresorier_Nom] AS [Tresorier_Nom], 
+        [Limit1].[Tresorier_Prenom] AS [Tresorier_Prenom], 
+        [Limit1].[Tresorier_Email] AS [Tresorier_Email], 
+        [Limit1].[Tresorier_Mobile] AS [Tresorier_Mobile], 
+        [Limit1].[Secretaire_Tel] AS [Secretaire_Tel], 
+        [Limit1].[Secretaire_Nom] AS [Secretaire_Nom], 
+        [Limit1].[Secretaire_Prenom] AS [Secretaire_Prenom], 
+        [Limit1].[Secretaire_Email] AS [Secretaire_Email], 
+        [Limit1].[Secretaire_Mobile] AS [Secretaire_Mobile], 
+        [Limit1].[ArtMartialName] AS [ArtMartialName], 
+        [Limit1].[Longitude] AS [Longitude], 
+        [Limit1].[Latitude] AS [Latitude], 
+        [Limit1].[C1] AS [C1], 
+        [Extent2].[NumLicence] AS [NumLicence], 
+        [Extent2].[Nom] AS [Nom], 
+        [Extent2].[Prenom] AS [Prenom], 
+        [Extent2].[Categorie] AS [Categorie], 
+        [Extent2].[Poids] AS [Poids], 
+        [Extent2].[isHomme] AS [isHomme], 
+        [Extent2].[NumAffiliationClub] AS [NumAffiliationClub], 
+        CASE WHEN ([Extent2].[NumLicence] IS NULL) THEN CAST(NULL AS int) ELSE 1 END AS [C2]
+        FROM   (SELECT TOP (2) 
+            [Extent1].[NumAffiliation] AS [NumAffiliation], 
+            [Extent1].[NomClub] AS [NomClub], 
+            [Extent1].[Correspondant] AS [Correspondant], 
+            [Extent1].[Telephone] AS [Telephone], 
+            [Extent1].[Adr_Administrative] AS [Adr_Administrative], 
+            [Extent1].[Adr_Dojo] AS [Adr_Dojo], 
+            [Extent1].[Code_Postal] AS [Code_Postal], 
+            [Extent1].[Ville] AS [Ville], 
+            [Extent1].[Site_Web] AS [Site_Web], 
+            [Extent1].[Facebook] AS [Facebook], 
+            [Extent1].[President_Tel] AS [President_Tel], 
+            [Extent1].[President_Nom] AS [President_Nom], 
+            [Extent1].[President_Prenom] AS [President_Prenom], 
+            [Extent1].[President_Email] AS [President_Email], 
+            [Extent1].[President_Mobile] AS [President_Mobile], 
+            [Extent1].[Tresorier_Tel] AS [Tresorier_Tel], 
+            [Extent1].[Tresorier_Nom] AS [Tresorier_Nom], 
+            [Extent1].[Tresorier_Prenom] AS [Tresorier_Prenom], 
+            [Extent1].[Tresorier_Email] AS [Tresorier_Email], 
+            [Extent1].[Tresorier_Mobile] AS [Tresorier_Mobile], 
+            [Extent1].[Secretaire_Tel] AS [Secretaire_Tel], 
+            [Extent1].[Secretaire_Nom] AS [Secretaire_Nom], 
+            [Extent1].[Secretaire_Prenom] AS [Secretaire_Prenom], 
+            [Extent1].[Secretaire_Email] AS [Secretaire_Email], 
+            [Extent1].[Secretaire_Mobile] AS [Secretaire_Mobile], 
+            [Extent1].[ArtMartialName] AS [ArtMartialName], 
+            [Extent1].[Longitude] AS [Longitude], 
+            [Extent1].[Latitude] AS [Latitude], 
+            1 AS [C1]
+            FROM [dbo].[Club] AS [Extent1]
+            WHERE [Extent1].[NumAffiliation] = @p__linq__0 ) AS [Limit1]
+        LEFT OUTER JOIN [dbo].[Competiteur] AS [Extent2] ON [Limit1].[NumAffiliation] = [Extent2].[NumAffiliationClub]
+    )  AS [Project2]
+    ORDER BY [Project2].[NumAffiliation] ASC, [Project2].[C2] ASC
+2014-10-19 10:37:43.2265|TRACE|KarateIsere.DataAccess.KarateIsereContext|
+
+2014-10-19 10:37:43.2265|TRACE|KarateIsere.DataAccess.KarateIsereContext|-- p__linq__0: '987654' (Type = AnsiString, Size = 8000)
+
+2014-10-19 10:37:43.2265|TRACE|KarateIsere.DataAccess.KarateIsereContext|-- Executing at 19/10/2014 10:37:43 +02:00
+
+2014-10-19 10:37:43.2795|TRACE|KarateIsere.DataAccess.KarateIsereContext|-- Completed in 36 ms with result: SqlDataReader
+
+2014-10-19 10:37:43.2795|TRACE|KarateIsere.DataAccess.KarateIsereContext|
+
+2014-10-19 10:37:43.2880|TRACE|KarateIsere.DataAccess.KarateIsereContext|Closed connection at 19/10/2014 10:37:43 +02:00
+
+2014-10-19 10:43:36.7769|TRACE|KarateIsere.DataAccess.KarateIsereContext|Opened connection at 19/10/2014 10:43:36 +02:00
+
+2014-10-19 10:43:36.8019|TRACE|KarateIsere.DataAccess.KarateIsereContext|
+SELECT Count(*)
+FROM INFORMATION_SCHEMA.TABLES AS t
+WHERE t.TABLE_SCHEMA + '.' + t.TABLE_NAME IN ('dbo.Adherents','dbo.Admin','dbo.Art_Martial','dbo.Categorie','dbo.Competiteur','dbo.Club','dbo.ListeCompetiteur','dbo.Professeurs','dbo.Competition','dbo.Inscriptions','dbo.Creneaux','dbo.Club_Professeur','dbo.CompetitionCategories')
+    OR t.TABLE_NAME = 'EdmMetadata'
+2014-10-19 10:43:36.8019|TRACE|KarateIsere.DataAccess.KarateIsereContext|
+
+2014-10-19 10:43:36.8019|TRACE|KarateIsere.DataAccess.KarateIsereContext|-- Executing at 19/10/2014 10:43:36 +02:00
+
+2014-10-19 10:43:36.8439|TRACE|KarateIsere.DataAccess.KarateIsereContext|-- Completed in 24 ms with result: 9
+
+2014-10-19 10:43:36.8484|TRACE|KarateIsere.DataAccess.KarateIsereContext|
+
+2014-10-19 10:43:36.8484|TRACE|KarateIsere.DataAccess.KarateIsereContext|Closed connection at 19/10/2014 10:43:36 +02:00
+
+2014-10-19 10:43:36.8484|TRACE|KarateIsere.DataAccess.KarateIsereContext|Opened connection at 19/10/2014 10:43:36 +02:00
+
+2014-10-19 10:43:36.8649|TRACE|KarateIsere.DataAccess.KarateIsereContext|SELECT 
+    [GroupBy1].[A1] AS [C1]
+    FROM ( SELECT 
+        COUNT(1) AS [A1]
+        FROM [dbo].[__MigrationHistory] AS [Extent1]
+        WHERE [Extent1].[ContextKey] = @p__linq__0
+    )  AS [GroupBy1]
+2014-10-19 10:43:36.8649|TRACE|KarateIsere.DataAccess.KarateIsereContext|
+
+2014-10-19 10:43:36.8649|TRACE|KarateIsere.DataAccess.KarateIsereContext|-- p__linq__0: 'KarateIsere.DataAccess.KarateIsereContext' (Type = String, Size = 4000)
+
+2014-10-19 10:43:36.8809|TRACE|KarateIsere.DataAccess.KarateIsereContext|-- Executing at 19/10/2014 10:43:36 +02:00
+
+2014-10-19 10:43:36.9159|TRACE|KarateIsere.DataAccess.KarateIsereContext|-- Completed in 30 ms with result: SqlDataReader
+
+2014-10-19 10:43:36.9159|TRACE|KarateIsere.DataAccess.KarateIsereContext|
+
+2014-10-19 10:43:36.9159|TRACE|KarateIsere.DataAccess.KarateIsereContext|Closed connection at 19/10/2014 10:43:36 +02:00
+
+2014-10-19 10:43:36.9284|TRACE|KarateIsere.DataAccess.KarateIsereContext|Opened connection at 19/10/2014 10:43:36 +02:00
+
+2014-10-19 10:43:36.9284|TRACE|KarateIsere.DataAccess.KarateIsereContext|SELECT TOP (1) 
+    [Project1].[C1] AS [C1], 
+    [Project1].[MigrationId] AS [MigrationId], 
+    [Project1].[Model] AS [Model], 
+    [Project1].[ProductVersion] AS [ProductVersion]
+    FROM ( SELECT 
+        [Extent1].[MigrationId] AS [MigrationId], 
+        [Extent1].[Model] AS [Model], 
+        [Extent1].[ProductVersion] AS [ProductVersion], 
+        1 AS [C1]
+        FROM [dbo].[__MigrationHistory] AS [Extent1]
+        WHERE [Extent1].[ContextKey] = @p__linq__0
+    )  AS [Project1]
+    ORDER BY [Project1].[MigrationId] DESC
+2014-10-19 10:43:36.9284|TRACE|KarateIsere.DataAccess.KarateIsereContext|
+
+2014-10-19 10:43:36.9439|TRACE|KarateIsere.DataAccess.KarateIsereContext|-- p__linq__0: 'KarateIsere.DataAccess.KarateIsereContext' (Type = String, Size = 4000)
+
+2014-10-19 10:43:36.9439|TRACE|KarateIsere.DataAccess.KarateIsereContext|-- Executing at 19/10/2014 10:43:36 +02:00
+
+2014-10-19 10:43:36.9839|TRACE|KarateIsere.DataAccess.KarateIsereContext|-- Completed in 30 ms with result: SqlDataReader
+
+2014-10-19 10:43:36.9879|TRACE|KarateIsere.DataAccess.KarateIsereContext|
+
+2014-10-19 10:43:36.9879|TRACE|KarateIsere.DataAccess.KarateIsereContext|Closed connection at 19/10/2014 10:43:36 +02:00
+
+2014-10-19 10:43:37.6815|TRACE|KarateIsere.DataAccess.KarateIsereContext|Opened connection at 19/10/2014 10:43:37 +02:00
+
+2014-10-19 10:43:37.8220|TRACE|KarateIsere.DataAccess.KarateIsereContext|SELECT 
+    [Project2].[C1] AS [C1], 
+    [Project2].[NumAffiliation] AS [NumAffiliation], 
+    [Project2].[NomClub] AS [NomClub], 
+    [Project2].[Correspondant] AS [Correspondant], 
+    [Project2].[Telephone] AS [Telephone], 
+    [Project2].[Adr_Administrative] AS [Adr_Administrative], 
+    [Project2].[Adr_Dojo] AS [Adr_Dojo], 
+    [Project2].[Code_Postal] AS [Code_Postal], 
+    [Project2].[Ville] AS [Ville], 
+    [Project2].[Site_Web] AS [Site_Web], 
+    [Project2].[Facebook] AS [Facebook], 
+    [Project2].[President_Tel] AS [President_Tel], 
+    [Project2].[President_Nom] AS [President_Nom], 
+    [Project2].[President_Prenom] AS [President_Prenom], 
+    [Project2].[President_Email] AS [President_Email], 
+    [Project2].[President_Mobile] AS [President_Mobile], 
+    [Project2].[Tresorier_Tel] AS [Tresorier_Tel], 
+    [Project2].[Tresorier_Nom] AS [Tresorier_Nom], 
+    [Project2].[Tresorier_Prenom] AS [Tresorier_Prenom], 
+    [Project2].[Tresorier_Email] AS [Tresorier_Email], 
+    [Project2].[Tresorier_Mobile] AS [Tresorier_Mobile], 
+    [Project2].[Secretaire_Tel] AS [Secretaire_Tel], 
+    [Project2].[Secretaire_Nom] AS [Secretaire_Nom], 
+    [Project2].[Secretaire_Prenom] AS [Secretaire_Prenom], 
+    [Project2].[Secretaire_Email] AS [Secretaire_Email], 
+    [Project2].[Secretaire_Mobile] AS [Secretaire_Mobile], 
+    [Project2].[ArtMartialName] AS [ArtMartialName], 
+    [Project2].[Longitude] AS [Longitude], 
+    [Project2].[Latitude] AS [Latitude], 
+    [Project2].[C2] AS [C2], 
+    [Project2].[NumLicence] AS [NumLicence], 
+    [Project2].[Nom] AS [Nom], 
+    [Project2].[Prenom] AS [Prenom], 
+    [Project2].[Categorie] AS [Categorie], 
+    [Project2].[Poids] AS [Poids], 
+    [Project2].[isHomme] AS [isHomme], 
+    [Project2].[NumAffiliationClub] AS [NumAffiliationClub]
+    FROM ( SELECT 
+        [Limit1].[NumAffiliation] AS [NumAffiliation], 
+        [Limit1].[NomClub] AS [NomClub], 
+        [Limit1].[Correspondant] AS [Correspondant], 
+        [Limit1].[Telephone] AS [Telephone], 
+        [Limit1].[Adr_Administrative] AS [Adr_Administrative], 
+        [Limit1].[Adr_Dojo] AS [Adr_Dojo], 
+        [Limit1].[Code_Postal] AS [Code_Postal], 
+        [Limit1].[Ville] AS [Ville], 
+        [Limit1].[Site_Web] AS [Site_Web], 
+        [Limit1].[Facebook] AS [Facebook], 
+        [Limit1].[President_Tel] AS [President_Tel], 
+        [Limit1].[President_Nom] AS [President_Nom], 
+        [Limit1].[President_Prenom] AS [President_Prenom], 
+        [Limit1].[President_Email] AS [President_Email], 
+        [Limit1].[President_Mobile] AS [President_Mobile], 
+        [Limit1].[Tresorier_Tel] AS [Tresorier_Tel], 
+        [Limit1].[Tresorier_Nom] AS [Tresorier_Nom], 
+        [Limit1].[Tresorier_Prenom] AS [Tresorier_Prenom], 
+        [Limit1].[Tresorier_Email] AS [Tresorier_Email], 
+        [Limit1].[Tresorier_Mobile] AS [Tresorier_Mobile], 
+        [Limit1].[Secretaire_Tel] AS [Secretaire_Tel], 
+        [Limit1].[Secretaire_Nom] AS [Secretaire_Nom], 
+        [Limit1].[Secretaire_Prenom] AS [Secretaire_Prenom], 
+        [Limit1].[Secretaire_Email] AS [Secretaire_Email], 
+        [Limit1].[Secretaire_Mobile] AS [Secretaire_Mobile], 
+        [Limit1].[ArtMartialName] AS [ArtMartialName], 
+        [Limit1].[Longitude] AS [Longitude], 
+        [Limit1].[Latitude] AS [Latitude], 
+        [Limit1].[C1] AS [C1], 
+        [Extent2].[NumLicence] AS [NumLicence], 
+        [Extent2].[Nom] AS [Nom], 
+        [Extent2].[Prenom] AS [Prenom], 
+        [Extent2].[Categorie] AS [Categorie], 
+        [Extent2].[Poids] AS [Poids], 
+        [Extent2].[isHomme] AS [isHomme], 
+        [Extent2].[NumAffiliationClub] AS [NumAffiliationClub], 
+        CASE WHEN ([Extent2].[NumLicence] IS NULL) THEN CAST(NULL AS int) ELSE 1 END AS [C2]
+        FROM   (SELECT TOP (2) 
+            [Extent1].[NumAffiliation] AS [NumAffiliation], 
+            [Extent1].[NomClub] AS [NomClub], 
+            [Extent1].[Correspondant] AS [Correspondant], 
+            [Extent1].[Telephone] AS [Telephone], 
+            [Extent1].[Adr_Administrative] AS [Adr_Administrative], 
+            [Extent1].[Adr_Dojo] AS [Adr_Dojo], 
+            [Extent1].[Code_Postal] AS [Code_Postal], 
+            [Extent1].[Ville] AS [Ville], 
+            [Extent1].[Site_Web] AS [Site_Web], 
+            [Extent1].[Facebook] AS [Facebook], 
+            [Extent1].[President_Tel] AS [President_Tel], 
+            [Extent1].[President_Nom] AS [President_Nom], 
+            [Extent1].[President_Prenom] AS [President_Prenom], 
+            [Extent1].[President_Email] AS [President_Email], 
+            [Extent1].[President_Mobile] AS [President_Mobile], 
+            [Extent1].[Tresorier_Tel] AS [Tresorier_Tel], 
+            [Extent1].[Tresorier_Nom] AS [Tresorier_Nom], 
+            [Extent1].[Tresorier_Prenom] AS [Tresorier_Prenom], 
+            [Extent1].[Tresorier_Email] AS [Tresorier_Email], 
+            [Extent1].[Tresorier_Mobile] AS [Tresorier_Mobile], 
+            [Extent1].[Secretaire_Tel] AS [Secretaire_Tel], 
+            [Extent1].[Secretaire_Nom] AS [Secretaire_Nom], 
+            [Extent1].[Secretaire_Prenom] AS [Secretaire_Prenom], 
+            [Extent1].[Secretaire_Email] AS [Secretaire_Email], 
+            [Extent1].[Secretaire_Mobile] AS [Secretaire_Mobile], 
+            [Extent1].[ArtMartialName] AS [ArtMartialName], 
+            [Extent1].[Longitude] AS [Longitude], 
+            [Extent1].[Latitude] AS [Latitude], 
+            1 AS [C1]
+            FROM [dbo].[Club] AS [Extent1]
+            WHERE [Extent1].[NumAffiliation] = @p__linq__0 ) AS [Limit1]
+        LEFT OUTER JOIN [dbo].[Competiteur] AS [Extent2] ON [Limit1].[NumAffiliation] = [Extent2].[NumAffiliationClub]
+    )  AS [Project2]
+    ORDER BY [Project2].[NumAffiliation] ASC, [Project2].[C2] ASC
+2014-10-19 10:43:37.8220|TRACE|KarateIsere.DataAccess.KarateIsereContext|
+
+2014-10-19 10:43:37.8315|TRACE|KarateIsere.DataAccess.KarateIsereContext|-- p__linq__0: '987654' (Type = AnsiString, Size = 8000)
+
+2014-10-19 10:43:37.8315|TRACE|KarateIsere.DataAccess.KarateIsereContext|-- Executing at 19/10/2014 10:43:37 +02:00
+
+2014-10-19 10:43:37.8705|TRACE|KarateIsere.DataAccess.KarateIsereContext|-- Completed in 28 ms with result: SqlDataReader
+
+2014-10-19 10:43:37.8705|TRACE|KarateIsere.DataAccess.KarateIsereContext|
+
+2014-10-19 10:43:37.8925|TRACE|KarateIsere.DataAccess.KarateIsereContext|Closed connection at 19/10/2014 10:43:37 +02:00
+
+2014-10-19 10:44:59.6184|TRACE|KarateIsere.DataAccess.KarateIsereContext|Opened connection at 19/10/2014 10:44:59 +02:00
+
+2014-10-19 10:44:59.6234|TRACE|KarateIsere.DataAccess.KarateIsereContext|SELECT 
+    [Project2].[C1] AS [C1], 
+    [Project2].[NumAffiliation] AS [NumAffiliation], 
+    [Project2].[NomClub] AS [NomClub], 
+    [Project2].[Correspondant] AS [Correspondant], 
+    [Project2].[Telephone] AS [Telephone], 
+    [Project2].[Adr_Administrative] AS [Adr_Administrative], 
+    [Project2].[Adr_Dojo] AS [Adr_Dojo], 
+    [Project2].[Code_Postal] AS [Code_Postal], 
+    [Project2].[Ville] AS [Ville], 
+    [Project2].[Site_Web] AS [Site_Web], 
+    [Project2].[Facebook] AS [Facebook], 
+    [Project2].[President_Tel] AS [President_Tel], 
+    [Project2].[President_Nom] AS [President_Nom], 
+    [Project2].[President_Prenom] AS [President_Prenom], 
+    [Project2].[President_Email] AS [President_Email], 
+    [Project2].[President_Mobile] AS [President_Mobile], 
+    [Project2].[Tresorier_Tel] AS [Tresorier_Tel], 
+    [Project2].[Tresorier_Nom] AS [Tresorier_Nom], 
+    [Project2].[Tresorier_Prenom] AS [Tresorier_Prenom], 
+    [Project2].[Tresorier_Email] AS [Tresorier_Email], 
+    [Project2].[Tresorier_Mobile] AS [Tresorier_Mobile], 
+    [Project2].[Secretaire_Tel] AS [Secretaire_Tel], 
+    [Project2].[Secretaire_Nom] AS [Secretaire_Nom], 
+    [Project2].[Secretaire_Prenom] AS [Secretaire_Prenom], 
+    [Project2].[Secretaire_Email] AS [Secretaire_Email], 
+    [Project2].[Secretaire_Mobile] AS [Secretaire_Mobile], 
+    [Project2].[ArtMartialName] AS [ArtMartialName], 
+    [Project2].[Longitude] AS [Longitude], 
+    [Project2].[Latitude] AS [Latitude], 
+    [Project2].[C2] AS [C2], 
+    [Project2].[NumLicence] AS [NumLicence], 
+    [Project2].[Nom] AS [Nom], 
+    [Project2].[Prenom] AS [Prenom], 
+    [Project2].[Categorie] AS [Categorie], 
+    [Project2].[Poids] AS [Poids], 
+    [Project2].[isHomme] AS [isHomme], 
+    [Project2].[NumAffiliationClub] AS [NumAffiliationClub]
+    FROM ( SELECT 
+        [Limit1].[NumAffiliation] AS [NumAffiliation], 
+        [Limit1].[NomClub] AS [NomClub], 
+        [Limit1].[Correspondant] AS [Correspondant], 
+        [Limit1].[Telephone] AS [Telephone], 
+        [Limit1].[Adr_Administrative] AS [Adr_Administrative], 
+        [Limit1].[Adr_Dojo] AS [Adr_Dojo], 
+        [Limit1].[Code_Postal] AS [Code_Postal], 
+        [Limit1].[Ville] AS [Ville], 
+        [Limit1].[Site_Web] AS [Site_Web], 
+        [Limit1].[Facebook] AS [Facebook], 
+        [Limit1].[President_Tel] AS [President_Tel], 
+        [Limit1].[President_Nom] AS [President_Nom], 
+        [Limit1].[President_Prenom] AS [President_Prenom], 
+        [Limit1].[President_Email] AS [President_Email], 
+        [Limit1].[President_Mobile] AS [President_Mobile], 
+        [Limit1].[Tresorier_Tel] AS [Tresorier_Tel], 
+        [Limit1].[Tresorier_Nom] AS [Tresorier_Nom], 
+        [Limit1].[Tresorier_Prenom] AS [Tresorier_Prenom], 
+        [Limit1].[Tresorier_Email] AS [Tresorier_Email], 
+        [Limit1].[Tresorier_Mobile] AS [Tresorier_Mobile], 
+        [Limit1].[Secretaire_Tel] AS [Secretaire_Tel], 
+        [Limit1].[Secretaire_Nom] AS [Secretaire_Nom], 
+        [Limit1].[Secretaire_Prenom] AS [Secretaire_Prenom], 
+        [Limit1].[Secretaire_Email] AS [Secretaire_Email], 
+        [Limit1].[Secretaire_Mobile] AS [Secretaire_Mobile], 
+        [Limit1].[ArtMartialName] AS [ArtMartialName], 
+        [Limit1].[Longitude] AS [Longitude], 
+        [Limit1].[Latitude] AS [Latitude], 
+        [Limit1].[C1] AS [C1], 
+        [Extent2].[NumLicence] AS [NumLicence], 
+        [Extent2].[Nom] AS [Nom], 
+        [Extent2].[Prenom] AS [Prenom], 
+        [Extent2].[Categorie] AS [Categorie], 
+        [Extent2].[Poids] AS [Poids], 
+        [Extent2].[isHomme] AS [isHomme], 
+        [Extent2].[NumAffiliationClub] AS [NumAffiliationClub], 
+        CASE WHEN ([Extent2].[NumLicence] IS NULL) THEN CAST(NULL AS int) ELSE 1 END AS [C2]
+        FROM   (SELECT TOP (2) 
+            [Extent1].[NumAffiliation] AS [NumAffiliation], 
+            [Extent1].[NomClub] AS [NomClub], 
+            [Extent1].[Correspondant] AS [Correspondant], 
+            [Extent1].[Telephone] AS [Telephone], 
+            [Extent1].[Adr_Administrative] AS [Adr_Administrative], 
+            [Extent1].[Adr_Dojo] AS [Adr_Dojo], 
+            [Extent1].[Code_Postal] AS [Code_Postal], 
+            [Extent1].[Ville] AS [Ville], 
+            [Extent1].[Site_Web] AS [Site_Web], 
+            [Extent1].[Facebook] AS [Facebook], 
+            [Extent1].[President_Tel] AS [President_Tel], 
+            [Extent1].[President_Nom] AS [President_Nom], 
+            [Extent1].[President_Prenom] AS [President_Prenom], 
+            [Extent1].[President_Email] AS [President_Email], 
+            [Extent1].[President_Mobile] AS [President_Mobile], 
+            [Extent1].[Tresorier_Tel] AS [Tresorier_Tel], 
+            [Extent1].[Tresorier_Nom] AS [Tresorier_Nom], 
+            [Extent1].[Tresorier_Prenom] AS [Tresorier_Prenom], 
+            [Extent1].[Tresorier_Email] AS [Tresorier_Email], 
+            [Extent1].[Tresorier_Mobile] AS [Tresorier_Mobile], 
+            [Extent1].[Secretaire_Tel] AS [Secretaire_Tel], 
+            [Extent1].[Secretaire_Nom] AS [Secretaire_Nom], 
+            [Extent1].[Secretaire_Prenom] AS [Secretaire_Prenom], 
+            [Extent1].[Secretaire_Email] AS [Secretaire_Email], 
+            [Extent1].[Secretaire_Mobile] AS [Secretaire_Mobile], 
+            [Extent1].[ArtMartialName] AS [ArtMartialName], 
+            [Extent1].[Longitude] AS [Longitude], 
+            [Extent1].[Latitude] AS [Latitude], 
+            1 AS [C1]
+            FROM [dbo].[Club] AS [Extent1]
+            WHERE [Extent1].[NumAffiliation] = @p__linq__0 ) AS [Limit1]
+        LEFT OUTER JOIN [dbo].[Competiteur] AS [Extent2] ON [Limit1].[NumAffiliation] = [Extent2].[NumAffiliationClub]
+    )  AS [Project2]
+    ORDER BY [Project2].[NumAffiliation] ASC, [Project2].[C2] ASC
+2014-10-19 10:44:59.6234|TRACE|KarateIsere.DataAccess.KarateIsereContext|
+
+2014-10-19 10:44:59.6234|TRACE|KarateIsere.DataAccess.KarateIsereContext|-- p__linq__0: '987654' (Type = AnsiString, Size = 8000)
+
+2014-10-19 10:44:59.6374|TRACE|KarateIsere.DataAccess.KarateIsereContext|-- Executing at 19/10/2014 10:44:59 +02:00
+
+2014-10-19 10:44:59.6674|TRACE|KarateIsere.DataAccess.KarateIsereContext|-- Completed in 26 ms with result: SqlDataReader
+
+2014-10-19 10:44:59.6719|TRACE|KarateIsere.DataAccess.KarateIsereContext|
+
+2014-10-19 10:44:59.6719|TRACE|KarateIsere.DataAccess.KarateIsereContext|Closed connection at 19/10/2014 10:44:59 +02:00
+
+2014-10-19 10:46:50.8945|TRACE|KarateIsere.DataAccess.KarateIsereContext|Opened connection at 19/10/2014 10:46:50 +02:00
+
+2014-10-19 10:46:50.9005|TRACE|KarateIsere.DataAccess.KarateIsereContext|SELECT 
+    [Project2].[C1] AS [C1], 
+    [Project2].[NumAffiliation] AS [NumAffiliation], 
+    [Project2].[NomClub] AS [NomClub], 
+    [Project2].[Correspondant] AS [Correspondant], 
+    [Project2].[Telephone] AS [Telephone], 
+    [Project2].[Adr_Administrative] AS [Adr_Administrative], 
+    [Project2].[Adr_Dojo] AS [Adr_Dojo], 
+    [Project2].[Code_Postal] AS [Code_Postal], 
+    [Project2].[Ville] AS [Ville], 
+    [Project2].[Site_Web] AS [Site_Web], 
+    [Project2].[Facebook] AS [Facebook], 
+    [Project2].[President_Tel] AS [President_Tel], 
+    [Project2].[President_Nom] AS [President_Nom], 
+    [Project2].[President_Prenom] AS [President_Prenom], 
+    [Project2].[President_Email] AS [President_Email], 
+    [Project2].[President_Mobile] AS [President_Mobile], 
+    [Project2].[Tresorier_Tel] AS [Tresorier_Tel], 
+    [Project2].[Tresorier_Nom] AS [Tresorier_Nom], 
+    [Project2].[Tresorier_Prenom] AS [Tresorier_Prenom], 
+    [Project2].[Tresorier_Email] AS [Tresorier_Email], 
+    [Project2].[Tresorier_Mobile] AS [Tresorier_Mobile], 
+    [Project2].[Secretaire_Tel] AS [Secretaire_Tel], 
+    [Project2].[Secretaire_Nom] AS [Secretaire_Nom], 
+    [Project2].[Secretaire_Prenom] AS [Secretaire_Prenom], 
+    [Project2].[Secretaire_Email] AS [Secretaire_Email], 
+    [Project2].[Secretaire_Mobile] AS [Secretaire_Mobile], 
+    [Project2].[ArtMartialName] AS [ArtMartialName], 
+    [Project2].[Longitude] AS [Longitude], 
+    [Project2].[Latitude] AS [Latitude], 
+    [Project2].[C2] AS [C2], 
+    [Project2].[NumLicence] AS [NumLicence], 
+    [Project2].[Nom] AS [Nom], 
+    [Project2].[Prenom] AS [Prenom], 
+    [Project2].[Categorie] AS [Categorie], 
+    [Project2].[Poids] AS [Poids], 
+    [Project2].[isHomme] AS [isHomme], 
+    [Project2].[NumAffiliationClub] AS [NumAffiliationClub]
+    FROM ( SELECT 
+        [Limit1].[NumAffiliation] AS [NumAffiliation], 
+        [Limit1].[NomClub] AS [NomClub], 
+        [Limit1].[Correspondant] AS [Correspondant], 
+        [Limit1].[Telephone] AS [Telephone], 
+        [Limit1].[Adr_Administrative] AS [Adr_Administrative], 
+        [Limit1].[Adr_Dojo] AS [Adr_Dojo], 
+        [Limit1].[Code_Postal] AS [Code_Postal], 
+        [Limit1].[Ville] AS [Ville], 
+        [Limit1].[Site_Web] AS [Site_Web], 
+        [Limit1].[Facebook] AS [Facebook], 
+        [Limit1].[President_Tel] AS [President_Tel], 
+        [Limit1].[President_Nom] AS [President_Nom], 
+        [Limit1].[President_Prenom] AS [President_Prenom], 
+        [Limit1].[President_Email] AS [President_Email], 
+        [Limit1].[President_Mobile] AS [President_Mobile], 
+        [Limit1].[Tresorier_Tel] AS [Tresorier_Tel], 
+        [Limit1].[Tresorier_Nom] AS [Tresorier_Nom], 
+        [Limit1].[Tresorier_Prenom] AS [Tresorier_Prenom], 
+        [Limit1].[Tresorier_Email] AS [Tresorier_Email], 
+        [Limit1].[Tresorier_Mobile] AS [Tresorier_Mobile], 
+        [Limit1].[Secretaire_Tel] AS [Secretaire_Tel], 
+        [Limit1].[Secretaire_Nom] AS [Secretaire_Nom], 
+        [Limit1].[Secretaire_Prenom] AS [Secretaire_Prenom], 
+        [Limit1].[Secretaire_Email] AS [Secretaire_Email], 
+        [Limit1].[Secretaire_Mobile] AS [Secretaire_Mobile], 
+        [Limit1].[ArtMartialName] AS [ArtMartialName], 
+        [Limit1].[Longitude] AS [Longitude], 
+        [Limit1].[Latitude] AS [Latitude], 
+        [Limit1].[C1] AS [C1], 
+        [Extent2].[NumLicence] AS [NumLicence], 
+        [Extent2].[Nom] AS [Nom], 
+        [Extent2].[Prenom] AS [Prenom], 
+        [Extent2].[Categorie] AS [Categorie], 
+        [Extent2].[Poids] AS [Poids], 
+        [Extent2].[isHomme] AS [isHomme], 
+        [Extent2].[NumAffiliationClub] AS [NumAffiliationClub], 
+        CASE WHEN ([Extent2].[NumLicence] IS NULL) THEN CAST(NULL AS int) ELSE 1 END AS [C2]
+        FROM   (SELECT TOP (2) 
+            [Extent1].[NumAffiliation] AS [NumAffiliation], 
+            [Extent1].[NomClub] AS [NomClub], 
+            [Extent1].[Correspondant] AS [Correspondant], 
+            [Extent1].[Telephone] AS [Telephone], 
+            [Extent1].[Adr_Administrative] AS [Adr_Administrative], 
+            [Extent1].[Adr_Dojo] AS [Adr_Dojo], 
+            [Extent1].[Code_Postal] AS [Code_Postal], 
+            [Extent1].[Ville] AS [Ville], 
+            [Extent1].[Site_Web] AS [Site_Web], 
+            [Extent1].[Facebook] AS [Facebook], 
+            [Extent1].[President_Tel] AS [President_Tel], 
+            [Extent1].[President_Nom] AS [President_Nom], 
+            [Extent1].[President_Prenom] AS [President_Prenom], 
+            [Extent1].[President_Email] AS [President_Email], 
+            [Extent1].[President_Mobile] AS [President_Mobile], 
+            [Extent1].[Tresorier_Tel] AS [Tresorier_Tel], 
+            [Extent1].[Tresorier_Nom] AS [Tresorier_Nom], 
+            [Extent1].[Tresorier_Prenom] AS [Tresorier_Prenom], 
+            [Extent1].[Tresorier_Email] AS [Tresorier_Email], 
+            [Extent1].[Tresorier_Mobile] AS [Tresorier_Mobile], 
+            [Extent1].[Secretaire_Tel] AS [Secretaire_Tel], 
+            [Extent1].[Secretaire_Nom] AS [Secretaire_Nom], 
+            [Extent1].[Secretaire_Prenom] AS [Secretaire_Prenom], 
+            [Extent1].[Secretaire_Email] AS [Secretaire_Email], 
+            [Extent1].[Secretaire_Mobile] AS [Secretaire_Mobile], 
+            [Extent1].[ArtMartialName] AS [ArtMartialName], 
+            [Extent1].[Longitude] AS [Longitude], 
+            [Extent1].[Latitude] AS [Latitude], 
+            1 AS [C1]
+            FROM [dbo].[Club] AS [Extent1]
+            WHERE [Extent1].[NumAffiliation] = @p__linq__0 ) AS [Limit1]
+        LEFT OUTER JOIN [dbo].[Competiteur] AS [Extent2] ON [Limit1].[NumAffiliation] = [Extent2].[NumAffiliationClub]
+    )  AS [Project2]
+    ORDER BY [Project2].[NumAffiliation] ASC, [Project2].[C2] ASC
+2014-10-19 10:46:50.9005|TRACE|KarateIsere.DataAccess.KarateIsereContext|
+
+2014-10-19 10:46:50.9005|TRACE|KarateIsere.DataAccess.KarateIsereContext|-- p__linq__0: '987654' (Type = AnsiString, Size = 8000)
+
+2014-10-19 10:46:50.9155|TRACE|KarateIsere.DataAccess.KarateIsereContext|-- Executing at 19/10/2014 10:46:50 +02:00
+
+2014-10-19 10:46:50.9460|TRACE|KarateIsere.DataAccess.KarateIsereContext|-- Completed in 25 ms with result: SqlDataReader
+
+2014-10-19 10:46:50.9460|TRACE|KarateIsere.DataAccess.KarateIsereContext|
+
+2014-10-19 10:46:50.9460|TRACE|KarateIsere.DataAccess.KarateIsereContext|Closed connection at 19/10/2014 10:46:50 +02:00
+
+2014-10-19 10:47:49.9655|TRACE|KarateIsere.DataAccess.KarateIsereContext|Opened connection at 19/10/2014 10:47:49 +02:00
+
+2014-10-19 10:47:49.9655|TRACE|KarateIsere.DataAccess.KarateIsereContext|SELECT 
+    [Project2].[C1] AS [C1], 
+    [Project2].[NumAffiliation] AS [NumAffiliation], 
+    [Project2].[NomClub] AS [NomClub], 
+    [Project2].[Correspondant] AS [Correspondant], 
+    [Project2].[Telephone] AS [Telephone], 
+    [Project2].[Adr_Administrative] AS [Adr_Administrative], 
+    [Project2].[Adr_Dojo] AS [Adr_Dojo], 
+    [Project2].[Code_Postal] AS [Code_Postal], 
+    [Project2].[Ville] AS [Ville], 
+    [Project2].[Site_Web] AS [Site_Web], 
+    [Project2].[Facebook] AS [Facebook], 
+    [Project2].[President_Tel] AS [President_Tel], 
+    [Project2].[President_Nom] AS [President_Nom], 
+    [Project2].[President_Prenom] AS [President_Prenom], 
+    [Project2].[President_Email] AS [President_Email], 
+    [Project2].[President_Mobile] AS [President_Mobile], 
+    [Project2].[Tresorier_Tel] AS [Tresorier_Tel], 
+    [Project2].[Tresorier_Nom] AS [Tresorier_Nom], 
+    [Project2].[Tresorier_Prenom] AS [Tresorier_Prenom], 
+    [Project2].[Tresorier_Email] AS [Tresorier_Email], 
+    [Project2].[Tresorier_Mobile] AS [Tresorier_Mobile], 
+    [Project2].[Secretaire_Tel] AS [Secretaire_Tel], 
+    [Project2].[Secretaire_Nom] AS [Secretaire_Nom], 
+    [Project2].[Secretaire_Prenom] AS [Secretaire_Prenom], 
+    [Project2].[Secretaire_Email] AS [Secretaire_Email], 
+    [Project2].[Secretaire_Mobile] AS [Secretaire_Mobile], 
+    [Project2].[ArtMartialName] AS [ArtMartialName], 
+    [Project2].[Longitude] AS [Longitude], 
+    [Project2].[Latitude] AS [Latitude], 
+    [Project2].[C2] AS [C2], 
+    [Project2].[NumLicence] AS [NumLicence], 
+    [Project2].[Nom] AS [Nom], 
+    [Project2].[Prenom] AS [Prenom], 
+    [Project2].[Categorie] AS [Categorie], 
+    [Project2].[Poids] AS [Poids], 
+    [Project2].[isHomme] AS [isHomme], 
+    [Project2].[NumAffiliationClub] AS [NumAffiliationClub]
+    FROM ( SELECT 
+        [Limit1].[NumAffiliation] AS [NumAffiliation], 
+        [Limit1].[NomClub] AS [NomClub], 
+        [Limit1].[Correspondant] AS [Correspondant], 
+        [Limit1].[Telephone] AS [Telephone], 
+        [Limit1].[Adr_Administrative] AS [Adr_Administrative], 
+        [Limit1].[Adr_Dojo] AS [Adr_Dojo], 
+        [Limit1].[Code_Postal] AS [Code_Postal], 
+        [Limit1].[Ville] AS [Ville], 
+        [Limit1].[Site_Web] AS [Site_Web], 
+        [Limit1].[Facebook] AS [Facebook], 
+        [Limit1].[President_Tel] AS [President_Tel], 
+        [Limit1].[President_Nom] AS [President_Nom], 
+        [Limit1].[President_Prenom] AS [President_Prenom], 
+        [Limit1].[President_Email] AS [President_Email], 
+        [Limit1].[President_Mobile] AS [President_Mobile], 
+        [Limit1].[Tresorier_Tel] AS [Tresorier_Tel], 
+        [Limit1].[Tresorier_Nom] AS [Tresorier_Nom], 
+        [Limit1].[Tresorier_Prenom] AS [Tresorier_Prenom], 
+        [Limit1].[Tresorier_Email] AS [Tresorier_Email], 
+        [Limit1].[Tresorier_Mobile] AS [Tresorier_Mobile], 
+        [Limit1].[Secretaire_Tel] AS [Secretaire_Tel], 
+        [Limit1].[Secretaire_Nom] AS [Secretaire_Nom], 
+        [Limit1].[Secretaire_Prenom] AS [Secretaire_Prenom], 
+        [Limit1].[Secretaire_Email] AS [Secretaire_Email], 
+        [Limit1].[Secretaire_Mobile] AS [Secretaire_Mobile], 
+        [Limit1].[ArtMartialName] AS [ArtMartialName], 
+        [Limit1].[Longitude] AS [Longitude], 
+        [Limit1].[Latitude] AS [Latitude], 
+        [Limit1].[C1] AS [C1], 
+        [Extent2].[NumLicence] AS [NumLicence], 
+        [Extent2].[Nom] AS [Nom], 
+        [Extent2].[Prenom] AS [Prenom], 
+        [Extent2].[Categorie] AS [Categorie], 
+        [Extent2].[Poids] AS [Poids], 
+        [Extent2].[isHomme] AS [isHomme], 
+        [Extent2].[NumAffiliationClub] AS [NumAffiliationClub], 
+        CASE WHEN ([Extent2].[NumLicence] IS NULL) THEN CAST(NULL AS int) ELSE 1 END AS [C2]
+        FROM   (SELECT TOP (2) 
+            [Extent1].[NumAffiliation] AS [NumAffiliation], 
+            [Extent1].[NomClub] AS [NomClub], 
+            [Extent1].[Correspondant] AS [Correspondant], 
+            [Extent1].[Telephone] AS [Telephone], 
+            [Extent1].[Adr_Administrative] AS [Adr_Administrative], 
+            [Extent1].[Adr_Dojo] AS [Adr_Dojo], 
+            [Extent1].[Code_Postal] AS [Code_Postal], 
+            [Extent1].[Ville] AS [Ville], 
+            [Extent1].[Site_Web] AS [Site_Web], 
+            [Extent1].[Facebook] AS [Facebook], 
+            [Extent1].[President_Tel] AS [President_Tel], 
+            [Extent1].[President_Nom] AS [President_Nom], 
+            [Extent1].[President_Prenom] AS [President_Prenom], 
+            [Extent1].[President_Email] AS [President_Email], 
+            [Extent1].[President_Mobile] AS [President_Mobile], 
+            [Extent1].[Tresorier_Tel] AS [Tresorier_Tel], 
+            [Extent1].[Tresorier_Nom] AS [Tresorier_Nom], 
+            [Extent1].[Tresorier_Prenom] AS [Tresorier_Prenom], 
+            [Extent1].[Tresorier_Email] AS [Tresorier_Email], 
+            [Extent1].[Tresorier_Mobile] AS [Tresorier_Mobile], 
+            [Extent1].[Secretaire_Tel] AS [Secretaire_Tel], 
+            [Extent1].[Secretaire_Nom] AS [Secretaire_Nom], 
+            [Extent1].[Secretaire_Prenom] AS [Secretaire_Prenom], 
+            [Extent1].[Secretaire_Email] AS [Secretaire_Email], 
+            [Extent1].[Secretaire_Mobile] AS [Secretaire_Mobile], 
+            [Extent1].[ArtMartialName] AS [ArtMartialName], 
+            [Extent1].[Longitude] AS [Longitude], 
+            [Extent1].[Latitude] AS [Latitude], 
+            1 AS [C1]
+            FROM [dbo].[Club] AS [Extent1]
+            WHERE [Extent1].[NumAffiliation] = @p__linq__0 ) AS [Limit1]
+        LEFT OUTER JOIN [dbo].[Competiteur] AS [Extent2] ON [Limit1].[NumAffiliation] = [Extent2].[NumAffiliationClub]
+    )  AS [Project2]
+    ORDER BY [Project2].[NumAffiliation] ASC, [Project2].[C2] ASC
+2014-10-19 10:47:49.9770|TRACE|KarateIsere.DataAccess.KarateIsereContext|
+
+2014-10-19 10:47:49.9770|TRACE|KarateIsere.DataAccess.KarateIsereContext|-- p__linq__0: '987654' (Type = AnsiString, Size = 8000)
+
+2014-10-19 10:47:49.9770|TRACE|KarateIsere.DataAccess.KarateIsereContext|-- Executing at 19/10/2014 10:47:49 +02:00
+
+2014-10-19 10:47:50.0185|TRACE|KarateIsere.DataAccess.KarateIsereContext|-- Completed in 26 ms with result: SqlDataReader
+
+2014-10-19 10:47:50.0230|TRACE|KarateIsere.DataAccess.KarateIsereContext|
+
+2014-10-19 10:47:50.0230|TRACE|KarateIsere.DataAccess.KarateIsereContext|Closed connection at 19/10/2014 10:47:50 +02:00
+
+2014-10-19 10:59:18.9175|TRACE|KarateIsere.DataAccess.KarateIsereContext|Opened connection at 19/10/2014 10:59:18 +02:00
+
+2014-10-19 10:59:18.9420|TRACE|KarateIsere.DataAccess.KarateIsereContext|
+SELECT Count(*)
+FROM INFORMATION_SCHEMA.TABLES AS t
+WHERE t.TABLE_SCHEMA + '.' + t.TABLE_NAME IN ('dbo.Adherents','dbo.Admin','dbo.Art_Martial','dbo.Categorie','dbo.Competiteur','dbo.Club','dbo.ListeCompetiteur','dbo.Professeurs','dbo.Competition','dbo.Inscriptions','dbo.Creneaux','dbo.Club_Professeur','dbo.CompetitionCategories')
+    OR t.TABLE_NAME = 'EdmMetadata'
+2014-10-19 10:59:18.9420|TRACE|KarateIsere.DataAccess.KarateIsereContext|
+
+2014-10-19 10:59:18.9530|TRACE|KarateIsere.DataAccess.KarateIsereContext|-- Executing at 19/10/2014 10:59:18 +02:00
+
+2014-10-19 10:59:18.9895|TRACE|KarateIsere.DataAccess.KarateIsereContext|-- Completed in 29 ms with result: 9
+
+2014-10-19 10:59:18.9895|TRACE|KarateIsere.DataAccess.KarateIsereContext|
+
+2014-10-19 10:59:18.9895|TRACE|KarateIsere.DataAccess.KarateIsereContext|Closed connection at 19/10/2014 10:59:18 +02:00
+
+2014-10-19 10:59:19.0030|TRACE|KarateIsere.DataAccess.KarateIsereContext|Opened connection at 19/10/2014 10:59:19 +02:00
+
+2014-10-19 10:59:19.0030|TRACE|KarateIsere.DataAccess.KarateIsereContext|SELECT 
+    [GroupBy1].[A1] AS [C1]
+    FROM ( SELECT 
+        COUNT(1) AS [A1]
+        FROM [dbo].[__MigrationHistory] AS [Extent1]
+        WHERE [Extent1].[ContextKey] = @p__linq__0
+    )  AS [GroupBy1]
+2014-10-19 10:59:19.0160|TRACE|KarateIsere.DataAccess.KarateIsereContext|
+
+2014-10-19 10:59:19.0160|TRACE|KarateIsere.DataAccess.KarateIsereContext|-- p__linq__0: 'KarateIsere.DataAccess.KarateIsereContext' (Type = String, Size = 4000)
+
+2014-10-19 10:59:19.0160|TRACE|KarateIsere.DataAccess.KarateIsereContext|-- Executing at 19/10/2014 10:59:19 +02:00
+
+2014-10-19 10:59:19.0615|TRACE|KarateIsere.DataAccess.KarateIsereContext|-- Completed in 30 ms with result: SqlDataReader
+
+2014-10-19 10:59:19.0655|TRACE|KarateIsere.DataAccess.KarateIsereContext|
+
+2014-10-19 10:59:19.0655|TRACE|KarateIsere.DataAccess.KarateIsereContext|Closed connection at 19/10/2014 10:59:19 +02:00
+
+2014-10-19 10:59:19.0655|TRACE|KarateIsere.DataAccess.KarateIsereContext|Opened connection at 19/10/2014 10:59:19 +02:00
+
+2014-10-19 10:59:19.0790|TRACE|KarateIsere.DataAccess.KarateIsereContext|SELECT TOP (1) 
+    [Project1].[C1] AS [C1], 
+    [Project1].[MigrationId] AS [MigrationId], 
+    [Project1].[Model] AS [Model], 
+    [Project1].[ProductVersion] AS [ProductVersion]
+    FROM ( SELECT 
+        [Extent1].[MigrationId] AS [MigrationId], 
+        [Extent1].[Model] AS [Model], 
+        [Extent1].[ProductVersion] AS [ProductVersion], 
+        1 AS [C1]
+        FROM [dbo].[__MigrationHistory] AS [Extent1]
+        WHERE [Extent1].[ContextKey] = @p__linq__0
+    )  AS [Project1]
+    ORDER BY [Project1].[MigrationId] DESC
+2014-10-19 10:59:19.0790|TRACE|KarateIsere.DataAccess.KarateIsereContext|
+
+2014-10-19 10:59:19.0790|TRACE|KarateIsere.DataAccess.KarateIsereContext|-- p__linq__0: 'KarateIsere.DataAccess.KarateIsereContext' (Type = String, Size = 4000)
+
+2014-10-19 10:59:19.0790|TRACE|KarateIsere.DataAccess.KarateIsereContext|-- Executing at 19/10/2014 10:59:19 +02:00
+
+2014-10-19 10:59:19.1270|TRACE|KarateIsere.DataAccess.KarateIsereContext|-- Completed in 30 ms with result: SqlDataReader
+
+2014-10-19 10:59:19.1270|TRACE|KarateIsere.DataAccess.KarateIsereContext|
+
+2014-10-19 10:59:19.1270|TRACE|KarateIsere.DataAccess.KarateIsereContext|Closed connection at 19/10/2014 10:59:19 +02:00
+
+2014-10-19 10:59:19.8226|TRACE|KarateIsere.DataAccess.KarateIsereContext|Opened connection at 19/10/2014 10:59:19 +02:00
+
+2014-10-19 10:59:19.9471|TRACE|KarateIsere.DataAccess.KarateIsereContext|SELECT 
+    [Project2].[C1] AS [C1], 
+    [Project2].[NumAffiliation] AS [NumAffiliation], 
+    [Project2].[NomClub] AS [NomClub], 
+    [Project2].[Correspondant] AS [Correspondant], 
+    [Project2].[Telephone] AS [Telephone], 
+    [Project2].[Adr_Administrative] AS [Adr_Administrative], 
+    [Project2].[Adr_Dojo] AS [Adr_Dojo], 
+    [Project2].[Code_Postal] AS [Code_Postal], 
+    [Project2].[Ville] AS [Ville], 
+    [Project2].[Site_Web] AS [Site_Web], 
+    [Project2].[Facebook] AS [Facebook], 
+    [Project2].[President_Tel] AS [President_Tel], 
+    [Project2].[President_Nom] AS [President_Nom], 
+    [Project2].[President_Prenom] AS [President_Prenom], 
+    [Project2].[President_Email] AS [President_Email], 
+    [Project2].[President_Mobile] AS [President_Mobile], 
+    [Project2].[Tresorier_Tel] AS [Tresorier_Tel], 
+    [Project2].[Tresorier_Nom] AS [Tresorier_Nom], 
+    [Project2].[Tresorier_Prenom] AS [Tresorier_Prenom], 
+    [Project2].[Tresorier_Email] AS [Tresorier_Email], 
+    [Project2].[Tresorier_Mobile] AS [Tresorier_Mobile], 
+    [Project2].[Secretaire_Tel] AS [Secretaire_Tel], 
+    [Project2].[Secretaire_Nom] AS [Secretaire_Nom], 
+    [Project2].[Secretaire_Prenom] AS [Secretaire_Prenom], 
+    [Project2].[Secretaire_Email] AS [Secretaire_Email], 
+    [Project2].[Secretaire_Mobile] AS [Secretaire_Mobile], 
+    [Project2].[ArtMartialName] AS [ArtMartialName], 
+    [Project2].[Longitude] AS [Longitude], 
+    [Project2].[Latitude] AS [Latitude], 
+    [Project2].[C2] AS [C2], 
+    [Project2].[NumLicence] AS [NumLicence], 
+    [Project2].[Nom] AS [Nom], 
+    [Project2].[Prenom] AS [Prenom], 
+    [Project2].[Categorie] AS [Categorie], 
+    [Project2].[Poids] AS [Poids], 
+    [Project2].[isHomme] AS [isHomme], 
+    [Project2].[NumAffiliationClub] AS [NumAffiliationClub]
+    FROM ( SELECT 
+        [Limit1].[NumAffiliation] AS [NumAffiliation], 
+        [Limit1].[NomClub] AS [NomClub], 
+        [Limit1].[Correspondant] AS [Correspondant], 
+        [Limit1].[Telephone] AS [Telephone], 
+        [Limit1].[Adr_Administrative] AS [Adr_Administrative], 
+        [Limit1].[Adr_Dojo] AS [Adr_Dojo], 
+        [Limit1].[Code_Postal] AS [Code_Postal], 
+        [Limit1].[Ville] AS [Ville], 
+        [Limit1].[Site_Web] AS [Site_Web], 
+        [Limit1].[Facebook] AS [Facebook], 
+        [Limit1].[President_Tel] AS [President_Tel], 
+        [Limit1].[President_Nom] AS [President_Nom], 
+        [Limit1].[President_Prenom] AS [President_Prenom], 
+        [Limit1].[President_Email] AS [President_Email], 
+        [Limit1].[President_Mobile] AS [President_Mobile], 
+        [Limit1].[Tresorier_Tel] AS [Tresorier_Tel], 
+        [Limit1].[Tresorier_Nom] AS [Tresorier_Nom], 
+        [Limit1].[Tresorier_Prenom] AS [Tresorier_Prenom], 
+        [Limit1].[Tresorier_Email] AS [Tresorier_Email], 
+        [Limit1].[Tresorier_Mobile] AS [Tresorier_Mobile], 
+        [Limit1].[Secretaire_Tel] AS [Secretaire_Tel], 
+        [Limit1].[Secretaire_Nom] AS [Secretaire_Nom], 
+        [Limit1].[Secretaire_Prenom] AS [Secretaire_Prenom], 
+        [Limit1].[Secretaire_Email] AS [Secretaire_Email], 
+        [Limit1].[Secretaire_Mobile] AS [Secretaire_Mobile], 
+        [Limit1].[ArtMartialName] AS [ArtMartialName], 
+        [Limit1].[Longitude] AS [Longitude], 
+        [Limit1].[Latitude] AS [Latitude], 
+        [Limit1].[C1] AS [C1], 
+        [Extent2].[NumLicence] AS [NumLicence], 
+        [Extent2].[Nom] AS [Nom], 
+        [Extent2].[Prenom] AS [Prenom], 
+        [Extent2].[Categorie] AS [Categorie], 
+        [Extent2].[Poids] AS [Poids], 
+        [Extent2].[isHomme] AS [isHomme], 
+        [Extent2].[NumAffiliationClub] AS [NumAffiliationClub], 
+        CASE WHEN ([Extent2].[NumLicence] IS NULL) THEN CAST(NULL AS int) ELSE 1 END AS [C2]
+        FROM   (SELECT TOP (2) 
+            [Extent1].[NumAffiliation] AS [NumAffiliation], 
+            [Extent1].[NomClub] AS [NomClub], 
+            [Extent1].[Correspondant] AS [Correspondant], 
+            [Extent1].[Telephone] AS [Telephone], 
+            [Extent1].[Adr_Administrative] AS [Adr_Administrative], 
+            [Extent1].[Adr_Dojo] AS [Adr_Dojo], 
+            [Extent1].[Code_Postal] AS [Code_Postal], 
+            [Extent1].[Ville] AS [Ville], 
+            [Extent1].[Site_Web] AS [Site_Web], 
+            [Extent1].[Facebook] AS [Facebook], 
+            [Extent1].[President_Tel] AS [President_Tel], 
+            [Extent1].[President_Nom] AS [President_Nom], 
+            [Extent1].[President_Prenom] AS [President_Prenom], 
+            [Extent1].[President_Email] AS [President_Email], 
+            [Extent1].[President_Mobile] AS [President_Mobile], 
+            [Extent1].[Tresorier_Tel] AS [Tresorier_Tel], 
+            [Extent1].[Tresorier_Nom] AS [Tresorier_Nom], 
+            [Extent1].[Tresorier_Prenom] AS [Tresorier_Prenom], 
+            [Extent1].[Tresorier_Email] AS [Tresorier_Email], 
+            [Extent1].[Tresorier_Mobile] AS [Tresorier_Mobile], 
+            [Extent1].[Secretaire_Tel] AS [Secretaire_Tel], 
+            [Extent1].[Secretaire_Nom] AS [Secretaire_Nom], 
+            [Extent1].[Secretaire_Prenom] AS [Secretaire_Prenom], 
+            [Extent1].[Secretaire_Email] AS [Secretaire_Email], 
+            [Extent1].[Secretaire_Mobile] AS [Secretaire_Mobile], 
+            [Extent1].[ArtMartialName] AS [ArtMartialName], 
+            [Extent1].[Longitude] AS [Longitude], 
+            [Extent1].[Latitude] AS [Latitude], 
+            1 AS [C1]
+            FROM [dbo].[Club] AS [Extent1]
+            WHERE [Extent1].[NumAffiliation] = @p__linq__0 ) AS [Limit1]
+        LEFT OUTER JOIN [dbo].[Competiteur] AS [Extent2] ON [Limit1].[NumAffiliation] = [Extent2].[NumAffiliationClub]
+    )  AS [Project2]
+    ORDER BY [Project2].[NumAffiliation] ASC, [Project2].[C2] ASC
+2014-10-19 10:59:19.9516|TRACE|KarateIsere.DataAccess.KarateIsereContext|
+
+2014-10-19 10:59:19.9516|TRACE|KarateIsere.DataAccess.KarateIsereContext|-- p__linq__0: '987654' (Type = AnsiString, Size = 8000)
+
+2014-10-19 10:59:19.9516|TRACE|KarateIsere.DataAccess.KarateIsereContext|-- Executing at 19/10/2014 10:59:19 +02:00
+
+2014-10-19 10:59:19.9981|TRACE|KarateIsere.DataAccess.KarateIsereContext|-- Completed in 33 ms with result: SqlDataReader
+
+2014-10-19 10:59:19.9981|TRACE|KarateIsere.DataAccess.KarateIsereContext|
+
+2014-10-19 10:59:20.0187|TRACE|KarateIsere.DataAccess.KarateIsereContext|Closed connection at 19/10/2014 10:59:20 +02:00
+
+2014-10-19 10:59:20.0187|TRACE|KarateIsere.DataAccess.KarateIsereContext|Opened connection at 19/10/2014 10:59:20 +02:00
+
+2014-10-19 10:59:20.0517|TRACE|KarateIsere.DataAccess.KarateIsereContext|SELECT 
+    [Extent1].[Nom] AS [Nom]
+    FROM [dbo].[Categorie] AS [Extent1]
+2014-10-19 10:59:20.4942|TRACE|KarateIsere.DataAccess.KarateIsereContext|
+
+2014-10-19 10:59:20.4987|TRACE|KarateIsere.DataAccess.KarateIsereContext|-- Executing at 19/10/2014 10:59:20 +02:00
+
+2014-10-19 10:59:20.5292|TRACE|KarateIsere.DataAccess.KarateIsereContext|-- Completed in 26 ms with result: SqlDataReader
+
+2014-10-19 10:59:20.5292|TRACE|KarateIsere.DataAccess.KarateIsereContext|
+
+2014-10-19 10:59:20.5442|TRACE|KarateIsere.DataAccess.KarateIsereContext|Closed connection at 19/10/2014 10:59:20 +02:00
+
+2014-10-19 11:00:30.1961|TRACE|KarateIsere.DataAccess.KarateIsereContext|Opened connection at 19/10/2014 11:00:30 +02:00
+
+2014-10-19 11:00:30.2011|TRACE|KarateIsere.DataAccess.KarateIsereContext|SELECT 
+    [Project2].[C1] AS [C1], 
+    [Project2].[NumAffiliation] AS [NumAffiliation], 
+    [Project2].[NomClub] AS [NomClub], 
+    [Project2].[Correspondant] AS [Correspondant], 
+    [Project2].[Telephone] AS [Telephone], 
+    [Project2].[Adr_Administrative] AS [Adr_Administrative], 
+    [Project2].[Adr_Dojo] AS [Adr_Dojo], 
+    [Project2].[Code_Postal] AS [Code_Postal], 
+    [Project2].[Ville] AS [Ville], 
+    [Project2].[Site_Web] AS [Site_Web], 
+    [Project2].[Facebook] AS [Facebook], 
+    [Project2].[President_Tel] AS [President_Tel], 
+    [Project2].[President_Nom] AS [President_Nom], 
+    [Project2].[President_Prenom] AS [President_Prenom], 
+    [Project2].[President_Email] AS [President_Email], 
+    [Project2].[President_Mobile] AS [President_Mobile], 
+    [Project2].[Tresorier_Tel] AS [Tresorier_Tel], 
+    [Project2].[Tresorier_Nom] AS [Tresorier_Nom], 
+    [Project2].[Tresorier_Prenom] AS [Tresorier_Prenom], 
+    [Project2].[Tresorier_Email] AS [Tresorier_Email], 
+    [Project2].[Tresorier_Mobile] AS [Tresorier_Mobile], 
+    [Project2].[Secretaire_Tel] AS [Secretaire_Tel], 
+    [Project2].[Secretaire_Nom] AS [Secretaire_Nom], 
+    [Project2].[Secretaire_Prenom] AS [Secretaire_Prenom], 
+    [Project2].[Secretaire_Email] AS [Secretaire_Email], 
+    [Project2].[Secretaire_Mobile] AS [Secretaire_Mobile], 
+    [Project2].[ArtMartialName] AS [ArtMartialName], 
+    [Project2].[Longitude] AS [Longitude], 
+    [Project2].[Latitude] AS [Latitude], 
+    [Project2].[C2] AS [C2], 
+    [Project2].[NumLicence] AS [NumLicence], 
+    [Project2].[Nom] AS [Nom], 
+    [Project2].[Prenom] AS [Prenom], 
+    [Project2].[Categorie] AS [Categorie], 
+    [Project2].[Poids] AS [Poids], 
+    [Project2].[isHomme] AS [isHomme], 
+    [Project2].[NumAffiliationClub] AS [NumAffiliationClub]
+    FROM ( SELECT 
+        [Limit1].[NumAffiliation] AS [NumAffiliation], 
+        [Limit1].[NomClub] AS [NomClub], 
+        [Limit1].[Correspondant] AS [Correspondant], 
+        [Limit1].[Telephone] AS [Telephone], 
+        [Limit1].[Adr_Administrative] AS [Adr_Administrative], 
+        [Limit1].[Adr_Dojo] AS [Adr_Dojo], 
+        [Limit1].[Code_Postal] AS [Code_Postal], 
+        [Limit1].[Ville] AS [Ville], 
+        [Limit1].[Site_Web] AS [Site_Web], 
+        [Limit1].[Facebook] AS [Facebook], 
+        [Limit1].[President_Tel] AS [President_Tel], 
+        [Limit1].[President_Nom] AS [President_Nom], 
+        [Limit1].[President_Prenom] AS [President_Prenom], 
+        [Limit1].[President_Email] AS [President_Email], 
+        [Limit1].[President_Mobile] AS [President_Mobile], 
+        [Limit1].[Tresorier_Tel] AS [Tresorier_Tel], 
+        [Limit1].[Tresorier_Nom] AS [Tresorier_Nom], 
+        [Limit1].[Tresorier_Prenom] AS [Tresorier_Prenom], 
+        [Limit1].[Tresorier_Email] AS [Tresorier_Email], 
+        [Limit1].[Tresorier_Mobile] AS [Tresorier_Mobile], 
+        [Limit1].[Secretaire_Tel] AS [Secretaire_Tel], 
+        [Limit1].[Secretaire_Nom] AS [Secretaire_Nom], 
+        [Limit1].[Secretaire_Prenom] AS [Secretaire_Prenom], 
+        [Limit1].[Secretaire_Email] AS [Secretaire_Email], 
+        [Limit1].[Secretaire_Mobile] AS [Secretaire_Mobile], 
+        [Limit1].[ArtMartialName] AS [ArtMartialName], 
+        [Limit1].[Longitude] AS [Longitude], 
+        [Limit1].[Latitude] AS [Latitude], 
+        [Limit1].[C1] AS [C1], 
+        [Extent2].[NumLicence] AS [NumLicence], 
+        [Extent2].[Nom] AS [Nom], 
+        [Extent2].[Prenom] AS [Prenom], 
+        [Extent2].[Categorie] AS [Categorie], 
+        [Extent2].[Poids] AS [Poids], 
+        [Extent2].[isHomme] AS [isHomme], 
+        [Extent2].[NumAffiliationClub] AS [NumAffiliationClub], 
+        CASE WHEN ([Extent2].[NumLicence] IS NULL) THEN CAST(NULL AS int) ELSE 1 END AS [C2]
+        FROM   (SELECT TOP (2) 
+            [Extent1].[NumAffiliation] AS [NumAffiliation], 
+            [Extent1].[NomClub] AS [NomClub], 
+            [Extent1].[Correspondant] AS [Correspondant], 
+            [Extent1].[Telephone] AS [Telephone], 
+            [Extent1].[Adr_Administrative] AS [Adr_Administrative], 
+            [Extent1].[Adr_Dojo] AS [Adr_Dojo], 
+            [Extent1].[Code_Postal] AS [Code_Postal], 
+            [Extent1].[Ville] AS [Ville], 
+            [Extent1].[Site_Web] AS [Site_Web], 
+            [Extent1].[Facebook] AS [Facebook], 
+            [Extent1].[President_Tel] AS [President_Tel], 
+            [Extent1].[President_Nom] AS [President_Nom], 
+            [Extent1].[President_Prenom] AS [President_Prenom], 
+            [Extent1].[President_Email] AS [President_Email], 
+            [Extent1].[President_Mobile] AS [President_Mobile], 
+            [Extent1].[Tresorier_Tel] AS [Tresorier_Tel], 
+            [Extent1].[Tresorier_Nom] AS [Tresorier_Nom], 
+            [Extent1].[Tresorier_Prenom] AS [Tresorier_Prenom], 
+            [Extent1].[Tresorier_Email] AS [Tresorier_Email], 
+            [Extent1].[Tresorier_Mobile] AS [Tresorier_Mobile], 
+            [Extent1].[Secretaire_Tel] AS [Secretaire_Tel], 
+            [Extent1].[Secretaire_Nom] AS [Secretaire_Nom], 
+            [Extent1].[Secretaire_Prenom] AS [Secretaire_Prenom], 
+            [Extent1].[Secretaire_Email] AS [Secretaire_Email], 
+            [Extent1].[Secretaire_Mobile] AS [Secretaire_Mobile], 
+            [Extent1].[ArtMartialName] AS [ArtMartialName], 
+            [Extent1].[Longitude] AS [Longitude], 
+            [Extent1].[Latitude] AS [Latitude], 
+            1 AS [C1]
+            FROM [dbo].[Club] AS [Extent1]
+            WHERE [Extent1].[NumAffiliation] = @p__linq__0 ) AS [Limit1]
+        LEFT OUTER JOIN [dbo].[Competiteur] AS [Extent2] ON [Limit1].[NumAffiliation] = [Extent2].[NumAffiliationClub]
+    )  AS [Project2]
+    ORDER BY [Project2].[NumAffiliation] ASC, [Project2].[C2] ASC
+2014-10-19 11:00:30.2011|TRACE|KarateIsere.DataAccess.KarateIsereContext|
+
+2014-10-19 11:00:30.2011|TRACE|KarateIsere.DataAccess.KarateIsereContext|-- p__linq__0: '987654' (Type = AnsiString, Size = 8000)
+
+2014-10-19 11:00:30.2141|TRACE|KarateIsere.DataAccess.KarateIsereContext|-- Executing at 19/10/2014 11:00:30 +02:00
+
+2014-10-19 11:00:30.2436|TRACE|KarateIsere.DataAccess.KarateIsereContext|-- Completed in 24 ms with result: SqlDataReader
+
+2014-10-19 11:00:30.2486|TRACE|KarateIsere.DataAccess.KarateIsereContext|
+
+2014-10-19 11:00:30.2486|TRACE|KarateIsere.DataAccess.KarateIsereContext|Closed connection at 19/10/2014 11:00:30 +02:00
+
+2014-10-19 11:00:30.2486|TRACE|KarateIsere.DataAccess.KarateIsereContext|Opened connection at 19/10/2014 11:00:30 +02:00
+
+2014-10-19 11:00:30.2636|TRACE|KarateIsere.DataAccess.KarateIsereContext|SELECT 
+    [Extent1].[Nom] AS [Nom]
+    FROM [dbo].[Categorie] AS [Extent1]
+2014-10-19 11:00:30.2636|TRACE|KarateIsere.DataAccess.KarateIsereContext|
+
+2014-10-19 11:00:30.2636|TRACE|KarateIsere.DataAccess.KarateIsereContext|-- Executing at 19/10/2014 11:00:30 +02:00
+
+2014-10-19 11:00:30.3016|TRACE|KarateIsere.DataAccess.KarateIsereContext|-- Completed in 24 ms with result: SqlDataReader
+
+2014-10-19 11:00:30.3016|TRACE|KarateIsere.DataAccess.KarateIsereContext|
+
+2014-10-19 11:00:30.3101|TRACE|KarateIsere.DataAccess.KarateIsereContext|Closed connection at 19/10/2014 11:00:30 +02:00
+
+2014-10-19 11:04:29.7025|TRACE|KarateIsere.DataAccess.KarateIsereContext|Opened connection at 19/10/2014 11:04:29 +02:00
+
+2014-10-19 11:04:29.7280|TRACE|KarateIsere.DataAccess.KarateIsereContext|
+SELECT Count(*)
+FROM INFORMATION_SCHEMA.TABLES AS t
+WHERE t.TABLE_SCHEMA + '.' + t.TABLE_NAME IN ('dbo.Adherents','dbo.Admin','dbo.Art_Martial','dbo.Categorie','dbo.Competiteur','dbo.Club','dbo.ListeCompetiteur','dbo.Professeurs','dbo.Competition','dbo.Inscriptions','dbo.Creneaux','dbo.Club_Professeur','dbo.CompetitionCategories')
+    OR t.TABLE_NAME = 'EdmMetadata'
+2014-10-19 11:04:29.7280|TRACE|KarateIsere.DataAccess.KarateIsereContext|
+
+2014-10-19 11:04:29.7390|TRACE|KarateIsere.DataAccess.KarateIsereContext|-- Executing at 19/10/2014 11:04:29 +02:00
+
+2014-10-19 11:04:29.7710|TRACE|KarateIsere.DataAccess.KarateIsereContext|-- Completed in 24 ms with result: 9
+
+2014-10-19 11:04:29.7710|TRACE|KarateIsere.DataAccess.KarateIsereContext|
+
+2014-10-19 11:04:29.7710|TRACE|KarateIsere.DataAccess.KarateIsereContext|Closed connection at 19/10/2014 11:04:29 +02:00
+
+2014-10-19 11:04:29.7875|TRACE|KarateIsere.DataAccess.KarateIsereContext|Opened connection at 19/10/2014 11:04:29 +02:00
+
+2014-10-19 11:04:29.7875|TRACE|KarateIsere.DataAccess.KarateIsereContext|SELECT 
+    [GroupBy1].[A1] AS [C1]
+    FROM ( SELECT 
+        COUNT(1) AS [A1]
+        FROM [dbo].[__MigrationHistory] AS [Extent1]
+        WHERE [Extent1].[ContextKey] = @p__linq__0
+    )  AS [GroupBy1]
+2014-10-19 11:04:29.7875|TRACE|KarateIsere.DataAccess.KarateIsereContext|
+
+2014-10-19 11:04:29.8030|TRACE|KarateIsere.DataAccess.KarateIsereContext|-- p__linq__0: 'KarateIsere.DataAccess.KarateIsereContext' (Type = String, Size = 4000)
+
+2014-10-19 11:04:29.8030|TRACE|KarateIsere.DataAccess.KarateIsereContext|-- Executing at 19/10/2014 11:04:29 +02:00
+
+2014-10-19 11:04:29.8445|TRACE|KarateIsere.DataAccess.KarateIsereContext|-- Completed in 31 ms with result: SqlDataReader
+
+2014-10-19 11:04:29.8490|TRACE|KarateIsere.DataAccess.KarateIsereContext|
+
+2014-10-19 11:04:29.8490|TRACE|KarateIsere.DataAccess.KarateIsereContext|Closed connection at 19/10/2014 11:04:29 +02:00
+
+2014-10-19 11:04:29.8490|TRACE|KarateIsere.DataAccess.KarateIsereContext|Opened connection at 19/10/2014 11:04:29 +02:00
+
+2014-10-19 11:04:29.8645|TRACE|KarateIsere.DataAccess.KarateIsereContext|SELECT TOP (1) 
+    [Project1].[C1] AS [C1], 
+    [Project1].[MigrationId] AS [MigrationId], 
+    [Project1].[Model] AS [Model], 
+    [Project1].[ProductVersion] AS [ProductVersion]
+    FROM ( SELECT 
+        [Extent1].[MigrationId] AS [MigrationId], 
+        [Extent1].[Model] AS [Model], 
+        [Extent1].[ProductVersion] AS [ProductVersion], 
+        1 AS [C1]
+        FROM [dbo].[__MigrationHistory] AS [Extent1]
+        WHERE [Extent1].[ContextKey] = @p__linq__0
+    )  AS [Project1]
+    ORDER BY [Project1].[MigrationId] DESC
+2014-10-19 11:04:29.8645|TRACE|KarateIsere.DataAccess.KarateIsereContext|
+
+2014-10-19 11:04:29.8645|TRACE|KarateIsere.DataAccess.KarateIsereContext|-- p__linq__0: 'KarateIsere.DataAccess.KarateIsereContext' (Type = String, Size = 4000)
+
+2014-10-19 11:04:29.8645|TRACE|KarateIsere.DataAccess.KarateIsereContext|-- Executing at 19/10/2014 11:04:29 +02:00
+
+2014-10-19 11:04:29.9115|TRACE|KarateIsere.DataAccess.KarateIsereContext|-- Completed in 30 ms with result: SqlDataReader
+
+2014-10-19 11:04:29.9115|TRACE|KarateIsere.DataAccess.KarateIsereContext|
+
+2014-10-19 11:04:29.9115|TRACE|KarateIsere.DataAccess.KarateIsereContext|Closed connection at 19/10/2014 11:04:29 +02:00
+
+2014-10-19 11:04:30.6226|TRACE|KarateIsere.DataAccess.KarateIsereContext|Opened connection at 19/10/2014 11:04:30 +02:00
+
+2014-10-19 11:04:30.7461|TRACE|KarateIsere.DataAccess.KarateIsereContext|SELECT 
+    [Project2].[C1] AS [C1], 
+    [Project2].[NumAffiliation] AS [NumAffiliation], 
+    [Project2].[NomClub] AS [NomClub], 
+    [Project2].[Correspondant] AS [Correspondant], 
+    [Project2].[Telephone] AS [Telephone], 
+    [Project2].[Adr_Administrative] AS [Adr_Administrative], 
+    [Project2].[Adr_Dojo] AS [Adr_Dojo], 
+    [Project2].[Code_Postal] AS [Code_Postal], 
+    [Project2].[Ville] AS [Ville], 
+    [Project2].[Site_Web] AS [Site_Web], 
+    [Project2].[Facebook] AS [Facebook], 
+    [Project2].[President_Tel] AS [President_Tel], 
+    [Project2].[President_Nom] AS [President_Nom], 
+    [Project2].[President_Prenom] AS [President_Prenom], 
+    [Project2].[President_Email] AS [President_Email], 
+    [Project2].[President_Mobile] AS [President_Mobile], 
+    [Project2].[Tresorier_Tel] AS [Tresorier_Tel], 
+    [Project2].[Tresorier_Nom] AS [Tresorier_Nom], 
+    [Project2].[Tresorier_Prenom] AS [Tresorier_Prenom], 
+    [Project2].[Tresorier_Email] AS [Tresorier_Email], 
+    [Project2].[Tresorier_Mobile] AS [Tresorier_Mobile], 
+    [Project2].[Secretaire_Tel] AS [Secretaire_Tel], 
+    [Project2].[Secretaire_Nom] AS [Secretaire_Nom], 
+    [Project2].[Secretaire_Prenom] AS [Secretaire_Prenom], 
+    [Project2].[Secretaire_Email] AS [Secretaire_Email], 
+    [Project2].[Secretaire_Mobile] AS [Secretaire_Mobile], 
+    [Project2].[ArtMartialName] AS [ArtMartialName], 
+    [Project2].[Longitude] AS [Longitude], 
+    [Project2].[Latitude] AS [Latitude], 
+    [Project2].[C2] AS [C2], 
+    [Project2].[NumLicence] AS [NumLicence], 
+    [Project2].[Nom] AS [Nom], 
+    [Project2].[Prenom] AS [Prenom], 
+    [Project2].[Categorie] AS [Categorie], 
+    [Project2].[Poids] AS [Poids], 
+    [Project2].[isHomme] AS [isHomme], 
+    [Project2].[NumAffiliationClub] AS [NumAffiliationClub]
+    FROM ( SELECT 
+        [Limit1].[NumAffiliation] AS [NumAffiliation], 
+        [Limit1].[NomClub] AS [NomClub], 
+        [Limit1].[Correspondant] AS [Correspondant], 
+        [Limit1].[Telephone] AS [Telephone], 
+        [Limit1].[Adr_Administrative] AS [Adr_Administrative], 
+        [Limit1].[Adr_Dojo] AS [Adr_Dojo], 
+        [Limit1].[Code_Postal] AS [Code_Postal], 
+        [Limit1].[Ville] AS [Ville], 
+        [Limit1].[Site_Web] AS [Site_Web], 
+        [Limit1].[Facebook] AS [Facebook], 
+        [Limit1].[President_Tel] AS [President_Tel], 
+        [Limit1].[President_Nom] AS [President_Nom], 
+        [Limit1].[President_Prenom] AS [President_Prenom], 
+        [Limit1].[President_Email] AS [President_Email], 
+        [Limit1].[President_Mobile] AS [President_Mobile], 
+        [Limit1].[Tresorier_Tel] AS [Tresorier_Tel], 
+        [Limit1].[Tresorier_Nom] AS [Tresorier_Nom], 
+        [Limit1].[Tresorier_Prenom] AS [Tresorier_Prenom], 
+        [Limit1].[Tresorier_Email] AS [Tresorier_Email], 
+        [Limit1].[Tresorier_Mobile] AS [Tresorier_Mobile], 
+        [Limit1].[Secretaire_Tel] AS [Secretaire_Tel], 
+        [Limit1].[Secretaire_Nom] AS [Secretaire_Nom], 
+        [Limit1].[Secretaire_Prenom] AS [Secretaire_Prenom], 
+        [Limit1].[Secretaire_Email] AS [Secretaire_Email], 
+        [Limit1].[Secretaire_Mobile] AS [Secretaire_Mobile], 
+        [Limit1].[ArtMartialName] AS [ArtMartialName], 
+        [Limit1].[Longitude] AS [Longitude], 
+        [Limit1].[Latitude] AS [Latitude], 
+        [Limit1].[C1] AS [C1], 
+        [Extent2].[NumLicence] AS [NumLicence], 
+        [Extent2].[Nom] AS [Nom], 
+        [Extent2].[Prenom] AS [Prenom], 
+        [Extent2].[Categorie] AS [Categorie], 
+        [Extent2].[Poids] AS [Poids], 
+        [Extent2].[isHomme] AS [isHomme], 
+        [Extent2].[NumAffiliationClub] AS [NumAffiliationClub], 
+        CASE WHEN ([Extent2].[NumLicence] IS NULL) THEN CAST(NULL AS int) ELSE 1 END AS [C2]
+        FROM   (SELECT TOP (2) 
+            [Extent1].[NumAffiliation] AS [NumAffiliation], 
+            [Extent1].[NomClub] AS [NomClub], 
+            [Extent1].[Correspondant] AS [Correspondant], 
+            [Extent1].[Telephone] AS [Telephone], 
+            [Extent1].[Adr_Administrative] AS [Adr_Administrative], 
+            [Extent1].[Adr_Dojo] AS [Adr_Dojo], 
+            [Extent1].[Code_Postal] AS [Code_Postal], 
+            [Extent1].[Ville] AS [Ville], 
+            [Extent1].[Site_Web] AS [Site_Web], 
+            [Extent1].[Facebook] AS [Facebook], 
+            [Extent1].[President_Tel] AS [President_Tel], 
+            [Extent1].[President_Nom] AS [President_Nom], 
+            [Extent1].[President_Prenom] AS [President_Prenom], 
+            [Extent1].[President_Email] AS [President_Email], 
+            [Extent1].[President_Mobile] AS [President_Mobile], 
+            [Extent1].[Tresorier_Tel] AS [Tresorier_Tel], 
+            [Extent1].[Tresorier_Nom] AS [Tresorier_Nom], 
+            [Extent1].[Tresorier_Prenom] AS [Tresorier_Prenom], 
+            [Extent1].[Tresorier_Email] AS [Tresorier_Email], 
+            [Extent1].[Tresorier_Mobile] AS [Tresorier_Mobile], 
+            [Extent1].[Secretaire_Tel] AS [Secretaire_Tel], 
+            [Extent1].[Secretaire_Nom] AS [Secretaire_Nom], 
+            [Extent1].[Secretaire_Prenom] AS [Secretaire_Prenom], 
+            [Extent1].[Secretaire_Email] AS [Secretaire_Email], 
+            [Extent1].[Secretaire_Mobile] AS [Secretaire_Mobile], 
+            [Extent1].[ArtMartialName] AS [ArtMartialName], 
+            [Extent1].[Longitude] AS [Longitude], 
+            [Extent1].[Latitude] AS [Latitude], 
+            1 AS [C1]
+            FROM [dbo].[Club] AS [Extent1]
+            WHERE [Extent1].[NumAffiliation] = @p__linq__0 ) AS [Limit1]
+        LEFT OUTER JOIN [dbo].[Competiteur] AS [Extent2] ON [Limit1].[NumAffiliation] = [Extent2].[NumAffiliationClub]
+    )  AS [Project2]
+    ORDER BY [Project2].[NumAffiliation] ASC, [Project2].[C2] ASC
+2014-10-19 11:04:30.7461|TRACE|KarateIsere.DataAccess.KarateIsereContext|
+
+2014-10-19 11:04:30.7556|TRACE|KarateIsere.DataAccess.KarateIsereContext|-- p__linq__0: '987654' (Type = AnsiString, Size = 8000)
+
+2014-10-19 11:04:30.7556|TRACE|KarateIsere.DataAccess.KarateIsereContext|-- Executing at 19/10/2014 11:04:30 +02:00
+
+2014-10-19 11:04:30.7921|TRACE|KarateIsere.DataAccess.KarateIsereContext|-- Completed in 28 ms with result: SqlDataReader
+
+2014-10-19 11:04:30.7921|TRACE|KarateIsere.DataAccess.KarateIsereContext|
+
+2014-10-19 11:04:30.8006|TRACE|KarateIsere.DataAccess.KarateIsereContext|Closed connection at 19/10/2014 11:04:30 +02:00
+
+2014-10-19 11:04:30.8151|TRACE|KarateIsere.DataAccess.KarateIsereContext|Opened connection at 19/10/2014 11:04:30 +02:00
+
+2014-10-19 11:04:30.8426|TRACE|KarateIsere.DataAccess.KarateIsereContext|SELECT 
+    [Extent1].[Nom] AS [Nom]
+    FROM [dbo].[Categorie] AS [Extent1]
+2014-10-19 11:04:30.8471|TRACE|KarateIsere.DataAccess.KarateIsereContext|
+
+2014-10-19 11:04:30.8471|TRACE|KarateIsere.DataAccess.KarateIsereContext|-- Executing at 19/10/2014 11:04:30 +02:00
+
+2014-10-19 11:04:30.8811|TRACE|KarateIsere.DataAccess.KarateIsereContext|-- Completed in 25 ms with result: SqlDataReader
+
+2014-10-19 11:04:30.8811|TRACE|KarateIsere.DataAccess.KarateIsereContext|
+
+2014-10-19 11:04:30.8961|TRACE|KarateIsere.DataAccess.KarateIsereContext|Closed connection at 19/10/2014 11:04:30 +02:00
+
+2014-10-19 11:05:27.3218|TRACE|KarateIsere.DataAccess.KarateIsereContext|Opened connection at 19/10/2014 11:05:27 +02:00
+
+2014-10-19 11:05:27.3378|TRACE|KarateIsere.DataAccess.KarateIsereContext|
+SELECT Count(*)
+FROM INFORMATION_SCHEMA.TABLES AS t
+WHERE t.TABLE_SCHEMA + '.' + t.TABLE_NAME IN ('dbo.Adherents','dbo.Admin','dbo.Art_Martial','dbo.Categorie','dbo.Competiteur','dbo.Club','dbo.ListeCompetiteur','dbo.Professeurs','dbo.Competition','dbo.Inscriptions','dbo.Creneaux','dbo.Club_Professeur','dbo.CompetitionCategories')
+    OR t.TABLE_NAME = 'EdmMetadata'
+2014-10-19 11:05:27.3528|TRACE|KarateIsere.DataAccess.KarateIsereContext|
+
+2014-10-19 11:05:27.3528|TRACE|KarateIsere.DataAccess.KarateIsereContext|-- Executing at 19/10/2014 11:05:27 +02:00
+
+2014-10-19 11:05:27.3888|TRACE|KarateIsere.DataAccess.KarateIsereContext|-- Completed in 24 ms with result: 9
+
+2014-10-19 11:05:27.3888|TRACE|KarateIsere.DataAccess.KarateIsereContext|
+
+2014-10-19 11:05:27.3973|TRACE|KarateIsere.DataAccess.KarateIsereContext|Closed connection at 19/10/2014 11:05:27 +02:00
+
+2014-10-19 11:05:27.3973|TRACE|KarateIsere.DataAccess.KarateIsereContext|Opened connection at 19/10/2014 11:05:27 +02:00
+
+2014-10-19 11:05:27.3973|TRACE|KarateIsere.DataAccess.KarateIsereContext|SELECT 
+    [GroupBy1].[A1] AS [C1]
+    FROM ( SELECT 
+        COUNT(1) AS [A1]
+        FROM [dbo].[__MigrationHistory] AS [Extent1]
+        WHERE [Extent1].[ContextKey] = @p__linq__0
+    )  AS [GroupBy1]
+2014-10-19 11:05:27.4153|TRACE|KarateIsere.DataAccess.KarateIsereContext|
+
+2014-10-19 11:05:27.4153|TRACE|KarateIsere.DataAccess.KarateIsereContext|-- p__linq__0: 'KarateIsere.DataAccess.KarateIsereContext' (Type = String, Size = 4000)
+
+2014-10-19 11:05:27.4153|TRACE|KarateIsere.DataAccess.KarateIsereContext|-- Executing at 19/10/2014 11:05:27 +02:00
+
+2014-10-19 11:05:27.4658|TRACE|KarateIsere.DataAccess.KarateIsereContext|-- Completed in 34 ms with result: SqlDataReader
+
+2014-10-19 11:05:27.4658|TRACE|KarateIsere.DataAccess.KarateIsereContext|
+
+2014-10-19 11:05:27.4743|TRACE|KarateIsere.DataAccess.KarateIsereContext|Closed connection at 19/10/2014 11:05:27 +02:00
+
+2014-10-19 11:05:27.4743|TRACE|KarateIsere.DataAccess.KarateIsereContext|Opened connection at 19/10/2014 11:05:27 +02:00
+
+2014-10-19 11:05:27.4743|TRACE|KarateIsere.DataAccess.KarateIsereContext|SELECT TOP (1) 
+    [Project1].[C1] AS [C1], 
+    [Project1].[MigrationId] AS [MigrationId], 
+    [Project1].[Model] AS [Model], 
+    [Project1].[ProductVersion] AS [ProductVersion]
+    FROM ( SELECT 
+        [Extent1].[MigrationId] AS [MigrationId], 
+        [Extent1].[Model] AS [Model], 
+        [Extent1].[ProductVersion] AS [ProductVersion], 
+        1 AS [C1]
+        FROM [dbo].[__MigrationHistory] AS [Extent1]
+        WHERE [Extent1].[ContextKey] = @p__linq__0
+    )  AS [Project1]
+    ORDER BY [Project1].[MigrationId] DESC
+2014-10-19 11:05:27.4898|TRACE|KarateIsere.DataAccess.KarateIsereContext|
+
+2014-10-19 11:05:27.4898|TRACE|KarateIsere.DataAccess.KarateIsereContext|-- p__linq__0: 'KarateIsere.DataAccess.KarateIsereContext' (Type = String, Size = 4000)
+
+2014-10-19 11:05:27.4898|TRACE|KarateIsere.DataAccess.KarateIsereContext|-- Executing at 19/10/2014 11:05:27 +02:00
+
+2014-10-19 11:05:27.5328|TRACE|KarateIsere.DataAccess.KarateIsereContext|-- Completed in 31 ms with result: SqlDataReader
+
+2014-10-19 11:05:27.5373|TRACE|KarateIsere.DataAccess.KarateIsereContext|
+
+2014-10-19 11:05:27.5373|TRACE|KarateIsere.DataAccess.KarateIsereContext|Closed connection at 19/10/2014 11:05:27 +02:00
+
+2014-10-19 11:05:28.2334|TRACE|KarateIsere.DataAccess.KarateIsereContext|Opened connection at 19/10/2014 11:05:28 +02:00
+
+2014-10-19 11:05:28.3574|TRACE|KarateIsere.DataAccess.KarateIsereContext|SELECT 
+    [Project2].[C1] AS [C1], 
+    [Project2].[NumAffiliation] AS [NumAffiliation], 
+    [Project2].[NomClub] AS [NomClub], 
+    [Project2].[Correspondant] AS [Correspondant], 
+    [Project2].[Telephone] AS [Telephone], 
+    [Project2].[Adr_Administrative] AS [Adr_Administrative], 
+    [Project2].[Adr_Dojo] AS [Adr_Dojo], 
+    [Project2].[Code_Postal] AS [Code_Postal], 
+    [Project2].[Ville] AS [Ville], 
+    [Project2].[Site_Web] AS [Site_Web], 
+    [Project2].[Facebook] AS [Facebook], 
+    [Project2].[President_Tel] AS [President_Tel], 
+    [Project2].[President_Nom] AS [President_Nom], 
+    [Project2].[President_Prenom] AS [President_Prenom], 
+    [Project2].[President_Email] AS [President_Email], 
+    [Project2].[President_Mobile] AS [President_Mobile], 
+    [Project2].[Tresorier_Tel] AS [Tresorier_Tel], 
+    [Project2].[Tresorier_Nom] AS [Tresorier_Nom], 
+    [Project2].[Tresorier_Prenom] AS [Tresorier_Prenom], 
+    [Project2].[Tresorier_Email] AS [Tresorier_Email], 
+    [Project2].[Tresorier_Mobile] AS [Tresorier_Mobile], 
+    [Project2].[Secretaire_Tel] AS [Secretaire_Tel], 
+    [Project2].[Secretaire_Nom] AS [Secretaire_Nom], 
+    [Project2].[Secretaire_Prenom] AS [Secretaire_Prenom], 
+    [Project2].[Secretaire_Email] AS [Secretaire_Email], 
+    [Project2].[Secretaire_Mobile] AS [Secretaire_Mobile], 
+    [Project2].[ArtMartialName] AS [ArtMartialName], 
+    [Project2].[Longitude] AS [Longitude], 
+    [Project2].[Latitude] AS [Latitude], 
+    [Project2].[C2] AS [C2], 
+    [Project2].[NumLicence] AS [NumLicence], 
+    [Project2].[Nom] AS [Nom], 
+    [Project2].[Prenom] AS [Prenom], 
+    [Project2].[Categorie] AS [Categorie], 
+    [Project2].[Poids] AS [Poids], 
+    [Project2].[isHomme] AS [isHomme], 
+    [Project2].[NumAffiliationClub] AS [NumAffiliationClub]
+    FROM ( SELECT 
+        [Limit1].[NumAffiliation] AS [NumAffiliation], 
+        [Limit1].[NomClub] AS [NomClub], 
+        [Limit1].[Correspondant] AS [Correspondant], 
+        [Limit1].[Telephone] AS [Telephone], 
+        [Limit1].[Adr_Administrative] AS [Adr_Administrative], 
+        [Limit1].[Adr_Dojo] AS [Adr_Dojo], 
+        [Limit1].[Code_Postal] AS [Code_Postal], 
+        [Limit1].[Ville] AS [Ville], 
+        [Limit1].[Site_Web] AS [Site_Web], 
+        [Limit1].[Facebook] AS [Facebook], 
+        [Limit1].[President_Tel] AS [President_Tel], 
+        [Limit1].[President_Nom] AS [President_Nom], 
+        [Limit1].[President_Prenom] AS [President_Prenom], 
+        [Limit1].[President_Email] AS [President_Email], 
+        [Limit1].[President_Mobile] AS [President_Mobile], 
+        [Limit1].[Tresorier_Tel] AS [Tresorier_Tel], 
+        [Limit1].[Tresorier_Nom] AS [Tresorier_Nom], 
+        [Limit1].[Tresorier_Prenom] AS [Tresorier_Prenom], 
+        [Limit1].[Tresorier_Email] AS [Tresorier_Email], 
+        [Limit1].[Tresorier_Mobile] AS [Tresorier_Mobile], 
+        [Limit1].[Secretaire_Tel] AS [Secretaire_Tel], 
+        [Limit1].[Secretaire_Nom] AS [Secretaire_Nom], 
+        [Limit1].[Secretaire_Prenom] AS [Secretaire_Prenom], 
+        [Limit1].[Secretaire_Email] AS [Secretaire_Email], 
+        [Limit1].[Secretaire_Mobile] AS [Secretaire_Mobile], 
+        [Limit1].[ArtMartialName] AS [ArtMartialName], 
+        [Limit1].[Longitude] AS [Longitude], 
+        [Limit1].[Latitude] AS [Latitude], 
+        [Limit1].[C1] AS [C1], 
+        [Extent2].[NumLicence] AS [NumLicence], 
+        [Extent2].[Nom] AS [Nom], 
+        [Extent2].[Prenom] AS [Prenom], 
+        [Extent2].[Categorie] AS [Categorie], 
+        [Extent2].[Poids] AS [Poids], 
+        [Extent2].[isHomme] AS [isHomme], 
+        [Extent2].[NumAffiliationClub] AS [NumAffiliationClub], 
+        CASE WHEN ([Extent2].[NumLicence] IS NULL) THEN CAST(NULL AS int) ELSE 1 END AS [C2]
+        FROM   (SELECT TOP (2) 
+            [Extent1].[NumAffiliation] AS [NumAffiliation], 
+            [Extent1].[NomClub] AS [NomClub], 
+            [Extent1].[Correspondant] AS [Correspondant], 
+            [Extent1].[Telephone] AS [Telephone], 
+            [Extent1].[Adr_Administrative] AS [Adr_Administrative], 
+            [Extent1].[Adr_Dojo] AS [Adr_Dojo], 
+            [Extent1].[Code_Postal] AS [Code_Postal], 
+            [Extent1].[Ville] AS [Ville], 
+            [Extent1].[Site_Web] AS [Site_Web], 
+            [Extent1].[Facebook] AS [Facebook], 
+            [Extent1].[President_Tel] AS [President_Tel], 
+            [Extent1].[President_Nom] AS [President_Nom], 
+            [Extent1].[President_Prenom] AS [President_Prenom], 
+            [Extent1].[President_Email] AS [President_Email], 
+            [Extent1].[President_Mobile] AS [President_Mobile], 
+            [Extent1].[Tresorier_Tel] AS [Tresorier_Tel], 
+            [Extent1].[Tresorier_Nom] AS [Tresorier_Nom], 
+            [Extent1].[Tresorier_Prenom] AS [Tresorier_Prenom], 
+            [Extent1].[Tresorier_Email] AS [Tresorier_Email], 
+            [Extent1].[Tresorier_Mobile] AS [Tresorier_Mobile], 
+            [Extent1].[Secretaire_Tel] AS [Secretaire_Tel], 
+            [Extent1].[Secretaire_Nom] AS [Secretaire_Nom], 
+            [Extent1].[Secretaire_Prenom] AS [Secretaire_Prenom], 
+            [Extent1].[Secretaire_Email] AS [Secretaire_Email], 
+            [Extent1].[Secretaire_Mobile] AS [Secretaire_Mobile], 
+            [Extent1].[ArtMartialName] AS [ArtMartialName], 
+            [Extent1].[Longitude] AS [Longitude], 
+            [Extent1].[Latitude] AS [Latitude], 
+            1 AS [C1]
+            FROM [dbo].[Club] AS [Extent1]
+            WHERE [Extent1].[NumAffiliation] = @p__linq__0 ) AS [Limit1]
+        LEFT OUTER JOIN [dbo].[Competiteur] AS [Extent2] ON [Limit1].[NumAffiliation] = [Extent2].[NumAffiliationClub]
+    )  AS [Project2]
+    ORDER BY [Project2].[NumAffiliation] ASC, [Project2].[C2] ASC
+2014-10-19 11:05:28.3574|TRACE|KarateIsere.DataAccess.KarateIsereContext|
+
+2014-10-19 11:05:28.3664|TRACE|KarateIsere.DataAccess.KarateIsereContext|-- p__linq__0: '987654' (Type = AnsiString, Size = 8000)
+
+2014-10-19 11:05:28.3664|TRACE|KarateIsere.DataAccess.KarateIsereContext|-- Executing at 19/10/2014 11:05:28 +02:00
+
+2014-10-19 11:05:28.4054|TRACE|KarateIsere.DataAccess.KarateIsereContext|-- Completed in 29 ms with result: SqlDataReader
+
+2014-10-19 11:05:28.4054|TRACE|KarateIsere.DataAccess.KarateIsereContext|
+
+2014-10-19 11:05:28.4144|TRACE|KarateIsere.DataAccess.KarateIsereContext|Closed connection at 19/10/2014 11:05:28 +02:00
+
+2014-10-19 11:05:28.4294|TRACE|KarateIsere.DataAccess.KarateIsereContext|Opened connection at 19/10/2014 11:05:28 +02:00
+
+2014-10-19 11:05:28.4574|TRACE|KarateIsere.DataAccess.KarateIsereContext|SELECT 
+    [Extent1].[Nom] AS [Nom]
+    FROM [dbo].[Categorie] AS [Extent1]
+2014-10-19 11:05:28.4574|TRACE|KarateIsere.DataAccess.KarateIsereContext|
+
+2014-10-19 11:05:28.4574|TRACE|KarateIsere.DataAccess.KarateIsereContext|-- Executing at 19/10/2014 11:05:28 +02:00
+
+2014-10-19 11:05:28.4994|TRACE|KarateIsere.DataAccess.KarateIsereContext|-- Completed in 28 ms with result: SqlDataReader
+
+2014-10-19 11:05:28.5039|TRACE|KarateIsere.DataAccess.KarateIsereContext|
+
+2014-10-19 11:05:28.5039|TRACE|KarateIsere.DataAccess.KarateIsereContext|Closed connection at 19/10/2014 11:05:28 +02:00
+
+2014-10-19 18:16:45.6099|TRACE|KarateIsere.DataAccess.KarateIsereContext|Opened connection at 19/10/2014 18:16:45 +02:00
+
+2014-10-19 18:16:46.0020|TRACE|KarateIsere.DataAccess.KarateIsereContext|
+SELECT Count(*)
+FROM INFORMATION_SCHEMA.TABLES AS t
+WHERE t.TABLE_SCHEMA + '.' + t.TABLE_NAME IN ('dbo.Adherents','dbo.Admin','dbo.Art_Martial','dbo.Categorie','dbo.Competiteur','dbo.Club','dbo.ListeCompetiteur','dbo.Professeurs','dbo.Competition','dbo.Inscriptions','dbo.Creneaux','dbo.Club_Professeur','dbo.CompetitionCategories')
+    OR t.TABLE_NAME = 'EdmMetadata'
+2014-10-19 18:16:46.0020|TRACE|KarateIsere.DataAccess.KarateIsereContext|
+
+2014-10-19 18:16:46.0135|TRACE|KarateIsere.DataAccess.KarateIsereContext|-- Executing at 19/10/2014 18:16:46 +02:00
+
+2014-10-19 18:16:46.0460|TRACE|KarateIsere.DataAccess.KarateIsereContext|-- Completed in 25 ms with result: 9
+
+2014-10-19 18:16:46.0460|TRACE|KarateIsere.DataAccess.KarateIsereContext|
+
+2014-10-19 18:16:46.0460|TRACE|KarateIsere.DataAccess.KarateIsereContext|Closed connection at 19/10/2014 18:16:46 +02:00
+
+2014-10-19 18:16:46.0605|TRACE|KarateIsere.DataAccess.KarateIsereContext|Opened connection at 19/10/2014 18:16:46 +02:00
+
+2014-10-19 18:16:46.0605|TRACE|KarateIsere.DataAccess.KarateIsereContext|SELECT 
+    [GroupBy1].[A1] AS [C1]
+    FROM ( SELECT 
+        COUNT(1) AS [A1]
+        FROM [dbo].[__MigrationHistory] AS [Extent1]
+        WHERE [Extent1].[ContextKey] = @p__linq__0
+    )  AS [GroupBy1]
+2014-10-19 18:16:46.0605|TRACE|KarateIsere.DataAccess.KarateIsereContext|
+
+2014-10-19 18:16:46.0770|TRACE|KarateIsere.DataAccess.KarateIsereContext|-- p__linq__0: 'KarateIsere.DataAccess.KarateIsereContext' (Type = String, Size = 4000)
+
+2014-10-19 18:16:46.0770|TRACE|KarateIsere.DataAccess.KarateIsereContext|-- Executing at 19/10/2014 18:16:46 +02:00
+
+2014-10-19 18:16:46.1180|TRACE|KarateIsere.DataAccess.KarateIsereContext|-- Completed in 30 ms with result: SqlDataReader
+
+2014-10-19 18:16:46.1225|TRACE|KarateIsere.DataAccess.KarateIsereContext|
+
+2014-10-19 18:16:46.1225|TRACE|KarateIsere.DataAccess.KarateIsereContext|Closed connection at 19/10/2014 18:16:46 +02:00
+
+2014-10-19 18:16:46.1225|TRACE|KarateIsere.DataAccess.KarateIsereContext|Opened connection at 19/10/2014 18:16:46 +02:00
+
+2014-10-19 18:16:46.1375|TRACE|KarateIsere.DataAccess.KarateIsereContext|SELECT TOP (1) 
+    [Project1].[C1] AS [C1], 
+    [Project1].[MigrationId] AS [MigrationId], 
+    [Project1].[Model] AS [Model], 
+    [Project1].[ProductVersion] AS [ProductVersion]
+    FROM ( SELECT 
+        [Extent1].[MigrationId] AS [MigrationId], 
+        [Extent1].[Model] AS [Model], 
+        [Extent1].[ProductVersion] AS [ProductVersion], 
+        1 AS [C1]
+        FROM [dbo].[__MigrationHistory] AS [Extent1]
+        WHERE [Extent1].[ContextKey] = @p__linq__0
+    )  AS [Project1]
+    ORDER BY [Project1].[MigrationId] DESC
+2014-10-19 18:16:46.1375|TRACE|KarateIsere.DataAccess.KarateIsereContext|
+
+2014-10-19 18:16:46.1375|TRACE|KarateIsere.DataAccess.KarateIsereContext|-- p__linq__0: 'KarateIsere.DataAccess.KarateIsereContext' (Type = String, Size = 4000)
+
+2014-10-19 18:16:46.1375|TRACE|KarateIsere.DataAccess.KarateIsereContext|-- Executing at 19/10/2014 18:16:46 +02:00
+
+2014-10-19 18:16:46.1885|TRACE|KarateIsere.DataAccess.KarateIsereContext|-- Completed in 34 ms with result: SqlDataReader
+
+2014-10-19 18:16:46.1885|TRACE|KarateIsere.DataAccess.KarateIsereContext|
+
+2014-10-19 18:16:46.1885|TRACE|KarateIsere.DataAccess.KarateIsereContext|Closed connection at 19/10/2014 18:16:46 +02:00
+
+2014-10-19 18:16:46.8821|TRACE|KarateIsere.DataAccess.KarateIsereContext|Opened connection at 19/10/2014 18:16:46 +02:00
+
+2014-10-19 18:16:47.0161|TRACE|KarateIsere.DataAccess.KarateIsereContext|SELECT 
+    [Project2].[C1] AS [C1], 
+    [Project2].[NumAffiliation] AS [NumAffiliation], 
+    [Project2].[NomClub] AS [NomClub], 
+    [Project2].[Correspondant] AS [Correspondant], 
+    [Project2].[Telephone] AS [Telephone], 
+    [Project2].[Adr_Administrative] AS [Adr_Administrative], 
+    [Project2].[Adr_Dojo] AS [Adr_Dojo], 
+    [Project2].[Code_Postal] AS [Code_Postal], 
+    [Project2].[Ville] AS [Ville], 
+    [Project2].[Site_Web] AS [Site_Web], 
+    [Project2].[Facebook] AS [Facebook], 
+    [Project2].[President_Tel] AS [President_Tel], 
+    [Project2].[President_Nom] AS [President_Nom], 
+    [Project2].[President_Prenom] AS [President_Prenom], 
+    [Project2].[President_Email] AS [President_Email], 
+    [Project2].[President_Mobile] AS [President_Mobile], 
+    [Project2].[Tresorier_Tel] AS [Tresorier_Tel], 
+    [Project2].[Tresorier_Nom] AS [Tresorier_Nom], 
+    [Project2].[Tresorier_Prenom] AS [Tresorier_Prenom], 
+    [Project2].[Tresorier_Email] AS [Tresorier_Email], 
+    [Project2].[Tresorier_Mobile] AS [Tresorier_Mobile], 
+    [Project2].[Secretaire_Tel] AS [Secretaire_Tel], 
+    [Project2].[Secretaire_Nom] AS [Secretaire_Nom], 
+    [Project2].[Secretaire_Prenom] AS [Secretaire_Prenom], 
+    [Project2].[Secretaire_Email] AS [Secretaire_Email], 
+    [Project2].[Secretaire_Mobile] AS [Secretaire_Mobile], 
+    [Project2].[ArtMartialName] AS [ArtMartialName], 
+    [Project2].[Longitude] AS [Longitude], 
+    [Project2].[Latitude] AS [Latitude], 
+    [Project2].[C2] AS [C2], 
+    [Project2].[NumLicence] AS [NumLicence], 
+    [Project2].[Nom] AS [Nom], 
+    [Project2].[Prenom] AS [Prenom], 
+    [Project2].[Categorie] AS [Categorie], 
+    [Project2].[Poids] AS [Poids], 
+    [Project2].[isHomme] AS [isHomme], 
+    [Project2].[NumAffiliationClub] AS [NumAffiliationClub]
+    FROM ( SELECT 
+        [Limit1].[NumAffiliation] AS [NumAffiliation], 
+        [Limit1].[NomClub] AS [NomClub], 
+        [Limit1].[Correspondant] AS [Correspondant], 
+        [Limit1].[Telephone] AS [Telephone], 
+        [Limit1].[Adr_Administrative] AS [Adr_Administrative], 
+        [Limit1].[Adr_Dojo] AS [Adr_Dojo], 
+        [Limit1].[Code_Postal] AS [Code_Postal], 
+        [Limit1].[Ville] AS [Ville], 
+        [Limit1].[Site_Web] AS [Site_Web], 
+        [Limit1].[Facebook] AS [Facebook], 
+        [Limit1].[President_Tel] AS [President_Tel], 
+        [Limit1].[President_Nom] AS [President_Nom], 
+        [Limit1].[President_Prenom] AS [President_Prenom], 
+        [Limit1].[President_Email] AS [President_Email], 
+        [Limit1].[President_Mobile] AS [President_Mobile], 
+        [Limit1].[Tresorier_Tel] AS [Tresorier_Tel], 
+        [Limit1].[Tresorier_Nom] AS [Tresorier_Nom], 
+        [Limit1].[Tresorier_Prenom] AS [Tresorier_Prenom], 
+        [Limit1].[Tresorier_Email] AS [Tresorier_Email], 
+        [Limit1].[Tresorier_Mobile] AS [Tresorier_Mobile], 
+        [Limit1].[Secretaire_Tel] AS [Secretaire_Tel], 
+        [Limit1].[Secretaire_Nom] AS [Secretaire_Nom], 
+        [Limit1].[Secretaire_Prenom] AS [Secretaire_Prenom], 
+        [Limit1].[Secretaire_Email] AS [Secretaire_Email], 
+        [Limit1].[Secretaire_Mobile] AS [Secretaire_Mobile], 
+        [Limit1].[ArtMartialName] AS [ArtMartialName], 
+        [Limit1].[Longitude] AS [Longitude], 
+        [Limit1].[Latitude] AS [Latitude], 
+        [Limit1].[C1] AS [C1], 
+        [Extent2].[NumLicence] AS [NumLicence], 
+        [Extent2].[Nom] AS [Nom], 
+        [Extent2].[Prenom] AS [Prenom], 
+        [Extent2].[Categorie] AS [Categorie], 
+        [Extent2].[Poids] AS [Poids], 
+        [Extent2].[isHomme] AS [isHomme], 
+        [Extent2].[NumAffiliationClub] AS [NumAffiliationClub], 
+        CASE WHEN ([Extent2].[NumLicence] IS NULL) THEN CAST(NULL AS int) ELSE 1 END AS [C2]
+        FROM   (SELECT TOP (2) 
+            [Extent1].[NumAffiliation] AS [NumAffiliation], 
+            [Extent1].[NomClub] AS [NomClub], 
+            [Extent1].[Correspondant] AS [Correspondant], 
+            [Extent1].[Telephone] AS [Telephone], 
+            [Extent1].[Adr_Administrative] AS [Adr_Administrative], 
+            [Extent1].[Adr_Dojo] AS [Adr_Dojo], 
+            [Extent1].[Code_Postal] AS [Code_Postal], 
+            [Extent1].[Ville] AS [Ville], 
+            [Extent1].[Site_Web] AS [Site_Web], 
+            [Extent1].[Facebook] AS [Facebook], 
+            [Extent1].[President_Tel] AS [President_Tel], 
+            [Extent1].[President_Nom] AS [President_Nom], 
+            [Extent1].[President_Prenom] AS [President_Prenom], 
+            [Extent1].[President_Email] AS [President_Email], 
+            [Extent1].[President_Mobile] AS [President_Mobile], 
+            [Extent1].[Tresorier_Tel] AS [Tresorier_Tel], 
+            [Extent1].[Tresorier_Nom] AS [Tresorier_Nom], 
+            [Extent1].[Tresorier_Prenom] AS [Tresorier_Prenom], 
+            [Extent1].[Tresorier_Email] AS [Tresorier_Email], 
+            [Extent1].[Tresorier_Mobile] AS [Tresorier_Mobile], 
+            [Extent1].[Secretaire_Tel] AS [Secretaire_Tel], 
+            [Extent1].[Secretaire_Nom] AS [Secretaire_Nom], 
+            [Extent1].[Secretaire_Prenom] AS [Secretaire_Prenom], 
+            [Extent1].[Secretaire_Email] AS [Secretaire_Email], 
+            [Extent1].[Secretaire_Mobile] AS [Secretaire_Mobile], 
+            [Extent1].[ArtMartialName] AS [ArtMartialName], 
+            [Extent1].[Longitude] AS [Longitude], 
+            [Extent1].[Latitude] AS [Latitude], 
+            1 AS [C1]
+            FROM [dbo].[Club] AS [Extent1]
+            WHERE [Extent1].[NumAffiliation] = @p__linq__0 ) AS [Limit1]
+        LEFT OUTER JOIN [dbo].[Competiteur] AS [Extent2] ON [Limit1].[NumAffiliation] = [Extent2].[NumAffiliationClub]
+    )  AS [Project2]
+    ORDER BY [Project2].[NumAffiliation] ASC, [Project2].[C2] ASC
+2014-10-19 18:16:47.0161|TRACE|KarateIsere.DataAccess.KarateIsereContext|
+
+2014-10-19 18:16:47.0161|TRACE|KarateIsere.DataAccess.KarateIsereContext|-- p__linq__0: '987654' (Type = AnsiString, Size = 8000)
+
+2014-10-19 18:16:47.0311|TRACE|KarateIsere.DataAccess.KarateIsereContext|-- Executing at 19/10/2014 18:16:47 +02:00
+
+2014-10-19 18:16:47.0646|TRACE|KarateIsere.DataAccess.KarateIsereContext|-- Completed in 28 ms with result: SqlDataReader
+
+2014-10-19 18:16:47.0646|TRACE|KarateIsere.DataAccess.KarateIsereContext|
+
+2014-10-19 18:16:47.0741|TRACE|KarateIsere.DataAccess.KarateIsereContext|Closed connection at 19/10/2014 18:16:47 +02:00
+
+2014-10-19 18:16:47.0891|TRACE|KarateIsere.DataAccess.KarateIsereContext|Opened connection at 19/10/2014 18:16:47 +02:00
+
+2014-10-19 18:16:47.1176|TRACE|KarateIsere.DataAccess.KarateIsereContext|SELECT 
+    [Extent1].[Nom] AS [Nom]
+    FROM [dbo].[Categorie] AS [Extent1]
+2014-10-19 18:16:47.1226|TRACE|KarateIsere.DataAccess.KarateIsereContext|
+
+2014-10-19 18:16:47.1226|TRACE|KarateIsere.DataAccess.KarateIsereContext|-- Executing at 19/10/2014 18:16:47 +02:00
+
+2014-10-19 18:16:47.1581|TRACE|KarateIsere.DataAccess.KarateIsereContext|-- Completed in 26 ms with result: SqlDataReader
+
+2014-10-19 18:16:47.1581|TRACE|KarateIsere.DataAccess.KarateIsereContext|
+
+2014-10-19 18:16:47.1666|TRACE|KarateIsere.DataAccess.KarateIsereContext|Closed connection at 19/10/2014 18:16:47 +02:00
+
+2014-10-19 18:17:26.6936|TRACE|KarateIsere.DataAccess.KarateIsereContext|Opened connection at 19/10/2014 18:17:26 +02:00
+
+2014-10-19 18:17:26.6986|TRACE|KarateIsere.DataAccess.KarateIsereContext|SELECT 
+    [Project2].[C1] AS [C1], 
+    [Project2].[NumAffiliation] AS [NumAffiliation], 
+    [Project2].[NomClub] AS [NomClub], 
+    [Project2].[Correspondant] AS [Correspondant], 
+    [Project2].[Telephone] AS [Telephone], 
+    [Project2].[Adr_Administrative] AS [Adr_Administrative], 
+    [Project2].[Adr_Dojo] AS [Adr_Dojo], 
+    [Project2].[Code_Postal] AS [Code_Postal], 
+    [Project2].[Ville] AS [Ville], 
+    [Project2].[Site_Web] AS [Site_Web], 
+    [Project2].[Facebook] AS [Facebook], 
+    [Project2].[President_Tel] AS [President_Tel], 
+    [Project2].[President_Nom] AS [President_Nom], 
+    [Project2].[President_Prenom] AS [President_Prenom], 
+    [Project2].[President_Email] AS [President_Email], 
+    [Project2].[President_Mobile] AS [President_Mobile], 
+    [Project2].[Tresorier_Tel] AS [Tresorier_Tel], 
+    [Project2].[Tresorier_Nom] AS [Tresorier_Nom], 
+    [Project2].[Tresorier_Prenom] AS [Tresorier_Prenom], 
+    [Project2].[Tresorier_Email] AS [Tresorier_Email], 
+    [Project2].[Tresorier_Mobile] AS [Tresorier_Mobile], 
+    [Project2].[Secretaire_Tel] AS [Secretaire_Tel], 
+    [Project2].[Secretaire_Nom] AS [Secretaire_Nom], 
+    [Project2].[Secretaire_Prenom] AS [Secretaire_Prenom], 
+    [Project2].[Secretaire_Email] AS [Secretaire_Email], 
+    [Project2].[Secretaire_Mobile] AS [Secretaire_Mobile], 
+    [Project2].[ArtMartialName] AS [ArtMartialName], 
+    [Project2].[Longitude] AS [Longitude], 
+    [Project2].[Latitude] AS [Latitude], 
+    [Project2].[C2] AS [C2], 
+    [Project2].[NumLicence] AS [NumLicence], 
+    [Project2].[Nom] AS [Nom], 
+    [Project2].[Prenom] AS [Prenom], 
+    [Project2].[Categorie] AS [Categorie], 
+    [Project2].[Poids] AS [Poids], 
+    [Project2].[isHomme] AS [isHomme], 
+    [Project2].[NumAffiliationClub] AS [NumAffiliationClub]
+    FROM ( SELECT 
+        [Limit1].[NumAffiliation] AS [NumAffiliation], 
+        [Limit1].[NomClub] AS [NomClub], 
+        [Limit1].[Correspondant] AS [Correspondant], 
+        [Limit1].[Telephone] AS [Telephone], 
+        [Limit1].[Adr_Administrative] AS [Adr_Administrative], 
+        [Limit1].[Adr_Dojo] AS [Adr_Dojo], 
+        [Limit1].[Code_Postal] AS [Code_Postal], 
+        [Limit1].[Ville] AS [Ville], 
+        [Limit1].[Site_Web] AS [Site_Web], 
+        [Limit1].[Facebook] AS [Facebook], 
+        [Limit1].[President_Tel] AS [President_Tel], 
+        [Limit1].[President_Nom] AS [President_Nom], 
+        [Limit1].[President_Prenom] AS [President_Prenom], 
+        [Limit1].[President_Email] AS [President_Email], 
+        [Limit1].[President_Mobile] AS [President_Mobile], 
+        [Limit1].[Tresorier_Tel] AS [Tresorier_Tel], 
+        [Limit1].[Tresorier_Nom] AS [Tresorier_Nom], 
+        [Limit1].[Tresorier_Prenom] AS [Tresorier_Prenom], 
+        [Limit1].[Tresorier_Email] AS [Tresorier_Email], 
+        [Limit1].[Tresorier_Mobile] AS [Tresorier_Mobile], 
+        [Limit1].[Secretaire_Tel] AS [Secretaire_Tel], 
+        [Limit1].[Secretaire_Nom] AS [Secretaire_Nom], 
+        [Limit1].[Secretaire_Prenom] AS [Secretaire_Prenom], 
+        [Limit1].[Secretaire_Email] AS [Secretaire_Email], 
+        [Limit1].[Secretaire_Mobile] AS [Secretaire_Mobile], 
+        [Limit1].[ArtMartialName] AS [ArtMartialName], 
+        [Limit1].[Longitude] AS [Longitude], 
+        [Limit1].[Latitude] AS [Latitude], 
+        [Limit1].[C1] AS [C1], 
+        [Extent2].[NumLicence] AS [NumLicence], 
+        [Extent2].[Nom] AS [Nom], 
+        [Extent2].[Prenom] AS [Prenom], 
+        [Extent2].[Categorie] AS [Categorie], 
+        [Extent2].[Poids] AS [Poids], 
+        [Extent2].[isHomme] AS [isHomme], 
+        [Extent2].[NumAffiliationClub] AS [NumAffiliationClub], 
+        CASE WHEN ([Extent2].[NumLicence] IS NULL) THEN CAST(NULL AS int) ELSE 1 END AS [C2]
+        FROM   (SELECT TOP (2) 
+            [Extent1].[NumAffiliation] AS [NumAffiliation], 
+            [Extent1].[NomClub] AS [NomClub], 
+            [Extent1].[Correspondant] AS [Correspondant], 
+            [Extent1].[Telephone] AS [Telephone], 
+            [Extent1].[Adr_Administrative] AS [Adr_Administrative], 
+            [Extent1].[Adr_Dojo] AS [Adr_Dojo], 
+            [Extent1].[Code_Postal] AS [Code_Postal], 
+            [Extent1].[Ville] AS [Ville], 
+            [Extent1].[Site_Web] AS [Site_Web], 
+            [Extent1].[Facebook] AS [Facebook], 
+            [Extent1].[President_Tel] AS [President_Tel], 
+            [Extent1].[President_Nom] AS [President_Nom], 
+            [Extent1].[President_Prenom] AS [President_Prenom], 
+            [Extent1].[President_Email] AS [President_Email], 
+            [Extent1].[President_Mobile] AS [President_Mobile], 
+            [Extent1].[Tresorier_Tel] AS [Tresorier_Tel], 
+            [Extent1].[Tresorier_Nom] AS [Tresorier_Nom], 
+            [Extent1].[Tresorier_Prenom] AS [Tresorier_Prenom], 
+            [Extent1].[Tresorier_Email] AS [Tresorier_Email], 
+            [Extent1].[Tresorier_Mobile] AS [Tresorier_Mobile], 
+            [Extent1].[Secretaire_Tel] AS [Secretaire_Tel], 
+            [Extent1].[Secretaire_Nom] AS [Secretaire_Nom], 
+            [Extent1].[Secretaire_Prenom] AS [Secretaire_Prenom], 
+            [Extent1].[Secretaire_Email] AS [Secretaire_Email], 
+            [Extent1].[Secretaire_Mobile] AS [Secretaire_Mobile], 
+            [Extent1].[ArtMartialName] AS [ArtMartialName], 
+            [Extent1].[Longitude] AS [Longitude], 
+            [Extent1].[Latitude] AS [Latitude], 
+            1 AS [C1]
+            FROM [dbo].[Club] AS [Extent1]
+            WHERE [Extent1].[NumAffiliation] = @p__linq__0 ) AS [Limit1]
+        LEFT OUTER JOIN [dbo].[Competiteur] AS [Extent2] ON [Limit1].[NumAffiliation] = [Extent2].[NumAffiliationClub]
+    )  AS [Project2]
+    ORDER BY [Project2].[NumAffiliation] ASC, [Project2].[C2] ASC
+2014-10-19 18:17:26.6986|TRACE|KarateIsere.DataAccess.KarateIsereContext|
+
+2014-10-19 18:17:26.6986|TRACE|KarateIsere.DataAccess.KarateIsereContext|-- p__linq__0: '987654' (Type = AnsiString, Size = 8000)
+
+2014-10-19 18:17:26.7126|TRACE|KarateIsere.DataAccess.KarateIsereContext|-- Executing at 19/10/2014 18:17:26 +02:00
+
+2014-10-19 18:17:26.7461|TRACE|KarateIsere.DataAccess.KarateIsereContext|-- Completed in 29 ms with result: SqlDataReader
+
+2014-10-19 18:17:26.7461|TRACE|KarateIsere.DataAccess.KarateIsereContext|
+
+2014-10-19 18:17:26.7461|TRACE|KarateIsere.DataAccess.KarateIsereContext|Closed connection at 19/10/2014 18:17:26 +02:00
+
+2014-10-19 18:17:26.7601|TRACE|KarateIsere.DataAccess.KarateIsereContext|Opened connection at 19/10/2014 18:17:26 +02:00
+
+2014-10-19 18:17:26.7601|TRACE|KarateIsere.DataAccess.KarateIsereContext|SELECT 
+    [Extent1].[Nom] AS [Nom]
+    FROM [dbo].[Categorie] AS [Extent1]
+2014-10-19 18:17:26.7601|TRACE|KarateIsere.DataAccess.KarateIsereContext|
+
+2014-10-19 18:17:26.7601|TRACE|KarateIsere.DataAccess.KarateIsereContext|-- Executing at 19/10/2014 18:17:26 +02:00
+
+2014-10-19 18:17:26.8026|TRACE|KarateIsere.DataAccess.KarateIsereContext|-- Completed in 24 ms with result: SqlDataReader
+
+2014-10-19 18:17:26.8071|TRACE|KarateIsere.DataAccess.KarateIsereContext|
+
+2014-10-19 18:17:26.8071|TRACE|KarateIsere.DataAccess.KarateIsereContext|Closed connection at 19/10/2014 18:17:26 +02:00
+
+2014-10-19 18:17:49.8996|TRACE|KarateIsere.DataAccess.KarateIsereContext|Opened connection at 19/10/2014 18:17:49 +02:00
+
+2014-10-19 18:17:49.8996|TRACE|KarateIsere.DataAccess.KarateIsereContext|SELECT 
+    [Project2].[C1] AS [C1], 
+    [Project2].[NumAffiliation] AS [NumAffiliation], 
+    [Project2].[NomClub] AS [NomClub], 
+    [Project2].[Correspondant] AS [Correspondant], 
+    [Project2].[Telephone] AS [Telephone], 
+    [Project2].[Adr_Administrative] AS [Adr_Administrative], 
+    [Project2].[Adr_Dojo] AS [Adr_Dojo], 
+    [Project2].[Code_Postal] AS [Code_Postal], 
+    [Project2].[Ville] AS [Ville], 
+    [Project2].[Site_Web] AS [Site_Web], 
+    [Project2].[Facebook] AS [Facebook], 
+    [Project2].[President_Tel] AS [President_Tel], 
+    [Project2].[President_Nom] AS [President_Nom], 
+    [Project2].[President_Prenom] AS [President_Prenom], 
+    [Project2].[President_Email] AS [President_Email], 
+    [Project2].[President_Mobile] AS [President_Mobile], 
+    [Project2].[Tresorier_Tel] AS [Tresorier_Tel], 
+    [Project2].[Tresorier_Nom] AS [Tresorier_Nom], 
+    [Project2].[Tresorier_Prenom] AS [Tresorier_Prenom], 
+    [Project2].[Tresorier_Email] AS [Tresorier_Email], 
+    [Project2].[Tresorier_Mobile] AS [Tresorier_Mobile], 
+    [Project2].[Secretaire_Tel] AS [Secretaire_Tel], 
+    [Project2].[Secretaire_Nom] AS [Secretaire_Nom], 
+    [Project2].[Secretaire_Prenom] AS [Secretaire_Prenom], 
+    [Project2].[Secretaire_Email] AS [Secretaire_Email], 
+    [Project2].[Secretaire_Mobile] AS [Secretaire_Mobile], 
+    [Project2].[ArtMartialName] AS [ArtMartialName], 
+    [Project2].[Longitude] AS [Longitude], 
+    [Project2].[Latitude] AS [Latitude], 
+    [Project2].[C2] AS [C2], 
+    [Project2].[NumLicence] AS [NumLicence], 
+    [Project2].[Nom] AS [Nom], 
+    [Project2].[Prenom] AS [Prenom], 
+    [Project2].[Categorie] AS [Categorie], 
+    [Project2].[Poids] AS [Poids], 
+    [Project2].[isHomme] AS [isHomme], 
+    [Project2].[NumAffiliationClub] AS [NumAffiliationClub]
+    FROM ( SELECT 
+        [Limit1].[NumAffiliation] AS [NumAffiliation], 
+        [Limit1].[NomClub] AS [NomClub], 
+        [Limit1].[Correspondant] AS [Correspondant], 
+        [Limit1].[Telephone] AS [Telephone], 
+        [Limit1].[Adr_Administrative] AS [Adr_Administrative], 
+        [Limit1].[Adr_Dojo] AS [Adr_Dojo], 
+        [Limit1].[Code_Postal] AS [Code_Postal], 
+        [Limit1].[Ville] AS [Ville], 
+        [Limit1].[Site_Web] AS [Site_Web], 
+        [Limit1].[Facebook] AS [Facebook], 
+        [Limit1].[President_Tel] AS [President_Tel], 
+        [Limit1].[President_Nom] AS [President_Nom], 
+        [Limit1].[President_Prenom] AS [President_Prenom], 
+        [Limit1].[President_Email] AS [President_Email], 
+        [Limit1].[President_Mobile] AS [President_Mobile], 
+        [Limit1].[Tresorier_Tel] AS [Tresorier_Tel], 
+        [Limit1].[Tresorier_Nom] AS [Tresorier_Nom], 
+        [Limit1].[Tresorier_Prenom] AS [Tresorier_Prenom], 
+        [Limit1].[Tresorier_Email] AS [Tresorier_Email], 
+        [Limit1].[Tresorier_Mobile] AS [Tresorier_Mobile], 
+        [Limit1].[Secretaire_Tel] AS [Secretaire_Tel], 
+        [Limit1].[Secretaire_Nom] AS [Secretaire_Nom], 
+        [Limit1].[Secretaire_Prenom] AS [Secretaire_Prenom], 
+        [Limit1].[Secretaire_Email] AS [Secretaire_Email], 
+        [Limit1].[Secretaire_Mobile] AS [Secretaire_Mobile], 
+        [Limit1].[ArtMartialName] AS [ArtMartialName], 
+        [Limit1].[Longitude] AS [Longitude], 
+        [Limit1].[Latitude] AS [Latitude], 
+        [Limit1].[C1] AS [C1], 
+        [Extent2].[NumLicence] AS [NumLicence], 
+        [Extent2].[Nom] AS [Nom], 
+        [Extent2].[Prenom] AS [Prenom], 
+        [Extent2].[Categorie] AS [Categorie], 
+        [Extent2].[Poids] AS [Poids], 
+        [Extent2].[isHomme] AS [isHomme], 
+        [Extent2].[NumAffiliationClub] AS [NumAffiliationClub], 
+        CASE WHEN ([Extent2].[NumLicence] IS NULL) THEN CAST(NULL AS int) ELSE 1 END AS [C2]
+        FROM   (SELECT TOP (2) 
+            [Extent1].[NumAffiliation] AS [NumAffiliation], 
+            [Extent1].[NomClub] AS [NomClub], 
+            [Extent1].[Correspondant] AS [Correspondant], 
+            [Extent1].[Telephone] AS [Telephone], 
+            [Extent1].[Adr_Administrative] AS [Adr_Administrative], 
+            [Extent1].[Adr_Dojo] AS [Adr_Dojo], 
+            [Extent1].[Code_Postal] AS [Code_Postal], 
+            [Extent1].[Ville] AS [Ville], 
+            [Extent1].[Site_Web] AS [Site_Web], 
+            [Extent1].[Facebook] AS [Facebook], 
+            [Extent1].[President_Tel] AS [President_Tel], 
+            [Extent1].[President_Nom] AS [President_Nom], 
+            [Extent1].[President_Prenom] AS [President_Prenom], 
+            [Extent1].[President_Email] AS [President_Email], 
+            [Extent1].[President_Mobile] AS [President_Mobile], 
+            [Extent1].[Tresorier_Tel] AS [Tresorier_Tel], 
+            [Extent1].[Tresorier_Nom] AS [Tresorier_Nom], 
+            [Extent1].[Tresorier_Prenom] AS [Tresorier_Prenom], 
+            [Extent1].[Tresorier_Email] AS [Tresorier_Email], 
+            [Extent1].[Tresorier_Mobile] AS [Tresorier_Mobile], 
+            [Extent1].[Secretaire_Tel] AS [Secretaire_Tel], 
+            [Extent1].[Secretaire_Nom] AS [Secretaire_Nom], 
+            [Extent1].[Secretaire_Prenom] AS [Secretaire_Prenom], 
+            [Extent1].[Secretaire_Email] AS [Secretaire_Email], 
+            [Extent1].[Secretaire_Mobile] AS [Secretaire_Mobile], 
+            [Extent1].[ArtMartialName] AS [ArtMartialName], 
+            [Extent1].[Longitude] AS [Longitude], 
+            [Extent1].[Latitude] AS [Latitude], 
+            1 AS [C1]
+            FROM [dbo].[Club] AS [Extent1]
+            WHERE [Extent1].[NumAffiliation] = @p__linq__0 ) AS [Limit1]
+        LEFT OUTER JOIN [dbo].[Competiteur] AS [Extent2] ON [Limit1].[NumAffiliation] = [Extent2].[NumAffiliationClub]
+    )  AS [Project2]
+    ORDER BY [Project2].[NumAffiliation] ASC, [Project2].[C2] ASC
+2014-10-19 18:17:49.8996|TRACE|KarateIsere.DataAccess.KarateIsereContext|
+
+2014-10-19 18:17:49.9141|TRACE|KarateIsere.DataAccess.KarateIsereContext|-- p__linq__0: '987654' (Type = AnsiString, Size = 8000)
+
+2014-10-19 18:17:49.9141|TRACE|KarateIsere.DataAccess.KarateIsereContext|-- Executing at 19/10/2014 18:17:49 +02:00
+
+2014-10-19 18:17:49.9521|TRACE|KarateIsere.DataAccess.KarateIsereContext|-- Completed in 29 ms with result: SqlDataReader
+
+2014-10-19 18:17:49.9571|TRACE|KarateIsere.DataAccess.KarateIsereContext|
+
+2014-10-19 18:17:49.9571|TRACE|KarateIsere.DataAccess.KarateIsereContext|Closed connection at 19/10/2014 18:17:49 +02:00
+
+2014-10-19 18:17:49.9571|TRACE|KarateIsere.DataAccess.KarateIsereContext|Opened connection at 19/10/2014 18:17:49 +02:00
+
+2014-10-19 18:17:49.9726|TRACE|KarateIsere.DataAccess.KarateIsereContext|SELECT 
+    [Extent1].[Nom] AS [Nom]
+    FROM [dbo].[Categorie] AS [Extent1]
+2014-10-19 18:17:49.9726|TRACE|KarateIsere.DataAccess.KarateIsereContext|
+
+2014-10-19 18:17:49.9726|TRACE|KarateIsere.DataAccess.KarateIsereContext|-- Executing at 19/10/2014 18:17:49 +02:00
+
+2014-10-19 18:17:50.0101|TRACE|KarateIsere.DataAccess.KarateIsereContext|-- Completed in 24 ms with result: SqlDataReader
+
+2014-10-19 18:17:50.0101|TRACE|KarateIsere.DataAccess.KarateIsereContext|
+
+2014-10-19 18:17:50.0191|TRACE|KarateIsere.DataAccess.KarateIsereContext|Closed connection at 19/10/2014 18:17:50 +02:00
+
+2014-10-19 18:18:14.1097|TRACE|KarateIsere.DataAccess.KarateIsereContext|Opened connection at 19/10/2014 18:18:14 +02:00
+
+2014-10-19 18:18:14.1097|TRACE|KarateIsere.DataAccess.KarateIsereContext|SELECT 
+    [Project2].[C1] AS [C1], 
+    [Project2].[NumAffiliation] AS [NumAffiliation], 
+    [Project2].[NomClub] AS [NomClub], 
+    [Project2].[Correspondant] AS [Correspondant], 
+    [Project2].[Telephone] AS [Telephone], 
+    [Project2].[Adr_Administrative] AS [Adr_Administrative], 
+    [Project2].[Adr_Dojo] AS [Adr_Dojo], 
+    [Project2].[Code_Postal] AS [Code_Postal], 
+    [Project2].[Ville] AS [Ville], 
+    [Project2].[Site_Web] AS [Site_Web], 
+    [Project2].[Facebook] AS [Facebook], 
+    [Project2].[President_Tel] AS [President_Tel], 
+    [Project2].[President_Nom] AS [President_Nom], 
+    [Project2].[President_Prenom] AS [President_Prenom], 
+    [Project2].[President_Email] AS [President_Email], 
+    [Project2].[President_Mobile] AS [President_Mobile], 
+    [Project2].[Tresorier_Tel] AS [Tresorier_Tel], 
+    [Project2].[Tresorier_Nom] AS [Tresorier_Nom], 
+    [Project2].[Tresorier_Prenom] AS [Tresorier_Prenom], 
+    [Project2].[Tresorier_Email] AS [Tresorier_Email], 
+    [Project2].[Tresorier_Mobile] AS [Tresorier_Mobile], 
+    [Project2].[Secretaire_Tel] AS [Secretaire_Tel], 
+    [Project2].[Secretaire_Nom] AS [Secretaire_Nom], 
+    [Project2].[Secretaire_Prenom] AS [Secretaire_Prenom], 
+    [Project2].[Secretaire_Email] AS [Secretaire_Email], 
+    [Project2].[Secretaire_Mobile] AS [Secretaire_Mobile], 
+    [Project2].[ArtMartialName] AS [ArtMartialName], 
+    [Project2].[Longitude] AS [Longitude], 
+    [Project2].[Latitude] AS [Latitude], 
+    [Project2].[C2] AS [C2], 
+    [Project2].[NumLicence] AS [NumLicence], 
+    [Project2].[Nom] AS [Nom], 
+    [Project2].[Prenom] AS [Prenom], 
+    [Project2].[Categorie] AS [Categorie], 
+    [Project2].[Poids] AS [Poids], 
+    [Project2].[isHomme] AS [isHomme], 
+    [Project2].[NumAffiliationClub] AS [NumAffiliationClub]
+    FROM ( SELECT 
+        [Limit1].[NumAffiliation] AS [NumAffiliation], 
+        [Limit1].[NomClub] AS [NomClub], 
+        [Limit1].[Correspondant] AS [Correspondant], 
+        [Limit1].[Telephone] AS [Telephone], 
+        [Limit1].[Adr_Administrative] AS [Adr_Administrative], 
+        [Limit1].[Adr_Dojo] AS [Adr_Dojo], 
+        [Limit1].[Code_Postal] AS [Code_Postal], 
+        [Limit1].[Ville] AS [Ville], 
+        [Limit1].[Site_Web] AS [Site_Web], 
+        [Limit1].[Facebook] AS [Facebook], 
+        [Limit1].[President_Tel] AS [President_Tel], 
+        [Limit1].[President_Nom] AS [President_Nom], 
+        [Limit1].[President_Prenom] AS [President_Prenom], 
+        [Limit1].[President_Email] AS [President_Email], 
+        [Limit1].[President_Mobile] AS [President_Mobile], 
+        [Limit1].[Tresorier_Tel] AS [Tresorier_Tel], 
+        [Limit1].[Tresorier_Nom] AS [Tresorier_Nom], 
+        [Limit1].[Tresorier_Prenom] AS [Tresorier_Prenom], 
+        [Limit1].[Tresorier_Email] AS [Tresorier_Email], 
+        [Limit1].[Tresorier_Mobile] AS [Tresorier_Mobile], 
+        [Limit1].[Secretaire_Tel] AS [Secretaire_Tel], 
+        [Limit1].[Secretaire_Nom] AS [Secretaire_Nom], 
+        [Limit1].[Secretaire_Prenom] AS [Secretaire_Prenom], 
+        [Limit1].[Secretaire_Email] AS [Secretaire_Email], 
+        [Limit1].[Secretaire_Mobile] AS [Secretaire_Mobile], 
+        [Limit1].[ArtMartialName] AS [ArtMartialName], 
+        [Limit1].[Longitude] AS [Longitude], 
+        [Limit1].[Latitude] AS [Latitude], 
+        [Limit1].[C1] AS [C1], 
+        [Extent2].[NumLicence] AS [NumLicence], 
+        [Extent2].[Nom] AS [Nom], 
+        [Extent2].[Prenom] AS [Prenom], 
+        [Extent2].[Categorie] AS [Categorie], 
+        [Extent2].[Poids] AS [Poids], 
+        [Extent2].[isHomme] AS [isHomme], 
+        [Extent2].[NumAffiliationClub] AS [NumAffiliationClub], 
+        CASE WHEN ([Extent2].[NumLicence] IS NULL) THEN CAST(NULL AS int) ELSE 1 END AS [C2]
+        FROM   (SELECT TOP (2) 
+            [Extent1].[NumAffiliation] AS [NumAffiliation], 
+            [Extent1].[NomClub] AS [NomClub], 
+            [Extent1].[Correspondant] AS [Correspondant], 
+            [Extent1].[Telephone] AS [Telephone], 
+            [Extent1].[Adr_Administrative] AS [Adr_Administrative], 
+            [Extent1].[Adr_Dojo] AS [Adr_Dojo], 
+            [Extent1].[Code_Postal] AS [Code_Postal], 
+            [Extent1].[Ville] AS [Ville], 
+            [Extent1].[Site_Web] AS [Site_Web], 
+            [Extent1].[Facebook] AS [Facebook], 
+            [Extent1].[President_Tel] AS [President_Tel], 
+            [Extent1].[President_Nom] AS [President_Nom], 
+            [Extent1].[President_Prenom] AS [President_Prenom], 
+            [Extent1].[President_Email] AS [President_Email], 
+            [Extent1].[President_Mobile] AS [President_Mobile], 
+            [Extent1].[Tresorier_Tel] AS [Tresorier_Tel], 
+            [Extent1].[Tresorier_Nom] AS [Tresorier_Nom], 
+            [Extent1].[Tresorier_Prenom] AS [Tresorier_Prenom], 
+            [Extent1].[Tresorier_Email] AS [Tresorier_Email], 
+            [Extent1].[Tresorier_Mobile] AS [Tresorier_Mobile], 
+            [Extent1].[Secretaire_Tel] AS [Secretaire_Tel], 
+            [Extent1].[Secretaire_Nom] AS [Secretaire_Nom], 
+            [Extent1].[Secretaire_Prenom] AS [Secretaire_Prenom], 
+            [Extent1].[Secretaire_Email] AS [Secretaire_Email], 
+            [Extent1].[Secretaire_Mobile] AS [Secretaire_Mobile], 
+            [Extent1].[ArtMartialName] AS [ArtMartialName], 
+            [Extent1].[Longitude] AS [Longitude], 
+            [Extent1].[Latitude] AS [Latitude], 
+            1 AS [C1]
+            FROM [dbo].[Club] AS [Extent1]
+            WHERE [Extent1].[NumAffiliation] = @p__linq__0 ) AS [Limit1]
+        LEFT OUTER JOIN [dbo].[Competiteur] AS [Extent2] ON [Limit1].[NumAffiliation] = [Extent2].[NumAffiliationClub]
+    )  AS [Project2]
+    ORDER BY [Project2].[NumAffiliation] ASC, [Project2].[C2] ASC
+2014-10-19 18:18:14.1097|TRACE|KarateIsere.DataAccess.KarateIsereContext|
+
+2014-10-19 18:18:14.1237|TRACE|KarateIsere.DataAccess.KarateIsereContext|-- p__linq__0: '987654' (Type = AnsiString, Size = 8000)
+
+2014-10-19 18:18:14.1237|TRACE|KarateIsere.DataAccess.KarateIsereContext|-- Executing at 19/10/2014 18:18:14 +02:00
+
+2014-10-19 18:18:14.1597|TRACE|KarateIsere.DataAccess.KarateIsereContext|-- Completed in 26 ms with result: SqlDataReader
+
+2014-10-19 18:18:14.1597|TRACE|KarateIsere.DataAccess.KarateIsereContext|
+
+2014-10-19 18:18:14.1682|TRACE|KarateIsere.DataAccess.KarateIsereContext|Closed connection at 19/10/2014 18:18:14 +02:00
+
+2014-10-19 18:18:14.1682|TRACE|KarateIsere.DataAccess.KarateIsereContext|Opened connection at 19/10/2014 18:18:14 +02:00
+
+2014-10-19 18:18:14.1682|TRACE|KarateIsere.DataAccess.KarateIsereContext|SELECT 
+    [Extent1].[Nom] AS [Nom]
+    FROM [dbo].[Categorie] AS [Extent1]
+2014-10-19 18:18:14.1682|TRACE|KarateIsere.DataAccess.KarateIsereContext|
+
+2014-10-19 18:18:14.1882|TRACE|KarateIsere.DataAccess.KarateIsereContext|-- Executing at 19/10/2014 18:18:14 +02:00
+
+2014-10-19 18:18:14.2162|TRACE|KarateIsere.DataAccess.KarateIsereContext|-- Completed in 24 ms with result: SqlDataReader
+
+2014-10-19 18:18:14.2162|TRACE|KarateIsere.DataAccess.KarateIsereContext|
+
+2014-10-19 18:18:14.2162|TRACE|KarateIsere.DataAccess.KarateIsereContext|Closed connection at 19/10/2014 18:18:14 +02:00
+
+2014-10-19 18:18:51.2254|TRACE|KarateIsere.DataAccess.KarateIsereContext|Opened connection at 19/10/2014 18:18:51 +02:00
+
+2014-10-19 18:18:51.2254|TRACE|KarateIsere.DataAccess.KarateIsereContext|SELECT 
+    [Project2].[C1] AS [C1], 
+    [Project2].[NumAffiliation] AS [NumAffiliation], 
+    [Project2].[NomClub] AS [NomClub], 
+    [Project2].[Correspondant] AS [Correspondant], 
+    [Project2].[Telephone] AS [Telephone], 
+    [Project2].[Adr_Administrative] AS [Adr_Administrative], 
+    [Project2].[Adr_Dojo] AS [Adr_Dojo], 
+    [Project2].[Code_Postal] AS [Code_Postal], 
+    [Project2].[Ville] AS [Ville], 
+    [Project2].[Site_Web] AS [Site_Web], 
+    [Project2].[Facebook] AS [Facebook], 
+    [Project2].[President_Tel] AS [President_Tel], 
+    [Project2].[President_Nom] AS [President_Nom], 
+    [Project2].[President_Prenom] AS [President_Prenom], 
+    [Project2].[President_Email] AS [President_Email], 
+    [Project2].[President_Mobile] AS [President_Mobile], 
+    [Project2].[Tresorier_Tel] AS [Tresorier_Tel], 
+    [Project2].[Tresorier_Nom] AS [Tresorier_Nom], 
+    [Project2].[Tresorier_Prenom] AS [Tresorier_Prenom], 
+    [Project2].[Tresorier_Email] AS [Tresorier_Email], 
+    [Project2].[Tresorier_Mobile] AS [Tresorier_Mobile], 
+    [Project2].[Secretaire_Tel] AS [Secretaire_Tel], 
+    [Project2].[Secretaire_Nom] AS [Secretaire_Nom], 
+    [Project2].[Secretaire_Prenom] AS [Secretaire_Prenom], 
+    [Project2].[Secretaire_Email] AS [Secretaire_Email], 
+    [Project2].[Secretaire_Mobile] AS [Secretaire_Mobile], 
+    [Project2].[ArtMartialName] AS [ArtMartialName], 
+    [Project2].[Longitude] AS [Longitude], 
+    [Project2].[Latitude] AS [Latitude], 
+    [Project2].[C2] AS [C2], 
+    [Project2].[NumLicence] AS [NumLicence], 
+    [Project2].[Nom] AS [Nom], 
+    [Project2].[Prenom] AS [Prenom], 
+    [Project2].[Categorie] AS [Categorie], 
+    [Project2].[Poids] AS [Poids], 
+    [Project2].[isHomme] AS [isHomme], 
+    [Project2].[NumAffiliationClub] AS [NumAffiliationClub]
+    FROM ( SELECT 
+        [Limit1].[NumAffiliation] AS [NumAffiliation], 
+        [Limit1].[NomClub] AS [NomClub], 
+        [Limit1].[Correspondant] AS [Correspondant], 
+        [Limit1].[Telephone] AS [Telephone], 
+        [Limit1].[Adr_Administrative] AS [Adr_Administrative], 
+        [Limit1].[Adr_Dojo] AS [Adr_Dojo], 
+        [Limit1].[Code_Postal] AS [Code_Postal], 
+        [Limit1].[Ville] AS [Ville], 
+        [Limit1].[Site_Web] AS [Site_Web], 
+        [Limit1].[Facebook] AS [Facebook], 
+        [Limit1].[President_Tel] AS [President_Tel], 
+        [Limit1].[President_Nom] AS [President_Nom], 
+        [Limit1].[President_Prenom] AS [President_Prenom], 
+        [Limit1].[President_Email] AS [President_Email], 
+        [Limit1].[President_Mobile] AS [President_Mobile], 
+        [Limit1].[Tresorier_Tel] AS [Tresorier_Tel], 
+        [Limit1].[Tresorier_Nom] AS [Tresorier_Nom], 
+        [Limit1].[Tresorier_Prenom] AS [Tresorier_Prenom], 
+        [Limit1].[Tresorier_Email] AS [Tresorier_Email], 
+        [Limit1].[Tresorier_Mobile] AS [Tresorier_Mobile], 
+        [Limit1].[Secretaire_Tel] AS [Secretaire_Tel], 
+        [Limit1].[Secretaire_Nom] AS [Secretaire_Nom], 
+        [Limit1].[Secretaire_Prenom] AS [Secretaire_Prenom], 
+        [Limit1].[Secretaire_Email] AS [Secretaire_Email], 
+        [Limit1].[Secretaire_Mobile] AS [Secretaire_Mobile], 
+        [Limit1].[ArtMartialName] AS [ArtMartialName], 
+        [Limit1].[Longitude] AS [Longitude], 
+        [Limit1].[Latitude] AS [Latitude], 
+        [Limit1].[C1] AS [C1], 
+        [Extent2].[NumLicence] AS [NumLicence], 
+        [Extent2].[Nom] AS [Nom], 
+        [Extent2].[Prenom] AS [Prenom], 
+        [Extent2].[Categorie] AS [Categorie], 
+        [Extent2].[Poids] AS [Poids], 
+        [Extent2].[isHomme] AS [isHomme], 
+        [Extent2].[NumAffiliationClub] AS [NumAffiliationClub], 
+        CASE WHEN ([Extent2].[NumLicence] IS NULL) THEN CAST(NULL AS int) ELSE 1 END AS [C2]
+        FROM   (SELECT TOP (2) 
+            [Extent1].[NumAffiliation] AS [NumAffiliation], 
+            [Extent1].[NomClub] AS [NomClub], 
+            [Extent1].[Correspondant] AS [Correspondant], 
+            [Extent1].[Telephone] AS [Telephone], 
+            [Extent1].[Adr_Administrative] AS [Adr_Administrative], 
+            [Extent1].[Adr_Dojo] AS [Adr_Dojo], 
+            [Extent1].[Code_Postal] AS [Code_Postal], 
+            [Extent1].[Ville] AS [Ville], 
+            [Extent1].[Site_Web] AS [Site_Web], 
+            [Extent1].[Facebook] AS [Facebook], 
+            [Extent1].[President_Tel] AS [President_Tel], 
+            [Extent1].[President_Nom] AS [President_Nom], 
+            [Extent1].[President_Prenom] AS [President_Prenom], 
+            [Extent1].[President_Email] AS [President_Email], 
+            [Extent1].[President_Mobile] AS [President_Mobile], 
+            [Extent1].[Tresorier_Tel] AS [Tresorier_Tel], 
+            [Extent1].[Tresorier_Nom] AS [Tresorier_Nom], 
+            [Extent1].[Tresorier_Prenom] AS [Tresorier_Prenom], 
+            [Extent1].[Tresorier_Email] AS [Tresorier_Email], 
+            [Extent1].[Tresorier_Mobile] AS [Tresorier_Mobile], 
+            [Extent1].[Secretaire_Tel] AS [Secretaire_Tel], 
+            [Extent1].[Secretaire_Nom] AS [Secretaire_Nom], 
+            [Extent1].[Secretaire_Prenom] AS [Secretaire_Prenom], 
+            [Extent1].[Secretaire_Email] AS [Secretaire_Email], 
+            [Extent1].[Secretaire_Mobile] AS [Secretaire_Mobile], 
+            [Extent1].[ArtMartialName] AS [ArtMartialName], 
+            [Extent1].[Longitude] AS [Longitude], 
+            [Extent1].[Latitude] AS [Latitude], 
+            1 AS [C1]
+            FROM [dbo].[Club] AS [Extent1]
+            WHERE [Extent1].[NumAffiliation] = @p__linq__0 ) AS [Limit1]
+        LEFT OUTER JOIN [dbo].[Competiteur] AS [Extent2] ON [Limit1].[NumAffiliation] = [Extent2].[NumAffiliationClub]
+    )  AS [Project2]
+    ORDER BY [Project2].[NumAffiliation] ASC, [Project2].[C2] ASC
+2014-10-19 18:18:51.2349|TRACE|KarateIsere.DataAccess.KarateIsereContext|
+
+2014-10-19 18:18:51.2349|TRACE|KarateIsere.DataAccess.KarateIsereContext|-- p__linq__0: '987654' (Type = AnsiString, Size = 8000)
+
+2014-10-19 18:18:51.2349|TRACE|KarateIsere.DataAccess.KarateIsereContext|-- Executing at 19/10/2014 18:18:51 +02:00
+
+2014-10-19 18:18:51.2804|TRACE|KarateIsere.DataAccess.KarateIsereContext|-- Completed in 31 ms with result: SqlDataReader
+
+2014-10-19 18:18:51.2854|TRACE|KarateIsere.DataAccess.KarateIsereContext|
+
+2014-10-19 18:18:51.2854|TRACE|KarateIsere.DataAccess.KarateIsereContext|Closed connection at 19/10/2014 18:18:51 +02:00
+
+2014-10-19 18:18:51.2854|TRACE|KarateIsere.DataAccess.KarateIsereContext|Opened connection at 19/10/2014 18:18:51 +02:00
+
+2014-10-19 18:18:51.2999|TRACE|KarateIsere.DataAccess.KarateIsereContext|SELECT 
+    [Extent1].[Nom] AS [Nom]
+    FROM [dbo].[Categorie] AS [Extent1]
+2014-10-19 18:18:51.2999|TRACE|KarateIsere.DataAccess.KarateIsereContext|
+
+2014-10-19 18:18:51.2999|TRACE|KarateIsere.DataAccess.KarateIsereContext|-- Executing at 19/10/2014 18:18:51 +02:00
+
+2014-10-19 18:18:51.3374|TRACE|KarateIsere.DataAccess.KarateIsereContext|-- Completed in 24 ms with result: SqlDataReader
+
+2014-10-19 18:18:51.3374|TRACE|KarateIsere.DataAccess.KarateIsereContext|
+
+2014-10-19 18:18:51.3459|TRACE|KarateIsere.DataAccess.KarateIsereContext|Closed connection at 19/10/2014 18:18:51 +02:00
+
+2014-10-19 18:19:14.5333|TRACE|KarateIsere.DataAccess.KarateIsereContext|Opened connection at 19/10/2014 18:19:14 +02:00
+
+2014-10-19 18:19:14.5333|TRACE|KarateIsere.DataAccess.KarateIsereContext|SELECT 
+    [Project2].[C1] AS [C1], 
+    [Project2].[NumAffiliation] AS [NumAffiliation], 
+    [Project2].[NomClub] AS [NomClub], 
+    [Project2].[Correspondant] AS [Correspondant], 
+    [Project2].[Telephone] AS [Telephone], 
+    [Project2].[Adr_Administrative] AS [Adr_Administrative], 
+    [Project2].[Adr_Dojo] AS [Adr_Dojo], 
+    [Project2].[Code_Postal] AS [Code_Postal], 
+    [Project2].[Ville] AS [Ville], 
+    [Project2].[Site_Web] AS [Site_Web], 
+    [Project2].[Facebook] AS [Facebook], 
+    [Project2].[President_Tel] AS [President_Tel], 
+    [Project2].[President_Nom] AS [President_Nom], 
+    [Project2].[President_Prenom] AS [President_Prenom], 
+    [Project2].[President_Email] AS [President_Email], 
+    [Project2].[President_Mobile] AS [President_Mobile], 
+    [Project2].[Tresorier_Tel] AS [Tresorier_Tel], 
+    [Project2].[Tresorier_Nom] AS [Tresorier_Nom], 
+    [Project2].[Tresorier_Prenom] AS [Tresorier_Prenom], 
+    [Project2].[Tresorier_Email] AS [Tresorier_Email], 
+    [Project2].[Tresorier_Mobile] AS [Tresorier_Mobile], 
+    [Project2].[Secretaire_Tel] AS [Secretaire_Tel], 
+    [Project2].[Secretaire_Nom] AS [Secretaire_Nom], 
+    [Project2].[Secretaire_Prenom] AS [Secretaire_Prenom], 
+    [Project2].[Secretaire_Email] AS [Secretaire_Email], 
+    [Project2].[Secretaire_Mobile] AS [Secretaire_Mobile], 
+    [Project2].[ArtMartialName] AS [ArtMartialName], 
+    [Project2].[Longitude] AS [Longitude], 
+    [Project2].[Latitude] AS [Latitude], 
+    [Project2].[C2] AS [C2], 
+    [Project2].[NumLicence] AS [NumLicence], 
+    [Project2].[Nom] AS [Nom], 
+    [Project2].[Prenom] AS [Prenom], 
+    [Project2].[Categorie] AS [Categorie], 
+    [Project2].[Poids] AS [Poids], 
+    [Project2].[isHomme] AS [isHomme], 
+    [Project2].[NumAffiliationClub] AS [NumAffiliationClub]
+    FROM ( SELECT 
+        [Limit1].[NumAffiliation] AS [NumAffiliation], 
+        [Limit1].[NomClub] AS [NomClub], 
+        [Limit1].[Correspondant] AS [Correspondant], 
+        [Limit1].[Telephone] AS [Telephone], 
+        [Limit1].[Adr_Administrative] AS [Adr_Administrative], 
+        [Limit1].[Adr_Dojo] AS [Adr_Dojo], 
+        [Limit1].[Code_Postal] AS [Code_Postal], 
+        [Limit1].[Ville] AS [Ville], 
+        [Limit1].[Site_Web] AS [Site_Web], 
+        [Limit1].[Facebook] AS [Facebook], 
+        [Limit1].[President_Tel] AS [President_Tel], 
+        [Limit1].[President_Nom] AS [President_Nom], 
+        [Limit1].[President_Prenom] AS [President_Prenom], 
+        [Limit1].[President_Email] AS [President_Email], 
+        [Limit1].[President_Mobile] AS [President_Mobile], 
+        [Limit1].[Tresorier_Tel] AS [Tresorier_Tel], 
+        [Limit1].[Tresorier_Nom] AS [Tresorier_Nom], 
+        [Limit1].[Tresorier_Prenom] AS [Tresorier_Prenom], 
+        [Limit1].[Tresorier_Email] AS [Tresorier_Email], 
+        [Limit1].[Tresorier_Mobile] AS [Tresorier_Mobile], 
+        [Limit1].[Secretaire_Tel] AS [Secretaire_Tel], 
+        [Limit1].[Secretaire_Nom] AS [Secretaire_Nom], 
+        [Limit1].[Secretaire_Prenom] AS [Secretaire_Prenom], 
+        [Limit1].[Secretaire_Email] AS [Secretaire_Email], 
+        [Limit1].[Secretaire_Mobile] AS [Secretaire_Mobile], 
+        [Limit1].[ArtMartialName] AS [ArtMartialName], 
+        [Limit1].[Longitude] AS [Longitude], 
+        [Limit1].[Latitude] AS [Latitude], 
+        [Limit1].[C1] AS [C1], 
+        [Extent2].[NumLicence] AS [NumLicence], 
+        [Extent2].[Nom] AS [Nom], 
+        [Extent2].[Prenom] AS [Prenom], 
+        [Extent2].[Categorie] AS [Categorie], 
+        [Extent2].[Poids] AS [Poids], 
+        [Extent2].[isHomme] AS [isHomme], 
+        [Extent2].[NumAffiliationClub] AS [NumAffiliationClub], 
+        CASE WHEN ([Extent2].[NumLicence] IS NULL) THEN CAST(NULL AS int) ELSE 1 END AS [C2]
+        FROM   (SELECT TOP (2) 
+            [Extent1].[NumAffiliation] AS [NumAffiliation], 
+            [Extent1].[NomClub] AS [NomClub], 
+            [Extent1].[Correspondant] AS [Correspondant], 
+            [Extent1].[Telephone] AS [Telephone], 
+            [Extent1].[Adr_Administrative] AS [Adr_Administrative], 
+            [Extent1].[Adr_Dojo] AS [Adr_Dojo], 
+            [Extent1].[Code_Postal] AS [Code_Postal], 
+            [Extent1].[Ville] AS [Ville], 
+            [Extent1].[Site_Web] AS [Site_Web], 
+            [Extent1].[Facebook] AS [Facebook], 
+            [Extent1].[President_Tel] AS [President_Tel], 
+            [Extent1].[President_Nom] AS [President_Nom], 
+            [Extent1].[President_Prenom] AS [President_Prenom], 
+            [Extent1].[President_Email] AS [President_Email], 
+            [Extent1].[President_Mobile] AS [President_Mobile], 
+            [Extent1].[Tresorier_Tel] AS [Tresorier_Tel], 
+            [Extent1].[Tresorier_Nom] AS [Tresorier_Nom], 
+            [Extent1].[Tresorier_Prenom] AS [Tresorier_Prenom], 
+            [Extent1].[Tresorier_Email] AS [Tresorier_Email], 
+            [Extent1].[Tresorier_Mobile] AS [Tresorier_Mobile], 
+            [Extent1].[Secretaire_Tel] AS [Secretaire_Tel], 
+            [Extent1].[Secretaire_Nom] AS [Secretaire_Nom], 
+            [Extent1].[Secretaire_Prenom] AS [Secretaire_Prenom], 
+            [Extent1].[Secretaire_Email] AS [Secretaire_Email], 
+            [Extent1].[Secretaire_Mobile] AS [Secretaire_Mobile], 
+            [Extent1].[ArtMartialName] AS [ArtMartialName], 
+            [Extent1].[Longitude] AS [Longitude], 
+            [Extent1].[Latitude] AS [Latitude], 
+            1 AS [C1]
+            FROM [dbo].[Club] AS [Extent1]
+            WHERE [Extent1].[NumAffiliation] = @p__linq__0 ) AS [Limit1]
+        LEFT OUTER JOIN [dbo].[Competiteur] AS [Extent2] ON [Limit1].[NumAffiliation] = [Extent2].[NumAffiliationClub]
+    )  AS [Project2]
+    ORDER BY [Project2].[NumAffiliation] ASC, [Project2].[C2] ASC
+2014-10-19 18:19:14.5433|TRACE|KarateIsere.DataAccess.KarateIsereContext|
+
+2014-10-19 18:19:14.5433|TRACE|KarateIsere.DataAccess.KarateIsereContext|-- p__linq__0: '987654' (Type = AnsiString, Size = 8000)
+
+2014-10-19 18:19:14.5433|TRACE|KarateIsere.DataAccess.KarateIsereContext|-- Executing at 19/10/2014 18:19:14 +02:00
+
+2014-10-19 18:19:14.5828|TRACE|KarateIsere.DataAccess.KarateIsereContext|-- Completed in 26 ms with result: SqlDataReader
+
+2014-10-19 18:19:14.5873|TRACE|KarateIsere.DataAccess.KarateIsereContext|
+
+2014-10-19 18:19:14.5873|TRACE|KarateIsere.DataAccess.KarateIsereContext|Closed connection at 19/10/2014 18:19:14 +02:00
+
+2014-10-19 18:19:14.5873|TRACE|KarateIsere.DataAccess.KarateIsereContext|Opened connection at 19/10/2014 18:19:14 +02:00
+
+2014-10-19 18:19:14.5873|TRACE|KarateIsere.DataAccess.KarateIsereContext|SELECT 
+    [Extent1].[Nom] AS [Nom]
+    FROM [dbo].[Categorie] AS [Extent1]
+2014-10-19 18:19:14.6063|TRACE|KarateIsere.DataAccess.KarateIsereContext|
+
+2014-10-19 18:19:14.6063|TRACE|KarateIsere.DataAccess.KarateIsereContext|-- Executing at 19/10/2014 18:19:14 +02:00
+
+2014-10-19 18:19:14.6388|TRACE|KarateIsere.DataAccess.KarateIsereContext|-- Completed in 24 ms with result: SqlDataReader
+
+2014-10-19 18:19:14.6388|TRACE|KarateIsere.DataAccess.KarateIsereContext|
+
+2014-10-19 18:19:14.6503|TRACE|KarateIsere.DataAccess.KarateIsereContext|Closed connection at 19/10/2014 18:19:14 +02:00
+
+2014-10-19 18:21:59.5443|TRACE|KarateIsere.DataAccess.KarateIsereContext|Opened connection at 19/10/2014 18:21:59 +02:00
+
+2014-10-19 18:21:59.5608|TRACE|KarateIsere.DataAccess.KarateIsereContext|
+SELECT Count(*)
+FROM INFORMATION_SCHEMA.TABLES AS t
+WHERE t.TABLE_SCHEMA + '.' + t.TABLE_NAME IN ('dbo.Adherents','dbo.Admin','dbo.Art_Martial','dbo.Categorie','dbo.Competiteur','dbo.Club','dbo.ListeCompetiteur','dbo.Professeurs','dbo.Competition','dbo.Inscriptions','dbo.Creneaux','dbo.Club_Professeur','dbo.CompetitionCategories')
+    OR t.TABLE_NAME = 'EdmMetadata'
+2014-10-19 18:21:59.5768|TRACE|KarateIsere.DataAccess.KarateIsereContext|
+
+2014-10-19 18:21:59.5768|TRACE|KarateIsere.DataAccess.KarateIsereContext|-- Executing at 19/10/2014 18:21:59 +02:00
+
+2014-10-19 18:21:59.6128|TRACE|KarateIsere.DataAccess.KarateIsereContext|-- Completed in 25 ms with result: 9
+
+2014-10-19 18:21:59.6128|TRACE|KarateIsere.DataAccess.KarateIsereContext|
+
+2014-10-19 18:21:59.6218|TRACE|KarateIsere.DataAccess.KarateIsereContext|Closed connection at 19/10/2014 18:21:59 +02:00
+
+2014-10-19 18:21:59.6218|TRACE|KarateIsere.DataAccess.KarateIsereContext|Opened connection at 19/10/2014 18:21:59 +02:00
+
+2014-10-19 18:21:59.6218|TRACE|KarateIsere.DataAccess.KarateIsereContext|SELECT 
+    [GroupBy1].[A1] AS [C1]
+    FROM ( SELECT 
+        COUNT(1) AS [A1]
+        FROM [dbo].[__MigrationHistory] AS [Extent1]
+        WHERE [Extent1].[ContextKey] = @p__linq__0
+    )  AS [GroupBy1]
+2014-10-19 18:21:59.6403|TRACE|KarateIsere.DataAccess.KarateIsereContext|
+
+2014-10-19 18:21:59.6403|TRACE|KarateIsere.DataAccess.KarateIsereContext|-- p__linq__0: 'KarateIsere.DataAccess.KarateIsereContext' (Type = String, Size = 4000)
+
+2014-10-19 18:21:59.6403|TRACE|KarateIsere.DataAccess.KarateIsereContext|-- Executing at 19/10/2014 18:21:59 +02:00
+
+2014-10-19 18:21:59.6858|TRACE|KarateIsere.DataAccess.KarateIsereContext|-- Completed in 30 ms with result: SqlDataReader
+
+2014-10-19 18:21:59.6858|TRACE|KarateIsere.DataAccess.KarateIsereContext|
+
+2014-10-19 18:21:59.6858|TRACE|KarateIsere.DataAccess.KarateIsereContext|Closed connection at 19/10/2014 18:21:59 +02:00
+
+2014-10-19 18:21:59.6998|TRACE|KarateIsere.DataAccess.KarateIsereContext|Opened connection at 19/10/2014 18:21:59 +02:00
+
+2014-10-19 18:21:59.6998|TRACE|KarateIsere.DataAccess.KarateIsereContext|SELECT TOP (1) 
+    [Project1].[C1] AS [C1], 
+    [Project1].[MigrationId] AS [MigrationId], 
+    [Project1].[Model] AS [Model], 
+    [Project1].[ProductVersion] AS [ProductVersion]
+    FROM ( SELECT 
+        [Extent1].[MigrationId] AS [MigrationId], 
+        [Extent1].[Model] AS [Model], 
+        [Extent1].[ProductVersion] AS [ProductVersion], 
+        1 AS [C1]
+        FROM [dbo].[__MigrationHistory] AS [Extent1]
+        WHERE [Extent1].[ContextKey] = @p__linq__0
+    )  AS [Project1]
+    ORDER BY [Project1].[MigrationId] DESC
+2014-10-19 18:21:59.6998|TRACE|KarateIsere.DataAccess.KarateIsereContext|
+
+2014-10-19 18:21:59.7153|TRACE|KarateIsere.DataAccess.KarateIsereContext|-- p__linq__0: 'KarateIsere.DataAccess.KarateIsereContext' (Type = String, Size = 4000)
+
+2014-10-19 18:21:59.7153|TRACE|KarateIsere.DataAccess.KarateIsereContext|-- Executing at 19/10/2014 18:21:59 +02:00
+
+2014-10-19 18:21:59.7538|TRACE|KarateIsere.DataAccess.KarateIsereContext|-- Completed in 30 ms with result: SqlDataReader
+
+2014-10-19 18:21:59.7538|TRACE|KarateIsere.DataAccess.KarateIsereContext|
+
+2014-10-19 18:21:59.7623|TRACE|KarateIsere.DataAccess.KarateIsereContext|Closed connection at 19/10/2014 18:21:59 +02:00
+
+2014-10-19 18:22:00.4604|TRACE|KarateIsere.DataAccess.KarateIsereContext|Opened connection at 19/10/2014 18:22:00 +02:00
+
+2014-10-19 18:22:00.6224|TRACE|KarateIsere.DataAccess.KarateIsereContext|SELECT 
+    [Project2].[C1] AS [C1], 
+    [Project2].[NumAffiliation] AS [NumAffiliation], 
+    [Project2].[NomClub] AS [NomClub], 
+    [Project2].[Correspondant] AS [Correspondant], 
+    [Project2].[Telephone] AS [Telephone], 
+    [Project2].[Adr_Administrative] AS [Adr_Administrative], 
+    [Project2].[Adr_Dojo] AS [Adr_Dojo], 
+    [Project2].[Code_Postal] AS [Code_Postal], 
+    [Project2].[Ville] AS [Ville], 
+    [Project2].[Site_Web] AS [Site_Web], 
+    [Project2].[Facebook] AS [Facebook], 
+    [Project2].[President_Tel] AS [President_Tel], 
+    [Project2].[President_Nom] AS [President_Nom], 
+    [Project2].[President_Prenom] AS [President_Prenom], 
+    [Project2].[President_Email] AS [President_Email], 
+    [Project2].[President_Mobile] AS [President_Mobile], 
+    [Project2].[Tresorier_Tel] AS [Tresorier_Tel], 
+    [Project2].[Tresorier_Nom] AS [Tresorier_Nom], 
+    [Project2].[Tresorier_Prenom] AS [Tresorier_Prenom], 
+    [Project2].[Tresorier_Email] AS [Tresorier_Email], 
+    [Project2].[Tresorier_Mobile] AS [Tresorier_Mobile], 
+    [Project2].[Secretaire_Tel] AS [Secretaire_Tel], 
+    [Project2].[Secretaire_Nom] AS [Secretaire_Nom], 
+    [Project2].[Secretaire_Prenom] AS [Secretaire_Prenom], 
+    [Project2].[Secretaire_Email] AS [Secretaire_Email], 
+    [Project2].[Secretaire_Mobile] AS [Secretaire_Mobile], 
+    [Project2].[ArtMartialName] AS [ArtMartialName], 
+    [Project2].[Longitude] AS [Longitude], 
+    [Project2].[Latitude] AS [Latitude], 
+    [Project2].[C2] AS [C2], 
+    [Project2].[NumLicence] AS [NumLicence], 
+    [Project2].[Nom] AS [Nom], 
+    [Project2].[Prenom] AS [Prenom], 
+    [Project2].[Categorie] AS [Categorie], 
+    [Project2].[Poids] AS [Poids], 
+    [Project2].[isHomme] AS [isHomme], 
+    [Project2].[NumAffiliationClub] AS [NumAffiliationClub]
+    FROM ( SELECT 
+        [Limit1].[NumAffiliation] AS [NumAffiliation], 
+        [Limit1].[NomClub] AS [NomClub], 
+        [Limit1].[Correspondant] AS [Correspondant], 
+        [Limit1].[Telephone] AS [Telephone], 
+        [Limit1].[Adr_Administrative] AS [Adr_Administrative], 
+        [Limit1].[Adr_Dojo] AS [Adr_Dojo], 
+        [Limit1].[Code_Postal] AS [Code_Postal], 
+        [Limit1].[Ville] AS [Ville], 
+        [Limit1].[Site_Web] AS [Site_Web], 
+        [Limit1].[Facebook] AS [Facebook], 
+        [Limit1].[President_Tel] AS [President_Tel], 
+        [Limit1].[President_Nom] AS [President_Nom], 
+        [Limit1].[President_Prenom] AS [President_Prenom], 
+        [Limit1].[President_Email] AS [President_Email], 
+        [Limit1].[President_Mobile] AS [President_Mobile], 
+        [Limit1].[Tresorier_Tel] AS [Tresorier_Tel], 
+        [Limit1].[Tresorier_Nom] AS [Tresorier_Nom], 
+        [Limit1].[Tresorier_Prenom] AS [Tresorier_Prenom], 
+        [Limit1].[Tresorier_Email] AS [Tresorier_Email], 
+        [Limit1].[Tresorier_Mobile] AS [Tresorier_Mobile], 
+        [Limit1].[Secretaire_Tel] AS [Secretaire_Tel], 
+        [Limit1].[Secretaire_Nom] AS [Secretaire_Nom], 
+        [Limit1].[Secretaire_Prenom] AS [Secretaire_Prenom], 
+        [Limit1].[Secretaire_Email] AS [Secretaire_Email], 
+        [Limit1].[Secretaire_Mobile] AS [Secretaire_Mobile], 
+        [Limit1].[ArtMartialName] AS [ArtMartialName], 
+        [Limit1].[Longitude] AS [Longitude], 
+        [Limit1].[Latitude] AS [Latitude], 
+        [Limit1].[C1] AS [C1], 
+        [Extent2].[NumLicence] AS [NumLicence], 
+        [Extent2].[Nom] AS [Nom], 
+        [Extent2].[Prenom] AS [Prenom], 
+        [Extent2].[Categorie] AS [Categorie], 
+        [Extent2].[Poids] AS [Poids], 
+        [Extent2].[isHomme] AS [isHomme], 
+        [Extent2].[NumAffiliationClub] AS [NumAffiliationClub], 
+        CASE WHEN ([Extent2].[NumLicence] IS NULL) THEN CAST(NULL AS int) ELSE 1 END AS [C2]
+        FROM   (SELECT TOP (2) 
+            [Extent1].[NumAffiliation] AS [NumAffiliation], 
+            [Extent1].[NomClub] AS [NomClub], 
+            [Extent1].[Correspondant] AS [Correspondant], 
+            [Extent1].[Telephone] AS [Telephone], 
+            [Extent1].[Adr_Administrative] AS [Adr_Administrative], 
+            [Extent1].[Adr_Dojo] AS [Adr_Dojo], 
+            [Extent1].[Code_Postal] AS [Code_Postal], 
+            [Extent1].[Ville] AS [Ville], 
+            [Extent1].[Site_Web] AS [Site_Web], 
+            [Extent1].[Facebook] AS [Facebook], 
+            [Extent1].[President_Tel] AS [President_Tel], 
+            [Extent1].[President_Nom] AS [President_Nom], 
+            [Extent1].[President_Prenom] AS [President_Prenom], 
+            [Extent1].[President_Email] AS [President_Email], 
+            [Extent1].[President_Mobile] AS [President_Mobile], 
+            [Extent1].[Tresorier_Tel] AS [Tresorier_Tel], 
+            [Extent1].[Tresorier_Nom] AS [Tresorier_Nom], 
+            [Extent1].[Tresorier_Prenom] AS [Tresorier_Prenom], 
+            [Extent1].[Tresorier_Email] AS [Tresorier_Email], 
+            [Extent1].[Tresorier_Mobile] AS [Tresorier_Mobile], 
+            [Extent1].[Secretaire_Tel] AS [Secretaire_Tel], 
+            [Extent1].[Secretaire_Nom] AS [Secretaire_Nom], 
+            [Extent1].[Secretaire_Prenom] AS [Secretaire_Prenom], 
+            [Extent1].[Secretaire_Email] AS [Secretaire_Email], 
+            [Extent1].[Secretaire_Mobile] AS [Secretaire_Mobile], 
+            [Extent1].[ArtMartialName] AS [ArtMartialName], 
+            [Extent1].[Longitude] AS [Longitude], 
+            [Extent1].[Latitude] AS [Latitude], 
+            1 AS [C1]
+            FROM [dbo].[Club] AS [Extent1]
+            WHERE [Extent1].[NumAffiliation] = @p__linq__0 ) AS [Limit1]
+        LEFT OUTER JOIN [dbo].[Competiteur] AS [Extent2] ON [Limit1].[NumAffiliation] = [Extent2].[NumAffiliationClub]
+    )  AS [Project2]
+    ORDER BY [Project2].[NumAffiliation] ASC, [Project2].[C2] ASC
+2014-10-19 18:22:00.6224|TRACE|KarateIsere.DataAccess.KarateIsereContext|
+
+2014-10-19 18:22:00.6224|TRACE|KarateIsere.DataAccess.KarateIsereContext|-- p__linq__0: '987654' (Type = AnsiString, Size = 8000)
+
+2014-10-19 18:22:00.6369|TRACE|KarateIsere.DataAccess.KarateIsereContext|-- Executing at 19/10/2014 18:22:00 +02:00
+
+2014-10-19 18:22:00.6704|TRACE|KarateIsere.DataAccess.KarateIsereContext|-- Completed in 29 ms with result: SqlDataReader
+
+2014-10-19 18:22:00.6704|TRACE|KarateIsere.DataAccess.KarateIsereContext|
+
+2014-10-19 18:22:00.6904|TRACE|KarateIsere.DataAccess.KarateIsereContext|Closed connection at 19/10/2014 18:22:00 +02:00
+
+2014-10-19 18:22:00.7004|TRACE|KarateIsere.DataAccess.KarateIsereContext|Opened connection at 19/10/2014 18:22:00 +02:00
+
+2014-10-19 18:22:00.7224|TRACE|KarateIsere.DataAccess.KarateIsereContext|SELECT 
+    [Extent1].[Nom] AS [Nom]
+    FROM [dbo].[Categorie] AS [Extent1]
+2014-10-19 18:22:00.7224|TRACE|KarateIsere.DataAccess.KarateIsereContext|
+
+2014-10-19 18:22:00.7319|TRACE|KarateIsere.DataAccess.KarateIsereContext|-- Executing at 19/10/2014 18:22:00 +02:00
+
+2014-10-19 18:22:00.7619|TRACE|KarateIsere.DataAccess.KarateIsereContext|-- Completed in 25 ms with result: SqlDataReader
+
+2014-10-19 18:22:00.7619|TRACE|KarateIsere.DataAccess.KarateIsereContext|
+
+2014-10-19 18:22:00.7764|TRACE|KarateIsere.DataAccess.KarateIsereContext|Closed connection at 19/10/2014 18:22:00 +02:00
+
+2014-10-19 18:22:18.8142|TRACE|KarateIsere.DataAccess.KarateIsereContext|Opened connection at 19/10/2014 18:22:18 +02:00
+
+2014-10-19 18:22:18.8142|TRACE|KarateIsere.DataAccess.KarateIsereContext|SELECT 
+    [Project2].[C1] AS [C1], 
+    [Project2].[NumAffiliation] AS [NumAffiliation], 
+    [Project2].[NomClub] AS [NomClub], 
+    [Project2].[Correspondant] AS [Correspondant], 
+    [Project2].[Telephone] AS [Telephone], 
+    [Project2].[Adr_Administrative] AS [Adr_Administrative], 
+    [Project2].[Adr_Dojo] AS [Adr_Dojo], 
+    [Project2].[Code_Postal] AS [Code_Postal], 
+    [Project2].[Ville] AS [Ville], 
+    [Project2].[Site_Web] AS [Site_Web], 
+    [Project2].[Facebook] AS [Facebook], 
+    [Project2].[President_Tel] AS [President_Tel], 
+    [Project2].[President_Nom] AS [President_Nom], 
+    [Project2].[President_Prenom] AS [President_Prenom], 
+    [Project2].[President_Email] AS [President_Email], 
+    [Project2].[President_Mobile] AS [President_Mobile], 
+    [Project2].[Tresorier_Tel] AS [Tresorier_Tel], 
+    [Project2].[Tresorier_Nom] AS [Tresorier_Nom], 
+    [Project2].[Tresorier_Prenom] AS [Tresorier_Prenom], 
+    [Project2].[Tresorier_Email] AS [Tresorier_Email], 
+    [Project2].[Tresorier_Mobile] AS [Tresorier_Mobile], 
+    [Project2].[Secretaire_Tel] AS [Secretaire_Tel], 
+    [Project2].[Secretaire_Nom] AS [Secretaire_Nom], 
+    [Project2].[Secretaire_Prenom] AS [Secretaire_Prenom], 
+    [Project2].[Secretaire_Email] AS [Secretaire_Email], 
+    [Project2].[Secretaire_Mobile] AS [Secretaire_Mobile], 
+    [Project2].[ArtMartialName] AS [ArtMartialName], 
+    [Project2].[Longitude] AS [Longitude], 
+    [Project2].[Latitude] AS [Latitude], 
+    [Project2].[C2] AS [C2], 
+    [Project2].[NumLicence] AS [NumLicence], 
+    [Project2].[Nom] AS [Nom], 
+    [Project2].[Prenom] AS [Prenom], 
+    [Project2].[Categorie] AS [Categorie], 
+    [Project2].[Poids] AS [Poids], 
+    [Project2].[isHomme] AS [isHomme], 
+    [Project2].[NumAffiliationClub] AS [NumAffiliationClub]
+    FROM ( SELECT 
+        [Limit1].[NumAffiliation] AS [NumAffiliation], 
+        [Limit1].[NomClub] AS [NomClub], 
+        [Limit1].[Correspondant] AS [Correspondant], 
+        [Limit1].[Telephone] AS [Telephone], 
+        [Limit1].[Adr_Administrative] AS [Adr_Administrative], 
+        [Limit1].[Adr_Dojo] AS [Adr_Dojo], 
+        [Limit1].[Code_Postal] AS [Code_Postal], 
+        [Limit1].[Ville] AS [Ville], 
+        [Limit1].[Site_Web] AS [Site_Web], 
+        [Limit1].[Facebook] AS [Facebook], 
+        [Limit1].[President_Tel] AS [President_Tel], 
+        [Limit1].[President_Nom] AS [President_Nom], 
+        [Limit1].[President_Prenom] AS [President_Prenom], 
+        [Limit1].[President_Email] AS [President_Email], 
+        [Limit1].[President_Mobile] AS [President_Mobile], 
+        [Limit1].[Tresorier_Tel] AS [Tresorier_Tel], 
+        [Limit1].[Tresorier_Nom] AS [Tresorier_Nom], 
+        [Limit1].[Tresorier_Prenom] AS [Tresorier_Prenom], 
+        [Limit1].[Tresorier_Email] AS [Tresorier_Email], 
+        [Limit1].[Tresorier_Mobile] AS [Tresorier_Mobile], 
+        [Limit1].[Secretaire_Tel] AS [Secretaire_Tel], 
+        [Limit1].[Secretaire_Nom] AS [Secretaire_Nom], 
+        [Limit1].[Secretaire_Prenom] AS [Secretaire_Prenom], 
+        [Limit1].[Secretaire_Email] AS [Secretaire_Email], 
+        [Limit1].[Secretaire_Mobile] AS [Secretaire_Mobile], 
+        [Limit1].[ArtMartialName] AS [ArtMartialName], 
+        [Limit1].[Longitude] AS [Longitude], 
+        [Limit1].[Latitude] AS [Latitude], 
+        [Limit1].[C1] AS [C1], 
+        [Extent2].[NumLicence] AS [NumLicence], 
+        [Extent2].[Nom] AS [Nom], 
+        [Extent2].[Prenom] AS [Prenom], 
+        [Extent2].[Categorie] AS [Categorie], 
+        [Extent2].[Poids] AS [Poids], 
+        [Extent2].[isHomme] AS [isHomme], 
+        [Extent2].[NumAffiliationClub] AS [NumAffiliationClub], 
+        CASE WHEN ([Extent2].[NumLicence] IS NULL) THEN CAST(NULL AS int) ELSE 1 END AS [C2]
+        FROM   (SELECT TOP (2) 
+            [Extent1].[NumAffiliation] AS [NumAffiliation], 
+            [Extent1].[NomClub] AS [NomClub], 
+            [Extent1].[Correspondant] AS [Correspondant], 
+            [Extent1].[Telephone] AS [Telephone], 
+            [Extent1].[Adr_Administrative] AS [Adr_Administrative], 
+            [Extent1].[Adr_Dojo] AS [Adr_Dojo], 
+            [Extent1].[Code_Postal] AS [Code_Postal], 
+            [Extent1].[Ville] AS [Ville], 
+            [Extent1].[Site_Web] AS [Site_Web], 
+            [Extent1].[Facebook] AS [Facebook], 
+            [Extent1].[President_Tel] AS [President_Tel], 
+            [Extent1].[President_Nom] AS [President_Nom], 
+            [Extent1].[President_Prenom] AS [President_Prenom], 
+            [Extent1].[President_Email] AS [President_Email], 
+            [Extent1].[President_Mobile] AS [President_Mobile], 
+            [Extent1].[Tresorier_Tel] AS [Tresorier_Tel], 
+            [Extent1].[Tresorier_Nom] AS [Tresorier_Nom], 
+            [Extent1].[Tresorier_Prenom] AS [Tresorier_Prenom], 
+            [Extent1].[Tresorier_Email] AS [Tresorier_Email], 
+            [Extent1].[Tresorier_Mobile] AS [Tresorier_Mobile], 
+            [Extent1].[Secretaire_Tel] AS [Secretaire_Tel], 
+            [Extent1].[Secretaire_Nom] AS [Secretaire_Nom], 
+            [Extent1].[Secretaire_Prenom] AS [Secretaire_Prenom], 
+            [Extent1].[Secretaire_Email] AS [Secretaire_Email], 
+            [Extent1].[Secretaire_Mobile] AS [Secretaire_Mobile], 
+            [Extent1].[ArtMartialName] AS [ArtMartialName], 
+            [Extent1].[Longitude] AS [Longitude], 
+            [Extent1].[Latitude] AS [Latitude], 
+            1 AS [C1]
+            FROM [dbo].[Club] AS [Extent1]
+            WHERE [Extent1].[NumAffiliation] = @p__linq__0 ) AS [Limit1]
+        LEFT OUTER JOIN [dbo].[Competiteur] AS [Extent2] ON [Limit1].[NumAffiliation] = [Extent2].[NumAffiliationClub]
+    )  AS [Project2]
+    ORDER BY [Project2].[NumAffiliation] ASC, [Project2].[C2] ASC
+2014-10-19 18:22:18.8247|TRACE|KarateIsere.DataAccess.KarateIsereContext|
+
+2014-10-19 18:22:18.8247|TRACE|KarateIsere.DataAccess.KarateIsereContext|-- p__linq__0: '987654' (Type = AnsiString, Size = 8000)
+
+2014-10-19 18:22:18.8247|TRACE|KarateIsere.DataAccess.KarateIsereContext|-- Executing at 19/10/2014 18:22:18 +02:00
+
+2014-10-19 18:22:18.8647|TRACE|KarateIsere.DataAccess.KarateIsereContext|-- Completed in 25 ms with result: SqlDataReader
+
+2014-10-19 18:22:18.8647|TRACE|KarateIsere.DataAccess.KarateIsereContext|
+
+2014-10-19 18:22:18.8732|TRACE|KarateIsere.DataAccess.KarateIsereContext|Closed connection at 19/10/2014 18:22:18 +02:00
+
+2014-10-19 18:22:18.8732|TRACE|KarateIsere.DataAccess.KarateIsereContext|Opened connection at 19/10/2014 18:22:18 +02:00
+
+2014-10-19 18:22:18.8732|TRACE|KarateIsere.DataAccess.KarateIsereContext|SELECT 
+    [Extent1].[Nom] AS [Nom]
+    FROM [dbo].[Categorie] AS [Extent1]
+2014-10-19 18:22:18.8892|TRACE|KarateIsere.DataAccess.KarateIsereContext|
+
+2014-10-19 18:22:18.8892|TRACE|KarateIsere.DataAccess.KarateIsereContext|-- Executing at 19/10/2014 18:22:18 +02:00
+
+2014-10-19 18:22:18.9222|TRACE|KarateIsere.DataAccess.KarateIsereContext|-- Completed in 24 ms with result: SqlDataReader
+
+2014-10-19 18:22:18.9222|TRACE|KarateIsere.DataAccess.KarateIsereContext|
+
+2014-10-19 18:22:18.9352|TRACE|KarateIsere.DataAccess.KarateIsereContext|Closed connection at 19/10/2014 18:22:18 +02:00
+
+2014-10-19 18:22:29.7346|TRACE|KarateIsere.DataAccess.KarateIsereContext|Opened connection at 19/10/2014 18:22:29 +02:00
+
+2014-10-19 18:22:29.7346|TRACE|KarateIsere.DataAccess.KarateIsereContext|SELECT 
+    [Project2].[C1] AS [C1], 
+    [Project2].[NumAffiliation] AS [NumAffiliation], 
+    [Project2].[NomClub] AS [NomClub], 
+    [Project2].[Correspondant] AS [Correspondant], 
+    [Project2].[Telephone] AS [Telephone], 
+    [Project2].[Adr_Administrative] AS [Adr_Administrative], 
+    [Project2].[Adr_Dojo] AS [Adr_Dojo], 
+    [Project2].[Code_Postal] AS [Code_Postal], 
+    [Project2].[Ville] AS [Ville], 
+    [Project2].[Site_Web] AS [Site_Web], 
+    [Project2].[Facebook] AS [Facebook], 
+    [Project2].[President_Tel] AS [President_Tel], 
+    [Project2].[President_Nom] AS [President_Nom], 
+    [Project2].[President_Prenom] AS [President_Prenom], 
+    [Project2].[President_Email] AS [President_Email], 
+    [Project2].[President_Mobile] AS [President_Mobile], 
+    [Project2].[Tresorier_Tel] AS [Tresorier_Tel], 
+    [Project2].[Tresorier_Nom] AS [Tresorier_Nom], 
+    [Project2].[Tresorier_Prenom] AS [Tresorier_Prenom], 
+    [Project2].[Tresorier_Email] AS [Tresorier_Email], 
+    [Project2].[Tresorier_Mobile] AS [Tresorier_Mobile], 
+    [Project2].[Secretaire_Tel] AS [Secretaire_Tel], 
+    [Project2].[Secretaire_Nom] AS [Secretaire_Nom], 
+    [Project2].[Secretaire_Prenom] AS [Secretaire_Prenom], 
+    [Project2].[Secretaire_Email] AS [Secretaire_Email], 
+    [Project2].[Secretaire_Mobile] AS [Secretaire_Mobile], 
+    [Project2].[ArtMartialName] AS [ArtMartialName], 
+    [Project2].[Longitude] AS [Longitude], 
+    [Project2].[Latitude] AS [Latitude], 
+    [Project2].[C2] AS [C2], 
+    [Project2].[NumLicence] AS [NumLicence], 
+    [Project2].[Nom] AS [Nom], 
+    [Project2].[Prenom] AS [Prenom], 
+    [Project2].[Categorie] AS [Categorie], 
+    [Project2].[Poids] AS [Poids], 
+    [Project2].[isHomme] AS [isHomme], 
+    [Project2].[NumAffiliationClub] AS [NumAffiliationClub]
+    FROM ( SELECT 
+        [Limit1].[NumAffiliation] AS [NumAffiliation], 
+        [Limit1].[NomClub] AS [NomClub], 
+        [Limit1].[Correspondant] AS [Correspondant], 
+        [Limit1].[Telephone] AS [Telephone], 
+        [Limit1].[Adr_Administrative] AS [Adr_Administrative], 
+        [Limit1].[Adr_Dojo] AS [Adr_Dojo], 
+        [Limit1].[Code_Postal] AS [Code_Postal], 
+        [Limit1].[Ville] AS [Ville], 
+        [Limit1].[Site_Web] AS [Site_Web], 
+        [Limit1].[Facebook] AS [Facebook], 
+        [Limit1].[President_Tel] AS [President_Tel], 
+        [Limit1].[President_Nom] AS [President_Nom], 
+        [Limit1].[President_Prenom] AS [President_Prenom], 
+        [Limit1].[President_Email] AS [President_Email], 
+        [Limit1].[President_Mobile] AS [President_Mobile], 
+        [Limit1].[Tresorier_Tel] AS [Tresorier_Tel], 
+        [Limit1].[Tresorier_Nom] AS [Tresorier_Nom], 
+        [Limit1].[Tresorier_Prenom] AS [Tresorier_Prenom], 
+        [Limit1].[Tresorier_Email] AS [Tresorier_Email], 
+        [Limit1].[Tresorier_Mobile] AS [Tresorier_Mobile], 
+        [Limit1].[Secretaire_Tel] AS [Secretaire_Tel], 
+        [Limit1].[Secretaire_Nom] AS [Secretaire_Nom], 
+        [Limit1].[Secretaire_Prenom] AS [Secretaire_Prenom], 
+        [Limit1].[Secretaire_Email] AS [Secretaire_Email], 
+        [Limit1].[Secretaire_Mobile] AS [Secretaire_Mobile], 
+        [Limit1].[ArtMartialName] AS [ArtMartialName], 
+        [Limit1].[Longitude] AS [Longitude], 
+        [Limit1].[Latitude] AS [Latitude], 
+        [Limit1].[C1] AS [C1], 
+        [Extent2].[NumLicence] AS [NumLicence], 
+        [Extent2].[Nom] AS [Nom], 
+        [Extent2].[Prenom] AS [Prenom], 
+        [Extent2].[Categorie] AS [Categorie], 
+        [Extent2].[Poids] AS [Poids], 
+        [Extent2].[isHomme] AS [isHomme], 
+        [Extent2].[NumAffiliationClub] AS [NumAffiliationClub], 
+        CASE WHEN ([Extent2].[NumLicence] IS NULL) THEN CAST(NULL AS int) ELSE 1 END AS [C2]
+        FROM   (SELECT TOP (2) 
+            [Extent1].[NumAffiliation] AS [NumAffiliation], 
+            [Extent1].[NomClub] AS [NomClub], 
+            [Extent1].[Correspondant] AS [Correspondant], 
+            [Extent1].[Telephone] AS [Telephone], 
+            [Extent1].[Adr_Administrative] AS [Adr_Administrative], 
+            [Extent1].[Adr_Dojo] AS [Adr_Dojo], 
+            [Extent1].[Code_Postal] AS [Code_Postal], 
+            [Extent1].[Ville] AS [Ville], 
+            [Extent1].[Site_Web] AS [Site_Web], 
+            [Extent1].[Facebook] AS [Facebook], 
+            [Extent1].[President_Tel] AS [President_Tel], 
+            [Extent1].[President_Nom] AS [President_Nom], 
+            [Extent1].[President_Prenom] AS [President_Prenom], 
+            [Extent1].[President_Email] AS [President_Email], 
+            [Extent1].[President_Mobile] AS [President_Mobile], 
+            [Extent1].[Tresorier_Tel] AS [Tresorier_Tel], 
+            [Extent1].[Tresorier_Nom] AS [Tresorier_Nom], 
+            [Extent1].[Tresorier_Prenom] AS [Tresorier_Prenom], 
+            [Extent1].[Tresorier_Email] AS [Tresorier_Email], 
+            [Extent1].[Tresorier_Mobile] AS [Tresorier_Mobile], 
+            [Extent1].[Secretaire_Tel] AS [Secretaire_Tel], 
+            [Extent1].[Secretaire_Nom] AS [Secretaire_Nom], 
+            [Extent1].[Secretaire_Prenom] AS [Secretaire_Prenom], 
+            [Extent1].[Secretaire_Email] AS [Secretaire_Email], 
+            [Extent1].[Secretaire_Mobile] AS [Secretaire_Mobile], 
+            [Extent1].[ArtMartialName] AS [ArtMartialName], 
+            [Extent1].[Longitude] AS [Longitude], 
+            [Extent1].[Latitude] AS [Latitude], 
+            1 AS [C1]
+            FROM [dbo].[Club] AS [Extent1]
+            WHERE [Extent1].[NumAffiliation] = @p__linq__0 ) AS [Limit1]
+        LEFT OUTER JOIN [dbo].[Competiteur] AS [Extent2] ON [Limit1].[NumAffiliation] = [Extent2].[NumAffiliationClub]
+    )  AS [Project2]
+    ORDER BY [Project2].[NumAffiliation] ASC, [Project2].[C2] ASC
+2014-10-19 18:22:29.7446|TRACE|KarateIsere.DataAccess.KarateIsereContext|
+
+2014-10-19 18:22:29.7446|TRACE|KarateIsere.DataAccess.KarateIsereContext|-- p__linq__0: '987654' (Type = AnsiString, Size = 8000)
+
+2014-10-19 18:22:29.7446|TRACE|KarateIsere.DataAccess.KarateIsereContext|-- Executing at 19/10/2014 18:22:29 +02:00
+
+2014-10-19 18:22:29.7826|TRACE|KarateIsere.DataAccess.KarateIsereContext|-- Completed in 25 ms with result: SqlDataReader
+
+2014-10-19 18:22:29.7826|TRACE|KarateIsere.DataAccess.KarateIsereContext|
+
+2014-10-19 18:22:29.7926|TRACE|KarateIsere.DataAccess.KarateIsereContext|Closed connection at 19/10/2014 18:22:29 +02:00
+
+2014-10-19 18:22:29.7926|TRACE|KarateIsere.DataAccess.KarateIsereContext|Opened connection at 19/10/2014 18:22:29 +02:00
+
+2014-10-19 18:22:29.7926|TRACE|KarateIsere.DataAccess.KarateIsereContext|SELECT 
+    [Extent1].[Nom] AS [Nom]
+    FROM [dbo].[Categorie] AS [Extent1]
+2014-10-19 18:22:29.8081|TRACE|KarateIsere.DataAccess.KarateIsereContext|
+
+2014-10-19 18:22:29.8081|TRACE|KarateIsere.DataAccess.KarateIsereContext|-- Executing at 19/10/2014 18:22:29 +02:00
+
+2014-10-19 18:22:29.8396|TRACE|KarateIsere.DataAccess.KarateIsereContext|-- Completed in 23 ms with result: SqlDataReader
+
+2014-10-19 18:22:29.8396|TRACE|KarateIsere.DataAccess.KarateIsereContext|
+
+2014-10-19 18:22:29.8396|TRACE|KarateIsere.DataAccess.KarateIsereContext|Closed connection at 19/10/2014 18:22:29 +02:00
+
+2014-10-19 18:22:50.0867|TRACE|KarateIsere.DataAccess.KarateIsereContext|Opened connection at 19/10/2014 18:22:50 +02:00
+
+2014-10-19 18:22:50.0912|TRACE|KarateIsere.DataAccess.KarateIsereContext|SELECT 
+    [Project2].[C1] AS [C1], 
+    [Project2].[NumAffiliation] AS [NumAffiliation], 
+    [Project2].[NomClub] AS [NomClub], 
+    [Project2].[Correspondant] AS [Correspondant], 
+    [Project2].[Telephone] AS [Telephone], 
+    [Project2].[Adr_Administrative] AS [Adr_Administrative], 
+    [Project2].[Adr_Dojo] AS [Adr_Dojo], 
+    [Project2].[Code_Postal] AS [Code_Postal], 
+    [Project2].[Ville] AS [Ville], 
+    [Project2].[Site_Web] AS [Site_Web], 
+    [Project2].[Facebook] AS [Facebook], 
+    [Project2].[President_Tel] AS [President_Tel], 
+    [Project2].[President_Nom] AS [President_Nom], 
+    [Project2].[President_Prenom] AS [President_Prenom], 
+    [Project2].[President_Email] AS [President_Email], 
+    [Project2].[President_Mobile] AS [President_Mobile], 
+    [Project2].[Tresorier_Tel] AS [Tresorier_Tel], 
+    [Project2].[Tresorier_Nom] AS [Tresorier_Nom], 
+    [Project2].[Tresorier_Prenom] AS [Tresorier_Prenom], 
+    [Project2].[Tresorier_Email] AS [Tresorier_Email], 
+    [Project2].[Tresorier_Mobile] AS [Tresorier_Mobile], 
+    [Project2].[Secretaire_Tel] AS [Secretaire_Tel], 
+    [Project2].[Secretaire_Nom] AS [Secretaire_Nom], 
+    [Project2].[Secretaire_Prenom] AS [Secretaire_Prenom], 
+    [Project2].[Secretaire_Email] AS [Secretaire_Email], 
+    [Project2].[Secretaire_Mobile] AS [Secretaire_Mobile], 
+    [Project2].[ArtMartialName] AS [ArtMartialName], 
+    [Project2].[Longitude] AS [Longitude], 
+    [Project2].[Latitude] AS [Latitude], 
+    [Project2].[C2] AS [C2], 
+    [Project2].[NumLicence] AS [NumLicence], 
+    [Project2].[Nom] AS [Nom], 
+    [Project2].[Prenom] AS [Prenom], 
+    [Project2].[Categorie] AS [Categorie], 
+    [Project2].[Poids] AS [Poids], 
+    [Project2].[isHomme] AS [isHomme], 
+    [Project2].[NumAffiliationClub] AS [NumAffiliationClub]
+    FROM ( SELECT 
+        [Limit1].[NumAffiliation] AS [NumAffiliation], 
+        [Limit1].[NomClub] AS [NomClub], 
+        [Limit1].[Correspondant] AS [Correspondant], 
+        [Limit1].[Telephone] AS [Telephone], 
+        [Limit1].[Adr_Administrative] AS [Adr_Administrative], 
+        [Limit1].[Adr_Dojo] AS [Adr_Dojo], 
+        [Limit1].[Code_Postal] AS [Code_Postal], 
+        [Limit1].[Ville] AS [Ville], 
+        [Limit1].[Site_Web] AS [Site_Web], 
+        [Limit1].[Facebook] AS [Facebook], 
+        [Limit1].[President_Tel] AS [President_Tel], 
+        [Limit1].[President_Nom] AS [President_Nom], 
+        [Limit1].[President_Prenom] AS [President_Prenom], 
+        [Limit1].[President_Email] AS [President_Email], 
+        [Limit1].[President_Mobile] AS [President_Mobile], 
+        [Limit1].[Tresorier_Tel] AS [Tresorier_Tel], 
+        [Limit1].[Tresorier_Nom] AS [Tresorier_Nom], 
+        [Limit1].[Tresorier_Prenom] AS [Tresorier_Prenom], 
+        [Limit1].[Tresorier_Email] AS [Tresorier_Email], 
+        [Limit1].[Tresorier_Mobile] AS [Tresorier_Mobile], 
+        [Limit1].[Secretaire_Tel] AS [Secretaire_Tel], 
+        [Limit1].[Secretaire_Nom] AS [Secretaire_Nom], 
+        [Limit1].[Secretaire_Prenom] AS [Secretaire_Prenom], 
+        [Limit1].[Secretaire_Email] AS [Secretaire_Email], 
+        [Limit1].[Secretaire_Mobile] AS [Secretaire_Mobile], 
+        [Limit1].[ArtMartialName] AS [ArtMartialName], 
+        [Limit1].[Longitude] AS [Longitude], 
+        [Limit1].[Latitude] AS [Latitude], 
+        [Limit1].[C1] AS [C1], 
+        [Extent2].[NumLicence] AS [NumLicence], 
+        [Extent2].[Nom] AS [Nom], 
+        [Extent2].[Prenom] AS [Prenom], 
+        [Extent2].[Categorie] AS [Categorie], 
+        [Extent2].[Poids] AS [Poids], 
+        [Extent2].[isHomme] AS [isHomme], 
+        [Extent2].[NumAffiliationClub] AS [NumAffiliationClub], 
+        CASE WHEN ([Extent2].[NumLicence] IS NULL) THEN CAST(NULL AS int) ELSE 1 END AS [C2]
+        FROM   (SELECT TOP (2) 
+            [Extent1].[NumAffiliation] AS [NumAffiliation], 
+            [Extent1].[NomClub] AS [NomClub], 
+            [Extent1].[Correspondant] AS [Correspondant], 
+            [Extent1].[Telephone] AS [Telephone], 
+            [Extent1].[Adr_Administrative] AS [Adr_Administrative], 
+            [Extent1].[Adr_Dojo] AS [Adr_Dojo], 
+            [Extent1].[Code_Postal] AS [Code_Postal], 
+            [Extent1].[Ville] AS [Ville], 
+            [Extent1].[Site_Web] AS [Site_Web], 
+            [Extent1].[Facebook] AS [Facebook], 
+            [Extent1].[President_Tel] AS [President_Tel], 
+            [Extent1].[President_Nom] AS [President_Nom], 
+            [Extent1].[President_Prenom] AS [President_Prenom], 
+            [Extent1].[President_Email] AS [President_Email], 
+            [Extent1].[President_Mobile] AS [President_Mobile], 
+            [Extent1].[Tresorier_Tel] AS [Tresorier_Tel], 
+            [Extent1].[Tresorier_Nom] AS [Tresorier_Nom], 
+            [Extent1].[Tresorier_Prenom] AS [Tresorier_Prenom], 
+            [Extent1].[Tresorier_Email] AS [Tresorier_Email], 
+            [Extent1].[Tresorier_Mobile] AS [Tresorier_Mobile], 
+            [Extent1].[Secretaire_Tel] AS [Secretaire_Tel], 
+            [Extent1].[Secretaire_Nom] AS [Secretaire_Nom], 
+            [Extent1].[Secretaire_Prenom] AS [Secretaire_Prenom], 
+            [Extent1].[Secretaire_Email] AS [Secretaire_Email], 
+            [Extent1].[Secretaire_Mobile] AS [Secretaire_Mobile], 
+            [Extent1].[ArtMartialName] AS [ArtMartialName], 
+            [Extent1].[Longitude] AS [Longitude], 
+            [Extent1].[Latitude] AS [Latitude], 
+            1 AS [C1]
+            FROM [dbo].[Club] AS [Extent1]
+            WHERE [Extent1].[NumAffiliation] = @p__linq__0 ) AS [Limit1]
+        LEFT OUTER JOIN [dbo].[Competiteur] AS [Extent2] ON [Limit1].[NumAffiliation] = [Extent2].[NumAffiliationClub]
+    )  AS [Project2]
+    ORDER BY [Project2].[NumAffiliation] ASC, [Project2].[C2] ASC
+2014-10-19 18:22:50.0912|TRACE|KarateIsere.DataAccess.KarateIsereContext|
+
+2014-10-19 18:22:50.0912|TRACE|KarateIsere.DataAccess.KarateIsereContext|-- p__linq__0: '987654' (Type = AnsiString, Size = 8000)
+
+2014-10-19 18:22:50.1047|TRACE|KarateIsere.DataAccess.KarateIsereContext|-- Executing at 19/10/2014 18:22:50 +02:00
+
+2014-10-19 18:22:50.1352|TRACE|KarateIsere.DataAccess.KarateIsereContext|-- Completed in 25 ms with result: SqlDataReader
+
+2014-10-19 18:22:50.1352|TRACE|KarateIsere.DataAccess.KarateIsereContext|
+
+2014-10-19 18:22:50.1352|TRACE|KarateIsere.DataAccess.KarateIsereContext|Closed connection at 19/10/2014 18:22:50 +02:00
+
+2014-10-19 18:22:50.1497|TRACE|KarateIsere.DataAccess.KarateIsereContext|Opened connection at 19/10/2014 18:22:50 +02:00
+
+2014-10-19 18:22:50.1497|TRACE|KarateIsere.DataAccess.KarateIsereContext|SELECT 
+    [Extent1].[Nom] AS [Nom]
+    FROM [dbo].[Categorie] AS [Extent1]
+2014-10-19 18:22:50.1497|TRACE|KarateIsere.DataAccess.KarateIsereContext|
+
+2014-10-19 18:22:50.1497|TRACE|KarateIsere.DataAccess.KarateIsereContext|-- Executing at 19/10/2014 18:22:50 +02:00
+
+2014-10-19 18:22:50.1927|TRACE|KarateIsere.DataAccess.KarateIsereContext|-- Completed in 24 ms with result: SqlDataReader
+
+2014-10-19 18:22:50.1967|TRACE|KarateIsere.DataAccess.KarateIsereContext|
+
+2014-10-19 18:22:50.1967|TRACE|KarateIsere.DataAccess.KarateIsereContext|Closed connection at 19/10/2014 18:22:50 +02:00
+
+2014-10-19 18:24:14.4039|TRACE|KarateIsere.DataAccess.KarateIsereContext|Opened connection at 19/10/2014 18:24:14 +02:00
+
+2014-10-19 18:24:14.4089|TRACE|KarateIsere.DataAccess.KarateIsereContext|SELECT 
+    [Project2].[C1] AS [C1], 
+    [Project2].[NumAffiliation] AS [NumAffiliation], 
+    [Project2].[NomClub] AS [NomClub], 
+    [Project2].[Correspondant] AS [Correspondant], 
+    [Project2].[Telephone] AS [Telephone], 
+    [Project2].[Adr_Administrative] AS [Adr_Administrative], 
+    [Project2].[Adr_Dojo] AS [Adr_Dojo], 
+    [Project2].[Code_Postal] AS [Code_Postal], 
+    [Project2].[Ville] AS [Ville], 
+    [Project2].[Site_Web] AS [Site_Web], 
+    [Project2].[Facebook] AS [Facebook], 
+    [Project2].[President_Tel] AS [President_Tel], 
+    [Project2].[President_Nom] AS [President_Nom], 
+    [Project2].[President_Prenom] AS [President_Prenom], 
+    [Project2].[President_Email] AS [President_Email], 
+    [Project2].[President_Mobile] AS [President_Mobile], 
+    [Project2].[Tresorier_Tel] AS [Tresorier_Tel], 
+    [Project2].[Tresorier_Nom] AS [Tresorier_Nom], 
+    [Project2].[Tresorier_Prenom] AS [Tresorier_Prenom], 
+    [Project2].[Tresorier_Email] AS [Tresorier_Email], 
+    [Project2].[Tresorier_Mobile] AS [Tresorier_Mobile], 
+    [Project2].[Secretaire_Tel] AS [Secretaire_Tel], 
+    [Project2].[Secretaire_Nom] AS [Secretaire_Nom], 
+    [Project2].[Secretaire_Prenom] AS [Secretaire_Prenom], 
+    [Project2].[Secretaire_Email] AS [Secretaire_Email], 
+    [Project2].[Secretaire_Mobile] AS [Secretaire_Mobile], 
+    [Project2].[ArtMartialName] AS [ArtMartialName], 
+    [Project2].[Longitude] AS [Longitude], 
+    [Project2].[Latitude] AS [Latitude], 
+    [Project2].[C2] AS [C2], 
+    [Project2].[NumLicence] AS [NumLicence], 
+    [Project2].[Nom] AS [Nom], 
+    [Project2].[Prenom] AS [Prenom], 
+    [Project2].[Categorie] AS [Categorie], 
+    [Project2].[Poids] AS [Poids], 
+    [Project2].[isHomme] AS [isHomme], 
+    [Project2].[NumAffiliationClub] AS [NumAffiliationClub]
+    FROM ( SELECT 
+        [Limit1].[NumAffiliation] AS [NumAffiliation], 
+        [Limit1].[NomClub] AS [NomClub], 
+        [Limit1].[Correspondant] AS [Correspondant], 
+        [Limit1].[Telephone] AS [Telephone], 
+        [Limit1].[Adr_Administrative] AS [Adr_Administrative], 
+        [Limit1].[Adr_Dojo] AS [Adr_Dojo], 
+        [Limit1].[Code_Postal] AS [Code_Postal], 
+        [Limit1].[Ville] AS [Ville], 
+        [Limit1].[Site_Web] AS [Site_Web], 
+        [Limit1].[Facebook] AS [Facebook], 
+        [Limit1].[President_Tel] AS [President_Tel], 
+        [Limit1].[President_Nom] AS [President_Nom], 
+        [Limit1].[President_Prenom] AS [President_Prenom], 
+        [Limit1].[President_Email] AS [President_Email], 
+        [Limit1].[President_Mobile] AS [President_Mobile], 
+        [Limit1].[Tresorier_Tel] AS [Tresorier_Tel], 
+        [Limit1].[Tresorier_Nom] AS [Tresorier_Nom], 
+        [Limit1].[Tresorier_Prenom] AS [Tresorier_Prenom], 
+        [Limit1].[Tresorier_Email] AS [Tresorier_Email], 
+        [Limit1].[Tresorier_Mobile] AS [Tresorier_Mobile], 
+        [Limit1].[Secretaire_Tel] AS [Secretaire_Tel], 
+        [Limit1].[Secretaire_Nom] AS [Secretaire_Nom], 
+        [Limit1].[Secretaire_Prenom] AS [Secretaire_Prenom], 
+        [Limit1].[Secretaire_Email] AS [Secretaire_Email], 
+        [Limit1].[Secretaire_Mobile] AS [Secretaire_Mobile], 
+        [Limit1].[ArtMartialName] AS [ArtMartialName], 
+        [Limit1].[Longitude] AS [Longitude], 
+        [Limit1].[Latitude] AS [Latitude], 
+        [Limit1].[C1] AS [C1], 
+        [Extent2].[NumLicence] AS [NumLicence], 
+        [Extent2].[Nom] AS [Nom], 
+        [Extent2].[Prenom] AS [Prenom], 
+        [Extent2].[Categorie] AS [Categorie], 
+        [Extent2].[Poids] AS [Poids], 
+        [Extent2].[isHomme] AS [isHomme], 
+        [Extent2].[NumAffiliationClub] AS [NumAffiliationClub], 
+        CASE WHEN ([Extent2].[NumLicence] IS NULL) THEN CAST(NULL AS int) ELSE 1 END AS [C2]
+        FROM   (SELECT TOP (2) 
+            [Extent1].[NumAffiliation] AS [NumAffiliation], 
+            [Extent1].[NomClub] AS [NomClub], 
+            [Extent1].[Correspondant] AS [Correspondant], 
+            [Extent1].[Telephone] AS [Telephone], 
+            [Extent1].[Adr_Administrative] AS [Adr_Administrative], 
+            [Extent1].[Adr_Dojo] AS [Adr_Dojo], 
+            [Extent1].[Code_Postal] AS [Code_Postal], 
+            [Extent1].[Ville] AS [Ville], 
+            [Extent1].[Site_Web] AS [Site_Web], 
+            [Extent1].[Facebook] AS [Facebook], 
+            [Extent1].[President_Tel] AS [President_Tel], 
+            [Extent1].[President_Nom] AS [President_Nom], 
+            [Extent1].[President_Prenom] AS [President_Prenom], 
+            [Extent1].[President_Email] AS [President_Email], 
+            [Extent1].[President_Mobile] AS [President_Mobile], 
+            [Extent1].[Tresorier_Tel] AS [Tresorier_Tel], 
+            [Extent1].[Tresorier_Nom] AS [Tresorier_Nom], 
+            [Extent1].[Tresorier_Prenom] AS [Tresorier_Prenom], 
+            [Extent1].[Tresorier_Email] AS [Tresorier_Email], 
+            [Extent1].[Tresorier_Mobile] AS [Tresorier_Mobile], 
+            [Extent1].[Secretaire_Tel] AS [Secretaire_Tel], 
+            [Extent1].[Secretaire_Nom] AS [Secretaire_Nom], 
+            [Extent1].[Secretaire_Prenom] AS [Secretaire_Prenom], 
+            [Extent1].[Secretaire_Email] AS [Secretaire_Email], 
+            [Extent1].[Secretaire_Mobile] AS [Secretaire_Mobile], 
+            [Extent1].[ArtMartialName] AS [ArtMartialName], 
+            [Extent1].[Longitude] AS [Longitude], 
+            [Extent1].[Latitude] AS [Latitude], 
+            1 AS [C1]
+            FROM [dbo].[Club] AS [Extent1]
+            WHERE [Extent1].[NumAffiliation] = @p__linq__0 ) AS [Limit1]
+        LEFT OUTER JOIN [dbo].[Competiteur] AS [Extent2] ON [Limit1].[NumAffiliation] = [Extent2].[NumAffiliationClub]
+    )  AS [Project2]
+    ORDER BY [Project2].[NumAffiliation] ASC, [Project2].[C2] ASC
+2014-10-19 18:24:14.4089|TRACE|KarateIsere.DataAccess.KarateIsereContext|
+
+2014-10-19 18:24:14.4089|TRACE|KarateIsere.DataAccess.KarateIsereContext|-- p__linq__0: '987654' (Type = AnsiString, Size = 8000)
+
+2014-10-19 18:24:14.4254|TRACE|KarateIsere.DataAccess.KarateIsereContext|-- Executing at 19/10/2014 18:24:14 +02:00
+
+2014-10-19 18:24:14.4554|TRACE|KarateIsere.DataAccess.KarateIsereContext|-- Completed in 25 ms with result: SqlDataReader
+
+2014-10-19 18:24:14.4554|TRACE|KarateIsere.DataAccess.KarateIsereContext|
+
+2014-10-19 18:24:14.4554|TRACE|KarateIsere.DataAccess.KarateIsereContext|Closed connection at 19/10/2014 18:24:14 +02:00
+
+2014-10-19 18:24:14.4699|TRACE|KarateIsere.DataAccess.KarateIsereContext|Opened connection at 19/10/2014 18:24:14 +02:00
+
+2014-10-19 18:24:14.4699|TRACE|KarateIsere.DataAccess.KarateIsereContext|SELECT 
+    [Extent1].[Nom] AS [Nom]
+    FROM [dbo].[Categorie] AS [Extent1]
+2014-10-19 18:24:14.4699|TRACE|KarateIsere.DataAccess.KarateIsereContext|
+
+2014-10-19 18:24:14.4849|TRACE|KarateIsere.DataAccess.KarateIsereContext|-- Executing at 19/10/2014 18:24:14 +02:00
+
+2014-10-19 18:24:14.5154|TRACE|KarateIsere.DataAccess.KarateIsereContext|-- Completed in 26 ms with result: SqlDataReader
+
+2014-10-19 18:24:14.5154|TRACE|KarateIsere.DataAccess.KarateIsereContext|
+
+2014-10-19 18:24:14.5154|TRACE|KarateIsere.DataAccess.KarateIsereContext|Closed connection at 19/10/2014 18:24:14 +02:00
+
+2014-10-19 18:25:35.6822|TRACE|KarateIsere.DataAccess.KarateIsereContext|Opened connection at 19/10/2014 18:25:35 +02:00
+
+2014-10-19 18:25:35.6822|TRACE|KarateIsere.DataAccess.KarateIsereContext|SELECT 
+    [Project2].[C1] AS [C1], 
+    [Project2].[NumAffiliation] AS [NumAffiliation], 
+    [Project2].[NomClub] AS [NomClub], 
+    [Project2].[Correspondant] AS [Correspondant], 
+    [Project2].[Telephone] AS [Telephone], 
+    [Project2].[Adr_Administrative] AS [Adr_Administrative], 
+    [Project2].[Adr_Dojo] AS [Adr_Dojo], 
+    [Project2].[Code_Postal] AS [Code_Postal], 
+    [Project2].[Ville] AS [Ville], 
+    [Project2].[Site_Web] AS [Site_Web], 
+    [Project2].[Facebook] AS [Facebook], 
+    [Project2].[President_Tel] AS [President_Tel], 
+    [Project2].[President_Nom] AS [President_Nom], 
+    [Project2].[President_Prenom] AS [President_Prenom], 
+    [Project2].[President_Email] AS [President_Email], 
+    [Project2].[President_Mobile] AS [President_Mobile], 
+    [Project2].[Tresorier_Tel] AS [Tresorier_Tel], 
+    [Project2].[Tresorier_Nom] AS [Tresorier_Nom], 
+    [Project2].[Tresorier_Prenom] AS [Tresorier_Prenom], 
+    [Project2].[Tresorier_Email] AS [Tresorier_Email], 
+    [Project2].[Tresorier_Mobile] AS [Tresorier_Mobile], 
+    [Project2].[Secretaire_Tel] AS [Secretaire_Tel], 
+    [Project2].[Secretaire_Nom] AS [Secretaire_Nom], 
+    [Project2].[Secretaire_Prenom] AS [Secretaire_Prenom], 
+    [Project2].[Secretaire_Email] AS [Secretaire_Email], 
+    [Project2].[Secretaire_Mobile] AS [Secretaire_Mobile], 
+    [Project2].[ArtMartialName] AS [ArtMartialName], 
+    [Project2].[Longitude] AS [Longitude], 
+    [Project2].[Latitude] AS [Latitude], 
+    [Project2].[C2] AS [C2], 
+    [Project2].[NumLicence] AS [NumLicence], 
+    [Project2].[Nom] AS [Nom], 
+    [Project2].[Prenom] AS [Prenom], 
+    [Project2].[Categorie] AS [Categorie], 
+    [Project2].[Poids] AS [Poids], 
+    [Project2].[isHomme] AS [isHomme], 
+    [Project2].[NumAffiliationClub] AS [NumAffiliationClub]
+    FROM ( SELECT 
+        [Limit1].[NumAffiliation] AS [NumAffiliation], 
+        [Limit1].[NomClub] AS [NomClub], 
+        [Limit1].[Correspondant] AS [Correspondant], 
+        [Limit1].[Telephone] AS [Telephone], 
+        [Limit1].[Adr_Administrative] AS [Adr_Administrative], 
+        [Limit1].[Adr_Dojo] AS [Adr_Dojo], 
+        [Limit1].[Code_Postal] AS [Code_Postal], 
+        [Limit1].[Ville] AS [Ville], 
+        [Limit1].[Site_Web] AS [Site_Web], 
+        [Limit1].[Facebook] AS [Facebook], 
+        [Limit1].[President_Tel] AS [President_Tel], 
+        [Limit1].[President_Nom] AS [President_Nom], 
+        [Limit1].[President_Prenom] AS [President_Prenom], 
+        [Limit1].[President_Email] AS [President_Email], 
+        [Limit1].[President_Mobile] AS [President_Mobile], 
+        [Limit1].[Tresorier_Tel] AS [Tresorier_Tel], 
+        [Limit1].[Tresorier_Nom] AS [Tresorier_Nom], 
+        [Limit1].[Tresorier_Prenom] AS [Tresorier_Prenom], 
+        [Limit1].[Tresorier_Email] AS [Tresorier_Email], 
+        [Limit1].[Tresorier_Mobile] AS [Tresorier_Mobile], 
+        [Limit1].[Secretaire_Tel] AS [Secretaire_Tel], 
+        [Limit1].[Secretaire_Nom] AS [Secretaire_Nom], 
+        [Limit1].[Secretaire_Prenom] AS [Secretaire_Prenom], 
+        [Limit1].[Secretaire_Email] AS [Secretaire_Email], 
+        [Limit1].[Secretaire_Mobile] AS [Secretaire_Mobile], 
+        [Limit1].[ArtMartialName] AS [ArtMartialName], 
+        [Limit1].[Longitude] AS [Longitude], 
+        [Limit1].[Latitude] AS [Latitude], 
+        [Limit1].[C1] AS [C1], 
+        [Extent2].[NumLicence] AS [NumLicence], 
+        [Extent2].[Nom] AS [Nom], 
+        [Extent2].[Prenom] AS [Prenom], 
+        [Extent2].[Categorie] AS [Categorie], 
+        [Extent2].[Poids] AS [Poids], 
+        [Extent2].[isHomme] AS [isHomme], 
+        [Extent2].[NumAffiliationClub] AS [NumAffiliationClub], 
+        CASE WHEN ([Extent2].[NumLicence] IS NULL) THEN CAST(NULL AS int) ELSE 1 END AS [C2]
+        FROM   (SELECT TOP (2) 
+            [Extent1].[NumAffiliation] AS [NumAffiliation], 
+            [Extent1].[NomClub] AS [NomClub], 
+            [Extent1].[Correspondant] AS [Correspondant], 
+            [Extent1].[Telephone] AS [Telephone], 
+            [Extent1].[Adr_Administrative] AS [Adr_Administrative], 
+            [Extent1].[Adr_Dojo] AS [Adr_Dojo], 
+            [Extent1].[Code_Postal] AS [Code_Postal], 
+            [Extent1].[Ville] AS [Ville], 
+            [Extent1].[Site_Web] AS [Site_Web], 
+            [Extent1].[Facebook] AS [Facebook], 
+            [Extent1].[President_Tel] AS [President_Tel], 
+            [Extent1].[President_Nom] AS [President_Nom], 
+            [Extent1].[President_Prenom] AS [President_Prenom], 
+            [Extent1].[President_Email] AS [President_Email], 
+            [Extent1].[President_Mobile] AS [President_Mobile], 
+            [Extent1].[Tresorier_Tel] AS [Tresorier_Tel], 
+            [Extent1].[Tresorier_Nom] AS [Tresorier_Nom], 
+            [Extent1].[Tresorier_Prenom] AS [Tresorier_Prenom], 
+            [Extent1].[Tresorier_Email] AS [Tresorier_Email], 
+            [Extent1].[Tresorier_Mobile] AS [Tresorier_Mobile], 
+            [Extent1].[Secretaire_Tel] AS [Secretaire_Tel], 
+            [Extent1].[Secretaire_Nom] AS [Secretaire_Nom], 
+            [Extent1].[Secretaire_Prenom] AS [Secretaire_Prenom], 
+            [Extent1].[Secretaire_Email] AS [Secretaire_Email], 
+            [Extent1].[Secretaire_Mobile] AS [Secretaire_Mobile], 
+            [Extent1].[ArtMartialName] AS [ArtMartialName], 
+            [Extent1].[Longitude] AS [Longitude], 
+            [Extent1].[Latitude] AS [Latitude], 
+            1 AS [C1]
+            FROM [dbo].[Club] AS [Extent1]
+            WHERE [Extent1].[NumAffiliation] = @p__linq__0 ) AS [Limit1]
+        LEFT OUTER JOIN [dbo].[Competiteur] AS [Extent2] ON [Limit1].[NumAffiliation] = [Extent2].[NumAffiliationClub]
+    )  AS [Project2]
+    ORDER BY [Project2].[NumAffiliation] ASC, [Project2].[C2] ASC
+2014-10-19 18:25:35.6822|TRACE|KarateIsere.DataAccess.KarateIsereContext|
+
+2014-10-19 18:25:35.6997|TRACE|KarateIsere.DataAccess.KarateIsereContext|-- p__linq__0: '987654' (Type = AnsiString, Size = 8000)
+
+2014-10-19 18:25:35.6997|TRACE|KarateIsere.DataAccess.KarateIsereContext|-- Executing at 19/10/2014 18:25:35 +02:00
+
+2014-10-19 18:25:35.7337|TRACE|KarateIsere.DataAccess.KarateIsereContext|-- Completed in 26 ms with result: SqlDataReader
+
+2014-10-19 18:25:35.7337|TRACE|KarateIsere.DataAccess.KarateIsereContext|
+
+2014-10-19 18:25:35.7337|TRACE|KarateIsere.DataAccess.KarateIsereContext|Closed connection at 19/10/2014 18:25:35 +02:00
+
+2014-10-19 18:25:35.7487|TRACE|KarateIsere.DataAccess.KarateIsereContext|Opened connection at 19/10/2014 18:25:35 +02:00
+
+2014-10-19 18:25:35.7487|TRACE|KarateIsere.DataAccess.KarateIsereContext|SELECT 
+    [Extent1].[Nom] AS [Nom]
+    FROM [dbo].[Categorie] AS [Extent1]
+2014-10-19 18:25:35.7487|TRACE|KarateIsere.DataAccess.KarateIsereContext|
+
+2014-10-19 18:25:35.7632|TRACE|KarateIsere.DataAccess.KarateIsereContext|-- Executing at 19/10/2014 18:25:35 +02:00
+
+2014-10-19 18:25:35.7977|TRACE|KarateIsere.DataAccess.KarateIsereContext|-- Completed in 30 ms with result: SqlDataReader
+
+2014-10-19 18:25:35.7977|TRACE|KarateIsere.DataAccess.KarateIsereContext|
+
+2014-10-19 18:25:35.8112|TRACE|KarateIsere.DataAccess.KarateIsereContext|Closed connection at 19/10/2014 18:25:35 +02:00
+
+2014-10-19 18:25:53.8460|TRACE|KarateIsere.DataAccess.KarateIsereContext|Opened connection at 19/10/2014 18:25:53 +02:00
+
+2014-10-19 18:25:53.8460|TRACE|KarateIsere.DataAccess.KarateIsereContext|SELECT 
+    [Project2].[C1] AS [C1], 
+    [Project2].[NumAffiliation] AS [NumAffiliation], 
+    [Project2].[NomClub] AS [NomClub], 
+    [Project2].[Correspondant] AS [Correspondant], 
+    [Project2].[Telephone] AS [Telephone], 
+    [Project2].[Adr_Administrative] AS [Adr_Administrative], 
+    [Project2].[Adr_Dojo] AS [Adr_Dojo], 
+    [Project2].[Code_Postal] AS [Code_Postal], 
+    [Project2].[Ville] AS [Ville], 
+    [Project2].[Site_Web] AS [Site_Web], 
+    [Project2].[Facebook] AS [Facebook], 
+    [Project2].[President_Tel] AS [President_Tel], 
+    [Project2].[President_Nom] AS [President_Nom], 
+    [Project2].[President_Prenom] AS [President_Prenom], 
+    [Project2].[President_Email] AS [President_Email], 
+    [Project2].[President_Mobile] AS [President_Mobile], 
+    [Project2].[Tresorier_Tel] AS [Tresorier_Tel], 
+    [Project2].[Tresorier_Nom] AS [Tresorier_Nom], 
+    [Project2].[Tresorier_Prenom] AS [Tresorier_Prenom], 
+    [Project2].[Tresorier_Email] AS [Tresorier_Email], 
+    [Project2].[Tresorier_Mobile] AS [Tresorier_Mobile], 
+    [Project2].[Secretaire_Tel] AS [Secretaire_Tel], 
+    [Project2].[Secretaire_Nom] AS [Secretaire_Nom], 
+    [Project2].[Secretaire_Prenom] AS [Secretaire_Prenom], 
+    [Project2].[Secretaire_Email] AS [Secretaire_Email], 
+    [Project2].[Secretaire_Mobile] AS [Secretaire_Mobile], 
+    [Project2].[ArtMartialName] AS [ArtMartialName], 
+    [Project2].[Longitude] AS [Longitude], 
+    [Project2].[Latitude] AS [Latitude], 
+    [Project2].[C2] AS [C2], 
+    [Project2].[NumLicence] AS [NumLicence], 
+    [Project2].[Nom] AS [Nom], 
+    [Project2].[Prenom] AS [Prenom], 
+    [Project2].[Categorie] AS [Categorie], 
+    [Project2].[Poids] AS [Poids], 
+    [Project2].[isHomme] AS [isHomme], 
+    [Project2].[NumAffiliationClub] AS [NumAffiliationClub]
+    FROM ( SELECT 
+        [Limit1].[NumAffiliation] AS [NumAffiliation], 
+        [Limit1].[NomClub] AS [NomClub], 
+        [Limit1].[Correspondant] AS [Correspondant], 
+        [Limit1].[Telephone] AS [Telephone], 
+        [Limit1].[Adr_Administrative] AS [Adr_Administrative], 
+        [Limit1].[Adr_Dojo] AS [Adr_Dojo], 
+        [Limit1].[Code_Postal] AS [Code_Postal], 
+        [Limit1].[Ville] AS [Ville], 
+        [Limit1].[Site_Web] AS [Site_Web], 
+        [Limit1].[Facebook] AS [Facebook], 
+        [Limit1].[President_Tel] AS [President_Tel], 
+        [Limit1].[President_Nom] AS [President_Nom], 
+        [Limit1].[President_Prenom] AS [President_Prenom], 
+        [Limit1].[President_Email] AS [President_Email], 
+        [Limit1].[President_Mobile] AS [President_Mobile], 
+        [Limit1].[Tresorier_Tel] AS [Tresorier_Tel], 
+        [Limit1].[Tresorier_Nom] AS [Tresorier_Nom], 
+        [Limit1].[Tresorier_Prenom] AS [Tresorier_Prenom], 
+        [Limit1].[Tresorier_Email] AS [Tresorier_Email], 
+        [Limit1].[Tresorier_Mobile] AS [Tresorier_Mobile], 
+        [Limit1].[Secretaire_Tel] AS [Secretaire_Tel], 
+        [Limit1].[Secretaire_Nom] AS [Secretaire_Nom], 
+        [Limit1].[Secretaire_Prenom] AS [Secretaire_Prenom], 
+        [Limit1].[Secretaire_Email] AS [Secretaire_Email], 
+        [Limit1].[Secretaire_Mobile] AS [Secretaire_Mobile], 
+        [Limit1].[ArtMartialName] AS [ArtMartialName], 
+        [Limit1].[Longitude] AS [Longitude], 
+        [Limit1].[Latitude] AS [Latitude], 
+        [Limit1].[C1] AS [C1], 
+        [Extent2].[NumLicence] AS [NumLicence], 
+        [Extent2].[Nom] AS [Nom], 
+        [Extent2].[Prenom] AS [Prenom], 
+        [Extent2].[Categorie] AS [Categorie], 
+        [Extent2].[Poids] AS [Poids], 
+        [Extent2].[isHomme] AS [isHomme], 
+        [Extent2].[NumAffiliationClub] AS [NumAffiliationClub], 
+        CASE WHEN ([Extent2].[NumLicence] IS NULL) THEN CAST(NULL AS int) ELSE 1 END AS [C2]
+        FROM   (SELECT TOP (2) 
+            [Extent1].[NumAffiliation] AS [NumAffiliation], 
+            [Extent1].[NomClub] AS [NomClub], 
+            [Extent1].[Correspondant] AS [Correspondant], 
+            [Extent1].[Telephone] AS [Telephone], 
+            [Extent1].[Adr_Administrative] AS [Adr_Administrative], 
+            [Extent1].[Adr_Dojo] AS [Adr_Dojo], 
+            [Extent1].[Code_Postal] AS [Code_Postal], 
+            [Extent1].[Ville] AS [Ville], 
+            [Extent1].[Site_Web] AS [Site_Web], 
+            [Extent1].[Facebook] AS [Facebook], 
+            [Extent1].[President_Tel] AS [President_Tel], 
+            [Extent1].[President_Nom] AS [President_Nom], 
+            [Extent1].[President_Prenom] AS [President_Prenom], 
+            [Extent1].[President_Email] AS [President_Email], 
+            [Extent1].[President_Mobile] AS [President_Mobile], 
+            [Extent1].[Tresorier_Tel] AS [Tresorier_Tel], 
+            [Extent1].[Tresorier_Nom] AS [Tresorier_Nom], 
+            [Extent1].[Tresorier_Prenom] AS [Tresorier_Prenom], 
+            [Extent1].[Tresorier_Email] AS [Tresorier_Email], 
+            [Extent1].[Tresorier_Mobile] AS [Tresorier_Mobile], 
+            [Extent1].[Secretaire_Tel] AS [Secretaire_Tel], 
+            [Extent1].[Secretaire_Nom] AS [Secretaire_Nom], 
+            [Extent1].[Secretaire_Prenom] AS [Secretaire_Prenom], 
+            [Extent1].[Secretaire_Email] AS [Secretaire_Email], 
+            [Extent1].[Secretaire_Mobile] AS [Secretaire_Mobile], 
+            [Extent1].[ArtMartialName] AS [ArtMartialName], 
+            [Extent1].[Longitude] AS [Longitude], 
+            [Extent1].[Latitude] AS [Latitude], 
+            1 AS [C1]
+            FROM [dbo].[Club] AS [Extent1]
+            WHERE [Extent1].[NumAffiliation] = @p__linq__0 ) AS [Limit1]
+        LEFT OUTER JOIN [dbo].[Competiteur] AS [Extent2] ON [Limit1].[NumAffiliation] = [Extent2].[NumAffiliationClub]
+    )  AS [Project2]
+    ORDER BY [Project2].[NumAffiliation] ASC, [Project2].[C2] ASC
+2014-10-19 18:25:53.8570|TRACE|KarateIsere.DataAccess.KarateIsereContext|
+
+2014-10-19 18:25:53.8570|TRACE|KarateIsere.DataAccess.KarateIsereContext|-- p__linq__0: '987654' (Type = AnsiString, Size = 8000)
+
+2014-10-19 18:25:53.8570|TRACE|KarateIsere.DataAccess.KarateIsereContext|-- Executing at 19/10/2014 18:25:53 +02:00
+
+2014-10-19 18:25:53.9110|TRACE|KarateIsere.DataAccess.KarateIsereContext|-- Completed in 39 ms with result: SqlDataReader
+
+2014-10-19 18:25:53.9110|TRACE|KarateIsere.DataAccess.KarateIsereContext|
+
+2014-10-19 18:25:53.9195|TRACE|KarateIsere.DataAccess.KarateIsereContext|Closed connection at 19/10/2014 18:25:53 +02:00
+
+2014-10-19 18:25:53.9195|TRACE|KarateIsere.DataAccess.KarateIsereContext|Opened connection at 19/10/2014 18:25:53 +02:00
+
+2014-10-19 18:25:53.9195|TRACE|KarateIsere.DataAccess.KarateIsereContext|SELECT 
+    [Extent1].[Nom] AS [Nom]
+    FROM [dbo].[Categorie] AS [Extent1]
+2014-10-19 18:25:53.9365|TRACE|KarateIsere.DataAccess.KarateIsereContext|
+
+2014-10-19 18:25:53.9365|TRACE|KarateIsere.DataAccess.KarateIsereContext|-- Executing at 19/10/2014 18:25:53 +02:00
+
+2014-10-19 18:25:53.9706|TRACE|KarateIsere.DataAccess.KarateIsereContext|-- Completed in 24 ms with result: SqlDataReader
+
+2014-10-19 18:25:53.9706|TRACE|KarateIsere.DataAccess.KarateIsereContext|
+
+2014-10-19 18:25:53.9856|TRACE|KarateIsere.DataAccess.KarateIsereContext|Closed connection at 19/10/2014 18:25:53 +02:00
+
+2014-10-19 18:33:37.3334|TRACE|KarateIsere.DataAccess.KarateIsereContext|Opened connection at 19/10/2014 18:33:37 +02:00
+
+2014-10-19 18:33:37.3589|TRACE|KarateIsere.DataAccess.KarateIsereContext|
+SELECT Count(*)
+FROM INFORMATION_SCHEMA.TABLES AS t
+WHERE t.TABLE_SCHEMA + '.' + t.TABLE_NAME IN ('dbo.Adherents','dbo.Admin','dbo.Art_Martial','dbo.Categorie','dbo.Competiteur','dbo.Club','dbo.ListeCompetiteur','dbo.Professeurs','dbo.Competition','dbo.Inscriptions','dbo.Creneaux','dbo.Club_Professeur','dbo.CompetitionCategories')
+    OR t.TABLE_NAME = 'EdmMetadata'
+2014-10-19 18:33:37.3589|TRACE|KarateIsere.DataAccess.KarateIsereContext|
+
+2014-10-19 18:33:37.3699|TRACE|KarateIsere.DataAccess.KarateIsereContext|-- Executing at 19/10/2014 18:33:37 +02:00
+
+2014-10-19 18:33:37.4024|TRACE|KarateIsere.DataAccess.KarateIsereContext|-- Completed in 25 ms with result: 9
+
+2014-10-19 18:33:37.4024|TRACE|KarateIsere.DataAccess.KarateIsereContext|
+
+2014-10-19 18:33:37.4024|TRACE|KarateIsere.DataAccess.KarateIsereContext|Closed connection at 19/10/2014 18:33:37 +02:00
+
+2014-10-19 18:33:37.4159|TRACE|KarateIsere.DataAccess.KarateIsereContext|Opened connection at 19/10/2014 18:33:37 +02:00
+
+2014-10-19 18:33:37.4159|TRACE|KarateIsere.DataAccess.KarateIsereContext|SELECT 
+    [GroupBy1].[A1] AS [C1]
+    FROM ( SELECT 
+        COUNT(1) AS [A1]
+        FROM [dbo].[__MigrationHistory] AS [Extent1]
+        WHERE [Extent1].[ContextKey] = @p__linq__0
+    )  AS [GroupBy1]
+2014-10-19 18:33:37.4299|TRACE|KarateIsere.DataAccess.KarateIsereContext|
+
+2014-10-19 18:33:37.4299|TRACE|KarateIsere.DataAccess.KarateIsereContext|-- p__linq__0: 'KarateIsere.DataAccess.KarateIsereContext' (Type = String, Size = 4000)
+
+2014-10-19 18:33:37.4299|TRACE|KarateIsere.DataAccess.KarateIsereContext|-- Executing at 19/10/2014 18:33:37 +02:00
+
+2014-10-19 18:33:37.4754|TRACE|KarateIsere.DataAccess.KarateIsereContext|-- Completed in 31 ms with result: SqlDataReader
+
+2014-10-19 18:33:37.4804|TRACE|KarateIsere.DataAccess.KarateIsereContext|
+
+2014-10-19 18:33:37.4804|TRACE|KarateIsere.DataAccess.KarateIsereContext|Closed connection at 19/10/2014 18:33:37 +02:00
+
+2014-10-19 18:33:37.4804|TRACE|KarateIsere.DataAccess.KarateIsereContext|Opened connection at 19/10/2014 18:33:37 +02:00
+
+2014-10-19 18:33:37.4949|TRACE|KarateIsere.DataAccess.KarateIsereContext|SELECT TOP (1) 
+    [Project1].[C1] AS [C1], 
+    [Project1].[MigrationId] AS [MigrationId], 
+    [Project1].[Model] AS [Model], 
+    [Project1].[ProductVersion] AS [ProductVersion]
+    FROM ( SELECT 
+        [Extent1].[MigrationId] AS [MigrationId], 
+        [Extent1].[Model] AS [Model], 
+        [Extent1].[ProductVersion] AS [ProductVersion], 
+        1 AS [C1]
+        FROM [dbo].[__MigrationHistory] AS [Extent1]
+        WHERE [Extent1].[ContextKey] = @p__linq__0
+    )  AS [Project1]
+    ORDER BY [Project1].[MigrationId] DESC
+2014-10-19 18:33:37.4949|TRACE|KarateIsere.DataAccess.KarateIsereContext|
+
+2014-10-19 18:33:37.4949|TRACE|KarateIsere.DataAccess.KarateIsereContext|-- p__linq__0: 'KarateIsere.DataAccess.KarateIsereContext' (Type = String, Size = 4000)
+
+2014-10-19 18:33:37.5089|TRACE|KarateIsere.DataAccess.KarateIsereContext|-- Executing at 19/10/2014 18:33:37 +02:00
+
+2014-10-19 18:33:37.5469|TRACE|KarateIsere.DataAccess.KarateIsereContext|-- Completed in 34 ms with result: SqlDataReader
+
+2014-10-19 18:33:37.5469|TRACE|KarateIsere.DataAccess.KarateIsereContext|
+
+2014-10-19 18:33:37.5559|TRACE|KarateIsere.DataAccess.KarateIsereContext|Closed connection at 19/10/2014 18:33:37 +02:00
+
+2014-10-19 18:33:38.2425|TRACE|KarateIsere.DataAccess.KarateIsereContext|Opened connection at 19/10/2014 18:33:38 +02:00
+
+2014-10-19 18:33:38.4145|TRACE|KarateIsere.DataAccess.KarateIsereContext|SELECT 
+    [Project2].[C1] AS [C1], 
+    [Project2].[NumAffiliation] AS [NumAffiliation], 
+    [Project2].[NomClub] AS [NomClub], 
+    [Project2].[Correspondant] AS [Correspondant], 
+    [Project2].[Telephone] AS [Telephone], 
+    [Project2].[Adr_Administrative] AS [Adr_Administrative], 
+    [Project2].[Adr_Dojo] AS [Adr_Dojo], 
+    [Project2].[Code_Postal] AS [Code_Postal], 
+    [Project2].[Ville] AS [Ville], 
+    [Project2].[Site_Web] AS [Site_Web], 
+    [Project2].[Facebook] AS [Facebook], 
+    [Project2].[President_Tel] AS [President_Tel], 
+    [Project2].[President_Nom] AS [President_Nom], 
+    [Project2].[President_Prenom] AS [President_Prenom], 
+    [Project2].[President_Email] AS [President_Email], 
+    [Project2].[President_Mobile] AS [President_Mobile], 
+    [Project2].[Tresorier_Tel] AS [Tresorier_Tel], 
+    [Project2].[Tresorier_Nom] AS [Tresorier_Nom], 
+    [Project2].[Tresorier_Prenom] AS [Tresorier_Prenom], 
+    [Project2].[Tresorier_Email] AS [Tresorier_Email], 
+    [Project2].[Tresorier_Mobile] AS [Tresorier_Mobile], 
+    [Project2].[Secretaire_Tel] AS [Secretaire_Tel], 
+    [Project2].[Secretaire_Nom] AS [Secretaire_Nom], 
+    [Project2].[Secretaire_Prenom] AS [Secretaire_Prenom], 
+    [Project2].[Secretaire_Email] AS [Secretaire_Email], 
+    [Project2].[Secretaire_Mobile] AS [Secretaire_Mobile], 
+    [Project2].[ArtMartialName] AS [ArtMartialName], 
+    [Project2].[Longitude] AS [Longitude], 
+    [Project2].[Latitude] AS [Latitude], 
+    [Project2].[C2] AS [C2], 
+    [Project2].[NumLicence] AS [NumLicence], 
+    [Project2].[Nom] AS [Nom], 
+    [Project2].[Prenom] AS [Prenom], 
+    [Project2].[Categorie] AS [Categorie], 
+    [Project2].[Poids] AS [Poids], 
+    [Project2].[isHomme] AS [isHomme], 
+    [Project2].[NumAffiliationClub] AS [NumAffiliationClub]
+    FROM ( SELECT 
+        [Limit1].[NumAffiliation] AS [NumAffiliation], 
+        [Limit1].[NomClub] AS [NomClub], 
+        [Limit1].[Correspondant] AS [Correspondant], 
+        [Limit1].[Telephone] AS [Telephone], 
+        [Limit1].[Adr_Administrative] AS [Adr_Administrative], 
+        [Limit1].[Adr_Dojo] AS [Adr_Dojo], 
+        [Limit1].[Code_Postal] AS [Code_Postal], 
+        [Limit1].[Ville] AS [Ville], 
+        [Limit1].[Site_Web] AS [Site_Web], 
+        [Limit1].[Facebook] AS [Facebook], 
+        [Limit1].[President_Tel] AS [President_Tel], 
+        [Limit1].[President_Nom] AS [President_Nom], 
+        [Limit1].[President_Prenom] AS [President_Prenom], 
+        [Limit1].[President_Email] AS [President_Email], 
+        [Limit1].[President_Mobile] AS [President_Mobile], 
+        [Limit1].[Tresorier_Tel] AS [Tresorier_Tel], 
+        [Limit1].[Tresorier_Nom] AS [Tresorier_Nom], 
+        [Limit1].[Tresorier_Prenom] AS [Tresorier_Prenom], 
+        [Limit1].[Tresorier_Email] AS [Tresorier_Email], 
+        [Limit1].[Tresorier_Mobile] AS [Tresorier_Mobile], 
+        [Limit1].[Secretaire_Tel] AS [Secretaire_Tel], 
+        [Limit1].[Secretaire_Nom] AS [Secretaire_Nom], 
+        [Limit1].[Secretaire_Prenom] AS [Secretaire_Prenom], 
+        [Limit1].[Secretaire_Email] AS [Secretaire_Email], 
+        [Limit1].[Secretaire_Mobile] AS [Secretaire_Mobile], 
+        [Limit1].[ArtMartialName] AS [ArtMartialName], 
+        [Limit1].[Longitude] AS [Longitude], 
+        [Limit1].[Latitude] AS [Latitude], 
+        [Limit1].[C1] AS [C1], 
+        [Extent2].[NumLicence] AS [NumLicence], 
+        [Extent2].[Nom] AS [Nom], 
+        [Extent2].[Prenom] AS [Prenom], 
+        [Extent2].[Categorie] AS [Categorie], 
+        [Extent2].[Poids] AS [Poids], 
+        [Extent2].[isHomme] AS [isHomme], 
+        [Extent2].[NumAffiliationClub] AS [NumAffiliationClub], 
+        CASE WHEN ([Extent2].[NumLicence] IS NULL) THEN CAST(NULL AS int) ELSE 1 END AS [C2]
+        FROM   (SELECT TOP (2) 
+            [Extent1].[NumAffiliation] AS [NumAffiliation], 
+            [Extent1].[NomClub] AS [NomClub], 
+            [Extent1].[Correspondant] AS [Correspondant], 
+            [Extent1].[Telephone] AS [Telephone], 
+            [Extent1].[Adr_Administrative] AS [Adr_Administrative], 
+            [Extent1].[Adr_Dojo] AS [Adr_Dojo], 
+            [Extent1].[Code_Postal] AS [Code_Postal], 
+            [Extent1].[Ville] AS [Ville], 
+            [Extent1].[Site_Web] AS [Site_Web], 
+            [Extent1].[Facebook] AS [Facebook], 
+            [Extent1].[President_Tel] AS [President_Tel], 
+            [Extent1].[President_Nom] AS [President_Nom], 
+            [Extent1].[President_Prenom] AS [President_Prenom], 
+            [Extent1].[President_Email] AS [President_Email], 
+            [Extent1].[President_Mobile] AS [President_Mobile], 
+            [Extent1].[Tresorier_Tel] AS [Tresorier_Tel], 
+            [Extent1].[Tresorier_Nom] AS [Tresorier_Nom], 
+            [Extent1].[Tresorier_Prenom] AS [Tresorier_Prenom], 
+            [Extent1].[Tresorier_Email] AS [Tresorier_Email], 
+            [Extent1].[Tresorier_Mobile] AS [Tresorier_Mobile], 
+            [Extent1].[Secretaire_Tel] AS [Secretaire_Tel], 
+            [Extent1].[Secretaire_Nom] AS [Secretaire_Nom], 
+            [Extent1].[Secretaire_Prenom] AS [Secretaire_Prenom], 
+            [Extent1].[Secretaire_Email] AS [Secretaire_Email], 
+            [Extent1].[Secretaire_Mobile] AS [Secretaire_Mobile], 
+            [Extent1].[ArtMartialName] AS [ArtMartialName], 
+            [Extent1].[Longitude] AS [Longitude], 
+            [Extent1].[Latitude] AS [Latitude], 
+            1 AS [C1]
+            FROM [dbo].[Club] AS [Extent1]
+            WHERE [Extent1].[NumAffiliation] = @p__linq__0 ) AS [Limit1]
+        LEFT OUTER JOIN [dbo].[Competiteur] AS [Extent2] ON [Limit1].[NumAffiliation] = [Extent2].[NumAffiliationClub]
+    )  AS [Project2]
+    ORDER BY [Project2].[NumAffiliation] ASC, [Project2].[C2] ASC
+2014-10-19 18:33:38.4145|TRACE|KarateIsere.DataAccess.KarateIsereContext|
+
+2014-10-19 18:33:38.4145|TRACE|KarateIsere.DataAccess.KarateIsereContext|-- p__linq__0: '987654' (Type = AnsiString, Size = 8000)
+
+2014-10-19 18:33:38.4145|TRACE|KarateIsere.DataAccess.KarateIsereContext|-- Executing at 19/10/2014 18:33:38 +02:00
+
+2014-10-19 18:33:38.4600|TRACE|KarateIsere.DataAccess.KarateIsereContext|-- Completed in 28 ms with result: SqlDataReader
+
+2014-10-19 18:33:38.4600|TRACE|KarateIsere.DataAccess.KarateIsereContext|
+
+2014-10-19 18:33:38.4795|TRACE|KarateIsere.DataAccess.KarateIsereContext|Closed connection at 19/10/2014 18:33:38 +02:00
+
+2014-10-19 18:33:38.4895|TRACE|KarateIsere.DataAccess.KarateIsereContext|Opened connection at 19/10/2014 18:33:38 +02:00
+
+2014-10-19 18:33:38.5130|TRACE|KarateIsere.DataAccess.KarateIsereContext|SELECT 
+    [Extent1].[Nom] AS [Nom]
+    FROM [dbo].[Categorie] AS [Extent1]
+2014-10-19 18:33:38.5130|TRACE|KarateIsere.DataAccess.KarateIsereContext|
+
+2014-10-19 18:33:38.5215|TRACE|KarateIsere.DataAccess.KarateIsereContext|-- Executing at 19/10/2014 18:33:38 +02:00
+
+2014-10-19 18:33:38.5510|TRACE|KarateIsere.DataAccess.KarateIsereContext|-- Completed in 25 ms with result: SqlDataReader
+
+2014-10-19 18:33:38.5555|TRACE|KarateIsere.DataAccess.KarateIsereContext|
+
+2014-10-19 18:33:38.5555|TRACE|KarateIsere.DataAccess.KarateIsereContext|Closed connection at 19/10/2014 18:33:38 +02:00
+

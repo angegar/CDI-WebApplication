@@ -1,0 +1,6 @@
+R:\Fontes\Samples\ConsultaCEP\NexusLight.Google.Maps.Core\obj\Debug\ResolveAssemblyReference.cache
+R:\Fontes\Samples\ConsultaCEP\NexusLight.Google.Maps.Core\bin\Debug\NexusLight.Google.Maps.Core.dll.config
+R:\Fontes\Samples\ConsultaCEP\NexusLight.Google.Maps.Core\bin\Debug\NexusLight.Google.Maps.Core.dll
+R:\Fontes\Samples\ConsultaCEP\NexusLight.Google.Maps.Core\bin\Debug\NexusLight.Google.Maps.Core.pdb
+R:\Fontes\Samples\ConsultaCEP\NexusLight.Google.Maps.Core\obj\Debug\NexusLight.Google.Maps.Core.dll
+R:\Fontes\Samples\ConsultaCEP\NexusLight.Google.Maps.Core\obj\Debug\NexusLight.Google.Maps.Core.pdb

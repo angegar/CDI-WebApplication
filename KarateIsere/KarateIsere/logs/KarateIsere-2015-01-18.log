@@ -1,0 +1,495 @@
+2015-01-18 11:31:06.2729|TRACE|KarateIsere.DataAccess.KarateIsereContext|Opened connection at 18/01/2015 11:31:06 +01:00
+
+2015-01-18 11:31:06.2984|TRACE|KarateIsere.DataAccess.KarateIsereContext|
+SELECT Count(*)
+FROM INFORMATION_SCHEMA.TABLES AS t
+WHERE t.TABLE_SCHEMA + '.' + t.TABLE_NAME IN ('dbo.Adherents','dbo.Admin','dbo.Art_Martial','dbo.Categorie','dbo.Competiteur','dbo.Club','dbo.ListeCompetiteur','dbo.Professeurs','dbo.Competition','dbo.Inscriptions','dbo.Creneaux','dbo.Club_Professeur','dbo.CompetitionCategories')
+    OR t.TABLE_NAME = 'EdmMetadata'
+2015-01-18 11:31:06.3089|TRACE|KarateIsere.DataAccess.KarateIsereContext|
+
+2015-01-18 11:31:06.3089|TRACE|KarateIsere.DataAccess.KarateIsereContext|-- Executing at 18/01/2015 11:31:06 +01:00
+
+2015-01-18 11:31:06.3449|TRACE|KarateIsere.DataAccess.KarateIsereContext|-- Completed in 27 ms with result: 9
+
+2015-01-18 11:31:06.3449|TRACE|KarateIsere.DataAccess.KarateIsereContext|
+
+2015-01-18 11:31:06.3449|TRACE|KarateIsere.DataAccess.KarateIsereContext|Closed connection at 18/01/2015 11:31:06 +01:00
+
+2015-01-18 11:31:06.6044|TRACE|KarateIsere.DataAccess.KarateIsereContext|Opened connection at 18/01/2015 11:31:06 +01:00
+
+2015-01-18 11:31:08.0216|TRACE|KarateIsere.DataAccess.KarateIsereContext|SELECT 
+    [GroupBy1].[A1] AS [C1]
+    FROM ( SELECT 
+        COUNT(1) AS [A1]
+        FROM [dbo].[__MigrationHistory] AS [Extent1]
+        WHERE [Extent1].[ContextKey] = @p__linq__0
+    )  AS [GroupBy1]
+2015-01-18 11:31:08.0246|TRACE|KarateIsere.DataAccess.KarateIsereContext|
+
+2015-01-18 11:31:08.0246|TRACE|KarateIsere.DataAccess.KarateIsereContext|-- p__linq__0: 'KarateIsere.DataAccess.KarateIsereContext' (Type = String, Size = 4000)
+
+2015-01-18 11:31:08.0246|TRACE|KarateIsere.DataAccess.KarateIsereContext|-- Executing at 18/01/2015 11:31:08 +01:00
+
+2015-01-18 11:31:08.0856|TRACE|KarateIsere.DataAccess.KarateIsereContext|-- Completed in 49 ms with result: SqlDataReader
+
+2015-01-18 11:31:08.0891|TRACE|KarateIsere.DataAccess.KarateIsereContext|
+
+2015-01-18 11:31:08.1056|TRACE|KarateIsere.DataAccess.KarateIsereContext|Closed connection at 18/01/2015 11:31:08 +01:00
+
+2015-01-18 11:31:08.1251|TRACE|KarateIsere.DataAccess.KarateIsereContext|Opened connection at 18/01/2015 11:31:08 +01:00
+
+2015-01-18 11:31:08.2196|TRACE|KarateIsere.DataAccess.KarateIsereContext|SELECT TOP (1) 
+    [Project1].[C1] AS [C1], 
+    [Project1].[MigrationId] AS [MigrationId], 
+    [Project1].[Model] AS [Model], 
+    [Project1].[ProductVersion] AS [ProductVersion]
+    FROM ( SELECT 
+        [Extent1].[MigrationId] AS [MigrationId], 
+        [Extent1].[Model] AS [Model], 
+        [Extent1].[ProductVersion] AS [ProductVersion], 
+        1 AS [C1]
+        FROM [dbo].[__MigrationHistory] AS [Extent1]
+        WHERE [Extent1].[ContextKey] = @p__linq__0
+    )  AS [Project1]
+    ORDER BY [Project1].[MigrationId] DESC
+2015-01-18 11:31:08.2196|TRACE|KarateIsere.DataAccess.KarateIsereContext|
+
+2015-01-18 11:31:08.2281|TRACE|KarateIsere.DataAccess.KarateIsereContext|-- p__linq__0: 'KarateIsere.DataAccess.KarateIsereContext' (Type = String, Size = 4000)
+
+2015-01-18 11:31:08.2281|TRACE|KarateIsere.DataAccess.KarateIsereContext|-- Executing at 18/01/2015 11:31:08 +01:00
+
+2015-01-18 11:31:08.2716|TRACE|KarateIsere.DataAccess.KarateIsereContext|-- Completed in 36 ms with result: SqlDataReader
+
+2015-01-18 11:31:08.2751|TRACE|KarateIsere.DataAccess.KarateIsereContext|
+
+2015-01-18 11:31:08.2751|TRACE|KarateIsere.DataAccess.KarateIsereContext|Closed connection at 18/01/2015 11:31:08 +01:00
+
+2015-01-18 11:31:09.0292|TRACE|KarateIsere.DataAccess.KarateIsereContext|Opened connection at 18/01/2015 11:31:09 +01:00
+
+2015-01-18 11:31:09.3203|TRACE|KarateIsere.DataAccess.KarateIsereContext|SELECT 
+    [Extent1].[Id] AS [Id], 
+    [Extent1].[Nom] AS [Nom], 
+    [Extent1].[DateCompetition] AS [DateCompetition], 
+    [Extent1].[FinInscription] AS [FinInscription], 
+    [Extent1].[Lieu] AS [Lieu], 
+    [Extent1].[IsKata] AS [IsKata]
+    FROM [dbo].[Competition] AS [Extent1]
+    WHERE [Extent1].[FinInscription] >= (SysDateTime())
+2015-01-18 11:31:09.3203|TRACE|KarateIsere.DataAccess.KarateIsereContext|
+
+2015-01-18 11:31:09.3203|TRACE|KarateIsere.DataAccess.KarateIsereContext|-- Executing at 18/01/2015 11:31:09 +01:00
+
+2015-01-18 11:31:09.3728|TRACE|KarateIsere.DataAccess.KarateIsereContext|-- Completed in 42 ms with result: SqlDataReader
+
+2015-01-18 11:31:09.3728|TRACE|KarateIsere.DataAccess.KarateIsereContext|
+
+2015-01-18 11:31:09.4448|TRACE|KarateIsere.DataAccess.KarateIsereContext|Closed connection at 18/01/2015 11:31:09 +01:00
+
+2015-01-18 11:31:48.2657|TRACE|KarateIsere.DataAccess.KarateIsereContext|Opened connection at 18/01/2015 11:31:48 +01:00
+
+2015-01-18 11:31:48.2657|TRACE|KarateIsere.DataAccess.KarateIsereContext|SELECT 
+    [Extent1].[Id] AS [Id], 
+    [Extent1].[Nom] AS [Nom], 
+    [Extent1].[DateCompetition] AS [DateCompetition], 
+    [Extent1].[FinInscription] AS [FinInscription], 
+    [Extent1].[Lieu] AS [Lieu], 
+    [Extent1].[IsKata] AS [IsKata]
+    FROM [dbo].[Competition] AS [Extent1]
+    WHERE [Extent1].[FinInscription] >= (SysDateTime())
+2015-01-18 11:31:48.2762|TRACE|KarateIsere.DataAccess.KarateIsereContext|
+
+2015-01-18 11:31:48.2762|TRACE|KarateIsere.DataAccess.KarateIsereContext|-- Executing at 18/01/2015 11:31:48 +01:00
+
+2015-01-18 11:31:48.3077|TRACE|KarateIsere.DataAccess.KarateIsereContext|-- Completed in 24 ms with result: SqlDataReader
+
+2015-01-18 11:31:48.3077|TRACE|KarateIsere.DataAccess.KarateIsereContext|
+
+2015-01-18 11:31:48.3077|TRACE|KarateIsere.DataAccess.KarateIsereContext|Closed connection at 18/01/2015 11:31:48 +01:00
+
+2015-01-18 11:32:49.3135|TRACE|KarateIsere.DataAccess.KarateIsereContext|Opened connection at 18/01/2015 11:32:49 +01:00
+
+2015-01-18 11:32:49.3175|TRACE|KarateIsere.DataAccess.KarateIsereContext|SELECT 
+    [Extent1].[Id] AS [Id], 
+    [Extent1].[Nom] AS [Nom], 
+    [Extent1].[DateCompetition] AS [DateCompetition], 
+    [Extent1].[FinInscription] AS [FinInscription], 
+    [Extent1].[Lieu] AS [Lieu], 
+    [Extent1].[IsKata] AS [IsKata]
+    FROM [dbo].[Competition] AS [Extent1]
+    WHERE [Extent1].[FinInscription] >= (SysDateTime())
+2015-01-18 11:32:49.3175|TRACE|KarateIsere.DataAccess.KarateIsereContext|
+
+2015-01-18 11:32:49.3175|TRACE|KarateIsere.DataAccess.KarateIsereContext|-- Executing at 18/01/2015 11:32:49 +01:00
+
+2015-01-18 11:32:49.3515|TRACE|KarateIsere.DataAccess.KarateIsereContext|-- Completed in 23 ms with result: SqlDataReader
+
+2015-01-18 11:32:49.3515|TRACE|KarateIsere.DataAccess.KarateIsereContext|
+
+2015-01-18 11:32:49.3515|TRACE|KarateIsere.DataAccess.KarateIsereContext|Closed connection at 18/01/2015 11:32:49 +01:00
+
+2015-01-18 11:33:21.3770|TRACE|KarateIsere.DataAccess.KarateIsereContext|Opened connection at 18/01/2015 11:33:21 +01:00
+
+2015-01-18 11:33:21.9531|TRACE|KarateIsere.DataAccess.KarateIsereContext|SELECT 
+    [Extent1].[Id] AS [Id], 
+    [Extent1].[Nom] AS [Nom], 
+    [Extent1].[DateCompetition] AS [DateCompetition], 
+    [Extent1].[FinInscription] AS [FinInscription], 
+    [Extent1].[Lieu] AS [Lieu], 
+    [Extent1].[IsKata] AS [IsKata]
+    FROM [dbo].[Competition] AS [Extent1]
+    WHERE [Extent1].[FinInscription] >= (SysDateTime())
+2015-01-18 11:33:21.9531|TRACE|KarateIsere.DataAccess.KarateIsereContext|
+
+2015-01-18 11:33:21.9531|TRACE|KarateIsere.DataAccess.KarateIsereContext|-- Executing at 18/01/2015 11:33:21 +01:00
+
+2015-01-18 11:33:21.9871|TRACE|KarateIsere.DataAccess.KarateIsereContext|-- Completed in 23 ms with result: SqlDataReader
+
+2015-01-18 11:33:21.9871|TRACE|KarateIsere.DataAccess.KarateIsereContext|
+
+2015-01-18 11:33:21.9871|TRACE|KarateIsere.DataAccess.KarateIsereContext|Closed connection at 18/01/2015 11:33:21 +01:00
+
+2015-01-18 11:33:21.9986|TRACE|KarateIsere.DataAccess.KarateIsereContext|Opened connection at 18/01/2015 11:33:22 +01:00
+
+2015-01-18 11:33:22.0326|TRACE|KarateIsere.DataAccess.KarateIsereContext|SELECT 
+    [Extent1].[NumLicence] AS [NumLicence], 
+    [Extent1].[Nom] AS [Nom], 
+    [Extent1].[Prenom] AS [Prenom], 
+    [Extent1].[CategorieName] AS [CategorieName], 
+    [Extent1].[Poids] AS [Poids], 
+    [Extent1].[isHomme] AS [isHomme], 
+    [Extent1].[NumAffiliationClub] AS [NumAffiliationClub]
+    FROM [dbo].[Competiteur] AS [Extent1]
+    WHERE [Extent1].[NumAffiliationClub] = @p__linq__0
+2015-01-18 11:33:22.0326|TRACE|KarateIsere.DataAccess.KarateIsereContext|
+
+2015-01-18 11:33:22.0326|TRACE|KarateIsere.DataAccess.KarateIsereContext|-- p__linq__0: '123456' (Type = AnsiString, Size = 8000)
+
+2015-01-18 11:33:22.0326|TRACE|KarateIsere.DataAccess.KarateIsereContext|-- Executing at 18/01/2015 11:33:22 +01:00
+
+2015-01-18 11:33:22.0731|TRACE|KarateIsere.DataAccess.KarateIsereContext|-- Completed in 26 ms with result: SqlDataReader
+
+2015-01-18 11:33:22.0771|TRACE|KarateIsere.DataAccess.KarateIsereContext|
+
+2015-01-18 11:33:22.0771|TRACE|KarateIsere.DataAccess.KarateIsereContext|Closed connection at 18/01/2015 11:33:22 +01:00
+
+2015-01-18 11:33:35.4548|TRACE|KarateIsere.DataAccess.KarateIsereContext|Opened connection at 18/01/2015 11:33:35 +01:00
+
+2015-01-18 11:33:35.4548|TRACE|KarateIsere.DataAccess.KarateIsereContext|SELECT 
+    [Extent1].[Id] AS [Id], 
+    [Extent1].[Nom] AS [Nom], 
+    [Extent1].[DateCompetition] AS [DateCompetition], 
+    [Extent1].[FinInscription] AS [FinInscription], 
+    [Extent1].[Lieu] AS [Lieu], 
+    [Extent1].[IsKata] AS [IsKata]
+    FROM [dbo].[Competition] AS [Extent1]
+    WHERE [Extent1].[FinInscription] >= (SysDateTime())
+2015-01-18 11:33:35.4643|TRACE|KarateIsere.DataAccess.KarateIsereContext|
+
+2015-01-18 11:33:35.4643|TRACE|KarateIsere.DataAccess.KarateIsereContext|-- Executing at 18/01/2015 11:33:35 +01:00
+
+2015-01-18 11:33:35.5013|TRACE|KarateIsere.DataAccess.KarateIsereContext|-- Completed in 29 ms with result: SqlDataReader
+
+2015-01-18 11:33:35.5013|TRACE|KarateIsere.DataAccess.KarateIsereContext|
+
+2015-01-18 11:33:35.5098|TRACE|KarateIsere.DataAccess.KarateIsereContext|Closed connection at 18/01/2015 11:33:35 +01:00
+
+2015-01-18 11:33:35.5098|TRACE|KarateIsere.DataAccess.KarateIsereContext|Opened connection at 18/01/2015 11:33:35 +01:00
+
+2015-01-18 11:33:35.5098|TRACE|KarateIsere.DataAccess.KarateIsereContext|SELECT 
+    [Extent1].[NumLicence] AS [NumLicence], 
+    [Extent1].[Nom] AS [Nom], 
+    [Extent1].[Prenom] AS [Prenom], 
+    [Extent1].[CategorieName] AS [CategorieName], 
+    [Extent1].[Poids] AS [Poids], 
+    [Extent1].[isHomme] AS [isHomme], 
+    [Extent1].[NumAffiliationClub] AS [NumAffiliationClub]
+    FROM [dbo].[Competiteur] AS [Extent1]
+    WHERE [Extent1].[NumAffiliationClub] = @p__linq__0
+2015-01-18 11:33:35.5263|TRACE|KarateIsere.DataAccess.KarateIsereContext|
+
+2015-01-18 11:33:35.5263|TRACE|KarateIsere.DataAccess.KarateIsereContext|-- p__linq__0: '123456' (Type = AnsiString, Size = 8000)
+
+2015-01-18 11:33:35.5263|TRACE|KarateIsere.DataAccess.KarateIsereContext|-- Executing at 18/01/2015 11:33:35 +01:00
+
+2015-01-18 11:33:35.5673|TRACE|KarateIsere.DataAccess.KarateIsereContext|-- Completed in 28 ms with result: SqlDataReader
+
+2015-01-18 11:33:35.5718|TRACE|KarateIsere.DataAccess.KarateIsereContext|
+
+2015-01-18 11:33:35.5718|TRACE|KarateIsere.DataAccess.KarateIsereContext|Closed connection at 18/01/2015 11:33:35 +01:00
+
+2015-01-18 11:33:57.5296|TRACE|KarateIsere.DataAccess.KarateIsereContext|Opened connection at 18/01/2015 11:33:57 +01:00
+
+2015-01-18 11:33:57.6001|TRACE|KarateIsere.DataAccess.KarateIsereContext|SELECT 
+    [Project2].[C1] AS [C1], 
+    [Project2].[NumAffiliation] AS [NumAffiliation], 
+    [Project2].[NomClub] AS [NomClub], 
+    [Project2].[Correspondant] AS [Correspondant], 
+    [Project2].[Telephone] AS [Telephone], 
+    [Project2].[Adr_Administrative] AS [Adr_Administrative], 
+    [Project2].[Adr_Dojo] AS [Adr_Dojo], 
+    [Project2].[Code_Postal] AS [Code_Postal], 
+    [Project2].[Ville] AS [Ville], 
+    [Project2].[Site_Web] AS [Site_Web], 
+    [Project2].[Facebook] AS [Facebook], 
+    [Project2].[President_Tel] AS [President_Tel], 
+    [Project2].[President_Nom] AS [President_Nom], 
+    [Project2].[President_Prenom] AS [President_Prenom], 
+    [Project2].[President_Email] AS [President_Email], 
+    [Project2].[President_Mobile] AS [President_Mobile], 
+    [Project2].[Tresorier_Tel] AS [Tresorier_Tel], 
+    [Project2].[Tresorier_Nom] AS [Tresorier_Nom], 
+    [Project2].[Tresorier_Prenom] AS [Tresorier_Prenom], 
+    [Project2].[Tresorier_Email] AS [Tresorier_Email], 
+    [Project2].[Tresorier_Mobile] AS [Tresorier_Mobile], 
+    [Project2].[Secretaire_Tel] AS [Secretaire_Tel], 
+    [Project2].[Secretaire_Nom] AS [Secretaire_Nom], 
+    [Project2].[Secretaire_Prenom] AS [Secretaire_Prenom], 
+    [Project2].[Secretaire_Email] AS [Secretaire_Email], 
+    [Project2].[Secretaire_Mobile] AS [Secretaire_Mobile], 
+    [Project2].[ArtMartialName] AS [ArtMartialName], 
+    [Project2].[Longitude] AS [Longitude], 
+    [Project2].[Latitude] AS [Latitude], 
+    [Project2].[C2] AS [C2], 
+    [Project2].[NumLicence] AS [NumLicence], 
+    [Project2].[Nom] AS [Nom], 
+    [Project2].[Prenom] AS [Prenom], 
+    [Project2].[CategorieName] AS [CategorieName], 
+    [Project2].[Poids] AS [Poids], 
+    [Project2].[isHomme] AS [isHomme], 
+    [Project2].[NumAffiliationClub] AS [NumAffiliationClub]
+    FROM ( SELECT 
+        [Limit1].[NumAffiliation] AS [NumAffiliation], 
+        [Limit1].[NomClub] AS [NomClub], 
+        [Limit1].[Correspondant] AS [Correspondant], 
+        [Limit1].[Telephone] AS [Telephone], 
+        [Limit1].[Adr_Administrative] AS [Adr_Administrative], 
+        [Limit1].[Adr_Dojo] AS [Adr_Dojo], 
+        [Limit1].[Code_Postal] AS [Code_Postal], 
+        [Limit1].[Ville] AS [Ville], 
+        [Limit1].[Site_Web] AS [Site_Web], 
+        [Limit1].[Facebook] AS [Facebook], 
+        [Limit1].[President_Tel] AS [President_Tel], 
+        [Limit1].[President_Nom] AS [President_Nom], 
+        [Limit1].[President_Prenom] AS [President_Prenom], 
+        [Limit1].[President_Email] AS [President_Email], 
+        [Limit1].[President_Mobile] AS [President_Mobile], 
+        [Limit1].[Tresorier_Tel] AS [Tresorier_Tel], 
+        [Limit1].[Tresorier_Nom] AS [Tresorier_Nom], 
+        [Limit1].[Tresorier_Prenom] AS [Tresorier_Prenom], 
+        [Limit1].[Tresorier_Email] AS [Tresorier_Email], 
+        [Limit1].[Tresorier_Mobile] AS [Tresorier_Mobile], 
+        [Limit1].[Secretaire_Tel] AS [Secretaire_Tel], 
+        [Limit1].[Secretaire_Nom] AS [Secretaire_Nom], 
+        [Limit1].[Secretaire_Prenom] AS [Secretaire_Prenom], 
+        [Limit1].[Secretaire_Email] AS [Secretaire_Email], 
+        [Limit1].[Secretaire_Mobile] AS [Secretaire_Mobile], 
+        [Limit1].[ArtMartialName] AS [ArtMartialName], 
+        [Limit1].[Longitude] AS [Longitude], 
+        [Limit1].[Latitude] AS [Latitude], 
+        [Limit1].[C1] AS [C1], 
+        [Extent2].[NumLicence] AS [NumLicence], 
+        [Extent2].[Nom] AS [Nom], 
+        [Extent2].[Prenom] AS [Prenom], 
+        [Extent2].[CategorieName] AS [CategorieName], 
+        [Extent2].[Poids] AS [Poids], 
+        [Extent2].[isHomme] AS [isHomme], 
+        [Extent2].[NumAffiliationClub] AS [NumAffiliationClub], 
+        CASE WHEN ([Extent2].[NumLicence] IS NULL) THEN CAST(NULL AS int) ELSE 1 END AS [C2]
+        FROM   (SELECT TOP (2) 
+            [Extent1].[NumAffiliation] AS [NumAffiliation], 
+            [Extent1].[NomClub] AS [NomClub], 
+            [Extent1].[Correspondant] AS [Correspondant], 
+            [Extent1].[Telephone] AS [Telephone], 
+            [Extent1].[Adr_Administrative] AS [Adr_Administrative], 
+            [Extent1].[Adr_Dojo] AS [Adr_Dojo], 
+            [Extent1].[Code_Postal] AS [Code_Postal], 
+            [Extent1].[Ville] AS [Ville], 
+            [Extent1].[Site_Web] AS [Site_Web], 
+            [Extent1].[Facebook] AS [Facebook], 
+            [Extent1].[President_Tel] AS [President_Tel], 
+            [Extent1].[President_Nom] AS [President_Nom], 
+            [Extent1].[President_Prenom] AS [President_Prenom], 
+            [Extent1].[President_Email] AS [President_Email], 
+            [Extent1].[President_Mobile] AS [President_Mobile], 
+            [Extent1].[Tresorier_Tel] AS [Tresorier_Tel], 
+            [Extent1].[Tresorier_Nom] AS [Tresorier_Nom], 
+            [Extent1].[Tresorier_Prenom] AS [Tresorier_Prenom], 
+            [Extent1].[Tresorier_Email] AS [Tresorier_Email], 
+            [Extent1].[Tresorier_Mobile] AS [Tresorier_Mobile], 
+            [Extent1].[Secretaire_Tel] AS [Secretaire_Tel], 
+            [Extent1].[Secretaire_Nom] AS [Secretaire_Nom], 
+            [Extent1].[Secretaire_Prenom] AS [Secretaire_Prenom], 
+            [Extent1].[Secretaire_Email] AS [Secretaire_Email], 
+            [Extent1].[Secretaire_Mobile] AS [Secretaire_Mobile], 
+            [Extent1].[ArtMartialName] AS [ArtMartialName], 
+            [Extent1].[Longitude] AS [Longitude], 
+            [Extent1].[Latitude] AS [Latitude], 
+            1 AS [C1]
+            FROM [dbo].[Club] AS [Extent1]
+            WHERE [Extent1].[NumAffiliation] = @p__linq__0 ) AS [Limit1]
+        LEFT OUTER JOIN [dbo].[Competiteur] AS [Extent2] ON [Limit1].[NumAffiliation] = [Extent2].[NumAffiliationClub]
+    )  AS [Project2]
+    ORDER BY [Project2].[NumAffiliation] ASC, [Project2].[C2] ASC
+2015-01-18 11:33:57.6001|TRACE|KarateIsere.DataAccess.KarateIsereContext|
+
+2015-01-18 11:33:57.6001|TRACE|KarateIsere.DataAccess.KarateIsereContext|-- p__linq__0: '123456' (Type = AnsiString, Size = 8000)
+
+2015-01-18 11:33:57.6001|TRACE|KarateIsere.DataAccess.KarateIsereContext|-- Executing at 18/01/2015 11:33:57 +01:00
+
+2015-01-18 11:33:57.6441|TRACE|KarateIsere.DataAccess.KarateIsereContext|-- Completed in 29 ms with result: SqlDataReader
+
+2015-01-18 11:33:57.6486|TRACE|KarateIsere.DataAccess.KarateIsereContext|
+
+2015-01-18 11:33:57.6701|TRACE|KarateIsere.DataAccess.KarateIsereContext|Closed connection at 18/01/2015 11:33:57 +01:00
+
+2015-01-18 11:33:57.6781|TRACE|KarateIsere.DataAccess.KarateIsereContext|Opened connection at 18/01/2015 11:33:57 +01:00
+
+2015-01-18 11:33:57.7001|TRACE|KarateIsere.DataAccess.KarateIsereContext|SELECT 
+    [Extent1].[Nom] AS [Nom]
+    FROM [dbo].[Categorie] AS [Extent1]
+2015-01-18 11:33:57.7001|TRACE|KarateIsere.DataAccess.KarateIsereContext|
+
+2015-01-18 11:33:57.7076|TRACE|KarateIsere.DataAccess.KarateIsereContext|-- Executing at 18/01/2015 11:33:57 +01:00
+
+2015-01-18 11:33:57.7367|TRACE|KarateIsere.DataAccess.KarateIsereContext|-- Completed in 24 ms with result: SqlDataReader
+
+2015-01-18 11:33:57.7407|TRACE|KarateIsere.DataAccess.KarateIsereContext|
+
+2015-01-18 11:33:57.7407|TRACE|KarateIsere.DataAccess.KarateIsereContext|Closed connection at 18/01/2015 11:33:57 +01:00
+
+2015-01-18 11:34:02.2097|TRACE|KarateIsere.DataAccess.KarateIsereContext|Opened connection at 18/01/2015 11:34:02 +01:00
+
+2015-01-18 11:34:02.2482|TRACE|KarateIsere.DataAccess.KarateIsereContext|SELECT 
+    [Extent1].[NumAffiliation] AS [NumAffiliation], 
+    [Extent1].[NomClub] AS [NomClub], 
+    [Extent1].[Correspondant] AS [Correspondant], 
+    [Extent1].[Telephone] AS [Telephone], 
+    [Extent1].[Adr_Administrative] AS [Adr_Administrative], 
+    [Extent1].[Adr_Dojo] AS [Adr_Dojo], 
+    [Extent1].[Code_Postal] AS [Code_Postal], 
+    [Extent1].[Ville] AS [Ville], 
+    [Extent1].[Site_Web] AS [Site_Web], 
+    [Extent1].[Facebook] AS [Facebook], 
+    [Extent1].[President_Tel] AS [President_Tel], 
+    [Extent1].[President_Nom] AS [President_Nom], 
+    [Extent1].[President_Prenom] AS [President_Prenom], 
+    [Extent1].[President_Email] AS [President_Email], 
+    [Extent1].[President_Mobile] AS [President_Mobile], 
+    [Extent1].[Tresorier_Tel] AS [Tresorier_Tel], 
+    [Extent1].[Tresorier_Nom] AS [Tresorier_Nom], 
+    [Extent1].[Tresorier_Prenom] AS [Tresorier_Prenom], 
+    [Extent1].[Tresorier_Email] AS [Tresorier_Email], 
+    [Extent1].[Tresorier_Mobile] AS [Tresorier_Mobile], 
+    [Extent1].[Secretaire_Tel] AS [Secretaire_Tel], 
+    [Extent1].[Secretaire_Nom] AS [Secretaire_Nom], 
+    [Extent1].[Secretaire_Prenom] AS [Secretaire_Prenom], 
+    [Extent1].[Secretaire_Email] AS [Secretaire_Email], 
+    [Extent1].[Secretaire_Mobile] AS [Secretaire_Mobile], 
+    [Extent1].[ArtMartialName] AS [ArtMartialName], 
+    [Extent1].[Longitude] AS [Longitude], 
+    [Extent1].[Latitude] AS [Latitude]
+    FROM [dbo].[Club] AS [Extent1]
+2015-01-18 11:34:02.2482|TRACE|KarateIsere.DataAccess.KarateIsereContext|
+
+2015-01-18 11:34:02.2482|TRACE|KarateIsere.DataAccess.KarateIsereContext|-- Executing at 18/01/2015 11:34:02 +01:00
+
+2015-01-18 11:34:02.2897|TRACE|KarateIsere.DataAccess.KarateIsereContext|-- Completed in 26 ms with result: SqlDataReader
+
+2015-01-18 11:34:02.2937|TRACE|KarateIsere.DataAccess.KarateIsereContext|
+
+2015-01-18 11:34:02.2937|TRACE|KarateIsere.DataAccess.KarateIsereContext|Closed connection at 18/01/2015 11:34:02 +01:00
+
+2015-01-18 11:34:08.8386|TRACE|KarateIsere.DataAccess.KarateIsereContext|Opened connection at 18/01/2015 11:34:08 +01:00
+
+2015-01-18 11:34:08.8386|TRACE|KarateIsere.DataAccess.KarateIsereContext|SELECT 
+    [Extent1].[Nom] AS [Nom]
+    FROM [dbo].[Categorie] AS [Extent1]
+2015-01-18 11:34:08.8476|TRACE|KarateIsere.DataAccess.KarateIsereContext|
+
+2015-01-18 11:34:08.8476|TRACE|KarateIsere.DataAccess.KarateIsereContext|-- Executing at 18/01/2015 11:34:08 +01:00
+
+2015-01-18 11:34:08.8816|TRACE|KarateIsere.DataAccess.KarateIsereContext|-- Completed in 26 ms with result: SqlDataReader
+
+2015-01-18 11:34:08.8816|TRACE|KarateIsere.DataAccess.KarateIsereContext|
+
+2015-01-18 11:34:08.8946|TRACE|KarateIsere.DataAccess.KarateIsereContext|Closed connection at 18/01/2015 11:34:08 +01:00
+
+2015-01-18 11:34:09.0171|TRACE|KarateIsere.DataAccess.KarateIsereContext|Opened connection at 18/01/2015 11:34:09 +01:00
+
+2015-01-18 11:34:09.0171|TRACE|KarateIsere.DataAccess.KarateIsereContext|SELECT 
+    [Extent1].[Id] AS [Id], 
+    [Extent1].[Nom] AS [Nom], 
+    [Extent1].[DateCompetition] AS [DateCompetition], 
+    [Extent1].[FinInscription] AS [FinInscription], 
+    [Extent1].[Lieu] AS [Lieu], 
+    [Extent1].[IsKata] AS [IsKata]
+    FROM [dbo].[Competition] AS [Extent1]
+2015-01-18 11:34:09.0171|TRACE|KarateIsere.DataAccess.KarateIsereContext|
+
+2015-01-18 11:34:09.0171|TRACE|KarateIsere.DataAccess.KarateIsereContext|-- Executing at 18/01/2015 11:34:09 +01:00
+
+2015-01-18 11:34:09.0596|TRACE|KarateIsere.DataAccess.KarateIsereContext|-- Completed in 25 ms with result: SqlDataReader
+
+2015-01-18 11:34:09.0596|TRACE|KarateIsere.DataAccess.KarateIsereContext|
+
+2015-01-18 11:34:09.0691|TRACE|KarateIsere.DataAccess.KarateIsereContext|Closed connection at 18/01/2015 11:34:09 +01:00
+
+2015-01-18 11:34:12.7571|TRACE|KarateIsere.DataAccess.KarateIsereContext|Opened connection at 18/01/2015 11:34:12 +01:00
+
+2015-01-18 11:34:12.8551|TRACE|KarateIsere.DataAccess.KarateIsereContext|SELECT 
+    [Project2].[Id] AS [Id], 
+    [Project2].[Nom] AS [Nom], 
+    [Project2].[DateCompetition] AS [DateCompetition], 
+    [Project2].[FinInscription] AS [FinInscription], 
+    [Project2].[Lieu] AS [Lieu], 
+    [Project2].[IsKata] AS [IsKata], 
+    [Project2].[C1] AS [C1], 
+    [Project2].[Categorie_Nom] AS [Categorie_Nom]
+    FROM ( SELECT 
+        [Limit1].[Id] AS [Id], 
+        [Limit1].[Nom] AS [Nom], 
+        [Limit1].[DateCompetition] AS [DateCompetition], 
+        [Limit1].[FinInscription] AS [FinInscription], 
+        [Limit1].[Lieu] AS [Lieu], 
+        [Limit1].[IsKata] AS [IsKata], 
+        [Extent2].[Categorie_Nom] AS [Categorie_Nom], 
+        CASE WHEN ([Extent2].[Competition_Id] IS NULL) THEN CAST(NULL AS int) ELSE 1 END AS [C1]
+        FROM   (SELECT TOP (2) 
+            [Extent1].[Id] AS [Id], 
+            [Extent1].[Nom] AS [Nom], 
+            [Extent1].[DateCompetition] AS [DateCompetition], 
+            [Extent1].[FinInscription] AS [FinInscription], 
+            [Extent1].[Lieu] AS [Lieu], 
+            [Extent1].[IsKata] AS [IsKata]
+            FROM [dbo].[Competition] AS [Extent1]
+            WHERE ((UPPER([Extent1].[Nom])) = @p__linq__0) OR ((UPPER([Extent1].[Nom]) IS NULL) AND (@p__linq__0 IS NULL)) ) AS [Limit1]
+        LEFT OUTER JOIN [dbo].[CompetitionCategories] AS [Extent2] ON [Limit1].[Id] = [Extent2].[Competition_Id]
+    )  AS [Project2]
+    ORDER BY [Project2].[Id] ASC, [Project2].[C1] ASC
+2015-01-18 11:34:12.8551|TRACE|KarateIsere.DataAccess.KarateIsereContext|
+
+2015-01-18 11:34:12.8551|TRACE|KarateIsere.DataAccess.KarateIsereContext|-- p__linq__0: 'Test compétition1' (Type = String, Size = 4000)
+
+2015-01-18 11:34:12.8551|TRACE|KarateIsere.DataAccess.KarateIsereContext|-- Executing at 18/01/2015 11:34:12 +01:00
+
+2015-01-18 11:34:12.9061|TRACE|KarateIsere.DataAccess.KarateIsereContext|-- Completed in 36 ms with result: SqlDataReader
+
+2015-01-18 11:34:12.9061|TRACE|KarateIsere.DataAccess.KarateIsereContext|
+
+2015-01-18 11:34:12.9281|TRACE|KarateIsere.DataAccess.KarateIsereContext|Closed connection at 18/01/2015 11:34:12 +01:00
+
+2015-01-18 11:34:12.9341|TRACE|KarateIsere.DataAccess.KarateIsereContext|Opened connection at 18/01/2015 11:34:12 +01:00
+
+2015-01-18 11:34:12.9341|TRACE|KarateIsere.DataAccess.KarateIsereContext|SELECT 
+    [Extent1].[Nom] AS [Nom]
+    FROM [dbo].[Categorie] AS [Extent1]
+2015-01-18 11:34:12.9341|TRACE|KarateIsere.DataAccess.KarateIsereContext|
+
+2015-01-18 11:34:12.9341|TRACE|KarateIsere.DataAccess.KarateIsereContext|-- Executing at 18/01/2015 11:34:12 +01:00
+
+2015-01-18 11:34:12.9756|TRACE|KarateIsere.DataAccess.KarateIsereContext|-- Completed in 27 ms with result: SqlDataReader
+
+2015-01-18 11:34:12.9796|TRACE|KarateIsere.DataAccess.KarateIsereContext|
+
+2015-01-18 11:34:12.9796|TRACE|KarateIsere.DataAccess.KarateIsereContext|Closed connection at 18/01/2015 11:34:12 +01:00
+

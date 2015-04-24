@@ -1,0 +1,8 @@
+R:\Fontes\Samples\GoogleAPI.Maps\GoogleAPI.Maps.Tests\bin\Debug\GoogleAPI.Maps.Tests.dll.config
+R:\Fontes\Samples\GoogleAPI.Maps\GoogleAPI.Maps.Tests\bin\Debug\GoogleAPI.Maps.Tests.dll
+R:\Fontes\Samples\GoogleAPI.Maps\GoogleAPI.Maps.Tests\bin\Debug\GoogleAPI.Maps.Tests.pdb
+R:\Fontes\Samples\GoogleAPI.Maps\GoogleAPI.Maps.Tests\bin\Debug\GoogleAPI.Maps.dll
+R:\Fontes\Samples\GoogleAPI.Maps\GoogleAPI.Maps.Tests\bin\Debug\GoogleAPI.Maps.pdb
+R:\Fontes\Samples\GoogleAPI.Maps\GoogleAPI.Maps.Tests\obj\Debug\ResolveAssemblyReference.cache
+R:\Fontes\Samples\GoogleAPI.Maps\GoogleAPI.Maps.Tests\obj\Debug\GoogleAPI.Maps.Tests.dll
+R:\Fontes\Samples\GoogleAPI.Maps\GoogleAPI.Maps.Tests\obj\Debug\GoogleAPI.Maps.Tests.pdb

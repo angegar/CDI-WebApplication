@@ -1,0 +1,71 @@
+﻿@model IEnumerable<KarateIsere.Models.CompetitionViewModel>
+@using KarateIsere.Models;
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2>Gestion des compétitions</h2>
+
+<div class="panel panel-default">
+    <div class="panel-heading">
+        <div class="panel-title">
+            <h4>Créer une nouvelle compétition</h4>
+
+        </div>
+    </div>
+    <div class="panel-body">
+        @Html.Partial( "Create", new CompetitionViewModel() )
+    </div>
+
+</div>
+
+@if (Model != null) {
+
+    <table class="table">
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.DateCompetition)
+            </th>
+            <th>
+                @Html.DisplayNameFor( model => model.Nom )
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.FinInscription)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Lieu)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.IsKata)
+            </th>
+            <th></th>
+        </tr>
+
+    @foreach (var item in Model) {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.DateCompetition)
+            </td>
+            <td>
+                @Html.DisplayFor( modelItem => item.Nom )
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.FinInscription)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Lieu)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.IsKata)
+            </td>
+            <td>
+                @Html.ActionLink("Edit", "Edit", new { id=item.Nom }) |
+                @Html.ActionLink( "Details", "Details", new {id=item.Nom} ) |
+                @Html.ActionLink( "Delete", "Delete", new {id=item.Nom} )
+            </td>
+        </tr>
+    }
+
+    </table>
+}

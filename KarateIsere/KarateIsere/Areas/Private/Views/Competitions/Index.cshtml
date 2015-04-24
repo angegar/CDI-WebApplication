@@ -1,0 +1,96 @@
+﻿@model IEnumerable<KarateIsere.DataAccess.Competition>
+@using KarateIsere.DataAccess;
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2>Gestion des compétitions</h2>
+<hr />
+
+    <div class="panel panel-default" id="panel1">
+        <div class="panel-heading">
+            <h4 class="panel-title">
+                <a data-toggle="collapse" data-target="#collapseOne"
+                   href="#collapseOne">
+                    Créer une nouvelle compétition
+                </a>
+            </h4>
+        </div>
+        <div id="collapseOne" class="panel-collapse collapse">
+            <div class="panel-body">
+                @Html.Partial( "Create", new Competition())
+            </div>
+        </div>
+    </div>
+
+
+<br/>
+
+<div class="panel panel-default">
+
+    <div class="panel-heading">
+            <h4 class="panel-title">
+                Liste des compétitions
+            </h4>
+    </div>
+
+    <div class="panel-body">
+        @if (Model != null) {
+
+            <table class="table">
+                <tr>
+                    <th>
+                        @Html.DisplayNameFor( model => model.DateCompetition )
+                    </th>
+                    <th>
+                        @Html.DisplayNameFor( model => model.Nom )
+                    </th>
+                    <th>
+                        @Html.DisplayNameFor( model => model.FinInscription )
+                    </th>
+                    <th>
+                        @Html.DisplayNameFor( model => model.Lieu )
+                    </th>
+                    <th>
+                        @Html.DisplayNameFor( model => model.IsKata )
+                    </th>
+                    <th></th>
+                </tr>
+
+                @foreach (var item in Model) {
+                    <tr>
+                        <td>
+                            @Html.DisplayFor( modelItem => item.DateCompetition )
+                        </td>
+                        <td>
+                            @Html.DisplayFor( modelItem => item.Nom )
+                        </td>
+                        <td>
+                            @Html.DisplayFor( modelItem => item.FinInscription )
+                        </td>
+                        <td>
+                            @Html.DisplayFor( modelItem => item.Lieu )
+                        </td>
+                        <td>
+                            @Html.DisplayFor( modelItem => item.IsKata )
+                        </td>
+                        <td>
+                            @Html.ActionLink( "Edit", "Edit", new {
+                           competName=item.Nom
+                       } ) @*|
+                            @Html.ActionLink( "Details", "Details", new {
+                           id=item.Nom
+                       } )*@ |
+                            @Html.ActionLink( "Delete", "Delete", new {
+                           competName=item.Nom
+                       } ) 
+                        </td>
+                    </tr>
+                }
+
+            </table>
+        }
+    </div>
+
+</div>

@@ -1,0 +1,214 @@
+2014-09-24 21:07:04.4951|TRACE|KarateIsere.DataAccess.KarateIsereContext|Opened connection at 24/09/2014 21:07:04 +02:00
+
+2014-09-24 21:07:04.5291|TRACE|KarateIsere.DataAccess.KarateIsereContext|
+SELECT Count(*)
+FROM INFORMATION_SCHEMA.TABLES AS t
+WHERE t.TABLE_SCHEMA + '.' + t.TABLE_NAME IN ('dbo.Adherents','dbo.Admin','dbo.Art_Martial','dbo.Categorie','dbo.Competiteur','dbo.Club','dbo.ListeCompetiteur','dbo.Professeurs','dbo.Competition','dbo.Inscriptions','dbo.Creneaux','dbo.Club_Professeur','dbo.CompetitionCategories')
+    OR t.TABLE_NAME = 'EdmMetadata'
+2014-09-24 21:07:04.5291|TRACE|KarateIsere.DataAccess.KarateIsereContext|
+
+2014-09-24 21:07:04.5291|TRACE|KarateIsere.DataAccess.KarateIsereContext|-- Executing at 24/09/2014 21:07:04 +02:00
+
+2014-09-24 21:07:04.5711|TRACE|KarateIsere.DataAccess.KarateIsereContext|-- Completed in 27 ms with result: 9
+
+2014-09-24 21:07:04.5711|TRACE|KarateIsere.DataAccess.KarateIsereContext|
+
+2014-09-24 21:07:04.5781|TRACE|KarateIsere.DataAccess.KarateIsereContext|Closed connection at 24/09/2014 21:07:04 +02:00
+
+2014-09-24 21:07:04.5781|TRACE|KarateIsere.DataAccess.KarateIsereContext|Opened connection at 24/09/2014 21:07:04 +02:00
+
+2014-09-24 21:07:04.5781|TRACE|KarateIsere.DataAccess.KarateIsereContext|SELECT 
+    [GroupBy1].[A1] AS [C1]
+    FROM ( SELECT 
+        COUNT(1) AS [A1]
+        FROM [dbo].[__MigrationHistory] AS [Extent1]
+        WHERE [Extent1].[ContextKey] = @p__linq__0
+    )  AS [GroupBy1]
+2014-09-24 21:07:04.5926|TRACE|KarateIsere.DataAccess.KarateIsereContext|
+
+2014-09-24 21:07:04.5926|TRACE|KarateIsere.DataAccess.KarateIsereContext|-- p__linq__0: 'KarateIsere.DataAccess.KarateIsereContext' (Type = String, Size = 4000)
+
+2014-09-24 21:07:04.5926|TRACE|KarateIsere.DataAccess.KarateIsereContext|-- Executing at 24/09/2014 21:07:04 +02:00
+
+2014-09-24 21:07:04.6451|TRACE|KarateIsere.DataAccess.KarateIsereContext|-- Completed in 40 ms with result: SqlDataReader
+
+2014-09-24 21:07:04.6451|TRACE|KarateIsere.DataAccess.KarateIsereContext|
+
+2014-09-24 21:07:04.6451|TRACE|KarateIsere.DataAccess.KarateIsereContext|Closed connection at 24/09/2014 21:07:04 +02:00
+
+2014-09-24 21:07:04.6551|TRACE|KarateIsere.DataAccess.KarateIsereContext|Opened connection at 24/09/2014 21:07:04 +02:00
+
+2014-09-24 21:07:04.6551|TRACE|KarateIsere.DataAccess.KarateIsereContext|SELECT TOP (1) 
+    [Project1].[C1] AS [C1], 
+    [Project1].[MigrationId] AS [MigrationId], 
+    [Project1].[Model] AS [Model], 
+    [Project1].[ProductVersion] AS [ProductVersion]
+    FROM ( SELECT 
+        [Extent1].[MigrationId] AS [MigrationId], 
+        [Extent1].[Model] AS [Model], 
+        [Extent1].[ProductVersion] AS [ProductVersion], 
+        1 AS [C1]
+        FROM [dbo].[__MigrationHistory] AS [Extent1]
+        WHERE [Extent1].[ContextKey] = @p__linq__0
+    )  AS [Project1]
+    ORDER BY [Project1].[MigrationId] DESC
+2014-09-24 21:07:04.6551|TRACE|KarateIsere.DataAccess.KarateIsereContext|
+
+2014-09-24 21:07:04.6551|TRACE|KarateIsere.DataAccess.KarateIsereContext|-- p__linq__0: 'KarateIsere.DataAccess.KarateIsereContext' (Type = String, Size = 4000)
+
+2014-09-24 21:07:04.6721|TRACE|KarateIsere.DataAccess.KarateIsereContext|-- Executing at 24/09/2014 21:07:04 +02:00
+
+2014-09-24 21:07:04.7086|TRACE|KarateIsere.DataAccess.KarateIsereContext|-- Completed in 32 ms with result: SqlDataReader
+
+2014-09-24 21:07:04.7086|TRACE|KarateIsere.DataAccess.KarateIsereContext|
+
+2014-09-24 21:07:04.7156|TRACE|KarateIsere.DataAccess.KarateIsereContext|Closed connection at 24/09/2014 21:07:04 +02:00
+
+2014-09-24 21:07:05.4522|TRACE|KarateIsere.DataAccess.KarateIsereContext|Opened connection at 24/09/2014 21:07:05 +02:00
+
+2014-09-24 21:07:05.5297|TRACE|KarateIsere.DataAccess.KarateIsereContext|SELECT 
+    [Extent1].[Competition] AS [Competition], 
+    [Extent1].[DateCompetition] AS [DateCompetition], 
+    [Extent1].[FinInscription] AS [FinInscription], 
+    [Extent1].[Lieu] AS [Lieu], 
+    [Extent1].[IsKata] AS [IsKata]
+    FROM [dbo].[Competition] AS [Extent1]
+2014-09-24 21:07:05.5297|TRACE|KarateIsere.DataAccess.KarateIsereContext|
+
+2014-09-24 21:07:05.5297|TRACE|KarateIsere.DataAccess.KarateIsereContext|-- Executing at 24/09/2014 21:07:05 +02:00
+
+2014-09-24 21:07:05.5762|TRACE|KarateIsere.DataAccess.KarateIsereContext|-- Completed in 32 ms with result: SqlDataReader
+
+2014-09-24 21:07:05.5762|TRACE|KarateIsere.DataAccess.KarateIsereContext|
+
+2014-09-24 21:07:05.5902|TRACE|KarateIsere.DataAccess.KarateIsereContext|Closed connection at 24/09/2014 21:07:05 +02:00
+
+2014-09-24 21:07:05.5902|TRACE|KarateIsere.DataAccess.Tool.Mapper|Map parameters
+2014-09-24 21:07:05.6047|TRACE|KarateIsere.DataAccess.Tool.Mapper|Destination object :KarateIsere.Models.CompetitionViewModel
+2014-09-24 21:07:05.6047|TRACE|KarateIsere.DataAccess.Tool.Mapper|Source object : KarateIsere.DataAccess.Competition
+2014-09-24 21:07:05.6047|TRACE|KarateIsere.DataAccess.Tool.Mapper|FirstCommonType parameters
+2014-09-24 21:07:05.6047|TRACE|KarateIsere.DataAccess.Tool.Mapper|Source type :KarateIsere.DataAccess.Competition
+2014-09-24 21:07:05.6047|TRACE|KarateIsere.DataAccess.Tool.Mapper|Destination type :KarateIsere.Models.CompetitionViewModel
+2014-09-24 21:07:05.6222|TRACE|KarateIsere.DataAccess.Tool.Mapper|Map parameters
+2014-09-24 21:07:05.6222|TRACE|KarateIsere.DataAccess.Tool.Mapper|Destination object :KarateIsere.Models.CompetitionViewModel
+2014-09-24 21:07:05.6222|TRACE|KarateIsere.DataAccess.Tool.Mapper|Source object : KarateIsere.DataAccess.Competition
+2014-09-24 21:07:05.6222|TRACE|KarateIsere.DataAccess.Tool.Mapper|Common type :KarateIsere.DataAccess.Competition
+2014-09-24 21:07:05.6362|TRACE|KarateIsere.DataAccess.Tool.Mapper|Map parameters
+2014-09-24 21:07:05.6362|TRACE|KarateIsere.DataAccess.Tool.Mapper|Destination object :KarateIsere.Models.CompetitionViewModel
+2014-09-24 21:07:05.6362|TRACE|KarateIsere.DataAccess.Tool.Mapper|Source object : KarateIsere.DataAccess.Competition
+2014-09-24 21:07:05.6362|TRACE|KarateIsere.DataAccess.Tool.Mapper|FirstCommonType parameters
+2014-09-24 21:07:05.6522|TRACE|KarateIsere.DataAccess.Tool.Mapper|Source type :KarateIsere.DataAccess.Competition
+2014-09-24 21:07:05.6522|TRACE|KarateIsere.DataAccess.Tool.Mapper|Destination type :KarateIsere.Models.CompetitionViewModel
+2014-09-24 21:07:05.6522|TRACE|KarateIsere.DataAccess.Tool.Mapper|Map parameters
+2014-09-24 21:07:05.6522|TRACE|KarateIsere.DataAccess.Tool.Mapper|Destination object :KarateIsere.Models.CompetitionViewModel
+2014-09-24 21:07:05.6522|TRACE|KarateIsere.DataAccess.Tool.Mapper|Source object : KarateIsere.DataAccess.Competition
+2014-09-24 21:07:05.6702|TRACE|KarateIsere.DataAccess.Tool.Mapper|Common type :KarateIsere.DataAccess.Competition
+2014-09-24 21:07:05.6702|TRACE|KarateIsere.DataAccess.Tool.Mapper|Map parameters
+2014-09-24 21:07:05.6702|TRACE|KarateIsere.DataAccess.Tool.Mapper|Destination object :KarateIsere.Models.CompetitionViewModel
+2014-09-24 21:07:05.6702|TRACE|KarateIsere.DataAccess.Tool.Mapper|Source object : KarateIsere.DataAccess.Competition
+2014-09-24 21:07:05.6852|TRACE|KarateIsere.DataAccess.Tool.Mapper|FirstCommonType parameters
+2014-09-24 21:07:05.6852|TRACE|KarateIsere.DataAccess.Tool.Mapper|Source type :KarateIsere.DataAccess.Competition
+2014-09-24 21:07:05.6852|TRACE|KarateIsere.DataAccess.Tool.Mapper|Destination type :KarateIsere.Models.CompetitionViewModel
+2014-09-24 21:07:05.6852|TRACE|KarateIsere.DataAccess.Tool.Mapper|Map parameters
+2014-09-24 21:07:05.6997|TRACE|KarateIsere.DataAccess.Tool.Mapper|Destination object :KarateIsere.Models.CompetitionViewModel
+2014-09-24 21:07:05.6997|TRACE|KarateIsere.DataAccess.Tool.Mapper|Source object : KarateIsere.DataAccess.Competition
+2014-09-24 21:07:05.6997|TRACE|KarateIsere.DataAccess.Tool.Mapper|Common type :KarateIsere.DataAccess.Competition
+2014-09-24 21:07:05.6997|TRACE|KarateIsere.DataAccess.Tool.Mapper|Map parameters
+2014-09-24 21:07:05.7142|TRACE|KarateIsere.DataAccess.Tool.Mapper|Destination object :KarateIsere.Models.CompetitionViewModel
+2014-09-24 21:07:05.7142|TRACE|KarateIsere.DataAccess.Tool.Mapper|Source object : KarateIsere.DataAccess.Competition
+2014-09-24 21:07:05.7142|TRACE|KarateIsere.DataAccess.Tool.Mapper|FirstCommonType parameters
+2014-09-24 21:07:05.7142|TRACE|KarateIsere.DataAccess.Tool.Mapper|Source type :KarateIsere.DataAccess.Competition
+2014-09-24 21:07:05.7142|TRACE|KarateIsere.DataAccess.Tool.Mapper|Destination type :KarateIsere.Models.CompetitionViewModel
+2014-09-24 21:07:05.7322|TRACE|KarateIsere.DataAccess.Tool.Mapper|Map parameters
+2014-09-24 21:07:05.7322|TRACE|KarateIsere.DataAccess.Tool.Mapper|Destination object :KarateIsere.Models.CompetitionViewModel
+2014-09-24 21:07:05.7322|TRACE|KarateIsere.DataAccess.Tool.Mapper|Source object : KarateIsere.DataAccess.Competition
+2014-09-24 21:07:05.7322|TRACE|KarateIsere.DataAccess.Tool.Mapper|Common type :KarateIsere.DataAccess.Competition
+2014-09-24 21:07:06.7743|TRACE|KarateIsere.DataAccess.KarateIsereContext|Opened connection at 24/09/2014 21:07:06 +02:00
+
+2014-09-24 21:07:06.8013|TRACE|KarateIsere.DataAccess.KarateIsereContext|SELECT 
+    [Extent1].[Nom] AS [Nom]
+    FROM [dbo].[Categorie] AS [Extent1]
+2014-09-24 21:07:06.8013|TRACE|KarateIsere.DataAccess.KarateIsereContext|
+
+2014-09-24 21:07:06.8099|TRACE|KarateIsere.DataAccess.KarateIsereContext|-- Executing at 24/09/2014 21:07:06 +02:00
+
+2014-09-24 21:07:06.8659|TRACE|KarateIsere.DataAccess.KarateIsereContext|-- Completed in 52 ms with result: SqlDataReader
+
+2014-09-24 21:07:06.8699|TRACE|KarateIsere.DataAccess.KarateIsereContext|
+
+2014-09-24 21:07:06.8699|TRACE|KarateIsere.DataAccess.KarateIsereContext|Closed connection at 24/09/2014 21:07:06 +02:00
+
+2014-09-24 21:07:09.6782|TRACE|KarateIsere.DataAccess.KarateIsereContext|Opened connection at 24/09/2014 21:07:09 +02:00
+
+2014-09-24 21:07:09.6782|TRACE|KarateIsere.DataAccess.KarateIsereContext|SELECT 
+    [Extent1].[Competition] AS [Competition], 
+    [Extent1].[DateCompetition] AS [DateCompetition], 
+    [Extent1].[FinInscription] AS [FinInscription], 
+    [Extent1].[Lieu] AS [Lieu], 
+    [Extent1].[IsKata] AS [IsKata]
+    FROM [dbo].[Competition] AS [Extent1]
+2014-09-24 21:07:09.6782|TRACE|KarateIsere.DataAccess.KarateIsereContext|
+
+2014-09-24 21:07:09.6942|TRACE|KarateIsere.DataAccess.KarateIsereContext|-- Executing at 24/09/2014 21:07:09 +02:00
+
+2014-09-24 21:07:09.7442|TRACE|KarateIsere.DataAccess.KarateIsereContext|-- Completed in 43 ms with result: SqlDataReader
+
+2014-09-24 21:07:09.7442|TRACE|KarateIsere.DataAccess.KarateIsereContext|
+
+2014-09-24 21:07:09.7592|TRACE|KarateIsere.DataAccess.KarateIsereContext|Closed connection at 24/09/2014 21:07:09 +02:00
+
+2014-09-24 21:07:09.7592|TRACE|KarateIsere.DataAccess.Tool.Mapper|Map parameters
+2014-09-24 21:07:09.7592|TRACE|KarateIsere.DataAccess.Tool.Mapper|Destination object :KarateIsere.Models.CompetitionViewModel
+2014-09-24 21:07:09.7732|TRACE|KarateIsere.DataAccess.Tool.Mapper|Source object : KarateIsere.DataAccess.Competition
+2014-09-24 21:07:09.7732|TRACE|KarateIsere.DataAccess.Tool.Mapper|FirstCommonType parameters
+2014-09-24 21:07:09.7732|TRACE|KarateIsere.DataAccess.Tool.Mapper|Source type :KarateIsere.DataAccess.Competition
+2014-09-24 21:07:09.7867|TRACE|KarateIsere.DataAccess.Tool.Mapper|Destination type :KarateIsere.Models.CompetitionViewModel
+2014-09-24 21:07:09.7867|TRACE|KarateIsere.DataAccess.Tool.Mapper|Map parameters
+2014-09-24 21:07:09.7867|TRACE|KarateIsere.DataAccess.Tool.Mapper|Destination object :KarateIsere.Models.CompetitionViewModel
+2014-09-24 21:07:09.7867|TRACE|KarateIsere.DataAccess.Tool.Mapper|Source object : KarateIsere.DataAccess.Competition
+2014-09-24 21:07:09.8022|TRACE|KarateIsere.DataAccess.Tool.Mapper|Common type :KarateIsere.DataAccess.Competition
+2014-09-24 21:07:09.8022|TRACE|KarateIsere.DataAccess.Tool.Mapper|Map parameters
+2014-09-24 21:07:09.8022|TRACE|KarateIsere.DataAccess.Tool.Mapper|Destination object :KarateIsere.Models.CompetitionViewModel
+2014-09-24 21:07:09.8022|TRACE|KarateIsere.DataAccess.Tool.Mapper|Source object : KarateIsere.DataAccess.Competition
+2014-09-24 21:07:09.8202|TRACE|KarateIsere.DataAccess.Tool.Mapper|FirstCommonType parameters
+2014-09-24 21:07:09.8202|TRACE|KarateIsere.DataAccess.Tool.Mapper|Source type :KarateIsere.DataAccess.Competition
+2014-09-24 21:07:09.8202|TRACE|KarateIsere.DataAccess.Tool.Mapper|Destination type :KarateIsere.Models.CompetitionViewModel
+2014-09-24 21:07:09.8202|TRACE|KarateIsere.DataAccess.Tool.Mapper|Map parameters
+2014-09-24 21:07:09.8352|TRACE|KarateIsere.DataAccess.Tool.Mapper|Destination object :KarateIsere.Models.CompetitionViewModel
+2014-09-24 21:07:09.8352|TRACE|KarateIsere.DataAccess.Tool.Mapper|Source object : KarateIsere.DataAccess.Competition
+2014-09-24 21:07:09.8352|TRACE|KarateIsere.DataAccess.Tool.Mapper|Common type :KarateIsere.DataAccess.Competition
+2014-09-24 21:07:09.8482|TRACE|KarateIsere.DataAccess.Tool.Mapper|Map parameters
+2014-09-24 21:07:09.8482|TRACE|KarateIsere.DataAccess.Tool.Mapper|Destination object :KarateIsere.Models.CompetitionViewModel
+2014-09-24 21:07:09.8482|TRACE|KarateIsere.DataAccess.Tool.Mapper|Source object : KarateIsere.DataAccess.Competition
+2014-09-24 21:07:09.8482|TRACE|KarateIsere.DataAccess.Tool.Mapper|FirstCommonType parameters
+2014-09-24 21:07:09.8642|TRACE|KarateIsere.DataAccess.Tool.Mapper|Source type :KarateIsere.DataAccess.Competition
+2014-09-24 21:07:09.8642|TRACE|KarateIsere.DataAccess.Tool.Mapper|Destination type :KarateIsere.Models.CompetitionViewModel
+2014-09-24 21:07:09.8642|TRACE|KarateIsere.DataAccess.Tool.Mapper|Map parameters
+2014-09-24 21:07:09.8642|TRACE|KarateIsere.DataAccess.Tool.Mapper|Destination object :KarateIsere.Models.CompetitionViewModel
+2014-09-24 21:07:09.8792|TRACE|KarateIsere.DataAccess.Tool.Mapper|Source object : KarateIsere.DataAccess.Competition
+2014-09-24 21:07:09.8792|TRACE|KarateIsere.DataAccess.Tool.Mapper|Common type :KarateIsere.DataAccess.Competition
+2014-09-24 21:07:09.8792|TRACE|KarateIsere.DataAccess.Tool.Mapper|Map parameters
+2014-09-24 21:07:09.8792|TRACE|KarateIsere.DataAccess.Tool.Mapper|Destination object :KarateIsere.Models.CompetitionViewModel
+2014-09-24 21:07:09.8947|TRACE|KarateIsere.DataAccess.Tool.Mapper|Source object : KarateIsere.DataAccess.Competition
+2014-09-24 21:07:09.8947|TRACE|KarateIsere.DataAccess.Tool.Mapper|FirstCommonType parameters
+2014-09-24 21:07:09.8947|TRACE|KarateIsere.DataAccess.Tool.Mapper|Source type :KarateIsere.DataAccess.Competition
+2014-09-24 21:07:09.8947|TRACE|KarateIsere.DataAccess.Tool.Mapper|Destination type :KarateIsere.Models.CompetitionViewModel
+2014-09-24 21:07:09.8947|TRACE|KarateIsere.DataAccess.Tool.Mapper|Map parameters
+2014-09-24 21:07:09.9132|TRACE|KarateIsere.DataAccess.Tool.Mapper|Destination object :KarateIsere.Models.CompetitionViewModel
+2014-09-24 21:07:09.9132|TRACE|KarateIsere.DataAccess.Tool.Mapper|Source object : KarateIsere.DataAccess.Competition
+2014-09-24 21:07:09.9132|TRACE|KarateIsere.DataAccess.Tool.Mapper|Common type :KarateIsere.DataAccess.Competition
+2014-09-24 21:07:09.9347|TRACE|KarateIsere.DataAccess.KarateIsereContext|Opened connection at 24/09/2014 21:07:09 +02:00
+
+2014-09-24 21:07:09.9347|TRACE|KarateIsere.DataAccess.KarateIsereContext|SELECT 
+    [Extent1].[Nom] AS [Nom]
+    FROM [dbo].[Categorie] AS [Extent1]
+2014-09-24 21:07:09.9427|TRACE|KarateIsere.DataAccess.KarateIsereContext|
+
+2014-09-24 21:07:09.9427|TRACE|KarateIsere.DataAccess.KarateIsereContext|-- Executing at 24/09/2014 21:07:09 +02:00
+
+2014-09-24 21:07:09.9758|TRACE|KarateIsere.DataAccess.KarateIsereContext|-- Completed in 26 ms with result: SqlDataReader
+
+2014-09-24 21:07:09.9758|TRACE|KarateIsere.DataAccess.KarateIsereContext|
+
+2014-09-24 21:07:09.9758|TRACE|KarateIsere.DataAccess.KarateIsereContext|Closed connection at 24/09/2014 21:07:09 +02:00
+
