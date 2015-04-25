@@ -1,0 +1,46 @@
+﻿@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+    List<string> Roles = (List<string>) ViewBag.Roles;
+}
+
+<div role="form" class=" form-inline">
+    <div class="panel panel-default">
+        <div class="panel-heading">
+            <div class="panel-title">
+                <h4>Créer une nouvelle catégorie</h4>
+            </div>
+        </div>
+        <div class="panel-body">
+           @using (Html.BeginForm("Create", "Role")) {
+
+            <div class="form-group col-sm-12 col-md-12 col-lg-12">
+                <label class="control-label">Role</label>
+                <input class="form-control" type="text" name="roleName" required/>
+                <input class="btn btn-default" type="submit" value="Créer" />
+            </div>
+           }
+        </div>
+    </div>
+</div>
+<table class="table">
+    <tr>
+        <th>
+            Administration roles
+        </th>
+
+    </tr>
+
+    @foreach (var role in Roles) {
+        <tr>
+            <td>
+                @role
+            </td>
+            <td>
+                @Html.ActionLink("Supprimer", "Delete", new { id = role })
+            </td>
+        </tr>
+    }
+
+</table>
+
