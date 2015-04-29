@@ -24,6 +24,11 @@ namespace KarateIsere.Areas.Private.Controllers {
 
         // GET: Private/Admin
         public ActionResult Index() {
+            //Get list of admin account
+            Role r = new Role("Admin");
+            List<ApplicationUser> admins = r.GetUsers();
+            ViewBag.Admins = admins != null ? admins : new List<ApplicationUser>();
+
             return View("CreateAdmin");
         }
 
@@ -37,26 +42,35 @@ namespace KarateIsere.Areas.Private.Controllers {
         public async Task<ActionResult> Create(FormCollection collection) {
             try {
                 string userEmail = collection["email"].ToString();
-                string password = System.Web.Security.Membership.GeneratePassword(10, 3);
+                ApplicationUser user = null;
+                user = UserManager.FindByEmail(userEmail);
 
-                //Vérifier que le compteur utilisateur n'existe pas déjà sinon
-                //il faut l'utiliser et lui ajouter les droits nécesaires
+                if (user == null) {
+                    //Créer un nouvel utilisateur et luid onner les droits admin
 
-                var user = new ApplicationUser {
-                    UserName = userEmail,
-                    Email = userEmail            
-                };
+                    //ToDO: Vérifier la politique de sécurité pour la génération du mot de passe
+                    string password = System.Web.Security.Membership.GeneratePassword(10, 3);
 
-                var result = await UserManager.CreateAsync(user, password);
+                    user = new ApplicationUser {
+                        UserName = userEmail,
+                        Email = userEmail
+                    };
 
-                if (result.Succeeded) {
-                    Role r = new Role("Admin");
-                    r.Grant(user.Id);
+                    var result = await UserManager.CreateAsync(user, password);
 
-                    //To Do : envoyer une email de confirmation avec le mot de passe
+                    if (!result.Succeeded) {
+                        throw new Exception(result.Errors.First().ToString());
+                    }
+                    else {
+                        //ToDo : envoyer une email de confirmation avec le mot de passe
+                    }
                 }
                 else {
-                    throw new Exception("L'administrateur n'a pas été créé");
+                    Role r = new Role("Admin");
+                    //Si l'utilisateur n'a pas le role alors grant
+                    if (!user.Roles.Any(d => d.RoleId == r.Id)) {
+                        r.Grant(user.Id);
+                    }
                 }
 
                 return RedirectToAction("Index");
@@ -84,17 +98,13 @@ namespace KarateIsere.Areas.Private.Controllers {
             }
         }
 
-        // GET: Private/Admin/Delete/5
-        public ActionResult Delete(int id) {
-            return View();
-        }
-
         // POST: Private/Admin/Delete/5
-        [HttpPost]
-        public ActionResult Delete(int id, FormCollection collection) {
+        // [HttpPost]
+        public ActionResult Delete(string id) {
             try {
                 // TODO: Add delete logic here
-
+                Role r = new Role("Admin");
+                r.UnGrant(id);
                 return RedirectToAction("Index");
             }
             catch {

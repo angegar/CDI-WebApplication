@@ -71,6 +71,20 @@ namespace KarateIsere.DataAccess {
         }
 
         /// <summary>
+        /// Gets the list of user having a role 
+        /// </summary>
+        /// <param name="roleName">Role name</param>
+        /// <returns>List of user having a role</returns>
+        public List<ApplicationUser> GetUsers() {
+            Contract.Requires(!string.IsNullOrWhiteSpace(Name));
+
+            IdentityRole r = RoleManager.FindByName(Name);
+            List<IdentityUserRole> usersRoles = r.Users.ToList();
+            List<string> userIds = usersRoles.Select(d => d.UserId).ToList();
+            return UserManager.Users.Where(d => userIds.Contains(d.Id)).ToList();
+        }
+
+        /// <summary>
         /// Create a new role
         /// </summary>
         public void Create() {
@@ -103,11 +117,11 @@ namespace KarateIsere.DataAccess {
         /// </summary>
         /// <param name="role"></param>
         /// <param name="user"></param>
-        public void Grant( string userId) {
+        public void Grant(string userId) {
             Contract.Requires(!string.IsNullOrWhiteSpace(Name));
             Contract.Requires(!string.IsNullOrWhiteSpace(userId));
 
-            UserManager.AddToRole(userId,Name);
+            UserManager.AddToRole(userId, Name);
         }
 
         public void UnGrant(string userId) {

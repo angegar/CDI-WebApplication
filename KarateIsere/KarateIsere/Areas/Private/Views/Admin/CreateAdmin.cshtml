@@ -1,6 +1,10 @@
-﻿@{
+﻿@using KarateIsere.Models
+
+@{
     ViewBag.Title = "CreateAdmin";
     Layout = "~/Views/Shared/_Layout.cshtml";
+
+    List<ApplicationUser> users = ViewBag.Admins;
 }
 
 <h2>Gestion des administrateurs</h2>
@@ -8,22 +12,34 @@
 @using (Html.BeginForm("Create", "Admin")) {
     @Html.AntiForgeryToken()
 
-   <p>
-       Entrez ci-dessous l'adresse email du nouvel administrateur de votre site. 
-    
+    <p>
+        Entrez ci-dessous l'adresse email du nouvel administrateur de votre site.
+    </p>
     <div class="form-inline">
         <div class="form-group col-sm-12 col-md-12 col-lg-12">
             @Html.Label("email", "Email", htmlAttributes: new {
            @class = "control-label"
        })
             @Html.TextBox("email", string.Empty, htmlAttributes: new {
-           type="email",
+           type = "email",
            @class = "form-control"
        })
             <input type="submit" value="Ajouter" class="btn btn-default" />
         </div>
-
-
-
     </div>
+
 }
+
+<h2>Liste des administrateurs</h2>
+
+<table class="table table-responsive">
+
+    @foreach (ApplicationUser u in users) {
+        <tr>
+            <td>@u.Email</td>
+        
+            <td><div class="btn btn-md btn-default">  @Html.ActionLink("Revoquer", "Delete", "Admin", new { id = @u.Id },null)</div></td>
+        </tr>
+
+    }
+</table>
