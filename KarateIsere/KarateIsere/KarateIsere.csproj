@@ -305,7 +305,6 @@
     <Content Include="Areas\Private\Views\Inscriptions\Create.cshtml" />
     <Content Include="Areas\Private\Views\Role\Index.cshtml" />
     <Content Include="Areas\Private\Views\Admin\CreateAdmin.cshtml" />
-    <Content Include="Areas\Private\Views\Competitions\Details.cshtml" />
     <None Include="NLog.xsd">
       <SubType>Designer</SubType>
     </None>

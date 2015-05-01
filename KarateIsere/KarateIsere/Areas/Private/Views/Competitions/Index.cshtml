@@ -64,7 +64,7 @@
                             @Html.DisplayFor( modelItem => item.DateCompetition )
                         </td>
                         <td>
-                            @Html.ActionLink(item.Nom, "Details", new { id = item.Id })
+                            @Html.DisplayFor( modelItem => item.Nom )
                         </td>
                         <td>
                             @Html.DisplayFor( modelItem => item.FinInscription )

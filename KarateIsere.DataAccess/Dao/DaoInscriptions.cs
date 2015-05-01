@@ -101,38 +101,5 @@ namespace KarateIsere.DataAccess {
             }
             return res;
         }
-
-        /// <summary>
-        /// Retourne la liste des compétiteurs inscrits à une compétition.
-        /// Cette methode devrait peut être se trouver dans la classe Competitions
-        /// </summary>
-        /// <param name="competitionId">Compétitions Ids</param>
-        /// <param name="context">Model Context</param>
-        /// <returns>Liste des compétiteurs</returns>
-        public static List<Competiteur> GetInscriptions(int competitionId, KarateIsereContext context = null) {
-            Contract.Requires(competitionId > 0);
-
-            List<Competiteur> res = new List<Competiteur>();
-            bool closeContext = false;
-
-            try {
-                if (context == null) {
-                    context = new KarateIsereContext();
-                    closeContext = true;
-                }
-
-                res = (from i in context.Inscriptions
-                       join co in context.Competiteur on i.NumLicence equals co.NumLicence
-                       where i.CompetitionId == competitionId
-                       select co).Include(d => d.Categorie).ToList();
-
-
-            }
-            finally {
-                if (closeContext) context.Dispose();
-            }
-            return res;
-
-        }
     }
 }

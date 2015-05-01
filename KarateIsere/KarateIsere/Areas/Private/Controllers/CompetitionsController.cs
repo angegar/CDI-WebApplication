@@ -18,9 +18,7 @@ namespace KarateIsere.Areas.Private.Controllers {
 
         // GET: Private/Competitions/Details/5
         public ActionResult Details ( int id ) {
-            List<Competiteur> c = Inscriptions.GetInscriptions (id);
-     
-            return View(c);
+            return View();
         }
 
         [HttpPost]

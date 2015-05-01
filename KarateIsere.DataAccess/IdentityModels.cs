@@ -57,13 +57,5 @@ namespace KarateIsere.Models {
         protected override void OnModelCreating ( DbModelBuilder modelBuilder ) {
             base.OnModelCreating( modelBuilder );
         }
-
-        public System.Data.Entity.DbSet<KarateIsere.DataAccess.Inscriptions> Inscriptions { get; set; }
-
-        public System.Data.Entity.DbSet<KarateIsere.DataAccess.Competiteur> Competiteurs { get; set; }
-
-        public System.Data.Entity.DbSet<KarateIsere.DataAccess.Competition> Competitions { get; set; }
-
-        public System.Data.Entity.DbSet<KarateIsere.DataAccess.Categorie> Categories { get; set; }
     }
 }
