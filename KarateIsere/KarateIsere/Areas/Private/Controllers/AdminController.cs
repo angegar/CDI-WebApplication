@@ -42,52 +42,49 @@ namespace KarateIsere.Areas.Private.Controllers {
             }
         }
 
-        // GET: Private/Admin/Details/5
-        public ActionResult Details(int id) {
-            return View();
-        }
-
         // POST: Private/Admin/Create
         [HttpPost]
         public async Task<ActionResult> Create(FormCollection collection) {
             try {
-                string userEmail = collection["email"].ToString();
-                ApplicationUser user = null;
-                string password = string.Empty;
-                user = UserManager.FindByEmail(userEmail);
+                Role r = new Role("Admin");
+                List<ApplicationUser> admins = r.GetUsers();
 
-                //Si l'email n'existe pas alors on cré un nouvel utilisateur           
-                if (user == null) {
-                    password = System.Web.Security.Membership.GeneratePassword(10, 3);
+                if (ClaimsPrincipal.Current.IsInRole("Admin") || admins == null) {
+                    string userEmail = collection["email"].ToString();
+                    ApplicationUser user = null;
+                    string password = string.Empty;
+                    user = UserManager.FindByEmail(userEmail);
 
-                    user = new ApplicationUser {
-                        UserName = userEmail,
-                        Email = userEmail
-                    };
+                    //Si l'email n'existe pas alors on cré un nouvel utilisateur           
+                    if (user == null) {
+                        password = System.Web.Security.Membership.GeneratePassword(10, 3);
 
-                    var result = await UserManager.CreateAsync(user, password);
+                        user = new ApplicationUser {
+                            UserName = userEmail,
+                            Email = userEmail
+                        };
 
-                    if (!result.Succeeded) {
-                        logger.Error(result.Errors.First().ToString());
-                        throw new Exception(result.Errors.First().ToString());
+                        var result = await UserManager.CreateAsync(user, password);
+
+                        if (!result.Succeeded) {
+                            logger.Error(result.Errors.First().ToString());
+                            throw new Exception(result.Errors.First().ToString());
+                        }
+                    }
+
+                    //Affectation des droits administrateurs si l'utilisateur ne les a pas déjà
+                    if (!user.Roles.Any(d => d.RoleId == r.Id)) {
+                        r.Grant(user.Id);
+                    }
+
+                    //Envoyer message de confirmation
+                    if (!string.IsNullOrEmpty(password)) {
+                        sendEmail(user.Email, password);
+                    }
+                    else {
+                        sendEmail(user.Email);
                     }
                 }
-
-                //Affectation des droits administrateurs si l'utilisateur ne les a pas déjà
-                Role r = new Role("Admin");
-
-                if (!user.Roles.Any(d => d.RoleId == r.Id)) {
-                    r.Grant(user.Id);
-                }
-
-                //Envoyer message de confirmation
-                if (!string.IsNullOrEmpty(password)) {
-                    sendEmail(user.Email, password);
-                }
-                else {
-                    sendEmail(user.Email);
-                }
-
                 return RedirectToAction("Index");
             }
             catch (Exception e) {
@@ -96,26 +93,9 @@ namespace KarateIsere.Areas.Private.Controllers {
             }
         }
 
-        // GET: Private/Admin/Edit/5
-        public ActionResult Edit(int id) {
-            return View();
-        }
-
-        // POST: Private/Admin/Edit/5
-        [HttpPost]
-        public ActionResult Edit(int id, FormCollection collection) {
-            try {
-                // TODO: Add update logic here
-
-                return RedirectToAction("Index");
-            }
-            catch {
-                return View();
-            }
-        }
-
         // POST: Private/Admin/Delete/5
         // [HttpPost]
+        [Authorize(Roles = "Admin")]
         public ActionResult Delete(string id) {
             try {
                 // TODO: Add delete logic here

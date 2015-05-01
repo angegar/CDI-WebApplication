@@ -7,6 +7,8 @@ using KarateIsere.DataAccess;
 
 
 namespace KarateIsere.Areas.Private.Controllers {
+    [Authorize(Roles = "Admin")]
+
     public class RoleController : Controller {
         // GET: Private/Role
         public ActionResult Index() {
