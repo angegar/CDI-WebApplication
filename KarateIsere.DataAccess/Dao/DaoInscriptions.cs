@@ -124,7 +124,10 @@ namespace KarateIsere.DataAccess {
                 res = (from i in context.Inscriptions
                        join co in context.Competiteur on i.NumLicence equals co.NumLicence
                        where i.CompetitionId == competitionId
-                       select co).Include(d => d.Categorie).ToList();
+                       select co).Include(d => d.Categorie)
+                                 .Include(d=>d.Club)
+                                 .OrderBy(d=>d.CategorieName)
+                                 .ThenBy(d=>d.Club.NomClub).ToList();
 
 
             }

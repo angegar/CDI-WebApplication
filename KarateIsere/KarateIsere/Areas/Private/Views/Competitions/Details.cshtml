@@ -16,6 +16,9 @@
             Catégorie
         </th>
         <th>
+            Club
+        </th>
+        <th>
             @Html.DisplayNameFor(model => model.Nom)
         </th>
         <th>
@@ -28,7 +31,7 @@
             @Html.DisplayNameFor(model => model.isHomme)
         </th>
         <th>
-            @Html.DisplayNameFor(model => model.NumAffiliationClub)
+            @Html.DisplayNameFor(model => model.NumLicence)
         </th>
         <th></th>
     </tr>
@@ -37,6 +40,9 @@
     <tr>
         <td>
             @Html.DisplayFor(modelItem => item.Categorie.Nom)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Club.NomClub)
         </td>
         <td>
             @Html.DisplayFor(modelItem => item.Nom)
@@ -51,7 +57,7 @@
             @Html.DisplayFor(modelItem => item.isHomme)
         </td>
         <td>
-            @Html.DisplayFor(modelItem => item.NumAffiliationClub)
+            @Html.DisplayFor(modelItem => item.NumLicence)
         </td>
         <td>
             @Html.ActionLink("Edit", "Edit", new { id=item.NumLicence }) |
@@ -62,3 +68,5 @@
 }
 
 </table>
+
+@Html.ActionLink("Exporter", "Export", new {id=ViewBag.CompetId},new {@class="btn btn-default"})
