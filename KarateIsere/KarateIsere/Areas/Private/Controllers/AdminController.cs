@@ -53,13 +53,12 @@ namespace KarateIsere.Areas.Private.Controllers {
             try {
                 string userEmail = collection["email"].ToString();
                 ApplicationUser user = null;
+                string password = string.Empty;
                 user = UserManager.FindByEmail(userEmail);
 
+                //Si l'email n'existe pas alors on cré un nouvel utilisateur           
                 if (user == null) {
-                    //Créer un nouvel utilisateur et luid onner les droits admin
-
-                    //ToDO: Vérifier la politique de sécurité pour la génération du mot de passe
-                    string password = System.Web.Security.Membership.GeneratePassword(10, 3);
+                    password = System.Web.Security.Membership.GeneratePassword(10, 3);
 
                     user = new ApplicationUser {
                         UserName = userEmail,
@@ -69,20 +68,24 @@ namespace KarateIsere.Areas.Private.Controllers {
                     var result = await UserManager.CreateAsync(user, password);
 
                     if (!result.Succeeded) {
+                        logger.Error(result.Errors.First().ToString());
                         throw new Exception(result.Errors.First().ToString());
                     }
-                    else {
-                        //ToDo : envoyer une email de confirmation avec le mot de passe
-                        sendEmail(user.Email, password);
-                    }
+                }
+
+                //Affectation des droits administrateurs si l'utilisateur ne les a pas déjà
+                Role r = new Role("Admin");
+
+                if (!user.Roles.Any(d => d.RoleId == r.Id)) {
+                    r.Grant(user.Id);
+                }
+
+                //Envoyer message de confirmation
+                if (!string.IsNullOrEmpty(password)) {
+                    sendEmail(user.Email, password);
                 }
                 else {
-                    Role r = new Role("Admin");
-                    //Si l'utilisateur n'a pas le role alors grant
-                    if (!user.Roles.Any(d => d.RoleId == r.Id)) {
-                        r.Grant(user.Id);
-                        sendEmail(user.Email);
-                    }
+                    sendEmail(user.Email);
                 }
 
                 return RedirectToAction("Index");
