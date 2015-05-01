@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Net.Mail;
+using System.Security.Claims;
 using System.Threading.Tasks;
 using System.Web;
 using System.Web.Mvc;
@@ -31,9 +32,14 @@ namespace KarateIsere.Areas.Private.Controllers {
             //Get list of admin account
             Role r = new Role("Admin");
             List<ApplicationUser> admins = r.GetUsers();
-            ViewBag.Admins = admins != null ? admins : new List<ApplicationUser>();
-
-            return View("CreateAdmin");
+            if (ClaimsPrincipal.Current.IsInRole("Admin") || admins == null) {
+                ViewBag.Admins = admins != null ? admins : new List<ApplicationUser>();
+                return View("CreateAdmin");
+            }
+            else {
+                //redirect to th home page
+                return RedirectToRoute("Index", "Home");
+            }
         }
 
         // GET: Private/Admin/Details/5
