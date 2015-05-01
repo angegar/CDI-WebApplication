@@ -1,0 +1,64 @@
+﻿@model IEnumerable<KarateIsere.DataAccess.Competiteur>
+
+@{
+    ViewBag.Title = "Details";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2>Details</h2>
+
+<p>
+    @Html.ActionLink("Retour", "Index")
+</p>
+<table class="table">
+    <tr>
+        <th>
+            Catégorie
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Nom)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Prenom)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Poids)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.isHomme)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.NumAffiliationClub)
+        </th>
+        <th></th>
+    </tr>
+
+@foreach (var item in Model) {
+    <tr>
+        <td>
+            @Html.DisplayFor(modelItem => item.Categorie.Nom)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Nom)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Prenom)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Poids)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.isHomme)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.NumAffiliationClub)
+        </td>
+        <td>
+            @Html.ActionLink("Edit", "Edit", new { id=item.NumLicence }) |
+            @Html.ActionLink("Details", "Details", new { id=item.NumLicence }) |
+            @Html.ActionLink("Delete", "Delete", new { id=item.NumLicence })
+        </td>
+    </tr>
+}
+
+</table>
