@@ -10,6 +10,14 @@
 <p>
     @Html.ActionLink("Retour", "Index")
 </p>
+
+<div id="pieCate" style="width: 300px; height: 150px;" class="pull-left">
+</div>
+
+<div id="pieSexe" style="width: 300px; height: 150px;" class="pull-left">
+</div>
+
+
 <table class="table">
     <tr>
         <th>
@@ -36,7 +44,7 @@
         <th></th>
     </tr>
 
-@foreach (var item in Model) {
+    @foreach (var item in Model) {
     <tr>
         <td>
             @Html.DisplayFor(modelItem => item.Categorie.Nom)
@@ -69,4 +77,23 @@
 
 </table>
 
-@Html.ActionLink("Exporter", "Export", new {id=ViewBag.CompetId},new {@class="btn btn-default"})
+@Html.ActionLink("Exporter", "Export", new { id = ViewBag.CompetId }, new { @class = "btn btn-default" })
+
+
+<script type="text/javascript" src="https://www.google.com/jsapi"></script>
+<script src="~/js/CompetReports.js"></script>
+
+<script type="text/javascript">
+    google.load("visualization", "1", { packages: ["corechart"] });
+    PieCategorie('@Url.Action("PieCategorie", new { id = ViewBag.CompetId })',
+                "Catégories",
+                "Catégorie",
+                "pieCate");
+
+    PieCategorie('@Url.Action("PieSexe", new { id = ViewBag.CompetId })',
+                "Sexe",
+                "Sexe",
+                "pieSexe");
+
+</script>
+

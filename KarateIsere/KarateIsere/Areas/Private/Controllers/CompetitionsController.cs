@@ -32,6 +32,7 @@ namespace KarateIsere.Areas.Private.Controllers {
         /// <returns></returns>
         [HttpGet]
         public FileStreamResult Export(int id) {
+            Competition compet = Competition.GetById(id);
             List<Competiteur> competiteurs = Inscriptions.GetInscriptions(id);
             string delimChar = ";";
             //Si je ferme moi-même les stream l'application crash
@@ -72,9 +73,10 @@ namespace KarateIsere.Areas.Private.Controllers {
             writer.Flush();
             output.Position = 0;
 
-            return this.File(output, "application/vnd.ms-excel", "report.csv");
+            return this.File(output,
+                            "application/vnd.ms-excel",
+                             compet.Nom + "_" + compet.DateCompetition.ToShortDateString() + ".csv");
         }
-
 
         [HttpPost]
         public ActionResult Create(Competition compet) {
@@ -212,5 +214,36 @@ namespace KarateIsere.Areas.Private.Controllers {
 
             return cateList;
         }
+
+        #region Json Reporting
+        /// <summary>
+        /// Retourne le nombre de participant par catégorie d'age
+        /// </summary>
+        /// <param name="id">Compétition id</param>
+        /// <returns></returns>
+        public JsonResult PieCategorie(int id) {
+            //Competition compet = Competition.GetById(id);
+            List<Competiteur> competiteurs = Inscriptions.GetInscriptions(id);
+            var res = from c in competiteurs
+                      group c by c.CategorieName into g
+                      select new { Categorie = g.Key, Count = g.Count() };
+            return Json(res, JsonRequestBehavior.AllowGet);
+        }
+
+        /// <summary>
+        /// Retourne le nombre de participant par catégorie d'age
+        /// </summary>
+        /// <param name="id">Compétition id</param>
+        /// <returns></returns>
+        public JsonResult PieSexe(int id) {
+            //Competition compet = Competition.GetById(id);
+            List<Competiteur> competiteurs = Inscriptions.GetInscriptions(id);
+            var res = from c in competiteurs
+                      group c by c.isHomme into g
+                      select new { Sexe = g.Key, Count = g.Count() };
+            return Json(res, JsonRequestBehavior.AllowGet);
+        }
+
+        #endregion
     }
 }
