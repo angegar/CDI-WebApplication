@@ -4,12 +4,16 @@
 }
 
 <div class="jumbotron">
-    <h1>Comité Départemental de l'Isère</h1>
-    <p class="lead">
+    <div class="pull-left">
+        <img width="115" src="~/img/logo.gif" />
+    </div>
+    <div class="">
+        <h1>Comité Départemental de l'Isère</h1>
+    </div>
+    <p class="lead text-justify">
         Le Comité Départemental de l'Isère est heureux de vous présenter sa nouvelle application d'inscription aux compétitions.
         Nous espérons que cette nouvelle interface facilitera son utilisation.
     </p>
-    <p><a href="http://asp.net" class="btn btn-primary btn-lg">Learn more &raquo;</a></p>
 </div>
 
 <div class="row">
@@ -20,7 +24,7 @@
             cette page web est faite pour vous, venez y découvrir l'emplacement des clubs du département.
         </p>
         <p>
-            @Html.ActionLink( "Cartes des clubs "+HttpUtility.HtmlDecode( "&raquo;" ), "Index", "ClubMap", new {
+            @Html.ActionLink( "Liste des clubs "+HttpUtility.HtmlDecode( "&raquo;" ), "Index", "ClubMap", new {
            area="Public"
        }, new {
            @class="btn btn-default"
@@ -50,6 +54,12 @@
             Gérer les inscriptions de vos compétiteurs aux compétitions organisées par le département en toute simplicité. Cette application
             vous permet de facilement ajouter, supprimer ou modifier les informations d'inscriptions de vos compétiteurs.
         </p>
-        <p><a class="btn btn-default" href="http://go.microsoft.com/fwlink/?LinkId=301867">Learn more &raquo;</a></p>
+        <p>
+            @Html.ActionLink("Inscriptions " + HttpUtility.HtmlDecode("&raquo;"), "Index", "Inscriptions", new {
+        area = "Private"
+    }, new {
+        @class = "btn btn-default"
+    })
+
     </div>
 </div>

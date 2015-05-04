@@ -9,37 +9,56 @@
 
 <h2>Gestion des administrateurs</h2>
 
-@using (Html.BeginForm("Create", "Admin")) {
-    @Html.AntiForgeryToken()
-
-    <p>
-        Entrez ci-dessous l'adresse email du nouvel administrateur de votre site.
-    </p>
-    <div class="form-inline">
-        <div class="form-group col-sm-12 col-md-12 col-lg-12">
-            @Html.Label("email", "Email", htmlAttributes: new {
-           @class = "control-label"
-       })
-            @Html.TextBox("email", string.Empty, htmlAttributes: new {
-           type = "email",
-           @class = "form-control"
-       })
-            <input type="submit" value="Ajouter" class="btn btn-default" />
+<div class="panel panel-default">
+    <div class="panel-heading">
+        <div class="panel-title">
+            <h4>Ajouter un administrateur</h4>
         </div>
     </div>
+    <div class="panel-body">
+        @using (Html.BeginForm("Create", "Admin")) {
+            @Html.AntiForgeryToken()
 
-}
+            <p>
+                Entrez ci-dessous l'adresse email du nouvel administrateur de votre site.
+            </p>
+            <div class="form-inline">
+                <div class="form-group col-sm-12 col-md-12 col-lg-12">
+                    @Html.Label("email", "Email", htmlAttributes: new {
+                       @class = "control-label"
+                   })
+                    @Html.TextBox("email", string.Empty, htmlAttributes: new {
+                       type = "email",
+                       @class = "form-control"
+                   })
+                    <input type="submit" value="Ajouter" class="btn btn-default" />
+                </div>
+            </div>
 
-<h2>Liste des administrateurs</h2>
+        }
 
-<table class="table table-responsive">
+    </div>
+</div>
 
-    @foreach (ApplicationUser u in users) {
-        <tr>
-            <td>@u.Email</td>
-        
-            <td><div class="btn btn-md btn-default">  @Html.ActionLink("Revoquer", "Delete", "Admin", new { id = @u.Id },null)</div></td>
-        </tr>
+<div class="panel panel-default">
+    <div class="panel-heading">
+        <div class="panel-title">
+            <h4>Liste des administrateurs</h4>
+        </div>
+    </div>
+    <div class="panel-body">
+        <table class="table table-responsive">
 
-    }
-</table>
+            @foreach (ApplicationUser u in users) {
+                <tr>
+                    <td>@u.Email</td>
+
+                    <td>  @Html.ActionLink("Revoquer", "Delete", "Admin", new { id = @u.Id }, new  { @class = "btn btn-default" })</td>
+                </tr>
+
+            }
+        </table>
+    </div>
+</div>
+
+

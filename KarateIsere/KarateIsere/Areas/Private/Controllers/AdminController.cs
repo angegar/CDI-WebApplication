@@ -32,7 +32,7 @@ namespace KarateIsere.Areas.Private.Controllers {
             //Get list of admin account
             Role r = new Role("Admin");
             List<ApplicationUser> admins = r.GetUsers();
-            if (ClaimsPrincipal.Current.IsInRole("Admin") || admins == null) {
+            if (admins.Count == 0 || ClaimsPrincipal.Current.IsInRole("Admin")) {
                 ViewBag.Admins = admins != null ? admins : new List<ApplicationUser>();
                 return View("CreateAdmin");
             }
@@ -49,7 +49,7 @@ namespace KarateIsere.Areas.Private.Controllers {
                 Role r = new Role("Admin");
                 List<ApplicationUser> admins = r.GetUsers();
 
-                if (ClaimsPrincipal.Current.IsInRole("Admin") || admins == null) {
+                if ( admins.Count == 0 || ClaimsPrincipal.Current.IsInRole("Admin")) {
                     string userEmail = collection["email"].ToString();
                     ApplicationUser user = null;
                     string password = string.Empty;
