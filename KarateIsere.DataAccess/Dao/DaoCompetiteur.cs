@@ -23,10 +23,21 @@ namespace KarateIsere.DataAccess {
             }
         }
 
+        /// <summary>
+        /// Delete a competitor as well as all the linked object.
+        /// </summary>
         public override void Delete() {
-            Competiteur c = context.Competiteur.Find(NumLicence);
+            Competiteur c = context.Competiteur.Find(NumLicence);  
+            
+
             if (c != null) {
+                //Need to delete the Inscriptions of the integrity constraints
+                List<Inscriptions> inscrs = context.Inscriptions.Where(
+                                                    d => d.NumLicence == c.NumLicence
+                                                    ).ToList();
+                context.Inscriptions.RemoveRange(inscrs);
                 context.Competiteur.Remove(c);
+
                 context.SaveChanges();
             }
             else {

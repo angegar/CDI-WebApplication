@@ -22,6 +22,12 @@ namespace KarateIsere.DataAccess {
             Competition c = context.Competition.Find(Nom);
 
             if (c != null) {
+                //Need to delete the Inscriptions of the integrity constraints
+                List<Inscriptions> inscrs = context.Inscriptions.Where(
+                                                    d => d.CompetitionId == c.Id
+                                                    ).ToList();
+
+                context.Inscriptions.RemoveRange(inscrs);
                 context.Competition.Remove(c);
             }
 
@@ -79,7 +85,7 @@ namespace KarateIsere.DataAccess {
                                    SingleOrDefault();
             }
             finally {
-                if(closeContext)  context.Dispose();
+                if (closeContext) context.Dispose();
             }
 
             return res;
@@ -107,7 +113,7 @@ namespace KarateIsere.DataAccess {
                                    SingleOrDefault();
             }
             finally {
-                if(closeContext) context.Dispose();
+                if (closeContext) context.Dispose();
             }
 
             return res;
@@ -132,7 +138,7 @@ namespace KarateIsere.DataAccess {
                 res = context.Competition.ToList();
             }
             finally {
-                if(closeContext) context.Dispose();
+                if (closeContext) context.Dispose();
             }
 
             return res;
@@ -154,11 +160,11 @@ namespace KarateIsere.DataAccess {
                 }
 
                 res = (from c in context.Competition
-                        where c.FinInscription.CompareTo(DateTime.Now) >= 0
-                        select c).ToList();
+                       where c.FinInscription.CompareTo(DateTime.Now) >= 0
+                       select c).ToList();
             }
             finally {
-                if(closeContext) context.Dispose();
+                if (closeContext) context.Dispose();
             }
 
             return res;

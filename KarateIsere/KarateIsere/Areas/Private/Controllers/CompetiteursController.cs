@@ -107,9 +107,9 @@ namespace KarateIsere.Areas.Private.Controllers {
         // GET: Private/Competiteurs/Delete/5
         public ActionResult Delete(string id) {
             try {
-                // TODO: Add delete logic here
                 Competiteur c = new Competiteur();
                 c.NumLicence = id;
+                // Delete cascade on a compétiteur delete
                 c.Delete();
                 return RedirectToAction("Index");
             }

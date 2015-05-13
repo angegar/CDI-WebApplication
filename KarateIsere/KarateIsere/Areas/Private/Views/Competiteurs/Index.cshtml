@@ -7,52 +7,73 @@
     List<Competiteur> competiteurs = (List<Competiteur>) ViewBag.Competiteurs;
 }
 
-<h2>Ajouter des compétiteurs</h2>
+<h2>Gestions des compétiteurs</h2>
 <hr />
-@Html.Partial("Create", new Competiteur())
 
-<table class="table">
-    <tr>
-        <th>
-            @Html.DisplayNameFor(model => model.NumLicence)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.Nom)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.Prenom)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.Poids)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.isHomme)
-        </th>
-        <th></th>
-    </tr>
+<div class="panel panel-default">
+    <div class="panel-heading">
+        <div class="panel-title">
+            <h4>Ajouter un compétiteur</h4>
+        </div>
+    </div>
 
-    @foreach (var item in competiteurs) {
-        <tr>
-            <td>
-                @Html.DisplayFor(modelItem => item.NumLicence)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.Nom)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.Prenom)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.Poids)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.isHomme)
-            </td>
-            <td>
-                @Html.ActionLink("Modifier", "Edit", new { id = item.NumLicence }) |
-                @Html.ActionLink("Supprimer", "Delete", new { id = item.NumLicence })
-            </td>
-        </tr>
-    }
+    <div class="panel-body">
+        @Html.Partial("Create", new Competiteur())
+    </div>
+</div>
 
-</table>
+<div class="panel panel-default">
+    <div class="panel-heading">
+        <div class="panel-title">
+            <h4>Vos compétiteurs</h4>
+        </div>
+    </div>
+
+    <div class="panel-body">
+        <table class="table">
+            <tr>
+                <th>
+                    @Html.DisplayNameFor(model => model.NumLicence)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.Nom)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.Prenom)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.Poids)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.isHomme)
+                </th>
+                <th></th>
+            </tr>
+
+            @foreach (var item in competiteurs) {
+            <tr>
+                <td>
+                    @Html.DisplayFor(modelItem => item.NumLicence)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Nom)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Prenom)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Poids)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.isHomme)
+                </td>
+                <td>
+                    @Html.ActionLink("Modifier", "Edit", new { id = item.NumLicence }) |
+                    @Html.ActionLink("Supprimer", "Delete", new { id = item.NumLicence })
+                </td>
+            </tr>
+            }
+
+        </table>
+    </div>
+</div>

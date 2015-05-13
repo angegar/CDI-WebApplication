@@ -274,7 +274,7 @@ namespace KarateIsere.DataAccess {
                        .MapLeftKey("Competition_Id"));
 
             #region Competiteur
-            modelBuilder.Entity<Competiteur>()
+            /*modelBuilder.Entity<Competiteur>()
                 .Property(e => e.NumLicence)
                 .IsUnicode(false);
 
@@ -293,11 +293,12 @@ namespace KarateIsere.DataAccess {
             modelBuilder.Entity<Competiteur>()
                 .Property(e => e.NumAffiliationClub)
                 .IsUnicode(false);
+            */
 
             modelBuilder.Entity<Competiteur>()
                 .HasMany(e => e.ListeCompetiteur)
                 .WithRequired(e => e.Competiteur)
-                .WillCascadeOnDelete(false);
+                .WillCascadeOnDelete(true);
 
             #endregion
 
