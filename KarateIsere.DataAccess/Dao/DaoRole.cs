@@ -4,7 +4,6 @@ using System.Diagnostics.Contracts;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
-using KarateIsere.Models;
 using Microsoft.AspNet.Identity;
 using Microsoft.AspNet.Identity.EntityFramework;
 
@@ -18,7 +17,7 @@ namespace KarateIsere.DataAccess {
 
         private UserManager<ApplicationUser> userManager;
 
-        protected ApplicationDbContext context = new ApplicationDbContext();
+        protected KarateIsereContext context = new KarateIsereContext();
 
         private RoleStore<IdentityRole> RoleStore {
             get {

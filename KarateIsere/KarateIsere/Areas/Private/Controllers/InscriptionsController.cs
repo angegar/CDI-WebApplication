@@ -71,11 +71,11 @@ namespace KarateIsere.Areas.Private.Controllers {
             foreach (Competition c in list) {
                 SelectListItem sli = new SelectListItem {
                     Text = c.Nom,
-                    Value = c.Id.ToString()
+                    Value = c.CompetitionID.ToString()
                 };
 
                 if (Session["selectedCompetition"] != null &&
-                   Convert.ToInt32(Session["selectedCompetition"]) == c.Id) {
+                   Convert.ToInt32(Session["selectedCompetition"]) == c.CompetitionID) {
                     sli.Selected = true;
                 }
 
@@ -143,7 +143,7 @@ namespace KarateIsere.Areas.Private.Controllers {
                     //Create inscription
                     foreach (string numAff in selCompetiteurs) {
                         Inscriptions i = new Inscriptions();
-                        i.CompetitionId = competitionId;
+                        i.CompetitionID = competitionId;
                         i.NumLicence = numAff;
 
                         //Si l'inscription n'existe pas alors la créé
@@ -156,7 +156,7 @@ namespace KarateIsere.Areas.Private.Controllers {
                     foreach (Competiteur c in dejaInscr) {
                         if (!selCompetiteurs.Contains(c.NumLicence)) {
                             Inscriptions i = new Inscriptions();
-                            i.CompetitionId = competitionId;
+                            i.CompetitionID = competitionId;
                             i.NumLicence = c.NumLicence;
                             i.Delete();
                         }

@@ -58,7 +58,7 @@ namespace KarateIsere.Areas.Private.Controllers {
             foreach (Competiteur c in competiteurs) {
                 writer.Write(c.Club.NomClub);
                 writer.Write(delimChar);
-                writer.Write(c.CategorieName);
+                writer.Write(c.Categorie.Nom);
                 writer.Write(delimChar);
                 writer.Write(c.NumLicence);
                 writer.Write(delimChar);
@@ -225,7 +225,7 @@ namespace KarateIsere.Areas.Private.Controllers {
             //Competition compet = Competition.GetById(id);
             List<Competiteur> competiteurs = Inscriptions.GetInscriptions(id);
             var res = from c in competiteurs
-                      group c by c.CategorieName into g
+                      group c by c.CategorieID into g
                       select new { Categorie = g.Key, Count = g.Count() };
             return Json(res, JsonRequestBehavior.AllowGet);
         }

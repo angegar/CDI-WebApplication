@@ -23,11 +23,11 @@ namespace KarateIsere.DataAccess {
 
             if (c != null) {
                 //Need to delete the Inscriptions of the integrity constraints
-                List<Inscriptions> inscrs = context.Inscriptions.Where(
-                                                    d => d.CompetitionId == c.Id
+                /*List<Inscriptions> inscrs = context.Inscriptions.Where(
+                                                    d => d.CompetitionID == c.CompetitionID
                                                     ).ToList();
 
-                context.Inscriptions.RemoveRange(inscrs);
+                context.Inscriptions.RemoveRange(inscrs);*/
                 context.Competition.Remove(c);
             }
 
@@ -107,7 +107,7 @@ namespace KarateIsere.DataAccess {
                 }
 
                 res = (from c in context.Competition
-                       where c.Id == id
+                       where c.CompetitionID == id
                        select c).
                                    Include(d => d.Categorie).
                                    SingleOrDefault();

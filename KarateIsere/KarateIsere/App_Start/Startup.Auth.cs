@@ -7,13 +7,14 @@ using Microsoft.Owin.Security.Google;
 using Owin;
 using KarateIsere.Models;
 using System.Web;
+using KarateIsere.DataAccess;
 
 namespace KarateIsere {
     public partial class Startup {
         // Pour plus d’informations sur la configuration de l’authentification, rendez-vous sur http://go.microsoft.com/fwlink/?LinkId=301864
         public void ConfigureAuth ( IAppBuilder app ) {
             // Configurer le contexte de base de données, le gestionnaire des utilisateurs et le gestionnaire des connexions pour utiliser une instance unique par demande
-            app.CreatePerOwinContext( ApplicationDbContext.Create );
+            app.CreatePerOwinContext(KarateIsereContext.Create);
             app.CreatePerOwinContext<ApplicationUserManager>( ApplicationUserManager.Create );
             app.CreatePerOwinContext<ApplicationSignInManager>( ApplicationSignInManager.Create );
 

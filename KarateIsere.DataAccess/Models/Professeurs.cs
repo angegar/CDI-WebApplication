@@ -10,11 +10,9 @@ namespace KarateIsere.DataAccess
     {
         public Professeurs()
         {
-            Club = new HashSet<Club>();
         }
 
-        [Key]
-        public int ProfesseurId { get; set; }
+        public int ProfesseursID { get; set; }
 
         [Required]
         [StringLength(50)]
@@ -48,6 +46,8 @@ namespace KarateIsere.DataAccess
         [StringLength(10)]
         public string Telephone { get; set; }
 
-        public virtual ICollection<Club> Club { get; set; }
+        public string NumAffiliation { get; set; }
+
+        public virtual Club Club { get; set; }
     }
 }

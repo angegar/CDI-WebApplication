@@ -21,7 +21,7 @@ namespace KarateIsere.DataAccess
 
         [ForeignKey("Competition")]
         //[Column(Order = 1)]  
-        public int CompetitionId { get; set; }
+        public int CompetitionID { get; set; }
 
         public int? Classement { get; set; }
 

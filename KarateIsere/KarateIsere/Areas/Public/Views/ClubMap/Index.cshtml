@@ -16,8 +16,8 @@
    }
 
     @Html.Grid( Model ).Columns( columns => {
-    columns.Add( c => c.ArtMartialName ).Titled( "ArtMartialName" ).Filterable( true );
-    columns.Add( c => c.NomClub ).Titled( "NomClub" ).Filterable( true )
+    columns.Add( c => c.Art_Martial.Name ).Titled( "Art Martial" ).Filterable( true );
+    columns.Add( c => c.NomClub ).Titled( "Club" ).Filterable( true )
                                  .Sanitized(false)
                                  .Encoded( false )
                                  .RenderValueAs( o => customRendering( o ) );

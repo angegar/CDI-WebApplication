@@ -12,9 +12,16 @@ namespace KarateIsere.DataAccess
         {
         }
 
-        [Key]
+        //Primary key
+        public int Art_MartialID { get; set; } 
+
         [Column("Name")]
         [StringLength(50)]
         public string Name { get; set; }
+
+        /// <summary>
+        /// Clubs partiquant cet art martial
+        /// </summary>
+        public virtual ICollection<Club> Clubs { get; set; }
     }
 }

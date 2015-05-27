@@ -10,7 +10,7 @@ namespace KarateIsere.DataAccess {
     public partial class Competiteur : DaoBase {
 
         public override sealed void Create() {
-            Categorie c = context.Categorie.Find(CategorieName);
+            Categorie c = context.Categorie.Find(CategorieID);
             if (c != null) {
                 Categorie = c;
                 /* context.Competiteur.Attach( this );
@@ -53,8 +53,8 @@ namespace KarateIsere.DataAccess {
                                       SingleOrDefault();
 
             if (c != null) {
-                if (c.CategorieName != CategorieName) {
-                    Categorie = Categorie.Get(CategorieName);
+                if (c.CategorieID != CategorieID) {
+                    Categorie = Categorie.Get(Categorie.Nom);
                     context.Categorie.Attach(Categorie);
                 }
 
@@ -114,7 +114,7 @@ namespace KarateIsere.DataAccess {
                 }
 
                 res = (from c in context.Competiteur
-                       where c.NumAffiliationClub == numAffiliation
+                       where c.NumAffiliation == numAffiliation
                        select c).ToList();
             }
             finally {

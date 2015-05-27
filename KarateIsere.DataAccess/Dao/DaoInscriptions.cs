@@ -11,18 +11,18 @@ namespace KarateIsere.DataAccess {
     public partial class Inscriptions : DaoBase {
         public override void Create() {
             Contract.Requires(!string.IsNullOrWhiteSpace(NumLicence));
-            Contract.Requires(CompetitionId > 0);
+            Contract.Requires(CompetitionID > 0);
 
             try {
                 bool existInscr = context.Inscriptions.Any(d =>
-                    d.CompetitionId == CompetitionId &&
+                    d.CompetitionID == CompetitionID &&
                     d.NumLicence == NumLicence);
 
 
                 //Inscriptions c = context.Inscriptions.Find( InscriptionId );
                 if (!existInscr) {
                     //Competiteur = Competiteur.Get(NumLicence, context);
-                    //Competition = Competition.GetById(CompetitionId, context);
+                    //Competition = Competition.GetById(CompetitionID, context);
 
                     context.Inscriptions.Add(this);
                     context.SaveChanges();
@@ -39,8 +39,8 @@ namespace KarateIsere.DataAccess {
         public override void Delete() {
             Inscriptions i = null;
             if (InscriptionId == 0) {
-                if (CompetitionId > 0 && !string.IsNullOrWhiteSpace(NumLicence)) {
-                    i = GetInscriptions(CompetitionId, NumLicence);
+                if (CompetitionID > 0 && !string.IsNullOrWhiteSpace(NumLicence)) {
+                    i = GetInscriptions(CompetitionID, NumLicence);
                 }
             }
             else {
@@ -65,7 +65,7 @@ namespace KarateIsere.DataAccess {
         /// <returns>Un inscription ou null</returns>
         public Inscriptions GetInscriptions(int competitionId, string numLicence) {
             return (from i in context.Inscriptions
-                    where i.CompetitionId == competitionId && i.NumLicence == numLicence
+                    where i.CompetitionID == competitionId && i.NumLicence == numLicence
                     select i).SingleOrDefault();
         }
 
@@ -91,7 +91,7 @@ namespace KarateIsere.DataAccess {
                 }
                 res = (from i in context.Inscriptions
                        join co in context.Competiteur on i.NumLicence equals co.NumLicence
-                       where i.CompetitionId == competitionId && co.NumAffiliationClub == numAffiliation
+                       where i.CompetitionID == competitionId && co.NumAffiliation == numAffiliation
                        select i).ToList();
 
 
@@ -123,10 +123,10 @@ namespace KarateIsere.DataAccess {
 
                 res = (from i in context.Inscriptions
                        join co in context.Competiteur on i.NumLicence equals co.NumLicence
-                       where i.CompetitionId == competitionId
+                       where i.CompetitionID == competitionId
                        select co).Include(d => d.Categorie)
                                  .Include(d=>d.Club)
-                                 .OrderBy(d=>d.CategorieName)
+                                 .OrderBy(d=>d.Categorie.Nom)
                                  .ThenBy(d=>d.Club.NomClub).ToList();
 
 

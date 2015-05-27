@@ -164,7 +164,6 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Dao\Dao.cs" />
-    <Compile Include="Dao\DaoApplicationUser.cs" />
     <Compile Include="Dao\DaoArtMartial.cs" />
     <Compile Include="Dao\DaoBase.cs" />
     <Compile Include="Dao\DaoCategorie.cs" />
@@ -172,7 +171,14 @@
     <Compile Include="Dao\DaoCompetiteur.cs" />
     <Compile Include="Dao\DaoCompetition.cs" />
     <Compile Include="Dao\DaoInscriptions.cs" />
-    <Compile Include="IdentityModels.cs" />
+    <Compile Include="Migrations\201505171725358_Initial.cs" />
+    <Compile Include="Migrations\201505171725358_Initial.Designer.cs">
+      <DependentUpon>201505171725358_Initial.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201505181807218_Identity_Tables.cs" />
+    <Compile Include="Migrations\201505181807218_Identity_Tables.Designer.cs">
+      <DependentUpon>201505181807218_Identity_Tables.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\Adherents.cs" />
     <Compile Include="Models\Admin.cs" />
@@ -185,6 +191,7 @@
     <Compile Include="Models\Inscriptions.cs" />
     <Compile Include="KarateIsere.cs" />
     <Compile Include="Models\ListeCompetiteur.cs" />
+    <Compile Include="Models\NotificationEmail.cs" />
     <Compile Include="Models\Professeurs.cs" />
     <Compile Include="Dao\DaoRole.cs" />
     <Compile Include="Models\Role.cs" />
@@ -195,7 +202,14 @@
     <None Include="App.config" />
     <None Include="packages.config" />
   </ItemGroup>
-  <ItemGroup />
+  <ItemGroup>
+    <EmbeddedResource Include="Migrations\201505171725358_Initial.resx">
+      <DependentUpon>201505171725358_Initial.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201505181807218_Identity_Tables.resx">
+      <DependentUpon>201505181807218_Identity_Tables.cs</DependentUpon>
+    </EmbeddedResource>
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
        Other similar extension points exist, see Microsoft.Common.targets.

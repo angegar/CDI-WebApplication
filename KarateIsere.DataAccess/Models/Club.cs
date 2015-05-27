@@ -6,18 +6,19 @@ using System.ComponentModel;
 using System.ComponentModel.DataAnnotations;
 using System.ComponentModel.DataAnnotations.Schema;
 using System.Data.Entity.Spatial;
-using KarateIsere.Models;
 using Newtonsoft.Json;
 
     [Table("Club")]
     public partial class Club
     {
+        private int art_MartialID = 1;
         public Club()
         {
             Competiteur = new HashSet<Competiteur>();
             ListeCompetiteur = new HashSet<ListeCompetiteur>();
             Professeurs = new HashSet<Professeurs>();
-           // ApplicationUser =  new HashSet<ApplicationUser>();
+            Adherents = new HashSet<Adherents>();
+            Notifications = new HashSet<NotificationEmail>();
         }
 
         [Key] 
@@ -117,10 +118,16 @@ using Newtonsoft.Json;
         [DisplayName( "Tél. mobile" )]
         public string Secretaire_Mobile { get; set; }
 
-        [StringLength(50)]
-        [ForeignKey( "Art_Martial" )]
         [DisplayName( "Art martial" )]
-        public virtual string ArtMartialName { get; set; }
+        public virtual int Art_MartialID {
+            get {
+                return art_MartialID;
+            }
+
+            set {
+                art_MartialID = value;
+            } 
+        }
 
         public Double? Longitude { get; set; }
 
@@ -138,5 +145,9 @@ using Newtonsoft.Json;
         public virtual ICollection<ListeCompetiteur> ListeCompetiteur { get; set; }
 
         public virtual ICollection<Professeurs> Professeurs { get; set; }
+
+        public virtual ICollection<Adherents> Adherents { get; set; }
+
+        public virtual ICollection<NotificationEmail> Notifications { get; set; }
     }
 }

@@ -9,19 +9,16 @@ namespace KarateIsere.DataAccess {
     public partial class Categorie {
         public Categorie() {
             Competiteurs = new HashSet<Competiteur>();
-            //Inscriptions = new HashSet<Inscriptions>();
             Competitions = new HashSet<Competition>();
-
         }
 
-        [Key]
+        public int CategorieID { get; set; }
+
         [Required(AllowEmptyStrings = false, ErrorMessage = "Le nom de la catégorie ne doit pas être nul")]
         [StringLength(50)]
         public string Nom { get; set; }
 
         public virtual ICollection<Competiteur> Competiteurs { get; set; }
-
-        //public virtual ICollection<Inscriptions> Inscriptions { get; set; }
 
         public virtual ICollection<Competition> Competitions { get; set; }
     }

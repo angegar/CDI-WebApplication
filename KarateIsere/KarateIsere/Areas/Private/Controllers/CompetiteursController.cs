@@ -68,7 +68,7 @@ namespace KarateIsere.Areas.Private.Controllers {
             try {
                 if (ModelState.IsValid) {
                     ApplicationUser user = (ApplicationUser) Session["User"];
-                    competiteur.NumAffiliationClub = user.NumAffiliation;
+                    competiteur.NumAffiliation = user.NumAffiliation;
                     competiteur.Create();
                     return RedirectToAction("Index");
                 }

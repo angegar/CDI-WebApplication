@@ -10,7 +10,7 @@ namespace KarateIsere.DataAccess
     {
         [Key]
         [DatabaseGenerated(DatabaseGeneratedOption.None)]
-        public int Adherent_Id { get; set; }
+        public int AdherentID { get; set; }
 
         [Required]
         [StringLength(50)]
@@ -46,6 +46,14 @@ namespace KarateIsere.DataAccess
         public bool? IsProfesseur { get; set; }
 
         [StringLength(50)]
-        public string Num_Affiliation { get; set; }
+        public string NumLicence { get; set; }
+
+        public string NumAffiliation { get; set; }
+
+        public virtual Club Club { get; set; }
+
+        public int CategorieID { get; set; }
+
+        public virtual Categorie Categorie { get; set; }
     }
 }

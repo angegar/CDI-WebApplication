@@ -7,14 +7,58 @@ namespace KarateIsere.DataAccess {
     using System.Linq;
     using Microsoft.AspNet.Identity.EntityFramework;
     using NLog;
+    using System.Data.Entity.ModelConfiguration.Conventions;
+    using System.Threading.Tasks;
+    using Microsoft.AspNet.Identity;
+    using System.Security.Claims;
+    using System.Collections.Generic;
 
-    public partial class KarateIsereContext : DbContext {
+    // Vous pouvez ajouter des données de profil pour l'utilisateur en ajoutant plus de propriétés à votre classe ApplicationUser ; consultez http://go.microsoft.com/fwlink/?LinkID=317594 pour en savoir davantage.
+    public partial class ApplicationUser : IdentityUser {
+
+        public ApplicationUser() {
+
+        }
+        public async Task<ClaimsIdentity> GenerateUserIdentityAsync(UserManager<ApplicationUser> manager) {
+            // Notez qu'authenticationType doit correspondre à l'élément défini dans CookieAuthenticationOptions.AuthenticationType
+            var userIdentity = await manager.CreateIdentityAsync(this, DefaultAuthenticationTypes.ApplicationCookie);
+
+            // Ajouter les revendications personnalisées de l’utilisateur ici
+            return userIdentity;
+        }
+
+        public virtual Club Club {
+            get;
+            set;
+        }
+
+        //[ForeignKey( "Club" )]
+        public virtual string NumAffiliation {
+            get;
+            set;
+        }
+    }
+
+    public partial class KarateIsereContext : IdentityDbContext<ApplicationUser> {
         Logger log = LogManager.GetCurrentClassLogger();
+
+        public static KarateIsereContext Create() {
+            return new KarateIsereContext();
+        }
+
         public KarateIsereContext()
-            : base("KarateIsere") {
+            : base("KarateIsere", throwIfV1Schema: false) {
             Database.Log = s => log.Trace(s);//System.Diagnostics.Debug.WriteLine( s );
             Configuration.AutoDetectChangesEnabled = true;
+
+            //Database.SetInitializer<KarateIsereContext>(new KarateIsereDBInitializer());
+
+            //Database.SetInitializer<KarateIsereContext>(new CreateDatabaseIfNotExists<KarateIsereContext>());
+
+            //Database.SetInitializer<SchoolDBContext>(new DropCreateDatabaseIfModelChanges<SchoolDBContext>());
+            //Database.SetInitializer<SchoolDBContext>(new DropCreateDatabaseAlways<SchoolDBContext>());
         }
+
 
         public virtual DbSet<Adherents> Adherents {
             get;
@@ -56,316 +100,95 @@ namespace KarateIsere.DataAccess {
             get;
             set;
         }
+
+        public virtual DbSet<NotificationEmail> NotificationEmail {
+            get;
+            set;
+        }
+
         public virtual DbSet<Professeurs> Professeurs {
             get;
             set;
         }
 
+        public virtual DbSet<Role> Roles { get; set; }
+
         protected override void OnModelCreating(DbModelBuilder modelBuilder) {
-            #region Adherents
-            modelBuilder.Entity<Adherents>()
-                .Property(e => e.Nom)
-                .IsUnicode(false);
+            base.OnModelCreating(modelBuilder);
 
-            modelBuilder.Entity<Adherents>()
-                .Property(e => e.Prenom)
-                .IsUnicode(false);
+            modelBuilder.Conventions.Remove<ManyToManyCascadeDeleteConvention>();
 
-            modelBuilder.Entity<Adherents>()
-                .Property(e => e.Email)
-                .IsUnicode(false);
-
-            modelBuilder.Entity<Adherents>()
-                .Property(e => e.Tel)
-                .IsUnicode(false);
-
-            modelBuilder.Entity<Adherents>()
-                .Property(e => e.Mobile)
-                .IsUnicode(false);
-
-            modelBuilder.Entity<Adherents>()
-                .Property(e => e.Grade)
-                .IsUnicode(false);
-
-            modelBuilder.Entity<Adherents>()
-                .Property(e => e.Diplome)
-                .IsUnicode(false);
-
-            modelBuilder.Entity<Adherents>()
-                .Property(e => e.Num_Affiliation)
-                .IsUnicode(false);
-            #endregion
-
-            #region admin
-            modelBuilder.Entity<Admin>()
-                .Property(e => e.Email)
-                .IsUnicode(false);
-
-            modelBuilder.Entity<Admin>()
-                .Property(e => e.Login)
-                .IsUnicode(false);
-
-            modelBuilder.Entity<Admin>()
-                .Property(e => e.Password)
-                .IsUnicode(false);
-
-            modelBuilder.Entity<Admin>()
-                .Property(e => e.PasswordQuestion)
-                .IsUnicode(false);
-
-            modelBuilder.Entity<Admin>()
-                .Property(e => e.PasswordAnswer)
-                .IsUnicode(false);
-
-            modelBuilder.Entity<Admin>()
-                .Property(e => e.Nom)
-                .IsUnicode(false);
-
-            modelBuilder.Entity<Admin>()
-                .Property(e => e.Prenom)
-                .IsUnicode(false);
-            #endregion
-
-            #region ArtMartial
-            modelBuilder.Entity<Art_Martial>()
-                .Property(e => e.Name)
-                .IsUnicode(false);
-            /*modelBuilder.Entity<Art_Martial>()
-                .HasMany( e => e.Club )
-                .WithOptional( e => e.Art_Martial1 )
-                .HasForeignKey( e => e.Art_Martial )
-                .WillCascadeOnDelete();
-            */
-            #endregion
-
-            #region Categorie
-            modelBuilder.Entity<Categorie>()
-                .Property(e => e.Nom)
-                .IsUnicode(false);
-
-            #endregion
-
-            #region Club
-            modelBuilder.Entity<Club>()
-                .Property(e => e.NumAffiliation)
-                .IsUnicode(false);
-
-            modelBuilder.Entity<Club>()
-                .Property(e => e.NomClub)
-                .IsUnicode(false);
-
-            modelBuilder.Entity<Club>()
-                .Property(e => e.Correspondant)
-                .IsUnicode(false);
-
-            modelBuilder.Entity<Club>()
-                .Property(e => e.Telephone)
-                .IsUnicode(false);
-
-            modelBuilder.Entity<Club>()
-                .Property(e => e.Adr_Administrative)
-                .IsUnicode(false);
-
-            modelBuilder.Entity<Club>()
-                .Property(e => e.Adr_Dojo)
-                .IsUnicode(false);
-
-            modelBuilder.Entity<Club>()
-                .Property(e => e.Code_Postal)
-                .IsUnicode(false);
-
-            modelBuilder.Entity<Club>()
-                .Property(e => e.Ville)
-                .IsUnicode(false);
-
-            modelBuilder.Entity<Club>()
-                .Property(e => e.Site_Web)
-                .IsUnicode(false);
-
-            modelBuilder.Entity<Club>()
-                .Property(e => e.Facebook)
-                .IsUnicode(false);
-
-            modelBuilder.Entity<Club>()
-                .Property(e => e.President_Tel)
-                .IsUnicode(false);
-
-            modelBuilder.Entity<Club>()
-                .Property(e => e.President_Nom)
-                .IsUnicode(false);
-
-            modelBuilder.Entity<Club>()
-                .Property(e => e.President_Prenom)
-                .IsUnicode(false);
-
-            modelBuilder.Entity<Club>()
-                .Property(e => e.President_Email)
-                .IsUnicode(false);
-
-            modelBuilder.Entity<Club>()
-                .Property(e => e.President_Mobile)
-                .IsUnicode(false);
-
-            modelBuilder.Entity<Club>()
-                .Property(e => e.Tresorier_Tel)
-                .IsUnicode(false);
-
-            modelBuilder.Entity<Club>()
-                .Property(e => e.Tresorier_Nom)
-                .IsUnicode(false);
-
-            modelBuilder.Entity<Club>()
-                .Property(e => e.Tresorier_Prenom)
-                .IsUnicode(false);
-
-            modelBuilder.Entity<Club>()
-                .Property(e => e.Tresorier_Email)
-                .IsUnicode(false);
-
-            modelBuilder.Entity<Club>()
-                .Property(e => e.Tresorier_Mobile)
-                .IsUnicode(false);
-
-            modelBuilder.Entity<Club>()
-                .Property(e => e.Secretaire_Tel)
-                .IsUnicode(false);
-
-            modelBuilder.Entity<Club>()
-                .Property(e => e.Secretaire_Nom)
-                .IsUnicode(false);
-
-            modelBuilder.Entity<Club>()
-                .Property(e => e.Secretaire_Prenom)
-                .IsUnicode(false);
-
-            modelBuilder.Entity<Club>()
-                .Property(e => e.Secretaire_Email)
-                .IsUnicode(false);
-
-            modelBuilder.Entity<Club>()
-                .Property(e => e.Secretaire_Mobile)
-                .IsUnicode(false);
-
-            modelBuilder.Entity<Club>()
-                .Property(e => e.ArtMartialName)
-                .IsUnicode(false);
-
-            modelBuilder.Entity<Club>()
-                .HasMany(e => e.Competiteur)
-                .WithRequired(e => e.Club)
-                .HasForeignKey(e => e.NumAffiliationClub);
-
-            modelBuilder.Entity<Club>()
-                .HasMany(e => e.ListeCompetiteur)
-                .WithRequired(e => e.Club)
-                .HasForeignKey(e => e.NumAffiliationClub);
-
-            modelBuilder.Entity<Club>()
-                .HasMany(e => e.Professeurs)
-                .WithMany(e => e.Club)
-                .Map(m => m.ToTable("Club_Professeur").MapLeftKey("NumAffiliation").MapRightKey("ProfesseurId"));
-            #endregion
-
+            //Lien N-N entre catégorie et compétitions
             modelBuilder.Entity<Competition>()
                    .HasMany(e => e.Categorie)
                    .WithMany(e => e.Competitions)
                    .Map(m => m.ToTable("CompetitionCategories")
-                       .MapRightKey("Categorie_Nom")
-                       .MapLeftKey("Competition_Id"));
+                       .MapRightKey("CategorieID")
+                       .MapLeftKey("CompetitionID"));
 
-            #region Competiteur
-            /*modelBuilder.Entity<Competiteur>()
-                .Property(e => e.NumLicence)
-                .IsUnicode(false);
+            //Lien N-N entre liste compétiteur et compétiteurs
+            modelBuilder.Entity<ListeCompetiteur>()
+                   .HasMany(e => e.Competiteurs)
+                   .WithMany(e => e.ListeCompetiteur)
+                   .Map(m => m.ToTable("ListeCompetiteursCompetiteurs")
+                       .MapRightKey("ListeCompetiteurID")
+                       .MapLeftKey("NumLicence"));
 
+            //Lien 1-N entre compétition et notification
+            modelBuilder.Entity<Competition>()
+                    .HasMany(e => e.Notifications)
+                    .WithRequired(e => e.Competition)
+                    .WillCascadeOnDelete(true);
+
+            //Lien 1-N entre Compétiteur et Inscriptions
             modelBuilder.Entity<Competiteur>()
-                .Property(e => e.Nom)
-                .IsUnicode(false);
-
-            modelBuilder.Entity<Competiteur>()
-                .Property(e => e.Prenom)
-                .IsUnicode(false);
-
-            modelBuilder.Entity<Competiteur>()
-                .Property(e => e.Poids)
-                .IsUnicode(false);
-
-            modelBuilder.Entity<Competiteur>()
-                .Property(e => e.NumAffiliationClub)
-                .IsUnicode(false);
-            */
-
-            modelBuilder.Entity<Competiteur>()
-                .HasMany(e => e.ListeCompetiteur)
+                .HasMany(e => e.Inscriptions)
                 .WithRequired(e => e.Competiteur)
                 .WillCascadeOnDelete(true);
 
+            //Lien 1-N entre catégorie et compétiteur
+            modelBuilder.Entity<Categorie>()
+                .HasMany(e => e.Competiteurs)
+                .WithRequired(e => e.Categorie)
+                .WillCascadeOnDelete(true);
+
+            //Lien 1-N entre club et compétiteur
+            modelBuilder.Entity<Club>()
+               .HasMany(e => e.Competiteur)
+               .WithRequired(e => e.Club)
+               .WillCascadeOnDelete(true);
+        }
+    }
+
+    public class KarateIsereDBInitializer : DropCreateDatabaseAlways<KarateIsereContext> {
+        protected override void Seed(KarateIsereContext context) {
+            #region Init Art Martiaux
+            IList<Art_Martial> defaultStandards = new List<Art_Martial>();
+            defaultStandards.Add(new Art_Martial() { Name = "Karaté Shotokan" });
+            defaultStandards.Add(new Art_Martial() { Name = "Karaté Shito ryu" });
+            defaultStandards.Add(new Art_Martial() { Name = "karaté Wado ryu" });
+            defaultStandards.Add(new Art_Martial() { Name = "karaté Goju ryu" });
+            defaultStandards.Add(new Art_Martial() { Name = "karaté Contact" });
+
+            foreach (Art_Martial std in defaultStandards)
+                context.Art_Martial.Add(std);
             #endregion
 
+            #region Init Catégorie
+            IList<Categorie> categories = new List<Categorie>();
+            categories.Add(new Categorie() { Nom = "Poussin" });
+            categories.Add(new Categorie() { Nom = "Pupille" });
+            categories.Add(new Categorie() { Nom = "Benjamin" });
+            categories.Add(new Categorie() { Nom = "Minime" });
+            categories.Add(new Categorie() { Nom = "Cadet" });
+            categories.Add(new Categorie() { Nom = "Junior" });
+            categories.Add(new Categorie() { Nom = "Sénior" });
 
-            #region Creneaux
-            modelBuilder.Entity<Creneaux>()
-                .Property(e => e.NomClub)
-                .IsUnicode(false);
-
-            modelBuilder.Entity<Creneaux>()
-                .Property(e => e.Jour)
-                .IsUnicode(false);
-
-            modelBuilder.Entity<Creneaux>()
-                .Property(e => e.HeureDebut)
-                .IsUnicode(false);
-
-            modelBuilder.Entity<Creneaux>()
-                .Property(e => e.HeureFin)
-                .IsUnicode(false);
-
-            modelBuilder.Entity<Creneaux>()
-                .Property(e => e.Description)
-                .IsUnicode(false);
-
+            foreach (Categorie c in categories)
+                context.Categorie.Add(c);
             #endregion
 
-
-            modelBuilder.Entity<ListeCompetiteur>()
-                .Property(e => e.NomListe)
-                .IsUnicode(false);
-
-            modelBuilder.Entity<ListeCompetiteur>()
-                .Property(e => e.NumAffiliationClub)
-                .IsUnicode(false);
-
-            modelBuilder.Entity<ListeCompetiteur>()
-                .Property(e => e.NumLicence)
-                .IsUnicode(false);
-
-            modelBuilder.Entity<Professeurs>()
-                .Property(e => e.Nom)
-                .IsUnicode(false);
-
-            modelBuilder.Entity<Professeurs>()
-                .Property(e => e.Prenom)
-                .IsUnicode(false);
-
-            modelBuilder.Entity<Professeurs>()
-                .Property(e => e.Email)
-                .IsUnicode(false);
-
-            modelBuilder.Entity<Professeurs>()
-                .Property(e => e.Mobile)
-                .IsUnicode(false);
-
-            modelBuilder.Entity<Professeurs>()
-                .Property(e => e.Grade)
-                .IsUnicode(false);
-
-            modelBuilder.Entity<Professeurs>()
-                .Property(e => e.Diplome)
-                .IsUnicode(false);
-
-            modelBuilder.Entity<Professeurs>()
-                .Property(e => e.Telephone)
-                .IsUnicode(false);
+            base.Seed(context);
         }
     }
 }

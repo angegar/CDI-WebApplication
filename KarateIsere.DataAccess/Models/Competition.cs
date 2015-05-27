@@ -11,11 +11,10 @@ namespace KarateIsere.DataAccess {
         public Competition () {
             Inscriptions = new HashSet<Inscriptions>();
             Categorie = new HashSet<Categorie>();
+            Notifications = new HashSet<NotificationEmail>();
         }
         
-        [Key]
-        [DatabaseGenerated( DatabaseGeneratedOption.Identity )]
-        public int Id {
+        public int CompetitionID {
             get;
             set;
         }
@@ -61,6 +60,11 @@ namespace KarateIsere.DataAccess {
         }
 
         public virtual ICollection<Inscriptions> Inscriptions {
+            get;
+            set;
+        }
+
+        public virtual ICollection<NotificationEmail> Notifications {
             get;
             set;
         }

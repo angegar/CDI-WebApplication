@@ -43,6 +43,7 @@ namespace KarateIsere.Models {
             : base( "KarateIsere", throwIfV1Schema: false ) {
             Configuration.LazyLoadingEnabled=true;
             Configuration.ProxyCreationEnabled=true;
+            Configuration.AutoDetectChangesEnabled = true;
         }
 
         public static ApplicationDbContext Create () {

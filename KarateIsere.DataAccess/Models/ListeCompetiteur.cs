@@ -9,23 +9,22 @@ namespace KarateIsere.DataAccess
     [Table("ListeCompetiteur")]
     public partial class ListeCompetiteur
     {
-        [Key]
-        public int Liste_Id { get; set; }
+
+        public ListeCompetiteur() {
+            Competiteurs = new HashSet<Competiteur>();
+        }
+        public int ListeCompetiteurID { get; set; }
 
         [Required]
         [StringLength(50)]
-        public string NomListe { get; set; }
+        public string Nom { get; set; }
 
         [Required]
         [StringLength(50)]
-        public string NumAffiliationClub { get; set; }
-
-        [Required]
-        [StringLength(50)]
-        public string NumLicence { get; set; }
+        public string NumAffiliation { get; set; }
 
         public virtual Club Club { get; set; }
 
-        public virtual Competiteur Competiteur { get; set; }
+        public virtual ICollection<Competiteur> Competiteurs { get; set; }
     }
 }
