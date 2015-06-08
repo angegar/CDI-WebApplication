@@ -9,107 +9,109 @@
     List<Competiteur> inscrits = (List<Competiteur>) ViewBag.Inscrits;
     List<SelectListItem> competitions = (List<SelectListItem>) ViewBag.Competition;
 
-    if (competitions != null && competitions.Count > 0) { 
-    <div class="form-horizontal">
-        @Html.ValidationSummary(true, "", new {
+    if (competitions != null && competitions.Count > 0) {
+        <div class="form-horizontal">
+            @Html.ValidationSummary(true, "", new {
        @class = "text-danger"
    })
 
-        <div class="form-group col-md-12">
-            <label class="control-label col-md-4"> Sélectionnez une compétition</label>
-            <div class="col-md-8">
-                @Html.DropDownListFor(Model => Model.CompetitionID, competitions, htmlAttributes: new {
+            <div class="form-group col-md-12">
+                <label class="control-label col-md-4"> Sélectionnez une compétition</label>
+                <div class="col-md-8">
+                    @Html.DropDownListFor(Model => Model.CompetitionID, competitions, htmlAttributes: new {
                @class = "form-control",
                @onchange = "setCompetId(this.value)"
            })
-            </div>
-        </div>
-
-
-
-        <div class="col-md-6">
-            <div class="panel panel-default">
-                <div class="panel-heading">
-                    <div class="panel-title">
-                        <h4>Vos compétiteurs</h4>
-                    </div>
                 </div>
+            </div>
 
-                <div class="panel-body">
-                    @if (competiteurs != null && competiteurs.Count > 0) {
-                        <div class="panel-body">
-                            <table id="dropSrc" class="table"
-                                   dropzone="true" ondragover="allowDrop(event)"
-                                   ondrop="dropRemove(event)">
-                                @foreach (Competiteur c in competiteurs) {
 
-                                    <tr id="@c.NumLicence" draggable="true" ondragstart="drag(event)">
-                                        <td>
-                                            @Html.Label(@c.NumLicence)
-                                        </td>
-                                        <td>
-                                            @Html.Label(@c.Nom)
-                                        </td>
-                                        <td>
-                                            @Html.Label(@c.Prenom)
-                                        </td>
-                                        <td>
-                                            @Html.Label(@c.Categorie.Nom)
-                                        </td>
-                                    </tr>
-                                }
-                            </table>
+
+            <div class="col-md-6">
+                <div class="panel panel-default">
+                    <div class="panel-heading">
+                        <div class="panel-title">
+                            <h4>Vos compétiteurs</h4>
                         </div>
-                    }
-                    else {
-                        <p> Vous n'avez pas de compétiteurs enregistrés. @Html.ActionLink("Ajouter des compétiteurs", "Index", "Competiteurs", new {
-                                                                        area = "Private"
-                                                                    }, null)</p>
-                    }
-                </div>
-            </div>
-        </div>
+                    </div>
 
-        <div class="col-md-6">
-            <div class="panel panel-default">
-                <div class="panel-heading">
-                    <div class="panel-title">
-                        <h4>Listes des inscrits</h4>
+                    <div class="panel-body" dropzone="true" ondragover="allowDrop(event)"
+                         ondrop="dropRemove(event)">
+                        @if ((competiteurs != null && competiteurs.Count > 0)
+                        || (inscrits != null && inscrits.Count > 0)) {
+                            <div class="panel-body">
+                                <table id="dropSrc" class="table">
+                                    @foreach (Competiteur c in competiteurs) {
+
+                                        <tr id="@c.NumLicence" draggable="true" ondragstart="drag(event)">
+                                            <td>
+                                                @Html.Label(@c.NumLicence)
+                                            </td>
+                                            <td>
+                                                @Html.Label(@c.Nom)
+                                            </td>
+                                            <td>
+                                                @Html.Label(@c.Prenom)
+                                            </td>
+                                            <td>
+                                                @Html.Label(@c.Categorie.Nom)
+                                            </td>
+                                        </tr>
+                                    }
+                                </table>
+                            </div>
+                        }
+                        else {
+                                <p>
+                                    Vous n'avez pas de compétiteurs enregistrés. @Html.ActionLink("Ajouter des compétiteurs", "Index", "Competiteurs", new {
+                                                                        area = "Private"
+                                                                    }, null)
+                                </p>
+                        }
                     </div>
                 </div>
+            </div>
 
-                <div class="panel-body">
-                    <table id="dropDest" class="table" width="600px" height="100px"
-                           dropzone="true" ondrop="dropAdd(event)" ondragover="allowDrop(event)"
-                           ondragstart="drag(event)">
-                        @foreach (Competiteur c in inscrits) {
+            <div class="col-md-6">
+                <div class="panel panel-default">
+                    <div class="panel-heading">
+                        <div class="panel-title">
+                            <h4>Listes des inscrits</h4>
+                        </div>
+                    </div>
 
-                            <tr id="@c.NumLicence" draggable="true" ondragstart="drag(event)">
-                                <td>
-                                    @Html.Label(@c.NumLicence)
-                                </td>
-                                <td>
-                                    @Html.Label(@c.Nom)
-                                </td>
-                                <td>
-                                    @Html.Label(@c.Prenom)
-                                </td>
-                                <td>
-                                    @Html.Label(@c.Categorie.Nom)
-                                </td>
-                            </tr>
-                        }
+                    <div class="panel-body" dropzone="true" ondrop="dropAdd(event)" ondragover="allowDrop(event)"
+                         ondragstart="drag(event)">
+                        <table id="dropDest" class="table">
 
-                    </table>
+                            @foreach (Competiteur c in inscrits) {
+
+                                <tr id="@c.NumLicence" draggable="true" ondragstart="drag(event)">
+                                    <td>
+                                        @Html.Label(@c.NumLicence)
+                                    </td>
+                                    <td>
+                                        @Html.Label(@c.Nom)
+                                    </td>
+                                    <td>
+                                        @Html.Label(@c.Prenom)
+                                    </td>
+                                    <td>
+                                        @Html.Label(@c.Categorie.Nom)
+                                    </td>
+                                </tr>
+                            }
+
+                        </table>
+                    </div>
                 </div>
             </div>
-        </div>
 
-        <div>
-            <input type="submit" value="Sauver" class="btn btn-default" />
+            <div>
+                <input type="submit" value="Sauver" class="btn btn-default" />
+            </div>
         </div>
-    </div>
-}
+    }
     else {
         <div>
             <p>Il n'y a pas encore de compétitions créées pour cette années.</p>
