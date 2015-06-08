@@ -53,7 +53,9 @@ namespace KarateIsere.DataAccess {
 
             //Recrée les catégories
             foreach (Categorie ca in Categorie) {
-                Categorie tmp = context.Categorie.Find(ca.Nom);
+                Categorie tmp = context.Categorie.Where(
+                                    d => d.Nom == ca.Nom
+                                    ).SingleOrDefault();
                 if (tmp != null) {
                     c.Categorie.Add(tmp);
                 }
@@ -171,14 +173,16 @@ namespace KarateIsere.DataAccess {
         }
 
         private void CreateCategorie() {
-            foreach (Categorie ca in Categorie) {
-                var tmp = Model.Categorie.Get(ca.Nom);
-                if (tmp != null) {
-                    context.Categorie.Attach(ca);
-                    context.Entry(this).State = EntityState.Unchanged;
-                }
-                else {
-                    throw new Exception("La catégorie n'existe pas");
+            if (Categorie != null) {
+                foreach (Categorie ca in Categorie) {
+                    var tmp = Model.Categorie.Get(ca.Nom);
+                    if (tmp != null) {
+                        context.Categorie.Attach(ca);
+                        context.Entry(this).State = EntityState.Unchanged;
+                    }
+                    else {
+                        throw new Exception("La catégorie n'existe pas");
+                    }
                 }
             }
         }

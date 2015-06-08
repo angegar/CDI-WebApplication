@@ -64,6 +64,11 @@ namespace KarateIsere.DataAccess {
                 res = (from c in context.Club
                        select c)
                        .Include(d => d.Art_Martial)
+                       .Include(d=>d.Adherents)
+                       .Include(d=>d.Competiteur)  
+                       .Include(d=>d.ListeCompetiteur)
+                       .Include(d => d.Notifications)
+                       .Include(d => d.Professeurs)
                        .ToList();
             }
 

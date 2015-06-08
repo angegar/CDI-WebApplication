@@ -7,7 +7,9 @@
     @Html.AntiForgeryToken()
     List<Competiteur> competiteurs = (List<Competiteur>) ViewBag.Competiteurs;
     List<Competiteur> inscrits = (List<Competiteur>) ViewBag.Inscrits;
+    List<SelectListItem> competitions = (List<SelectListItem>) ViewBag.Competition;
 
+    if (competitions != null && competitions.Count > 0) { 
     <div class="form-horizontal">
         @Html.ValidationSummary(true, "", new {
        @class = "text-danger"
@@ -16,7 +18,7 @@
         <div class="form-group col-md-12">
             <label class="control-label col-md-4"> Sélectionnez une compétition</label>
             <div class="col-md-8">
-                @Html.DropDownListFor(Model => Model.CompetitionId, (List<SelectListItem>) ViewBag.Competition, htmlAttributes: new {
+                @Html.DropDownListFor(Model => Model.CompetitionID, competitions, htmlAttributes: new {
                @class = "form-control",
                @onchange = "setCompetId(this.value)"
            })
@@ -52,7 +54,7 @@
                                             @Html.Label(@c.Prenom)
                                         </td>
                                         <td>
-                                            @Html.Label(@c.CategorieName)
+                                            @Html.Label(@c.Categorie.Nom)
                                         </td>
                                     </tr>
                                 }
@@ -93,7 +95,7 @@
                                     @Html.Label(@c.Prenom)
                                 </td>
                                 <td>
-                                    @Html.Label(@c.CategorieName)
+                                    @Html.Label(@c.Categorie.Nom)
                                 </td>
                             </tr>
                         }
@@ -107,6 +109,12 @@
             <input type="submit" value="Sauver" class="btn btn-default" />
         </div>
     </div>
+}
+    else {
+        <div>
+            <p>Il n'y a pas encore de compétitions créées pour cette années.</p>
+        </div>
+    }
 }
 
 

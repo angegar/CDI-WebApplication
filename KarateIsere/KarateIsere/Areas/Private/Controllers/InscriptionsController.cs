@@ -68,18 +68,20 @@ namespace KarateIsere.Areas.Private.Controllers {
 
         private List<SelectListItem> ToSelectItem(List<Competition> list) {
             List<SelectListItem> res = new List<SelectListItem>();
-            foreach (Competition c in list) {
-                SelectListItem sli = new SelectListItem {
-                    Text = c.Nom,
-                    Value = c.CompetitionID.ToString()
-                };
+            if (list != null) {
+                foreach (Competition c in list) {
+                    SelectListItem sli = new SelectListItem {
+                        Text = c.Nom,
+                        Value = c.CompetitionID.ToString()
+                    };
 
-                if (Session["selectedCompetition"] != null &&
-                   Convert.ToInt32(Session["selectedCompetition"]) == c.CompetitionID) {
-                    sli.Selected = true;
-                }
+                    if (Session["selectedCompetition"] != null &&
+                       Convert.ToInt32(Session["selectedCompetition"]) == c.CompetitionID) {
+                        sli.Selected = true;
+                    }
 
-                res.Add(sli);
+                    res.Add(sli);
+                }     
             }
 
             if (Session["selectedCompetition"] == null && res.Count > 0) {

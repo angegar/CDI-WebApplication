@@ -56,7 +56,6 @@ namespace KarateIsere.DataAccess {
             set;
         }
 
-        [Required]
         public virtual Categorie Categorie {
             get;
             set;

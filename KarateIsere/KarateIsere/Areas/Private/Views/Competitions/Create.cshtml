@@ -2,95 +2,95 @@
 @using KarateIsere.DataAccess;
 @{
     //Truc et astuce pour pouvoir utiliser la vue "Create" pour create et edit
-    string action = ViewContext.RouteData.GetRequiredString( "action" );
+    string action = ViewContext.RouteData.GetRequiredString("action");
     if (action != "Edit") {
         action = "Create";
     }
 }
 
-@using (Html.BeginForm( @action, "Competitions", FormMethod.Post )) {
+@using (Html.BeginForm(@action, "Competitions", FormMethod.Post)) {
     @Html.AntiForgeryToken()
 
     <div class="form-horizontal">
-        @Html.ValidationSummary( true, "", new {
+        @Html.ValidationSummary(true, "", new {
        @class = "text-danger"
-   } )
+   })
         <div class="form-group">
-            @Html.LabelFor( model => model.Nom, htmlAttributes: new {
+            @Html.LabelFor(model => model.Nom, htmlAttributes: new {
            @class = "control-label col-md-2"
-       } )
+       })
             <div class="col-md-10">
-                @Html.EditorFor( model => model.Nom, new {
+                @Html.EditorFor(model => model.Nom, new {
                htmlAttributes = new {
                    @class = "form-control"
                }
-           } )
-                @Html.ValidationMessageFor( model => model.Nom, "", new {
+           })
+                @Html.ValidationMessageFor(model => model.Nom, "", new {
                @class = "text-danger"
-           } )
+           })
             </div>
         </div>
 
         <div class="form-group">
-            @Html.LabelFor( model => model.DateCompetition, htmlAttributes: new {
+            @Html.LabelFor(model => model.DateCompetition, htmlAttributes: new {
            @class = "control-label col-md-2"
-       } )
+       })
             <div class="col-md-10">
-                @Html.EditorFor( model => model.DateCompetition, new {
+                @Html.EditorFor(model => model.DateCompetition, new {
                htmlAttributes = new {
                    @class = "form-control",
                    placeholder = "Choisissez une date",
                }
-           } )
+           })
 
-                @Html.ValidationMessageFor( model => model.DateCompetition, "", new {
+                @Html.ValidationMessageFor(model => model.DateCompetition, "", new {
                @class = "text-danger"
-           } )
+           })
             </div>
         </div>
 
         <div class="form-group">
-            @Html.LabelFor( model => model.FinInscription, htmlAttributes: new {
+            @Html.LabelFor(model => model.FinInscription, htmlAttributes: new {
            @class = "control-label col-md-2"
-       } )
+       })
             <div class="col-md-10">
-                @Html.EditorFor( model => model.FinInscription, new {
+                @Html.EditorFor(model => model.FinInscription, new {
                htmlAttributes = new {
                    @class = "form-control",
                }
-           } )
-                @Html.ValidationMessageFor( model => model.FinInscription, "", new {
+           })
+                @Html.ValidationMessageFor(model => model.FinInscription, "", new {
                @class = "text-danger"
-           } )
+           })
             </div>
         </div>
 
         <div class="form-group">
-            @Html.LabelFor( model => model.Lieu, htmlAttributes: new {
+            @Html.LabelFor(model => model.Lieu, htmlAttributes: new {
            @class = "control-label col-md-2"
-       } )
+       })
             <div class="col-md-10">
-                @Html.EditorFor( model => model.Lieu, new {
+                @Html.EditorFor(model => model.Lieu, new {
                htmlAttributes = new {
                    @class = "form-control"
                }
-           } )
-                @Html.ValidationMessageFor( model => model.Lieu, "", new {
+           })
+                @Html.ValidationMessageFor(model => model.Lieu, "", new {
                @class = "text-danger"
-           } )
+           })
             </div>
         </div>
 
         <div class="form-group">
-            @Html.LabelFor( model => model.IsKata, htmlAttributes: new {
+            @Html.LabelFor(model => model.IsKata, htmlAttributes: new {
            @class = "control-label col-md-2"
-       } )
+       })
             <div class="col-md-10">
                 <div class="checkbox">
-                    @Html.EditorFor( model => model.IsKata )
-                    @Html.ValidationMessageFor( model => model.IsKata, "", new {
+                    @Html.EditorFor(model => model.IsKata)
+                    @Html.ValidationMessageFor(model => model.IsKata, "", new {
                    @class = "text-danger"
-               } )
+               })
                 </div>
             </div>
         </div>
@@ -105,8 +105,10 @@
                 <div class="panel-body"
                      dropzone="true" ondrop="dropRemove(event)" ondragover="allowDrop(event)">
                     <ul id="dropSrc">
-                        @foreach (var item in ViewBag.CateList) {
-                            <li id="@item" draggable="true" ondragstart="drag(event)">@item</li>
+                        @if (ViewBag.CateList != null) {
+                            foreach (var item in ViewBag.CateList) {
+                                <li id="@item" draggable="true" ondragstart="drag(event)">@item</li>
+                            }
                         }
                     </ul>
                 </div>
@@ -125,8 +127,10 @@
                      dropzone="true" ondrop="dropAdd(event)" ondragover="allowDrop(event)">
 
                     <ul id="dropDest">
-                        @foreach (Categorie item in Model.Categorie) {
-                            <li id="@item.Nom" draggable="true" ondragstart="drag(event)">@item.Nom</li>
+                        @if (Model != null && Model.Categorie != null) {
+                            foreach (Categorie item in Model.Categorie) {
+                                <li id="@item.Nom" draggable="true" ondragstart="drag(event)">@item.Nom</li>
+                            }
                         }
                     </ul>
 

@@ -18,7 +18,7 @@
 
         <!-- Les champs suivant ne sont pas éditables, cependant il faut les envoyer au controlleur -->
         @Html.HiddenFor( model => model.NumLicence )
-        @Html.HiddenFor( model => model.NumAffiliationClub )
+        @Html.HiddenFor( model => model.NumAffiliation )
         @Html.HiddenFor( model => model.Nom )
         @Html.HiddenFor( model => model.Prenom )
         @Html.HiddenFor( model => model.isHomme )
@@ -76,15 +76,15 @@
         </div>
 
         <div class="form-group">
-            @Html.LabelFor( model => model.CategorieName, "Categorie", htmlAttributes: new {
+            @Html.LabelFor( model => model.CategorieID, "Categorie", htmlAttributes: new {
            @class = "control-label col-md-2"
        } )
             <div class="col-md-10">
-                @Html.DropDownListFor( model => model.CategorieName, (List<SelectListItem>
+                @Html.DropDownListFor( model => model.CategorieID, (List<SelectListItem>
                     ) ViewBag.Categories, htmlAttributes: new {
                         @class = "form-control"
                     } )
-                @Html.ValidationMessageFor( model => model.CategorieName, "", new {
+                @Html.ValidationMessageFor( model => model.CategorieID, "", new {
                @class = "text-danger"
            } )
             </div>

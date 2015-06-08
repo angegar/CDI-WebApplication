@@ -27,8 +27,8 @@ namespace KarateIsere.DataAccess {
         /// Delete a competitor as well as all the linked object.
         /// </summary>
         public override void Delete() {
-            Competiteur c = context.Competiteur.Find(NumLicence);  
-            
+            Competiteur c = context.Competiteur.Find(NumLicence);
+
 
             if (c != null) {
                 //Need to delete the Inscriptions of the integrity constraints
@@ -83,10 +83,12 @@ namespace KarateIsere.DataAccess {
 
                 res = (from c in context.Competiteur
                        where c.NumLicence.ToUpper() == numLicence.ToUpper()
-                       select c).
-                                  Include(d => d.Categorie).
-                                  Include(d => d.Club).
-                                  SingleOrDefault();
+                       select c)
+                                .Include(d => d.Categorie)
+                                .Include(d => d.Club)
+                                .Include(d => d.Inscriptions)
+                                .Include(d => d.ListeCompetiteur)
+                                .SingleOrDefault();
             }
             finally {
                 if (closeContext) {
@@ -115,7 +117,12 @@ namespace KarateIsere.DataAccess {
 
                 res = (from c in context.Competiteur
                        where c.NumAffiliation == numAffiliation
-                       select c).ToList();
+                       select c)
+                       .Include(d => d.Categorie)
+                       .Include(d => d.Club)
+                       .Include(d => d.Inscriptions)
+                       .Include(d => d.ListeCompetiteur)
+                       .ToList();
             }
             finally {
                 if (closeContext) context.Dispose();

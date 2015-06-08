@@ -179,6 +179,10 @@
     <Compile Include="Migrations\201505181807218_Identity_Tables.Designer.cs">
       <DependentUpon>201505181807218_Identity_Tables.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\201506082134158_RemoveConstraintOnCategorieName.cs" />
+    <Compile Include="Migrations\201506082134158_RemoveConstraintOnCategorieName.Designer.cs">
+      <DependentUpon>201506082134158_RemoveConstraintOnCategorieName.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\Adherents.cs" />
     <Compile Include="Models\Admin.cs" />
@@ -208,6 +212,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\201505181807218_Identity_Tables.resx">
       <DependentUpon>201505181807218_Identity_Tables.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201506082134158_RemoveConstraintOnCategorieName.resx">
+      <DependentUpon>201506082134158_RemoveConstraintOnCategorieName.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

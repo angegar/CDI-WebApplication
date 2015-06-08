@@ -55,7 +55,7 @@ namespace KarateIsere.Areas.Private.Controllers {
             foreach (Categorie c in cList) {
                 SelectListItem sli = new SelectListItem();
                 sli.Text = c.Nom;
-                sli.Value = c.Nom;
+                sli.Value = c.CategorieID.ToString();
                 res.Add(sli);
             }
 
@@ -66,9 +66,7 @@ namespace KarateIsere.Areas.Private.Controllers {
         [HttpPost]
         public ActionResult Create(Competiteur competiteur) {
             try {
-                if (ModelState.IsValid) {
-                    ApplicationUser user = (ApplicationUser) Session["User"];
-                    competiteur.NumAffiliation = user.NumAffiliation;
+                if (ModelState.IsValid) {                    
                     competiteur.Create();
                     return RedirectToAction("Index");
                 }
