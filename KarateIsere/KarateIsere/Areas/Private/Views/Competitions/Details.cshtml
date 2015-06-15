@@ -17,83 +17,159 @@
 <div id="pieSexe" style="width: 300px; height: 150px;" class="pull-left">
 </div>
 
+<div class="clearfix"></div>
+<div>
+    <table class="table-condensed ">
+        <tr>
+            <td>
+                @Html.ActionLink("Exporter", "Export", new { id = ViewBag.CompetId }, new { @class = "btn btn-default" })
+            </td>
+            <td>
+                @Ajax.ActionLink("Envoyer rappel", "NotifyNonInscrits",
+                new { id = ViewBag.CompetId },
+                new AjaxOptions {
+                    OnBegin="NotificationStart",
+                    OnSuccess="NotificationSuccess",
+                    OnFailure="NotificationFailed",
+                    InsertionMode = System.Web.Mvc.Ajax.InsertionMode.Replace,
+                    UpdateTargetId = "notifyRes"
+                },
+                new { @class = "btn btn-default", id = "NotifyEmail" }
+                )
+            </td>
 
-<table class="table">
-    <tr>
-        <th>
-            Catégorie
-        </th>
-        <th>
-            Club
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.Nom)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.Prenom)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.Poids)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.isHomme)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.NumLicence)
-        </th>
-        <th></th>
-    </tr>
+        </tr>
+    </table>
 
-    @foreach (var item in Model) {
-    <tr>
-        <td>
-            @Html.DisplayFor(modelItem => item.Categorie.Nom)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.Club.NomClub)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.Nom)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.Prenom)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.Poids)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.isHomme)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.NumLicence)
-        </td>
-        <td>
-            @Html.ActionLink("Edit", "Edit", new { id=item.NumLicence }) |
-            @Html.ActionLink("Details", "Details", new { id=item.NumLicence }) |
-            @Html.ActionLink("Delete", "Delete", new { id=item.NumLicence })
-        </td>
-    </tr>
-}
+    <table class="table">
+        <tr>
+            <th>
+                Catégorie
+            </th>
+            <th>
+                Club
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Nom)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Prenom)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Poids)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.isHomme)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.NumLicence)
+            </th>
+            <th></th>
+        </tr>
 
-</table>
+        @foreach (var item in Model) {
+            <tr>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Categorie.Nom)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Club.NomClub)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Nom)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Prenom)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Poids)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.isHomme)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.NumLicence)
+                </td>
+                <td>
+                    @Html.ActionLink("Edit", "Edit", new { id = item.NumLicence }) |
+                    @Html.ActionLink("Details", "Details", new { id = item.NumLicence }) |
+                    @Html.ActionLink("Delete", "Delete", new { id = item.NumLicence })
+                </td>
+            </tr>
+        }
 
-@Html.ActionLink("Exporter", "Export", new { id = ViewBag.CompetId }, new { @class = "btn btn-default" })
+    </table>
+
+</div>
+
 
 
 <script type="text/javascript" src="https://www.google.com/jsapi"></script>
-<script src="~/js/CompetReports.js"></script>
 
-<script type="text/javascript">
+<script src="~/js/EmailNotification.js"></script>
+
+<script>
+    //Display pie charts
+    function DrawStatistics() {
+
+        var Draw = {
+            init: function () {
+                this.PieCategorie('@Url.Action("PieCategorie", new { id =       ViewBag.CompetId })',
+                   "Catégories",
+                   "Categorie",
+                   "pieCate");
+                this.PieCategorie('@Url.Action("PieSexe", new { id = ViewBag.CompetId })',
+                        "Sexe",
+                        "Sexe",
+                        "pieSexe");
+            },
+
+            PieCategorie: function (url, titre, colName, targetDiv) {
+                $.ajax({
+                    type: 'POST',
+                    dataType: 'json',
+                    contentType: 'application/json',
+                    url: url,
+                    data: '{}',
+                    success: function (chartsdata) {
+
+                        // Callback that creates and populates a data table,
+                        // instantiates the pie chart, passes in the data and
+                        // draws it.
+
+                        var data = new google.visualization.DataTable();
+                        data.addColumn('string', colName);
+                        data.addColumn('number', 'Count');
+
+                        for (var i = 0; i < chartsdata.length; i++) {
+                            data.addRow([chartsdata[i][colName], chartsdata[i].Count]);
+                        }
+
+                        // Instantiate and draw our chart, passing in some options
+                        var chart = new google.visualization.PieChart(document.getElementById(targetDiv));
+
+                        chart.draw(data,
+                          {
+                              title: titre,
+                              position: "top",
+                              fontsize: "14px",
+                              chartArea: { width: '100%' },
+                          });
+                    },
+                    error: function () {
+                        alert("Error lors du chargement des données.");
+                    }
+                });
+            },
+        }
+
+        Draw.init();
+    };
+
     google.load("visualization", "1", { packages: ["corechart"] });
-    PieCategorie('@Url.Action("PieCategorie", new { id = ViewBag.CompetId })',
-                "Catégories",
-                "Catégorie",
-                "pieCate");
-
-    PieCategorie('@Url.Action("PieSexe", new { id = ViewBag.CompetId })',
-                "Sexe",
-                "Sexe",
-                "pieSexe");
-
+    google.setOnLoadCallback(DrawStatistics);
 </script>
+
+
+
 

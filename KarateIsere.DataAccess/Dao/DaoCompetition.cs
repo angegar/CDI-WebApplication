@@ -12,23 +12,22 @@ namespace KarateIsere.DataAccess {
         public override void Create() {
             Competition c = GetByName(Nom);
             if (c == null) {
-                CreateCategorie();
+                GetCategorie();
                 context.Competition.Add(this);
                 context.SaveChanges();
             }
         }
 
         public override void Delete() {
-            Competition c = context.Competition.Find(Nom);
+            //Competition compet = context.Competition.Find(CompetitionID);
+            Competition compet = (from c in context.Competition
+                                  where CompetitionID == c.CompetitionID
+                                  select c).Include(d => d.Categorie).SingleOrDefault();
 
-            if (c != null) {
-                //Need to delete the Inscriptions of the integrity constraints
-                /*List<Inscriptions> inscrs = context.Inscriptions.Where(
-                                                    d => d.CompetitionID == c.CompetitionID
-                                                    ).ToList();
-
-                context.Inscriptions.RemoveRange(inscrs);*/
-                context.Competition.Remove(c);
+            if (compet != null) {
+                compet.Categorie = null;
+                compet.Inscriptions = null;
+                context.Competition.Remove(compet);
             }
 
             context.SaveChanges();
@@ -172,20 +171,22 @@ namespace KarateIsere.DataAccess {
             return res;
         }
 
-        private void CreateCategorie() {
+        private void GetCategorie() {
             if (Categorie != null) {
+                List<Categorie> ctmp = new List<Categorie>();
                 foreach (Categorie ca in Categorie) {
-                    var tmp = Model.Categorie.Get(ca.Nom);
+                    Categorie tmp = Model.Categorie.Get(ca.Nom, context);
+
                     if (tmp != null) {
-                        context.Categorie.Attach(ca);
-                        context.Entry(this).State = EntityState.Unchanged;
+                        ctmp.Add(tmp);
                     }
                     else {
                         throw new Exception("La catégorie n'existe pas");
                     }
                 }
+
+                Categorie = ctmp;
             }
         }
-
     }
 }

@@ -54,7 +54,7 @@ namespace KarateIsere.DataAccess {
 
             if (c != null) {
                 if (c.CategorieID != CategorieID) {
-                    Categorie = Categorie.Get(Categorie.Nom);
+                    Categorie = Categorie.GetById(CategorieID);
                     context.Categorie.Attach(Categorie);
                 }
 

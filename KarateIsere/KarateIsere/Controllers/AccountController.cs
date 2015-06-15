@@ -152,7 +152,8 @@ namespace KarateIsere.Controllers {
 
                 user.Club = new Club {
                     NumAffiliation = model.NumAffiliation,
-                    NomClub = model.NomClub
+                    NomClub = model.NomClub,
+                    Correspondant = model.Email
                 };
 
                 Session["User"] = user;

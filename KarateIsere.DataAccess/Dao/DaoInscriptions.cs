@@ -137,5 +137,38 @@ namespace KarateIsere.DataAccess {
             return res;
 
         }
+
+        public static List<Club> GetNotInscripts(int competitionId, KarateIsereContext context = null) {
+            List<Club> res = new List<Club>();
+            bool closeContext = false;
+            try {
+                if (context == null) {
+                    context = new KarateIsereContext();
+                    closeContext = true;
+                }
+
+                //Liste des clubs déjà inscrits
+                List<Club> clubInscrits = (from i in context.Inscriptions 
+                      join comp in context.Competiteur on i.NumLicence equals comp.NumLicence
+                      join clubInsc in context.Club on comp.NumAffiliation equals clubInsc.NumAffiliation
+                      where i.CompetitionID == competitionId
+                      select clubInsc).ToList();
+
+                //Liste des clubs ayant déjà participé à une compétition
+                List<Club> clubPart = (from i in context.Inscriptions
+                                       join c in context.Club on i.Competiteur.Club.NumAffiliation equals c.NumAffiliation
+                                       select c).ToList();
+
+                //Liste des club ayant déjà participé à une compétition mais n'étant pas inscrits
+                res = (from c in clubPart 
+                      where !(from c1 in clubInscrits
+                             select c1.NumAffiliation).Contains(c.NumAffiliation)
+                       select c).ToList();
+            }
+            finally {
+                if (closeContext) context.Dispose();
+            }
+            return res;
+        }
     }
 }

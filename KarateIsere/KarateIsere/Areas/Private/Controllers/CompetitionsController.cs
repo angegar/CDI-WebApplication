@@ -3,16 +3,23 @@ using System.Collections.Generic;
 using System.Diagnostics.Contracts;
 using System.IO;
 using System.Linq;
+using System.Net.Mail;
 using System.Text;
 using System.Web;
 using System.Web.Mvc;
 using KarateIsere.DataAccess;
 using KarateIsere.DataAccess.Tool;
 using KarateIsere.Models;
+using Microsoft.AspNet.Identity;
+using Microsoft.AspNet.Identity.Owin;
+using NLog;
 
 namespace KarateIsere.Areas.Private.Controllers {
     [Authorize(Roles = "Admin")]
     public class CompetitionsController : Controller {
+
+        private static Logger logger = LogManager.GetCurrentClassLogger();
+
         // GET: Private/Competitions
         public ActionResult Index() {
             return View(GetCompetitions());
@@ -225,7 +232,7 @@ namespace KarateIsere.Areas.Private.Controllers {
             //Competition compet = Competition.GetById(id);
             List<Competiteur> competiteurs = Inscriptions.GetInscriptions(id);
             var res = from c in competiteurs
-                      group c by c.CategorieID into g
+                      group c by c.Categorie.Nom into g
                       select new { Categorie = g.Key, Count = g.Count() };
             return Json(res, JsonRequestBehavior.AllowGet);
         }
@@ -240,10 +247,73 @@ namespace KarateIsere.Areas.Private.Controllers {
             List<Competiteur> competiteurs = Inscriptions.GetInscriptions(id);
             var res = from c in competiteurs
                       group c by c.isHomme into g
-                      select new { Sexe = g.Key, Count = g.Count() };
+                      select new { Sexe = g.Key ? "Homme" : "Femme", Count = g.Count() };
             return Json(res, JsonRequestBehavior.AllowGet);
         }
 
+        #endregion
+
+        #region Club notification
+
+        public JsonResult NotifyNonInscrits(int id) {
+            /* Attention avec l'hébergement OVH on peut envoyé
+             * 200 mails/heure/compte ou 300 mails/heure/IP
+             * */
+            string msg;
+
+            try {
+                List<Club> clubs = Inscriptions.GetNotInscripts(id);
+
+                foreach (Club c in clubs) {
+                    if (!string.IsNullOrEmpty(c.Correspondant)) {
+                        sendEmail(c, id);
+                    }
+                }
+                msg = "Email de rappel envoyé avec succès";
+                return Json(msg, JsonRequestBehavior.AllowGet);
+            }
+            catch (Exception e) {
+                logger.Error(e);
+                msg = "Echec lors de l'envoie du rappel";
+                return Json(msg, JsonRequestBehavior.AllowGet);
+            }
+        }
+
+        /// <summary>
+        /// Send a confirmation email to the new admin user
+        /// </summary>
+        /// <param name="toEmail">Admin email</param>
+        private void sendEmail(Club club, int competitionId) {
+            Contract.Requires(club != null && !string.IsNullOrEmpty(club.Correspondant));
+            Contract.Requires(competitionId > 0);
+
+            //ToDo : c'est assez moche il faut améliorer le mail et
+            //peut externaliser la fonction afin de pouvoir la réutiliser
+            Competition compet = Competition.GetById(competitionId);
+
+            using (SmtpClient client = new SmtpClient()) {
+                try {
+                    int remainingDay = (int) (compet.FinInscription - DateTime.Now).TotalDays;
+
+                    MailMessage mailMessage = new MailMessage();
+                    MailAddress fromAdd = new MailAddress("admin@karateisere.fr", "Karaté Isère");
+                    mailMessage.From = fromAdd;
+                    mailMessage.To.Add(club.Correspondant);
+                    mailMessage.Subject = "Inscription " + compet.Nom;
+
+                    string msg = "Bonjour {0}, " +
+                                  "Il ne vous reste plus que {1} jour(s) pour inscrire votre club à {2}";
+                    string.Format(msg, club.NomClub, remainingDay, compet.Nom);
+
+                    mailMessage.Body = msg;
+                    client.Send(mailMessage);
+                }
+                catch (Exception e) {
+                    logger.Error(e);
+                }
+            }
+
+        }
         #endregion
     }
 }
