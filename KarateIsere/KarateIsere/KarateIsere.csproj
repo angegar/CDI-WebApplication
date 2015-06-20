@@ -279,10 +279,12 @@
     <Content Include="Content\bootstrap.css" />
     <Content Include="Content\bootstrap.min.css" />
     <Content Include="Content\Gridmvc.css" />
+    <Content Include="Content\RappelInscription.html" />
     <Content Include="favicon.ico" />
     <Content Include="fonts\glyphicons-halflings-regular.svg" />
     <Content Include="Global.asax" />
     <Content Include="Content\Site.css" />
+    <None Include="img\logo.gif-old" />
     <Content Include="img\logo.gif" />
     <Content Include="js\CompetReports.js" />
     <Content Include="js\EmailNotification.js" />

@@ -100,17 +100,18 @@ namespace KarateIsere.DataAccess {
             get;
             set;
         }
-
         public virtual DbSet<NotificationEmail> NotificationEmail {
             get;
             set;
         }
-
+        public virtual DbSet<Mail> Mail {
+            get;
+            set;
+        }
         public virtual DbSet<Professeurs> Professeurs {
             get;
             set;
         }
-
         public virtual DbSet<Role> Roles { get; set; }
 
         protected override void OnModelCreating(DbModelBuilder modelBuilder) {

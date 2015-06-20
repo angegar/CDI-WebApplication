@@ -4,6 +4,7 @@ using System.Diagnostics.Contracts;
 using System.IO;
 using System.Linq;
 using System.Net.Mail;
+using System.Net.Mime;
 using System.Text;
 using System.Web;
 using System.Web.Mvc;
@@ -263,12 +264,22 @@ namespace KarateIsere.Areas.Private.Controllers {
 
             try {
                 List<Club> clubs = Inscriptions.GetNotInscripts(id);
+                List<string> parameters = null;
+                Competition compet = Competition.GetById(id);
+                int remainingDay = (int)(compet.FinInscription - DateTime.Now).TotalDays;
 
                 foreach (Club c in clubs) {
                     if (!string.IsNullOrEmpty(c.Correspondant)) {
-                        sendEmail(c, id);
+                        parameters = new List<string>{
+                            c.NomClub,
+                            remainingDay.ToString(),
+                            compet.Nom
+                        };
+
+                        sendEmail(c.Correspondant, "RappelInscriptionCompet", parameters);
                     }
                 }
+
                 msg = "Email de rappel envoyé avec succès";
                 return Json(msg, JsonRequestBehavior.AllowGet);
             }
@@ -279,41 +290,51 @@ namespace KarateIsere.Areas.Private.Controllers {
             }
         }
 
-        /// <summary>
-        /// Send a confirmation email to the new admin user
-        /// </summary>
-        /// <param name="toEmail">Admin email</param>
-        private void sendEmail(Club club, int competitionId) {
-            Contract.Requires(club != null && !string.IsNullOrEmpty(club.Correspondant));
-            Contract.Requires(competitionId > 0);
 
-            //ToDo : c'est assez moche il faut améliorer le mail et
-            //peut externaliser la fonction afin de pouvoir la réutiliser
-            Competition compet = Competition.GetById(competitionId);
+        private void sendEmail(string destEmail, string mailIdentifier, List<string> parameters) {
 
+            //Send mail
             using (SmtpClient client = new SmtpClient()) {
-                try {
-                    int remainingDay = (int) (compet.FinInscription - DateTime.Now).TotalDays;
+                MailMessage mailMessage = new MailMessage();
+                ContentType mimeType = new System.Net.Mime.ContentType("text/html");
 
-                    MailMessage mailMessage = new MailMessage();
-                    MailAddress fromAdd = new MailAddress("admin@karateisere.fr", "Karaté Isère");
-                    mailMessage.From = fromAdd;
-                    mailMessage.To.Add(club.Correspondant);
-                    mailMessage.Subject = "Inscription " + compet.Nom;
+                //Load the html message linked content
+                string filePath = Server.MapPath(Url.Content("~/img/logo.gif"));
+                LinkedResource inline = new LinkedResource(filePath, MediaTypeNames.Image.Gif);
+                inline.ContentId = "logo";//Guid.NewGuid().ToString();
 
-                    string msg = "Bonjour {0}, " +
-                                  "Il ne vous reste plus que {1} jour(s) pour inscrire votre club à {2}";
-                    string.Format(msg, club.NomClub, remainingDay, compet.Nom);
+                parameters.Insert(0, inline.ContentId);
+                string message = BuildMsgBody(mailIdentifier, parameters.ToArray());
 
-                    mailMessage.Body = msg;
-                    client.Send(mailMessage);
-                }
-                catch (Exception e) {
-                    logger.Error(e);
-                }
+
+                //Create and the html message to the email
+                AlternateView avHtml = AlternateView.CreateAlternateViewFromString(message, mimeType);
+                avHtml.LinkedResources.Add(inline);
+                mailMessage.AlternateViews.Add(avHtml);
+
+                MailAddress fromAdd = new MailAddress("admin@karateisere.fr", "Commission Sportive Karaté Isère");
+                mailMessage.From = fromAdd;
+                mailMessage.To.Add(destEmail);
+                mailMessage.Subject = "test";
+
+                //Add the standard message to the email
+                mailMessage.Body = message;
+                mailMessage.IsBodyHtml = true;
+                client.Send(mailMessage);
             }
-
         }
+
+        private string BuildMsgBody(string mailIdentifier, object[] param) {
+            string res = "<table>{0}{1}</table>";
+            Mail mailHeader = Mail.Get("MailHeader");
+            Mail mail = Mail.Get(mailIdentifier);
+            res = string.Format(res, mailHeader.Message, mail.Message);
+            System.Diagnostics.Trace.WriteLine(res);
+            res = string.Format(res, param);
+            System.Diagnostics.Trace.WriteLine(res);
+            return res;
+        }
+
         #endregion
     }
 }

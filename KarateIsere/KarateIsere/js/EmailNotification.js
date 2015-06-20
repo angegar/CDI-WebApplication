@@ -7,7 +7,7 @@ function NotificationEnd(data) {
 }
 
 function NotificationSuccess(data) {
-    $('#NotifyEmail').removeAttr("disabled");
+    $('#NotifyEmail').removeAttr("disabled", false);
     $('#notifyRes').addClass("alert-success");
     $('#notifyRes').show();
 

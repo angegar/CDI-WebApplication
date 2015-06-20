@@ -171,6 +171,7 @@
     <Compile Include="Dao\DaoCompetiteur.cs" />
     <Compile Include="Dao\DaoCompetition.cs" />
     <Compile Include="Dao\DaoInscriptions.cs" />
+    <Compile Include="Dao\DaoMail.cs" />
     <Compile Include="Migrations\201505171725358_Initial.cs" />
     <Compile Include="Migrations\201505171725358_Initial.Designer.cs">
       <DependentUpon>201505171725358_Initial.cs</DependentUpon>
@@ -182,6 +183,14 @@
     <Compile Include="Migrations\201506082134158_RemoveConstraintOnCategorieName.cs" />
     <Compile Include="Migrations\201506082134158_RemoveConstraintOnCategorieName.Designer.cs">
       <DependentUpon>201506082134158_RemoveConstraintOnCategorieName.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201506202010525_Mail.cs" />
+    <Compile Include="Migrations\201506202010525_Mail.Designer.cs">
+      <DependentUpon>201506202010525_Mail.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201506202014138_Mail2.cs" />
+    <Compile Include="Migrations\201506202014138_Mail2.Designer.cs">
+      <DependentUpon>201506202014138_Mail2.cs</DependentUpon>
     </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\Adherents.cs" />
@@ -195,6 +204,7 @@
     <Compile Include="Models\Inscriptions.cs" />
     <Compile Include="KarateIsere.cs" />
     <Compile Include="Models\ListeCompetiteur.cs" />
+    <Compile Include="Models\Mail.cs" />
     <Compile Include="Models\NotificationEmail.cs" />
     <Compile Include="Models\Professeurs.cs" />
     <Compile Include="Dao\DaoRole.cs" />
@@ -215,6 +225,12 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\201506082134158_RemoveConstraintOnCategorieName.resx">
       <DependentUpon>201506082134158_RemoveConstraintOnCategorieName.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201506202010525_Mail.resx">
+      <DependentUpon>201506202010525_Mail.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201506202014138_Mail2.resx">
+      <DependentUpon>201506202014138_Mail2.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
