@@ -304,7 +304,8 @@ namespace KarateIsere.Areas.Private.Controllers {
                 inline.ContentId = "logo";//Guid.NewGuid().ToString();
 
                 parameters.Insert(0, inline.ContentId);
-                string message = BuildMsgBody(mailIdentifier, parameters.ToArray());
+                string subject = string.Empty;
+                string message = BuildMsgBody(mailIdentifier, parameters.ToArray(), out subject);
 
 
                 //Create and the html message to the email
@@ -315,7 +316,7 @@ namespace KarateIsere.Areas.Private.Controllers {
                 MailAddress fromAdd = new MailAddress("admin@karateisere.fr", "Commission Sportive Karaté Isère");
                 mailMessage.From = fromAdd;
                 mailMessage.To.Add(destEmail);
-                mailMessage.Subject = "test";
+                mailMessage.Subject = subject;
 
                 //Add the standard message to the email
                 mailMessage.Body = message;
@@ -324,14 +325,16 @@ namespace KarateIsere.Areas.Private.Controllers {
             }
         }
 
-        private string BuildMsgBody(string mailIdentifier, object[] param) {
+        private string BuildMsgBody(string mailIdentifier, object[] param,out string subject) {
             string res = "<table>{0}{1}</table>";
             Mail mailHeader = Mail.Get("MailHeader");
             Mail mail = Mail.Get(mailIdentifier);
-            res = string.Format(res, mailHeader.Message, mail.Message);
-            System.Diagnostics.Trace.WriteLine(res);
+
+            subject = mail.Subject;
+
+            res = string.Format(res, mailHeader.Message, mail.Message);   
             res = string.Format(res, param);
-            System.Diagnostics.Trace.WriteLine(res);
+           
             return res;
         }
 

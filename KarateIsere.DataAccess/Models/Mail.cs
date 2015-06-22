@@ -26,6 +26,11 @@ namespace KarateIsere.DataAccess {
         public string Message { get; set; }
 
         /// <summary>
+        /// Gets or sets the mail subject
+        /// </summary>
+        public string Subject { get; set; }
+
+        /// <summary>
         /// Gets or sets the mail header(logo+CDI)
         /// </summary>
         public Mail Header { get; set; }
@@ -41,7 +46,7 @@ namespace KarateIsere.DataAccess {
         }
 
         public Mail(string commonIdentifier) {
-            this.CommonIdentifer = commonIdentifier;           
+            this.CommonIdentifer = commonIdentifier;
         }
     }
 }

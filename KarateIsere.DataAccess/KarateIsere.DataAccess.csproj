@@ -192,6 +192,10 @@
     <Compile Include="Migrations\201506202014138_Mail2.Designer.cs">
       <DependentUpon>201506202014138_Mail2.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\201506210644204_Mail3-addSubject.cs" />
+    <Compile Include="Migrations\201506210644204_Mail3-addSubject.Designer.cs">
+      <DependentUpon>201506210644204_Mail3-addSubject.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\Adherents.cs" />
     <Compile Include="Models\Admin.cs" />
@@ -231,6 +235,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\201506202014138_Mail2.resx">
       <DependentUpon>201506202014138_Mail2.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201506210644204_Mail3-addSubject.resx">
+      <DependentUpon>201506210644204_Mail3-addSubject.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

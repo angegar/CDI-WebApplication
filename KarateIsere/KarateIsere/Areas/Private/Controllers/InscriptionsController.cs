@@ -20,7 +20,7 @@ namespace KarateIsere.Areas.Private.Controllers {
             if (Session["selectedCompetition"] != null) {
                 int competitionId = Convert.ToInt32(Session["selectedCompetition"]);
                 dejaInscr = GetInscrits(club, competitionId);
-                competiteur = GetCompetiteurs(club.NumAffiliation, dejaInscr);
+                competiteur = GetCompetiteurs(club.NumAffiliation, dejaInscr,competitionId);
             }
             else {
                 competiteur = Competiteur.GetCompetitieurs(club.NumAffiliation);
@@ -57,12 +57,19 @@ namespace KarateIsere.Areas.Private.Controllers {
         /// <param name="numAffClub">Numéro d'affiliation du club</param>
         /// <param name="exclude">Liste des compétiteurs déjà inscrits</param>
         /// <returns>Liste de compétiteur ou null</returns>
-        private List<Competiteur> GetCompetiteurs(string numAffClub, List<Competiteur> exclude) {
+        private List<Competiteur> GetCompetiteurs(string numAffClub, List<Competiteur> exclude,int competitionId) {
+            //Exclue les compétiteurs qui sont déjà inscrits
             List<Competiteur> res = Competiteur.GetCompetitieurs(numAffClub);
             res.RemoveAll(d => exclude.Any(
                                 e => e.NumLicence == d.NumLicence
                                 )
                          );
+
+            //Exclue les compétiteurs qui ne sont pas dans les catégories de la compétition
+            Competition compet = Competition.GetById(competitionId);
+            List<int> categoriIds = compet.Categorie.Select(d => d.CategorieID).ToList();
+            res = res.Where(d => categoriIds.Contains(d.CategorieID)).ToList();
+
             return res;
         }
 
