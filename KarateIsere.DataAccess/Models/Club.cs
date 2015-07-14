@@ -1,16 +1,21 @@
 namespace KarateIsere.DataAccess
 {
     using System;
-using System.Collections.Generic;
-using System.ComponentModel;
-using System.ComponentModel.DataAnnotations;
-using System.ComponentModel.DataAnnotations.Schema;
-using System.Data.Entity.Spatial;
-using Newtonsoft.Json;
+    using System.Collections.Generic;
+    using System.ComponentModel;
+    using System.ComponentModel.DataAnnotations;
+    using System.ComponentModel.DataAnnotations.Schema;
+    using System.Data.Entity.Spatial;
+    using System.Text.RegularExpressions;
+    using Newtonsoft.Json;
 
     [Table("Club")]
     public partial class Club
     {
+        private string facebook;
+
+        private string siteWeb;
+
         private int art_MartialID = 1;
         public Club()
         {
@@ -53,10 +58,42 @@ using Newtonsoft.Json;
 
         [StringLength(100)]
         [DisplayName( "Site web" )]
-        public string Site_Web { get; set; }
+        public string Site_Web {
+            get {
+                return siteWeb;
+            }
+
+            set {
+                string pat = "http://*";
+                Regex r = new Regex(pat, RegexOptions.IgnoreCase);
+
+                if (!r.IsMatch(value)) {
+                    siteWeb = "http://" + value;
+                }
+                else {
+                    siteWeb = value;
+                }
+            }
+        }
 
         [StringLength(100)]
-        public string Facebook { get; set; }
+        public string Facebook {
+            get {
+                return facebook;
+            }
+
+            set {
+                string pat = "http://*";
+                Regex r = new Regex(pat, RegexOptions.IgnoreCase);
+
+                if (!r.IsMatch(value)) {
+                    facebook = "http://" + value;
+                }
+                else {
+                    facebook = value;
+                }
+            }
+        }
 
         [StringLength(10)]
         [DisplayName( "Tél. fixe" )]
