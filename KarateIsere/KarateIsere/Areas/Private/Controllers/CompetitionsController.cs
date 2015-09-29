@@ -136,7 +136,7 @@ namespace KarateIsere.Areas.Private.Controllers {
                 logger.Error(e);
             }
 
-            return View("Index", compet);
+            return View("Index", compets);
         }
 
         // GET: Private/Competitions/Edit/5
