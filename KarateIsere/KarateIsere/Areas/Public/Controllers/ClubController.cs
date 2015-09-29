@@ -9,22 +9,30 @@ using KarateIsere.DataAccess.Tool;
 using KarateIsere.Models;
 using Microsoft.AspNet.Identity.Owin;
 using Microsoft.Owin;
+using NLog;
 
 namespace KarateIsere.Areas.Public.Controllers {
     [Authorize(Roles = "User")]
     public class ClubController : Controller {
+
+        private Logger log = LogManager.GetCurrentClassLogger();
+
         // GET: Public/Club/Edit
         public ActionResult Edit() {
             Contract.Requires(User.Identity.IsAuthenticated,
                               "L'utilisateur doit être authentifié");
-
-            IOwinContext ctx = HttpContext.GetOwinContext();
-            ApplicationUserManager manager = ctx.GetUserManager<ApplicationUserManager>();
-            ApplicationUser user = manager.Users.First(d => d.Email == User.Identity.Name);
-            Club c = Club.Get(user.NumAffiliation);
-
             ClubViewModel model = new ClubViewModel();
-            Mapper.Map(c, model);
+            
+            try {
+                IOwinContext ctx = HttpContext.GetOwinContext();
+                ApplicationUserManager manager = ctx.GetUserManager<ApplicationUserManager>();
+                ApplicationUser user = manager.Users.First(d => d.Email == User.Identity.Name);
+                Club c = Club.Get(user.NumAffiliation);
+                Mapper.Map(c, model);
+            }
+            catch (Exception e) {
+                log.Error(e);
+            }
 
             return View("EditClub", model);
         }
@@ -46,6 +54,7 @@ namespace KarateIsere.Areas.Public.Controllers {
                 }
             }
             catch (Exception e) {
+                log.Error(e);
                 return View();
             }
         }
@@ -53,6 +62,7 @@ namespace KarateIsere.Areas.Public.Controllers {
         // GET: Public/Club/Delete/5
         public ActionResult Delete(int id) {
             return View();
+
         }
 
         // POST: Public/Club/Delete/5

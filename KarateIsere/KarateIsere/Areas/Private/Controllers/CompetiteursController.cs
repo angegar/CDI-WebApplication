@@ -27,7 +27,13 @@ namespace KarateIsere.Areas.Private.Controllers {
         // GET: Private/Competiteurs
         public ActionResult Index() {
             if (Session["User"] != null) {
-                 Init();
+                try {
+                    Init();
+                }
+                catch (Exception e) {
+                    logger.Error(e);
+                }
+
                 return View();
             }
             else {
@@ -83,8 +89,16 @@ namespace KarateIsere.Areas.Private.Controllers {
 
         // GET: Private/Competiteurs/Edit/5
         public ActionResult Edit(string id) {
-            Competiteur c = Competiteur.Get(id);
-            ViewBag.Categories = GetCategorieList();
+            Competiteur c = new Competiteur();
+
+            try {
+                c = Competiteur.Get(id);
+                ViewBag.Categories = GetCategorieList();
+            }
+            catch (Exception e) {
+                logger.Error(e);
+            }
+
             return View(c);
         }
 

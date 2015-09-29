@@ -23,13 +23,28 @@ namespace KarateIsere.Areas.Private.Controllers {
 
         // GET: Private/Competitions
         public ActionResult Index() {
+            List<Competition> compets = new List<Competition>();
+            try {
+                compets = GetCompetitions();
+            }
+            catch (Exception e) {
+                logger.Error(e);
+            }
+
             return View(GetCompetitions());
         }
 
         // GET: Private/Competitions/Details/5
         public ActionResult Details(int id) {
-            List<Competiteur> c = Inscriptions.GetInscriptions(id);
-            ViewBag.CompetId = id;
+            List<Competiteur> c = new List<Competiteur>();
+            try {
+                Inscriptions.GetInscriptions(id);
+                ViewBag.CompetId = id;
+            }
+            catch (Exception e) {
+                logger.Error(e);
+            }
+
             return View(c);
         }
 
@@ -40,81 +55,105 @@ namespace KarateIsere.Areas.Private.Controllers {
         /// <returns></returns>
         [HttpGet]
         public FileStreamResult Export(int id) {
-            Competition compet = Competition.GetById(id);
-            List<Competiteur> competiteurs = Inscriptions.GetInscriptions(id);
-            string delimChar = ";";
-            //Si je ferme moi-même les stream l'application crash
-            //il semble que le framework les ferme lui-même
-            MemoryStream output = new MemoryStream();
-            StreamWriter writer = new StreamWriter(output, Encoding.UTF8);
 
-            //headers
-            writer.Write("Club");
-            writer.Write(delimChar);
-            writer.Write("Catégorie");
-            writer.Write(delimChar);
-            writer.Write("NumLicence");
-            writer.Write(delimChar);
-            writer.Write("Nom");
-            writer.Write(delimChar);
-            writer.Write("Prenom");
-            writer.Write(delimChar);
-            writer.Write("Poids");
-            writer.WriteLine();
+            FileStreamResult res = null;
 
-            //Content
-            foreach (Competiteur c in competiteurs) {
-                writer.Write(c.Club.NomClub);
+            try {
+                Competition compet = Competition.GetById(id);
+                List<Competiteur> competiteurs = Inscriptions.GetInscriptions(id);
+                string delimChar = ";";
+                //Si je ferme moi-même les stream l'application crash
+                //il semble que le framework les ferme lui-même
+                MemoryStream output = new MemoryStream();
+                StreamWriter writer = new StreamWriter(output, Encoding.UTF8);
+
+                //headers
+                writer.Write("Club");
                 writer.Write(delimChar);
-                writer.Write(c.Categorie.Nom);
+                writer.Write("Catégorie");
                 writer.Write(delimChar);
-                writer.Write(c.NumLicence);
+                writer.Write("NumLicence");
                 writer.Write(delimChar);
-                writer.Write(c.Nom);
+                writer.Write("Nom");
                 writer.Write(delimChar);
-                writer.Write(c.Prenom);
+                writer.Write("Prenom");
                 writer.Write(delimChar);
-                writer.Write(c.Poids);
+                writer.Write("Poids");
                 writer.WriteLine();
-            }
 
-            writer.Flush();
-            output.Position = 0;
+                //Content
+                foreach (Competiteur c in competiteurs) {
+                    writer.Write(c.Club.NomClub);
+                    writer.Write(delimChar);
+                    writer.Write(c.Categorie.Nom);
+                    writer.Write(delimChar);
+                    writer.Write(c.NumLicence);
+                    writer.Write(delimChar);
+                    writer.Write(c.Nom);
+                    writer.Write(delimChar);
+                    writer.Write(c.Prenom);
+                    writer.Write(delimChar);
+                    writer.Write(c.Poids);
+                    writer.WriteLine();
+                }
 
-            return this.File(output,
+                writer.Flush();
+                output.Position = 0;
+
+                res = this.File(output,
                             "application/vnd.ms-excel",
                              compet.Nom + "_" + compet.DateCompetition.ToShortDateString() + ".csv");
+            }
+            catch (Exception e) {
+                logger.Error(e);
+            }
+
+            return res;
         }
 
         [HttpPost]
         public ActionResult Create(Competition compet) {
-            DateTime competDate = compet.DateCompetition;
-            DateTime finInscription = compet.FinInscription;
+            List<Competition> compets = new List<Competition>();
+            try {
+                DateTime competDate = compet.DateCompetition;
+                DateTime finInscription = compet.FinInscription;
 
-            if (competDate.CompareTo(finInscription) <= 0) {
-                ModelState.AddModelError("DateCompetition",
-                                    "La date de la compétition doit être " +
-                                    "supérieur à la date de fin d'inscription");
+                if (competDate.CompareTo(finInscription) <= 0) {
+                    ModelState.AddModelError("DateCompetition",
+                                        "La date de la compétition doit être " +
+                                        "supérieur à la date de fin d'inscription");
+                }
+
+                if (ModelState.IsValid) {
+                    compet.Categorie = (List<Categorie>) Session["selectedCategorie"];
+                    compet.Create();
+                    Session.Remove("selectedCategorie");
+                }
+
+                compets = GetCompetitions();
+            }
+            catch (Exception e) {
+                logger.Error(e);
             }
 
-            if (ModelState.IsValid) {
-                compet.Categorie = (List<Categorie>) Session["selectedCategorie"];
-                compet.Create();
-                Session.Remove("selectedCategorie");
-            }
-
-            return View("Index", GetCompetitions());
+            return View("Index", compet);
         }
 
         // GET: Private/Competitions/Edit/5
         public ActionResult Edit(string competName) {
-            Competition c = Competition.GetByName(competName);
+            Competition c = new Competition(); ;
+            try {
+                c = Competition.GetByName(competName);
 
-            //Liste des catégories déjà enregistrées
-            List<Categorie> listCate = c.Categorie.ToList();
-            Session["selectedCategorie"] = listCate;
-            List<string> cate = GetCateList(listCate);
-            ViewBag.CateList = cate;
+                //Liste des catégories déjà enregistrées
+                List<Categorie> listCate = c.Categorie.ToList();
+                Session["selectedCategorie"] = listCate;
+                List<string> cate = GetCateList(listCate);
+                ViewBag.CateList = cate;
+            }
+            catch (Exception e) {
+                logger.Error(e);
+            }
 
             return View(c);
         }
@@ -133,18 +172,25 @@ namespace KarateIsere.Areas.Private.Controllers {
                 return View("Edit", compet);
             }
             catch (Exception e) {
+                logger.Error(e);
                 return View();
             }
         }
 
         public ActionResult Delete(string competName) {
-            Competition c = Competition.GetByName(competName);
+            try {
+                Competition c = Competition.GetByName(competName);
 
-            if (c != null) {
-                c.Delete();
+                if (c != null) {
+                    c.Delete();
+                }
+
+                return View("Index", GetCompetitions());
             }
-
-            return View("Index", GetCompetitions());
+            catch (Exception e) {
+                logger.Error(e);
+                return View();
+            }
         }
 
         /// <summary>
@@ -153,21 +199,26 @@ namespace KarateIsere.Areas.Private.Controllers {
         /// </summary>
         /// <param name="name">Catégorie à ajouter</param>
         public void AddCategorie(string name) {
-            List<Categorie> selectedCate;
+            try {
+                List<Categorie> selectedCate;
 
-            if (Session["selectedCategorie"] != null) {
-                selectedCate = (List<Categorie>) Session["selectedCategorie"];
+                if (Session["selectedCategorie"] != null) {
+                    selectedCate = (List<Categorie>) Session["selectedCategorie"];
+                }
+                else {
+                    selectedCate = new List<Categorie>();
+                }
+
+                Categorie c = new Categorie {
+                    Nom = name
+                };
+
+                selectedCate.Add(c);
+                Session["selectedCategorie"] = selectedCate;
             }
-            else {
-                selectedCate = new List<Categorie>();
+            catch (Exception e) {
+                logger.Error(e);
             }
-
-            Categorie c = new Categorie {
-                Nom = name
-            };
-
-            selectedCate.Add(c);
-            Session["selectedCategorie"] = selectedCate;
         }
 
         /// <summary>
@@ -178,24 +229,28 @@ namespace KarateIsere.Areas.Private.Controllers {
         public void DelCategorie(string name, string competName) {
             Contract.Requires(Session["selectedCategorie"] != null,
                                "La variable de session ne devrait pas être vide à cet endroit du code");
+            try {
+                List<Categorie> selectedCate;
 
-            List<Categorie> selectedCate;
+                if (Session["selectedCategorie"] != null) {
+                    selectedCate = (List<Categorie>) Session["selectedCategorie"];
+                }
+                else {
+                    //Ne devrait jamais se produire
+                    Competition c = Competition.GetByName(competName);
+                    selectedCate = c.Categorie.ToList();
+                }
 
-            if (Session["selectedCategorie"] != null) {
-                selectedCate = (List<Categorie>) Session["selectedCategorie"];
+                Categorie cate = selectedCate.Where(d => d.Nom == name).SingleOrDefault();
+                if (cate != null) {
+                    selectedCate.Remove(cate);
+                }
+
+                Session["selectedCategorie"] = selectedCate;
             }
-            else {
-                //Ne devrait jamais se produire
-                Competition c = Competition.GetByName(competName);
-                selectedCate = c.Categorie.ToList();
+            catch (Exception e) {
+                logger.Error(e);
             }
-
-            Categorie cate = selectedCate.Where(d => d.Nom == name).SingleOrDefault();
-            if (cate != null) {
-                selectedCate.Remove(cate);
-            }
-
-            Session["selectedCategorie"] = selectedCate;
         }
 
         private List<Competition> GetCompetitions() {
@@ -266,7 +321,7 @@ namespace KarateIsere.Areas.Private.Controllers {
                 List<Club> clubs = Inscriptions.GetNotInscripts(id);
                 List<string> parameters = null;
                 Competition compet = Competition.GetById(id);
-                int remainingDay = (int)(compet.FinInscription - DateTime.Now).TotalDays;
+                int remainingDay = (int) (compet.FinInscription - DateTime.Now).TotalDays;
 
                 foreach (Club c in clubs) {
                     if (!string.IsNullOrEmpty(c.Correspondant)) {
@@ -325,16 +380,16 @@ namespace KarateIsere.Areas.Private.Controllers {
             }
         }
 
-        private string BuildMsgBody(string mailIdentifier, object[] param,out string subject) {
+        private string BuildMsgBody(string mailIdentifier, object[] param, out string subject) {
             string res = "<table>{0}{1}</table>";
             Mail mailHeader = Mail.Get("MailHeader");
             Mail mail = Mail.Get(mailIdentifier);
 
             subject = mail.Subject;
 
-            res = string.Format(res, mailHeader.Message, mail.Message);   
+            res = string.Format(res, mailHeader.Message, mail.Message);
             res = string.Format(res, param);
-           
+
             return res;
         }
 

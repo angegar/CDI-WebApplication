@@ -13,27 +13,23 @@ namespace KarateIsere.DataAccess {
             Contract.Requires(!string.IsNullOrWhiteSpace(NumLicence));
             Contract.Requires(CompetitionID > 0);
 
-            try {
-                bool existInscr = context.Inscriptions.Any(d =>
-                    d.CompetitionID == CompetitionID &&
-                    d.NumLicence == NumLicence);
+            bool existInscr = context.Inscriptions.Any(d =>
+                d.CompetitionID == CompetitionID &&
+                d.NumLicence == NumLicence);
 
 
-                //Inscriptions c = context.Inscriptions.Find( InscriptionId );
-                if (!existInscr) {
-                    //Competiteur = Competiteur.Get(NumLicence, context);
-                    //Competition = Competition.GetById(CompetitionID, context);
+            //Inscriptions c = context.Inscriptions.Find( InscriptionId );
+            if (!existInscr) {
+                //Competiteur = Competiteur.Get(NumLicence, context);
+                //Competition = Competition.GetById(CompetitionID, context);
 
-                    context.Inscriptions.Add(this);
-                    context.SaveChanges();
-                }
-                else {
-                    throw new Exception("Ce compétiteur est déjà inscrit.");
-                }
+                context.Inscriptions.Add(this);
+                context.SaveChanges();
             }
-            catch (Exception e) {
-                throw e;
+            else {
+                throw new Exception("Ce compétiteur est déjà inscrit.");
             }
+
         }
 
         public override void Delete() {
@@ -125,9 +121,9 @@ namespace KarateIsere.DataAccess {
                        join co in context.Competiteur on i.NumLicence equals co.NumLicence
                        where i.CompetitionID == competitionId
                        select co).Include(d => d.Categorie)
-                                 .Include(d=>d.Club)
-                                 .OrderBy(d=>d.Categorie.Nom)
-                                 .ThenBy(d=>d.Club.NomClub).ToList();
+                                 .Include(d => d.Club)
+                                 .OrderBy(d => d.Categorie.Nom)
+                                 .ThenBy(d => d.Club.NomClub).ToList();
 
 
             }
@@ -148,11 +144,11 @@ namespace KarateIsere.DataAccess {
                 }
 
                 //Liste des clubs déjà inscrits
-                List<Club> clubInscrits = (from i in context.Inscriptions 
-                      join comp in context.Competiteur on i.NumLicence equals comp.NumLicence
-                      join clubInsc in context.Club on comp.NumAffiliation equals clubInsc.NumAffiliation
-                      where i.CompetitionID == competitionId
-                      select clubInsc).ToList();
+                List<Club> clubInscrits = (from i in context.Inscriptions
+                                           join comp in context.Competiteur on i.NumLicence equals comp.NumLicence
+                                           join clubInsc in context.Club on comp.NumAffiliation equals clubInsc.NumAffiliation
+                                           where i.CompetitionID == competitionId
+                                           select clubInsc).ToList();
 
                 //Liste des clubs ayant déjà participé à une compétition
                 List<Club> clubPart = (from i in context.Inscriptions
@@ -160,9 +156,9 @@ namespace KarateIsere.DataAccess {
                                        select c).ToList();
 
                 //Liste des club ayant déjà participé à une compétition mais n'étant pas inscrits
-                res = (from c in clubPart 
-                      where !(from c1 in clubInscrits
-                             select c1.NumAffiliation).Contains(c.NumAffiliation)
+                res = (from c in clubPart
+                       where !(from c1 in clubInscrits
+                               select c1.NumAffiliation).Contains(c.NumAffiliation)
                        select c).ToList();
             }
             finally {

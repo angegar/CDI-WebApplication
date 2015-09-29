@@ -4,13 +4,21 @@ using System.Linq;
 using System.Web;
 using System.Web.Mvc;
 using KarateIsere.DataAccess;
+using NLog;
 
 namespace KarateIsere.Areas.Private.Controllers {
     [Authorize(Roles = "Admin")]
     public class CategoriesController : Controller {
+        Logger log = LogManager.GetCurrentClassLogger();
+
         // GET: Private/Categories
         public ActionResult Index () {
-            InitCategorie();
+            try {
+                InitCategorie();
+            }
+            catch (Exception e) {
+                log.Error(e);
+            }
             return View();
         }
 
@@ -20,23 +28,35 @@ namespace KarateIsere.Areas.Private.Controllers {
         }
 
         [HttpPost]
-        public ActionResult Create ( Categorie cate ) {          
-            if (ModelState.IsValid) {
-                cate.Create();
-                return RedirectToAction("Index");
+        public ActionResult Create ( Categorie cate ) {
+            try {
+                if (ModelState.IsValid) {
+                    cate.Create();
+                    return RedirectToAction("Index");
+                }
+
+                InitCategorie();
+            }
+            catch (Exception e) {
+                log.Error(e);
             }
 
-            InitCategorie();
             return View("Index",cate);
         }
 
         public ActionResult Delete ( string nomCate ) {
-            Categorie c = new Categorie {
-                Nom = nomCate
-            };
+            try {
+                Categorie c = new Categorie {
+                    Nom = nomCate
+                };
 
-            c.Delete();
-            return RedirectToAction( "Index" );
+                c.Delete();              
+            }
+            catch (Exception e) {
+                log.Error(e);
+            }
+
+            return RedirectToAction("Index");
         }
 
         private void InitCategorie() {

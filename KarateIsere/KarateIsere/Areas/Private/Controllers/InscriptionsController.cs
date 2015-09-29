@@ -5,31 +5,38 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Web;
 using System.Web.Mvc;
+using NLog;
 
 namespace KarateIsere.Areas.Private.Controllers {
     [Authorize(Roles="User")]
     public class InscriptionsController : Controller {
+        Logger log = LogManager.GetCurrentClassLogger();
+
         // GET: Private/Inscriptions
         public ActionResult Index() {
-            ApplicationUser club = (ApplicationUser) Session["User"];
-            ViewBag.Competition = ToSelectItem(Competition.GetActive());
+            try {
+                ApplicationUser club = (ApplicationUser) Session["User"];
+                ViewBag.Competition = ToSelectItem(Competition.GetActive());
 
-            List<Competiteur> dejaInscr = new List<Competiteur>();
-            List<Competiteur> competiteur = new List<Competiteur>();
+                List<Competiteur> dejaInscr = new List<Competiteur>();
+                List<Competiteur> competiteur = new List<Competiteur>();
 
-            if (Session["selectedCompetition"] != null) {
-                int competitionId = Convert.ToInt32(Session["selectedCompetition"]);
-                dejaInscr = GetInscrits(club, competitionId);
-                competiteur = GetCompetiteurs(club.NumAffiliation, dejaInscr,competitionId);
+                if (Session["selectedCompetition"] != null) {
+                    int competitionId = Convert.ToInt32(Session["selectedCompetition"]);
+                    dejaInscr = GetInscrits(club, competitionId);
+                    competiteur = GetCompetiteurs(club.NumAffiliation, dejaInscr, competitionId);
+                }
+                else {
+                    competiteur = Competiteur.GetCompetitieurs(club.NumAffiliation);
+                }
+
+                ViewBag.Inscrits = dejaInscr;
+                Session["SelectedCompetiteurs"] = dejaInscr.Select(d => d.NumLicence).ToList();
+                ViewBag.Competiteurs = competiteur;
             }
-            else {
-                competiteur = Competiteur.GetCompetitieurs(club.NumAffiliation);
+            catch (Exception e) {
+                log.Error(e);
             }
-
-            ViewBag.Inscrits = dejaInscr;
-            Session["SelectedCompetiteurs"] = dejaInscr.Select(d => d.NumLicence).ToList();
-            ViewBag.Competiteurs = competiteur;
-
             return View();
         }
 
@@ -101,29 +108,39 @@ namespace KarateIsere.Areas.Private.Controllers {
         }
 
         public void AddCompetiteur(string numLicence) {
-            List<string> selLicences;
-            if (Session["SelectedCompetiteurs"] != null) {
-                selLicences = (List<string>) Session["SelectedCompetiteurs"];
-            }
-            else {
-                selLicences = new List<string>();
-            }
+            try {
+                List<string> selLicences;
+                if (Session["SelectedCompetiteurs"] != null) {
+                    selLicences = (List<string>) Session["SelectedCompetiteurs"];
+                }
+                else {
+                    selLicences = new List<string>();
+                }
 
-            selLicences.Add(numLicence);
-            Session.Add("SelectedCompetiteurs", selLicences);
+                selLicences.Add(numLicence);
+                Session.Add("SelectedCompetiteurs", selLicences);
+            }
+            catch (Exception e) {
+                log.Error(e);
+            }
         }
 
         public void DelCompetiteur(string numLicence) {
-            List<string> selLicences;
-            if (Session["SelectedCompetiteurs"] != null) {
-                selLicences = (List<string>) Session["SelectedCompetiteurs"];
-            }
-            else {
-                selLicences = new List<string>();
-            }
+            try {
+                List<string> selLicences;
+                if (Session["SelectedCompetiteurs"] != null) {
+                    selLicences = (List<string>) Session["SelectedCompetiteurs"];
+                }
+                else {
+                    selLicences = new List<string>();
+                }
 
-            selLicences.Remove(numLicence);
-            Session.Add("SelectedCompetiteurs", selLicences);
+                selLicences.Remove(numLicence);
+                Session.Add("SelectedCompetiteurs", selLicences);
+            }
+            catch (Exception e) {
+                log.Error(e);
+            }
         }
 
         public void SetCompetition(string competId) {
@@ -176,6 +193,7 @@ namespace KarateIsere.Areas.Private.Controllers {
                 return RedirectToAction("Index");
             }
             catch (Exception e) {
+                log.Error(e);
                 return View();
             }
         }

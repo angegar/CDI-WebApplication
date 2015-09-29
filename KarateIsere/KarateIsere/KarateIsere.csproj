@@ -128,8 +128,9 @@
       <HintPath>..\packages\Grid.Mvc.3.0.0\lib\net40\GridMvc.dll</HintPath>
     </Reference>
     <Reference Include="Microsoft.CSharp" />
-    <Reference Include="NLog">
-      <HintPath>..\packages\NLog.3.1.0.0\lib\net45\NLog.dll</HintPath>
+    <Reference Include="NLog, Version=4.0.0.0, Culture=neutral, PublicKeyToken=5120e14c03d0593c, processorArchitecture=MSIL">
+      <HintPath>..\packages\NLog.4.1.2\lib\net45\NLog.dll</HintPath>
+      <Private>True</Private>
     </Reference>
     <Reference Include="System" />
     <Reference Include="System.Data" />
@@ -301,7 +302,6 @@
     <Content Include="Areas\Private\Views\Categories\Create.cshtml" />
     <Content Include="Areas\Private\Views\Competitions\Index.cshtml" />
     <Content Include="Areas\Private\Views\Competitions\Create.cshtml" />
-    <Content Include="NLog.config" />
     <Content Include="Areas\Private\Views\Competitions\Edit.cshtml" />
     <Content Include="Areas\Private\Views\Competiteurs\Index.cshtml" />
     <Content Include="Areas\Private\Views\Competiteurs\Create.cshtml" />
@@ -311,9 +311,6 @@
     <Content Include="Areas\Private\Views\Role\Index.cshtml" />
     <Content Include="Areas\Private\Views\Admin\CreateAdmin.cshtml" />
     <Content Include="Areas\Private\Views\Competitions\Details.cshtml" />
-    <None Include="NLog.xsd">
-      <SubType>Designer</SubType>
-    </None>
     <None Include="Properties\PublishProfiles\karateisere.pubxml" />
     <None Include="Properties\PublishProfiles\Maion.pubxml" />
     <None Include="Scripts\jquery-1.10.2.intellisense.js" />

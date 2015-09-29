@@ -29,17 +29,24 @@ namespace KarateIsere.Areas.Private.Controllers {
 
         // GET: Private/Admin
         public ActionResult Index() {
-            //Get list of admin account
-            Role r = new Role("Admin");
-            List<ApplicationUser> admins = r.GetUsers();
-            if (admins.Count == 0 || ClaimsPrincipal.Current.IsInRole("Admin")) {
-                ViewBag.Admins = admins != null ? admins : new List<ApplicationUser>();
-                return View("CreateAdmin");
+            try {
+                //Get list of admin account
+                Role r = new Role("Admin");
+                List<ApplicationUser> admins = r.GetUsers();
+                if (admins.Count == 0 || ClaimsPrincipal.Current.IsInRole("Admin")) {
+                    ViewBag.Admins = admins != null ? admins : new List<ApplicationUser>();
+                    return View("CreateAdmin");
+                }
+                else {
+                    //redirect to th home page
+                    return RedirectToRoute("Index", "Home");
+                }
             }
-            else {
-                //redirect to th home page
-                return RedirectToRoute("Index", "Home");
+            catch (Exception e) {
+                logger.Error(e);
             }
+
+            return RedirectToRoute("Index", "Home");
         }
 
         // POST: Private/Admin/Create
@@ -49,7 +56,7 @@ namespace KarateIsere.Areas.Private.Controllers {
                 Role r = new Role("Admin");
                 List<ApplicationUser> admins = r.GetUsers();
 
-                if ( admins.Count == 0 || ClaimsPrincipal.Current.IsInRole("Admin")) {
+                if (admins.Count == 0 || ClaimsPrincipal.Current.IsInRole("Admin")) {
                     string userEmail = collection["email"].ToString();
                     ApplicationUser user = null;
                     string password = string.Empty;

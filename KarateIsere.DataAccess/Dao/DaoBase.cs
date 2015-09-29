@@ -19,6 +19,7 @@ namespace KarateIsere.DataAccess {
         public void Dispose () {
             if (context != null) {
                 context.Dispose();
+                GC.SuppressFinalize(this);
             }
         }
 
@@ -32,5 +33,7 @@ namespace KarateIsere.DataAccess {
             context.Entry( obj ).State = EntityState.Deleted;
             context.SaveChanges();
         }
+
+
     }
 }
