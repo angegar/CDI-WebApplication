@@ -36,7 +36,7 @@ namespace KarateIsere.DataAccess {
         public override void Update() {
             Competition c = context.Competition.
                                     Include(d => d.Categorie).
-                                    Where(e => e.Nom == Nom).
+                                    Where(e => e.CompetitionID == CompetitionID).
                                     SingleOrDefault();
 
             c.Nom = Nom;

@@ -59,7 +59,7 @@
                 </tr>
 
                 @foreach (var item in Model) {
-                    <tr>
+                    <tr>                     
                         <td>
                             @Html.DisplayFor( modelItem => item.DateCompetition )
                         </td>
@@ -77,13 +77,13 @@
                         </td>
                         <td>
                             @Html.ActionLink( "Edit", "Edit", new {
-                           competName=item.Nom
+                           competId=item.CompetitionID
                        } ) @*|
                             @Html.ActionLink( "Details", "Details", new {
                            id=item.Nom
                        } )*@ |
                             @Html.ActionLink( "Delete", "Delete", new {
-                           competName=item.Nom
+                           competId = item.CompetitionID
                        } ) 
                         </td>
                     </tr>

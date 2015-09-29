@@ -140,10 +140,10 @@ namespace KarateIsere.Areas.Private.Controllers {
         }
 
         // GET: Private/Competitions/Edit/5
-        public ActionResult Edit(string competName) {
+        public ActionResult Edit(int competId) {
             Competition c = new Competition(); ;
             try {
-                c = Competition.GetByName(competName);
+                c = Competition.GetById(competId);
 
                 //Liste des catégories déjà enregistrées
                 List<Categorie> listCate = c.Categorie.ToList();
@@ -177,9 +177,9 @@ namespace KarateIsere.Areas.Private.Controllers {
             }
         }
 
-        public ActionResult Delete(string competName) {
+        public ActionResult Delete(int competId) {
             try {
-                Competition c = Competition.GetByName(competName);
+                Competition c = Competition.GetById(competId);
 
                 if (c != null) {
                     c.Delete();
