@@ -55,7 +55,7 @@ namespace KarateIsere.Areas.Public.Controllers {
             }
             catch (Exception e) {
                 log.Error(e);
-                return View();
+                return View("EditClub");
             }
         }
 

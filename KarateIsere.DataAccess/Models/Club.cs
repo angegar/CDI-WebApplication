@@ -64,11 +64,11 @@ namespace KarateIsere.DataAccess
             }
 
             set {
-                string pat = "http://*";
-                Regex r = new Regex(pat, RegexOptions.IgnoreCase);
-
-                if (!r.IsMatch(value)) {
-                    siteWeb = "http://" + value;
+                if (value.Contains("http")) {
+                    siteWeb = value;
+                }
+                else if (value.Contains("https")) {
+                    siteWeb = value;
                 }
                 else {
                     siteWeb = value;
@@ -83,11 +83,11 @@ namespace KarateIsere.DataAccess
             }
 
             set {
-                string pat = "http://*";
-                Regex r = new Regex(pat, RegexOptions.IgnoreCase);
-
-                if (!r.IsMatch(value)) {
-                    facebook = "http://" + value;
+                if (value.Contains("http")) {
+                    facebook = value;
+                }
+                else if (value.Contains("https")) {
+                    facebook = value;
                 }
                 else {
                     facebook = value;
