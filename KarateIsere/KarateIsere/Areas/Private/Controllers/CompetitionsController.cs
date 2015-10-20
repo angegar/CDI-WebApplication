@@ -38,8 +38,10 @@ namespace KarateIsere.Areas.Private.Controllers {
         public ActionResult Details(int id) {
             List<Competiteur> c = new List<Competiteur>();
             try {
-                Inscriptions.GetInscriptions(id);
+                c = Inscriptions.GetInscriptions(id);
                 ViewBag.CompetId = id;
+
+
             }
             catch (Exception e) {
                 logger.Error(e);
