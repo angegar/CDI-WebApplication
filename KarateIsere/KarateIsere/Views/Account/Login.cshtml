@@ -44,18 +44,20 @@
                 <p>
                     @Html.ActionLink("S'inscrire comme nouvel utilisateur", "Register")
                 </p>
-                @* Activer ceci une fois que la confirmation de votre compte est activée pour la fonctionnalité de réinitialisation du mot de passe
+                @* Activer ceci une fois que la confirmation de votre compte est activée pour la fonctionnalité de réinitialisation du mot de passe*@
                     <p>
                         @Html.ActionLink("Vous avez oublié votre mot de passe ?", "ForgotPassword")
-                    </p>*@
+                    </p>
             }
         </section>
     </div>
+    @*
     <div class="col-md-4">
         <section id="socialLoginForm">
             @Html.Partial("_ExternalLoginsListPartial", new ExternalLoginListViewModel { ReturnUrl = ViewBag.ReturnUrl })
         </section>
     </div>
+    *@
 </div>
 
 @section Scripts {

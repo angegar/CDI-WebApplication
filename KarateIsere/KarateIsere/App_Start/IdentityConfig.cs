@@ -12,6 +12,10 @@ using Microsoft.Owin;
 using Microsoft.Owin.Security;
 using KarateIsere.Models;
 using KarateIsere.DataAccess;
+using System.Net.Mail;
+using System.Net.Mime;
+using System.Security.Policy;
+using System.Web.Hosting;
 
 namespace KarateIsere
 {
@@ -20,7 +24,37 @@ namespace KarateIsere
         public Task SendAsync(IdentityMessage message)
         {
             // Indiquez votre service de messagerie ici pour envoyer un e-mail.
-            return Task.FromResult(0);
+
+            return Task.Run(() => {
+                //Send mail
+                using (SmtpClient client = new SmtpClient()) {
+                    MailMessage mailMessage = new MailMessage();
+                    ContentType mimeType = new System.Net.Mime.ContentType("text/html");
+
+                    //Load the html message linked content
+                    string filePath = HostingEnvironment.MapPath("~/img/logo.gif");
+                    LinkedResource inline = new LinkedResource(filePath, MediaTypeNames.Image.Gif);
+                    inline.ContentId = "logo";//Guid.NewGuid().ToString();
+  
+                    string subject = message.Subject;
+                    string msg = message.Body;
+
+                    //Create and the html message to the email
+                    AlternateView avHtml = AlternateView.CreateAlternateViewFromString(msg, mimeType);
+                    avHtml.LinkedResources.Add(inline);
+                    mailMessage.AlternateViews.Add(avHtml);
+
+                    MailAddress fromAdd = new MailAddress("admin@karateisere.fr", "Commission Sportive Karaté Isère");
+                    mailMessage.From = fromAdd;
+                    mailMessage.To.Add(message.Destination);
+                    mailMessage.Subject = subject;
+
+                    //Add the standard message to the email
+                    mailMessage.Body = msg;
+                    mailMessage.IsBodyHtml = true;
+                    client.Send(mailMessage);
+                } 
+            });
         }
     }
 
