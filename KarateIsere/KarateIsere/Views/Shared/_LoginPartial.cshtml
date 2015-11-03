@@ -25,9 +25,9 @@
        } )
         </li>
         <li>
-            @Html.ActionLink( "Se connecter", "Login", "Account", routeValues: null, htmlAttributes: new {
-           id = "loginLink"
-       } )
+            @Html.ActionLink("Se connecter", "Login", "Account", new { area = "" }, htmlAttributes: new {
+            id = "loginLink"
+        })
     </li>
 </ul>
     }

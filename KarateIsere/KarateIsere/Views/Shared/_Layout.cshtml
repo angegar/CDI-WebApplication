@@ -45,11 +45,13 @@
                                area = "Public"
                            }, null)
                             </li>
-                            <li>
-                                @Html.ActionLink("Liste des clubs", "Index", "ClubMap", new {
-                               area = "Public"
-                           }, null)
-                            </li>
+                            @*
+     <li>
+         @Html.ActionLink("Liste des clubs", "Index", "ClubMap", new {
+        area = "Public"
+    }, null)
+     </li>
+                            *@
                             @if (HttpContext.Current.User.IsInRole("User")) {
                                 <!-- Section used only for authenticated user managing a club-->
                             <li>
