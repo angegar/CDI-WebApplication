@@ -40,18 +40,20 @@
                     <li class="dropdown">
                         <a href="#" class="dropdown-toggle" data-toggle="dropdown">Clubs <span class="caret"></span></a>
                         <ul class="dropdown-menu" role="menu">
-                            <li>
-                                @Html.ActionLink("Carte des clubs", "Carte", "ClubMap", new {
-                               area = "Public"
-                           }, null)
-                            </li>
-                            @*
+                           
+      <li>
+         @Html.ActionLink("Carte des clubs", "Carte", "ClubMap", new {
+        area = "Public"
+    }, null)
+     </li>
+                        
+
      <li>
          @Html.ActionLink("Liste des clubs", "Index", "ClubMap", new {
         area = "Public"
     }, null)
      </li>
-                            *@
+                      
                             @if (HttpContext.Current.User.IsInRole("User")) {
                                 <!-- Section used only for authenticated user managing a club-->
                             <li>

@@ -47,26 +47,9 @@ namespace KarateIsere.Areas.Public.Controllers {
                 if (!c.Latitude.HasValue || c.Latitude == 0 ||
                     !c.Longitude.HasValue || c.Longitude == 0) {
 
-                    if (!string.IsNullOrEmpty(c.Ville) &&
-                        !string.IsNullOrEmpty(c.Adr_Dojo)) {
-
-                        string addr = c.Adr_Dojo + " " + c.Ville;
-
-                        if (!string.IsNullOrEmpty(c.Code_Postal)) {
-                            addr = c.Adr_Dojo + " " + c.Code_Postal + " " + c.Ville;
-                        }
-
-                        Model.Geocoding.Response resp = geocode.GetByAddress(addr);
-
-                        if (resp.Status == "OK") {
-                            Results res = resp.Results[0];
-                            if (!res.PartialMatch) {
-                                c.Latitude = res.Geometry.Location.Latitude;
-                                c.Longitude = res.Geometry.Location.Longitude;
-                                c.Update();
-                            }
-                        }
-                    }
+                    // on rappelle update pour réexecuter la logique de mise à jour
+                    // des coordonnées
+                    c.Update();                   
                 }
             }
         }

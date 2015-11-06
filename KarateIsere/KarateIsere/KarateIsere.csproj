@@ -311,6 +311,7 @@
     <Content Include="Areas\Private\Views\Role\Index.cshtml" />
     <Content Include="Areas\Private\Views\Admin\CreateAdmin.cshtml" />
     <Content Include="Areas\Private\Views\Competitions\Details.cshtml" />
+    <None Include="Properties\PublishProfiles\karateisere-FTP.pubxml" />
     <None Include="Properties\PublishProfiles\karateisere.pubxml" />
     <None Include="Properties\PublishProfiles\Maion.pubxml" />
     <None Include="Scripts\jquery-1.10.2.intellisense.js" />
