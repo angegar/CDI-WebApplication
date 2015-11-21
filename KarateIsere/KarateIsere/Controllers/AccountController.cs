@@ -156,27 +156,35 @@ namespace KarateIsere.Controllers {
                     Correspondant = model.Email
                 };
 
-                Session["User"] = user;
+                Club ctmp = Club.GetByNumAffiliation(user.Club.NumAffiliation);
+                IdentityResult result = null;
+                
+                if (ctmp == null) {
+                    Session["User"] = user;
 
-                var result = await UserManager.CreateAsync(user, model.Password);
+                    result = await UserManager.CreateAsync(user, model.Password);
 
-                if (result.Succeeded) {
-                    Role r = new Role("User");
-                    r.Grant(user.Id);
+                    if (result.Succeeded) {
+                        Role r = new Role("User");
+                        r.Grant(user.Id);
 
-                    await SignInManager.SignInAsync(user, isPersistent: false, rememberBrowser: false);
+                        await SignInManager.SignInAsync(user, isPersistent: false, rememberBrowser: false);
 
-                    // Pour plus d'informations sur l'activation de la confirmation du compte et la réinitialisation du mot de passe, consultez http://go.microsoft.com/fwlink/?LinkID=320771
-                    // Envoyer un message électronique avec ce lien
-                    // string code = await UserManager.GenerateEmailConfirmationTokenAsync(user.Id);
-                    // var callbackUrl = Url.Action("ConfirmEmail", "Account", new { userId = user.Id, code = code }, protocol: Request.Url.Scheme);
-                    // await UserManager.SendEmailAsync(user.Id, "Confirmez votre compte", "Confirmez votre compte en cliquant <a href=\"" + callbackUrl + "\">ici</a>");
+                        // Pour plus d'informations sur l'activation de la confirmation du compte et la réinitialisation du mot de passe, consultez http://go.microsoft.com/fwlink/?LinkID=320771
+                        // Envoyer un message électronique avec ce lien
+                        // string code = await UserManager.GenerateEmailConfirmationTokenAsync(user.Id);
+                        // var callbackUrl = Url.Action("ConfirmEmail", "Account", new { userId = user.Id, code = code }, protocol: Request.Url.Scheme);
+                        // await UserManager.SendEmailAsync(user.Id, "Confirmez votre compte", "Confirmez votre compte en cliquant <a href=\"" + callbackUrl + "\">ici</a>");
 
-                    return RedirectToAction("Index", "Home");
+                        return RedirectToAction("Index", "Home");
+                    }
+                }
+                else {
+                    string[] errors = new string[1]{"Un club avec le même numéro d'affiliation a déjà été enregistré"};
+                    result = new IdentityResult(errors);                   
                 }
 
                 AddErrors(result);
-
             }
 
             // Si nous sommes arrivés là, un échec s’est produit. Réafficher le formulaire
