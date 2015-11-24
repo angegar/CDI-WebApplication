@@ -134,6 +134,12 @@ namespace KarateIsere.DataAccess {
 
         }
 
+        /// <summary>
+        /// retrieve the list of club which did not subscribe to a competition
+        /// </summary>
+        /// <param name="competitionId">Competition identifier</param>
+        /// <param name="context">Data context</param>
+        /// <returns>List of club or empty list</returns>
         public static List<Club> GetNotInscripts(int competitionId, KarateIsereContext context = null) {
             List<Club> res = new List<Club>();
             bool closeContext = false;
@@ -148,12 +154,12 @@ namespace KarateIsere.DataAccess {
                                            join comp in context.Competiteur on i.NumLicence equals comp.NumLicence
                                            join clubInsc in context.Club on comp.NumAffiliation equals clubInsc.NumAffiliation
                                            where i.CompetitionID == competitionId
-                                           select clubInsc).ToList();
+                                           select clubInsc).Distinct().ToList();
 
                 //Liste des clubs ayant déjà participé à une compétition
                 List<Club> clubPart = (from i in context.Inscriptions
                                        join c in context.Club on i.Competiteur.Club.NumAffiliation equals c.NumAffiliation
-                                       select c).ToList();
+                                       select c).Distinct().ToList();
 
                 //Liste des club ayant déjà participé à une compétition mais n'étant pas inscrits
                 res = (from c in clubPart

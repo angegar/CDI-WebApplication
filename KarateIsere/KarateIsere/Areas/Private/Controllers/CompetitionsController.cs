@@ -313,6 +313,12 @@ namespace KarateIsere.Areas.Private.Controllers {
 
         #region Club notification
 
+        /// <summary>
+        /// Send an remember email to the clubs which did not subscribe
+        /// to the competition
+        /// </summary>
+        /// <param name="id">Competition identifier</param>
+        /// <returns></returns>
         public JsonResult NotifyNonInscrits(int id) {
             /* Attention avec l'hébergement OVH on peut envoyé
              * 200 mails/heure/compte ou 300 mails/heure/IP
